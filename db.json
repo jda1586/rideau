@@ -1,0 +1,1201 @@
+{
+  "users": [
+    {
+      "name": "freeprofile",
+      "pass": "123",
+      "role": "superadmin"
+    },
+    {
+      "name": "editor",
+      "pass": "123",
+      "role": "admin"
+    },
+    {
+      "name": "sales",
+      "pass": "123",
+      "role": "sales"
+    }
+  ],
+  "purchases": [
+    {
+      "email": "sample@mail.com",
+      "cart": [
+        {},
+        {},
+        {}
+      ]
+    }
+  ],
+  "subscriptions": [
+    {
+      "email": "sample@mail.com",
+      "date": "543213243"
+    },
+    {
+      "email": "sample2131@mail.com",
+      "date": "53215324"
+    }
+  ],
+  "landing": [],
+  "collections": [
+    {
+      "name": "aw16-campaign",
+      "images": [
+        "aw16-1.jpg",
+        "aw16-2.jpg",
+        "aw16-3.jpg",
+        "aw16-4.jpg",
+        "aw16-5.jpg",
+        "aw16-6.jpg",
+        "aw16-7.jpg",
+        "aw16-8.jpg",
+        "aw16-9.jpg",
+        "aw16-10.jpg",
+        "aw16-11.jpg",
+        "aw16-12.jpg",
+        "aw16-13.jpg",
+        "aw16-14.jpg",
+        "aw16-15.jpg",
+        "aw16-16.jpg",
+        "aw16-17.jpg",
+        "aw16-18.jpg",
+        "aw16-19.jpg",
+        "aw16-20.jpg",
+        "aw16-21.jpg",
+        "aw16-22.jpg"
+      ]
+    },
+    {
+      "name": "ss15-campaign",
+      "images": [
+        "ss15-1.jpg",
+        "ss15-2.jpg",
+        "ss15-3.jpg",
+        "ss15-4.jpg",
+        "ss15-5.jpg",
+        "ss15-6.jpg",
+        "ss15-7.jpg",
+        "ss15-8.jpg",
+        "ss15-9.jpg",
+        "ss15-10.jpg",
+        "ss15-11.jpg",
+        "ss15-12.jpg",
+        "ss15-13.jpg",
+        "ss15-14.jpg",
+        "ss15-15.jpg",
+        "ss15-16.jpg",
+        "ss15-17.jpg",
+        "ss15-18.jpg",
+        "ss15-19.jpg",
+        "ss15-20.jpg",
+        "ss15-21.jpg",
+        "ss15-22.jpg",
+        "ss15-23.jpg",
+        "ss15-24.jpg",
+        "ss15-25.jpg",
+        "ss15-26.jpg"
+      ]
+    }
+  ],
+  "eboutique": [
+    {
+      "name": "LC041505",
+      "price": {
+        "normal": 345,
+        "whole": 100
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "RIDEAO03+(1)CROP.jpg",
+          "RIDEAO03+(1).jpg",
+          "RIDEAO09+(1).jpg",
+          "RIDEAO13+(1).jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC051507",
+      "price": {
+        "normal": 215,
+        "whole": 100
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "RIDEAO78CROP.jpg",
+          "RIDEAO78.jpg",
+          "RIDEAO75.jpg",
+          "RIDEAO78CROP.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML07157",
+      "price": {
+        "normal": 355,
+        "whole": 100
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "RIDEAO27+(2)+copy2.jpg",
+          "RIDEAO30+(2)+copy.jpg",
+          "RIDEAO33+(2).jpg",
+          "RIDEAO27+(2)+copy2.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML061506",
+      "price": {
+        "normal": 215,
+        "whole": 100
+      },
+      "category": "SHORT",
+      "images": {
+        "male": [
+          "RIDEAU-14CROP.jpg",
+          "RIDEAU-14.jpg",
+          "RIDEAU-2.jpg",
+          "RIDEAU-14CROP.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC071505",
+      "price": {
+        "normal": 295,
+        "whole": 100
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "RIDEAO14CROP.jpg",
+          "RIDEAO13.jpg",
+          "RIDEAO19.jpg",
+          "RIDEAO14CROP.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC061507",
+      "price": {
+        "normal": 235,
+        "whole": 100
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "RIDEAO19CROP.jpg",
+          "RIDEAO19+(1).jpg",
+          "RIDEAO21+(1).jpg",
+          "RIDEAO32+(1).jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC021506",
+      "price": {
+        "normal": 135,
+        "whole": 100
+      },
+      "category": "HAT",
+      "images": {
+        "male": [
+          "RIDEAO87CROP.jpg",
+          "RIDEAO87.jpg",
+          "RIDEAO99.jpg",
+          "RIDEAO96.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC031506",
+      "price": {
+        "normal": 265,
+        "whole": 100
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "RIDEAO43+(2)+copy2.jpg",
+          "RIDEAO47+(2)+copy.jpg",
+          "RIDEAO35+(2).jpg",
+          "RIDEAO51+(2).jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC041508",
+      "price": {
+        "normal": 565,
+        "whole": 100
+      },
+      "category": "SHORT",
+      "images": {
+        "male": [
+          "RIDEAO64CROP.jpg",
+          "RIDEAO62.jpg",
+          "RIDEAO64.jpg",
+          "RIDEAO64CROP.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML081505",
+      "price": {
+        "normal": 395,
+        "whole": 100
+      },
+      "category": "HAT",
+      "images": {
+        "male": [
+          "RIDEAO50CROP.jpg",
+          "RIDEAO50+(1).jpg",
+          "RIDEAO57+(1).jpg",
+          "RIDEAO59+(1).jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC081508",
+      "price": {
+        "normal": 725,
+        "whole": 100
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "RIDEAO76+(1)CROP.jpg",
+          "RIDEAO66+(2).jpg",
+          "RIDEAO62+(2).jpg",
+          "RIDEAO11+(2).jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC091508",
+      "price": {
+        "normal": 315,
+        "whole": 100
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "RIDEAU-27CROP.jpg",
+          "RIDEAU-11.jpg",
+          "RIDEAU-27.jpg",
+          "RIDEAU-27CROP.jpg"
+        ],
+        "female": [
+          "Rplacehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC041505",
+      "price": {
+        "normal": 235,
+        "whole": 100
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--864.jpg",
+          "rideau--868.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC071505",
+      "price": {
+        "normal": 235,
+        "whole": 100
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--720.jpg",
+          "rideau--727.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC101612",
+      "price": {
+        "normal": 1395,
+        "whole": 510
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--754.jpg",
+          "rideau--764.jpg",
+          "rideau--765.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC111601",
+      "price": {
+        "normal": 1435,
+        "whole": 665
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "rideau--773.jpg",
+          "rideau--785.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC121611",
+      "price": {
+        "normal": 950,
+        "whole": 425
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--838.jpg",
+          "rideau--840.jpg",
+          "rideau--844.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC131610",
+      "price": {
+        "normal": 685,
+        "whole": 345
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--740.jpg",
+          "rideau--745.jpg",
+          "rideau--748.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC141610",
+      "price": {
+        "normal": 325,
+        "whole": 150
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--848.jpg",
+          "rideau--852.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC151609",
+      "price": {
+        "normal": 410,
+        "whole": 175
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "rideau--889.jpg",
+          "rideau--891.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC161609",
+      "price": {
+        "normal": 385,
+        "whole": 195
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--874.jpg",
+          "rideau--881.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC181602",
+      "price": {
+        "normal": 1235,
+        "whole": 535
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--909.jpg",
+          "rideau--914.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC201610",
+      "price": {
+        "normal": 415,
+        "whole": 180
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--898.jpg",
+          "rideau--901.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC211611",
+      "price": {
+        "normal": 375,
+        "whole": 165
+      },
+      "category": "TOP",
+      "images": {
+        "male": [
+          "rideau--923.jpg",
+          "rideau--930.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC221612",
+      "price": {
+        "normal": 415,
+        "whole": 180
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--948.jpg",
+          "rideau--951.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC241601",
+      "price": {
+        "normal": 450,
+        "whole": 200
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--974.jpg",
+          "rideau--978.jpg",
+          "rideau--983.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC251601",
+      "price": {
+        "normal": 265,
+        "whole": 120
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--988.jpg",
+          "rideau--990.jpg",
+          "rideau--992.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC281603",
+      "price": {
+        "normal": 295,
+        "whole": 150
+      },
+      "category": "SHORT",
+      "images": {
+        "male": [
+          "rideau--1008.jpg",
+          "rideau--1013.jpg",
+          "rideau--1014.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC291609",
+      "price": {
+        "normal": 365,
+        "whole": 165
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1131.jpg",
+          "rideau--1138.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC301607",
+      "price": {
+        "normal": 210,
+        "whole": 120
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--586.jpg",
+          "rideau--588.jpg",
+          "rideau--593.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC311606",
+      "price": {
+        "normal": 105,
+        "whole": 60
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--551.jpg",
+          "rideau—556.jpg",
+          "rideau--565.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC321606",
+      "price": {
+        "normal": 115,
+        "whole": 65
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--600.jpg",
+          "rideau--621.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC331601",
+      "price": {
+        "normal": 675,
+        "whole": 310
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1001.jpg",
+          "rideau--1003.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC341609",
+      "price": {
+        "normal": 525,
+        "whole": 225
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1051.jpg",
+          "rideau--1054.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC351601 ",
+      "price": {
+        "normal": 245,
+        "whole": 100
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1142.jpg",
+          "rideau--1146.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC361602",
+      "price": {
+        "normal": 285,
+        "whole": 120
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1119.jpg",
+          "rideau--1121.jpg",
+          "rideau--1123.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC381612 ",
+      "price": {
+        "normal": 595,
+        "whole": 285
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1042.jpg",
+          "rideau--1047.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC391608",
+      "price": {
+        "normal": 105,
+        "whole": 60
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--577.jpg",
+          "rideau--580.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC401607 ",
+      "price": {
+        "normal": 130,
+        "whole": 75
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--577.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC411610 ",
+      "price": {
+        "normal": 115,
+        "whole": 65
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--632.jpg",
+          "rideau--640.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC421609 ",
+      "price": {
+        "normal": 235,
+        "whole": 130
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--674.jpg",
+          "rideau--677.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC431607",
+      "price": {
+        "normal": 235,
+        "whole": 130
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--644.jpg",
+          "rideau--653.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC441604",
+      "price": {
+        "normal": 210,
+        "whole": 120
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--684.jpg",
+          "rideau--688.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "LC461605",
+      "price": {
+        "normal": 235,
+        "whole": 100
+      },
+      "category": "SHORT",
+      "images": {
+        "male": [
+          "rideau--707.jpg",
+          "rideau--713.jpg",
+          "rideau--716.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML071507",
+      "price": {
+        "normal": 355,
+        "whole": 150
+      },
+      "category": "SHORT",
+      "images": {
+        "male": [
+          "rideau--694.jpg",
+          "rideau--696.jpg",
+          "rideau--700.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML081505 ",
+      "price": {
+        "normal": 395,
+        "whole": 180
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--657.jpg",
+          "rideau--666.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML091609 ",
+      "price": {
+        "normal": 1195,
+        "whole": 420
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1026.jpg",
+          "rideau--1031.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML101601",
+      "price": {
+        "normal": 695,
+        "whole": 315
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--1079.jpg",
+          "rideau--1082.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML111612",
+      "price": {
+        "normal": 525,
+        "whole": 255
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1101.jpg",
+          "rideau--1102.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML121602",
+      "price": {
+        "normal": 675,
+        "whole": 265
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--938.jpg",
+          "rideau--942.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML131609",
+      "price": {
+        "normal": 310,
+        "whole": 140
+      },
+      "category": "PANT",
+      "images": {
+        "male": [
+          "rideau--1109.jpg",
+          "rideau--1111.jpg",
+          "rideau--1112.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML141610 ",
+      "price": {
+        "normal": 325,
+        "whole": 145
+      },
+      "category": "JACKET",
+      "images": {
+        "male": [
+          "rideau--1061.jpg",
+          "rideau--1067.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    },
+    {
+      "name": "ML151609",
+      "price": {
+        "normal": 265,
+        "whole": 125
+      },
+      "category": "SHIRT",
+      "images": {
+        "male": [
+          "rideau--1085.jpg",
+          "rideau--1087.jpg",
+          "rideau--1093.jpg"
+        ],
+        "female": [
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg",
+          "placehold_female.jpg"
+        ]
+      }
+    }
+  ],
+  "press": [],
+  "log": [],
+  "lookbook": []
+}

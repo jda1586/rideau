@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<% include _head.ejs %>
+	</head>
+	
+    <body id="detail-body" class="rideau">
+	
+		<% include _header.ejs %>
+	
+        <div class="row">
+            <div class="large-6 medium-6 small-12 large-centered columns">
+				<div class="gender_containers">
+					<div class="male_container">
+                        <div class="show-for-medium-up">
+                            <% for(var i = 0; i < product.images.male.length; i++) { %>
+                                <img class="imgdetail" src="/images/eboutique/hd/<%= product.images.male[i] %>" />
+                            <% } %>
+                        </div>
+                        <div class="show-for-small-only">
+                            <div class="pagespan sly-container-v2">
+                                <div class="wrap">
+                                    <div class="frame oneperframe" id="oneperframe">
+                                        <ul class="clearfix">
+                                            <% for(var i = 0; i < product.images.male.length; i++) { %>
+                                                <li style='background-image: url("/images/eboutique/hd/<%= product.images.male[i] %>' look-id="<%= i %>"></li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <div class="scrollbar">
+                                        <div class="handle">
+                                            <div class="mousearea"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="female_container hidden">
+                        <!-- TODO: Implement the female_container and allow it to use Sly, because right now it is not supported and one Sly can't have both container -->
+					</div>
+				</div>
+			</div>
+            
+            <div class="product-showcase">
+                <input type="hidden" name="id_item" value="<%= product.name %>" />
+                
+                <h5 class="item-name"><span class="ref" data-storage="<%= product.name %>"><%= product.name %></span></h5>
+                <p class="item-price"><span  class="price" data-storage="<%= product.price.normal %>"></span><%= product.price.normal %> USD</p>
+
+                <div class="box-container">
+                    <a class="curtain"><p class="title"><strong>INFORMATION <span class="tab-plus-minus">-</span></strong></p></a>
+                    <div class="box">
+                        <!-- Disabled temporarily -->
+                        <!-- <h5><%= product.description %></h5> -->
+                        <p><%= product.information %></p>
+                    </div>
+                </div>
+                <div class="box-container">
+                    <a class="curtain"><p class="title"><strong>FIT <span class="tab-plus-minus">+</span></strong></p></a>
+                    <div class="box" style="display: none;">
+                        <p><%= product.fit %></p>
+                    </div>
+                </div>
+                <div class="box-container">
+                    <a class="curtain"><p class="title"><strong>COLORS <span class="tab-plus-minus">+</span></strong></p></a>
+                    <div class="box" style="display: none;">
+                        <span class="label white"></span>
+                        <span class="label black"></span>
+                        <span class="label blue"></span>
+                        <span class="label green"></span>
+                    </div>
+                </div>
+                <div class="box-container">
+                    <a class="curtain"><p class="title"><strong>LOOK <span class="tab-plus-minus">+</span></strong></p></a>
+                    <div class="box" style="display: none;">
+                        <p>Look data</p>
+                    </div>
+                </div>
+                
+                <p class="title"><a class="male_button">XY</a> | <a class="disabled female_button">XX</a></p>
+                
+                <div class="box-container">
+                    <p class="title"><strong>SIZE</strong></p>
+                    <div class="text-center">
+                        <% for(var i = 0; i <= 6; i++) { %>
+                           <input type="radio" name="size" value="<%= i %>" id="size-<%= i %>"><label for="size-<%= i %>"><p class="text-center"><%= i %></p></label>
+                        <% } %>
+                        <br/>
+                        <a id="add-cart" class="tiny button" data-reveal-id="addedtocart-modal">
+                            <strong>ADD TO</strong>
+                            <img class="shopping-cart" src="/images/shop-white.png" />
+                        </a>
+                    </div>
+                </div>
+                
+                <p id="back-button"><a href="/eboutique">BACK</a></p>
+            </div>
+		</div>
+        
+        <div id="addedtocart-modal" class="reveal-modal rideau-modal small" data-reveal aria-hidden="true" role="3ialog">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h2>Thank you!</h2>
+                        <br />
+                        <p>Item was successfully added to your cart!</p>
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns text-center">
+                        <a class="close-reveal-modal"><span class="close thick"></span></a>
+                    </div>
+                </div>
+        </div>
+		
+		<script>
+            $(document).ready(function() {
+                var $oneperframe = $('#oneperframe');
+                
+                //The one per frame image Sly slider
+                (function () {
+                    var $wrap  = $oneperframe.parent();
+
+                    //Call Sly on frame
+                    $oneperframe.sly({
+                        horizontal: 1,
+                        itemNav: 'forceCentered',
+                        smart: 1,
+                        activateMiddle: 1,
+                        mouseDragging: 1,
+                        touchDragging: 1,
+                        releaseSwing: 0,
+                        startAt: 0,
+                        scrollBar: $wrap.find('.scrollbar'),
+                        scrollBy: 0,
+                        speed: 300,
+                        elasticBounds: 1,
+                        easing: 'easeOutExpo',
+                        dragHandle: 1,
+                        dynamicHandle: 1,
+                        clickBar: 0,
+
+                        //Buttons
+                        prev: $wrap.find('.prev'),
+                        next: $wrap.find('.next')
+                    });
+                    
+                    $oneperframe.sly('on', 'active', function(a, b) {
+                        $('.look-number').html(b + 1); //Update look number
+                    });
+                    
+                }());
+            
+                $('.curtain').each(function() {
+                    $(this).show(0).on('click', function(e) {
+                        //This is only needed if your using an anchor to target the "box" elements
+                        e.preventDefault();
+                        
+                        //Find the next "box" element in the DOM
+                        $(this).next('.box').slideToggle('fast');
+                        
+                        var tabItem = $(this).find('.tab-plus-minus');
+                        
+                        if (tabItem.html() === '-') {
+                            tabItem.html('+');
+                        } else {
+                            tabItem.html('-');
+                        }
+                        
+                    });
+                });
+                
+                //Function to adjust the view on mobiles
+                $(window).bind('resize', function(e) {
+                    window.resizeEvt;
+                    
+                    $(window).resize(function() {
+                        clearTimeout(window.resizeEvt);
+                        window.resizeEvt = setTimeout(function() {
+                            fixImageSize();
+                        }, 150);
+                    });
+                });
+                
+                function fixImageSize() {
+                    $('li').css('width', $('#oneperframe').width());
+                    var frm = $('#oneperframe');
+                    frm.sly('reload');
+                }
+                
+                fixImageSize();
+                
+                $('input#size-0').trigger('click');
+            });
+		</script>
+		
+		<% include _footer.ejs %>
+			
+		<% include _scripts.ejs %>
+	</body>
+</html>

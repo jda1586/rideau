@@ -1,0 +1,6 @@
+npm-debug.log
+nohup.out
+node_modules/
+foundation/
+public/stylesheets/rideau.css
+*.env

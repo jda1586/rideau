@@ -1,0 +1,1380 @@
+@charset "UTF-8";
+
+/* Mixins */
+@mixin centered() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+/* For width */
+$mobile: 320px;
+$tablet: 640px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+/* For height */
+$tall: 600px;
+$short: 300px;
+
+/* Colors configuration */
+
+/* Body color */
+$body_c: #000;
+
+/* Input, Textarea */
+$input_b_c: #a9a9a9; // Input background
+$input_f_b: #a5a5a5; // Input focus background
+$input_c: #ffffff; // Input Color
+$input_checked_c: #000000; // Input checked Color
+$placeholder_color: #fff;
+
+/* Label */
+$label_c: #ffffff;
+
+/* Button black */
+$button_b_c: #000000; // Button background
+$button_f_b: #000000; // Button focus, hover, active color
+$button_f_c: #ffffff; // Button focus color
+$button_c: #ffffff; // Button Color
+
+/* Button grey */
+$button_grey_b_c: #888888; // Button background
+$button_grey_f_b: #777777; // Button focus, hover, active color
+$button_grey_f_c: #ffffff; // Button focus color
+$button_grey_c: #ffffff; // Button Color
+
+/* Link color */
+$link_c: #000000; // Link color
+$link_h_c: #555; // Link hover color
+$link_f_c: #000; // Link focus color
+$link_dis_c: #c9c9c9; // Link disabled color
+
+/* Modal links */
+$modal_link_c: #ffffff; // Link color for modals
+
+/* Title color */
+$body_c: #232323; // Body and title default color
+$title_h_c: #ffffff; // Title h color
+$header_h_c: #000000; // Header title color
+
+/* Loader */
+$loader_b_c: #ffffff; // Loader background color
+
+/* Accordeon color */
+$accordeon_t_c: #ffffff; // Accordeon title color
+
+/* Font configuration */
+@font-face {
+  font-family: 'AkzidenzGrotesk-Light';
+  src: url('../fonts/AkzidenzGrotesk-Light.eot');
+  src: url('../fonts/AkzidenzGrotesk-Light.woff2') format("woff2"), url('../fonts/AkzidenzGrotesk-Light.woff') format("woff"), url('../fonts/AkzidenzGrotesk-Light.ttf') format("truetype"), url('../fonts/AkzidenzGrotesk-Light.svg#AkzidenzGrotesk-Light') format("svg"), url('../fonts/AkzidenzGrotesk-Light.eot?#iefix') format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Sackers;
+  src: url("../fonts/SackersGothicStd-Light.otf") format("opentype");
+}
+
+/* The font from the internet */
+/* The old font from the internet, no longer used */
+/*@font-face {
+  font-family: 'SackersGothicStd-Light';
+  src: url('../fonts/SackersGothicStd-Light.eot');
+  src: url('../fonts/SackersGothicStd-Light.woff2') format('woff2'), url('../fonts/SackersGothicStd-Light.woff') format('woff'), url('../fonts/SackersGothicStd-Light.ttf') format('truetype'), url('../fonts/SackersGothicStd-Light.svg#SackersGothicStd-Light') format('svg'), url('../fonts/SackersGothicStd-Light.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+/* Core */
+html.rideau {
+    background-color: white;
+    
+    h1, h2, h3, h4, h5, h6, p {
+        font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+        letter-spacing: 2px;
+        color: $body_c;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    
+    #landing-body {
+        .fluid {
+            width: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+        }
+    }
+    
+    header {
+        //
+    }
+    
+    footer {
+        .icons {
+            a {
+                display: inline-block;
+            }
+        
+            .rideau-instagram {
+                background-image: url(/images/social-networks/instagram.svg);
+                background-size: contain;
+                background-position: center center;
+                width: 20px;
+                height: 20px;
+            }
+            .rideau-tumblr {
+                background-image: url(/images/social-networks/tumblr.svg);
+                background-size: contain;
+                background-position: center center;
+                width: 20px;
+                height: 20px;
+            }
+            .rideau-twitter {
+                background-image: url(/images/social-networks/twitter.svg);
+                background-size: contain;
+                background-position: center center;
+                width: 20px;
+                height: 20px;
+            }
+            .rideau-vimeo {
+                background-image: url(/images/social-networks/vimeo.svg);
+                background-size: contain;
+                background-position: center center;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+/* Old style activate if needed */
+/*body, p {
+  font-size: 0.9em;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+  letter-spacing: 2px;
+  color: $body_c;
+}*/
+
+/* Fonts */
+.akzidenz {
+    font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+    letter-spacing: 3px;
+}
+
+.sackers {
+    font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+/* Dreaded blue box */
+:focus {
+    outline: none;
+}
+
+/* Letter spacing overrides */
+.lts-0 { letter-spacing: 0px; }
+.lts-1 { letter-spacing: 1px; }
+.lts-2 { letter-spacing: 2px; }
+.lts-3 { letter-spacing: 3px; }
+.lts-4 { letter-spacing: 4px; }
+
+::-webkit-input-placeholder { color: $placeholder_color; }
+:-moz-placeholder { /* Firefox 18- */ color: $placeholder_color; }
+::-moz-placeholder { /* Firefox 19+ */ color: $placeholder_color; }
+:-ms-input-placeholder { color: $placeholder_color; }
+
+/* Global config */
+textarea {
+  height: 25px;
+  font-size: 10px;
+  color: $input_c;
+  background-color: $input_b_c;
+  &:focus {
+    height: 25px;
+    font-size: 10px;
+    color: $input_c;
+    background-color: $input_f_b;
+  }
+}
+
+label {
+  text-align: left;
+  color: $label_c;
+}
+
+button {
+  font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif !important;
+  letter-spacing: 3px;
+  background: $button_b_c;
+  color: $button_c;
+  &:hover, 
+  &:active, 
+  &:focus {
+    background: $button_f_b;
+    color: $button_c;
+  }
+  &:focus {
+    border: 1px solid $button_c;
+  }
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.4rem 2rem 0.51rem 2rem;
+}
+
+a {
+    color: $link_c;
+    
+    &:hover {
+        color: $link_h_c;
+    }
+    &:focus {
+        outline: thin dotted rgba(0, 0, 0, 0.3);
+        color: $link_f_c;
+    }
+    &.disabled {
+        color: $link_dis_c;
+        cursor: default;
+    }
+}
+
+input {
+   &[type=checkbox], &[type=radio] {
+      opacity: 0;
+      position: absolute;
+
+      &:checked + label:before {
+         background: white;
+         color: $input_checked_c;
+      }
+
+      & + label:before {
+         display: inline-block;
+         text-align: center;
+         line-height: 1;
+
+         border: 0.0625rem solid white;
+         width: 16px;
+         height: 15px;
+         margin-right: 0.2rem;
+
+         font-size: 0.875rem;
+         color: $input_b_c;
+         background: $input_b_c;
+      }
+   }
+
+   &[type=checkbox] {
+      & + label:before {
+         content: "\2715";
+         padding-left: 1px;
+         border-radius: 0.125rem;
+      }
+   }
+
+   &[type=radio] {
+      & + label:before {
+         content: "\2713";
+         border-radius: 50%;
+      }
+   }
+}
+
+.middle-title {
+  h6 {
+    line-height: 0.4;
+    font-size: 9px;
+  }
+}
+
+.fullpage-height {
+  height: 90vh; /* TODO: Fix this, we should be able to use 100vh and see only 1 screen height */
+  min-height: 640px;
+}
+
+/* Footer configuration (old configuration for the sticky header) */
+#footera {
+  position: fixed;
+  left: 0%;
+  bottom: 0;
+  line-height: 60px;
+  height: 60px;
+  width: 100%;
+  background: white;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+footer {
+    min-height: 65px;
+    padding: 10px;
+    .icons {
+        @media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
+            text-align: center;
+        }
+        font-size: 8px;
+    }
+    .central-butons {
+        text-align: center;
+        margin-top: 4px;
+        letter-spacing: 1px;
+        a {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+    }
+    .right-butons {
+        text-align: center;
+        line-height: 1rem;
+        a {
+            font-size: 0.7rem;
+        }
+    }
+    .row.wide-90 {
+        max-width: none;
+        width: 90%;
+    }
+    a:hover {
+        color: black;
+    }
+}
+
+/* Header configuration */
+#headera {
+    position: fixed;
+    left: 0%;
+    top: 0;
+    line-height: 45px;
+    height: 150px;
+    width: 100%;
+    background: white;
+    visibility: visible;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    z-index: 999;
+
+    @media screen and (max-width: $tablet) {
+        .rideau-menu-column {
+            line-height: 1rem;
+        }
+    }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.header_white {
+  text-align: center;
+  top: 0%;
+  width: 100%;
+  z-index: 900;
+  position: fixed;
+  background-color: white;
+  height:84px;
+}
+
+.header_spacer {
+  text-align: center;
+  width: 100%;
+  z-index: 800;
+  height: 75px;
+  background-color: white;
+}
+
+.shopping-cart {
+  margin-bottom: 4px;
+  margin-left: 6px;
+  width: 13px;
+}
+
+header {
+  h5 {
+    color: $header_h_c;
+  }
+  #shopping-cart {
+    max-width: 20px;
+    margin-top: -20px;
+  }
+  #rideau-logo {
+    max-width: 250px;
+  margin-top: 10px;
+  }
+}
+
+.header-top-text {
+  font-size: 0.8rem;
+  @media screen and (max-width: $tablet) {
+    font-size: 0.6rem;
+  }
+}
+
+.header-bot-buttons {
+  h6 {
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+  }
+  img {
+    vertical-align: top;
+  width: 20px;
+  }
+}
+
+.header-bot-text h6 {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+}
+
+.inner {
+  visibility: hidden;
+}
+
+.item-data {
+  margin-top: 10px;
+  letter-spacing: 4px;
+  p {
+    line-height: 2;
+    margin-bottom: 0px;
+    font-size: 0.6rem;
+  }
+}
+
+#debug-panel {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  p {
+    font-size: 0.6em;
+    margin-bottom: 0px;
+    a {
+      color: #bbb;
+    }
+  }
+}
+
+/* Vertical align */
+
+.valign-middle {
+  display: table;
+  height: 100%;
+  width: 100%;
+  .columns {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+  }
+  [class*="column"] + [class*="column"]:last-child {
+    float: none;
+  }
+}
+
+#headerpanel {
+  text-align: center;
+  position: relative;
+  display: table;
+  width: 100%;
+  .row, .columns {
+    display: table;
+    /*width: 100%;
+    height: 100%;*/
+  }
+  .spanMiddle {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+#press {
+    .press-item {
+        margin-top: 50px;
+    }
+}
+
+#about {
+    
+}
+
+/* Loading gif */
+
+#loading {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  position: fixed;
+  display: table;
+  opacity: 1;
+  background-color: $loader_b_c;
+  z-index: 1999;
+  text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  z-index: 100;
+}
+
+/* Lookbook config */
+.rideau-thumb {
+  width: 70px;
+}
+
+.lookbook-main-img {
+    /*max-height: 80%;*/
+}
+
+#gallery_01 img {
+  border: 2px solid white;
+}
+
+#gal1 {
+  text-align: right;
+}
+
+#uploadarticle-container {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#my-thumbs-list {
+  overflow: auto;
+  width: 100%;
+  height: 500px;
+}
+
+.active img {
+  border: 2px solid #eee;
+}
+
+/* Uploadarticle config */
+#uploadForm label {
+    color: #000000;
+}
+
+/* Contact config */
+.contact-info {
+  text-align: center;
+  padding-bottom: 30px;
+  display: block !important;
+  p {
+    font-size: 10px;
+    margin: 0;
+  }
+  h5 {
+    font-size: 12px;
+  }
+}
+
+.login-box {
+  text-align: center;
+}
+
+.button {
+  font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+  letter-spacing: 3px;
+  font-size: 13px;
+
+  background-color: $button_b_c;
+  width: 50%;
+  &:hover, &:active {
+    background: $button_f_b;
+    color: $button_f_c;
+  }
+  &:focus {
+    background: $button_f_b;
+    color: $button_f_c;
+  }
+  
+  /* Disabled */
+  /*&.btn-qty {
+    padding: 0.1rem 0.8rem 0.1rem 0.5rem;
+    background-color: $button_b_c;
+  }*/
+  
+}
+
+/* Modal config */
+.reveal-modal-bg {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.75);
+}
+  
+/* IMPORTANT: This modal is deprecated please see version-2 */
+.rideau-modal {
+    background: rgba(0, 0, 0, 0.75);
+    border: none;
+    overflow-y: auto;
+    box-shadow: none;
+  
+    .stored-products {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 30px;
+        
+        .item-buy-data {
+            text-align: left;
+            padding-top: 10px;
+            p {
+                margin-bottom: 0.5rem;
+            }
+        }
+                
+        table.up-down-controls {
+            background-color: transparent;
+            border: none;
+        
+            tr {
+                td {
+                    padding: 0px;
+                    input {
+                        padding: 0px;
+                        margin: 0 auto;
+                        height: 20px;
+                        &.quantity {
+                            width: 50px;
+                            text-align: center;
+                        }
+                        &.btn-qty {
+                            width: 20px;
+                            margin-top: 0px;
+                        }                            
+                    }                       
+                }
+            }
+        }
+    }
+
+    p {
+        color: white;
+        a {
+            color: $modal_link_c;
+            &.disabled {
+                color: $link_dis_c;
+            }
+        }
+    }
+    h2, h5 {
+        color: white;
+    }
+}
+
+/* IMPORTANT: This modal is deprecated please see version-2 */
+.close-reveal-modal {
+
+  color: #ffffff;
+  top: 99%;
+  right: 49%;
+  width: 100%;
+  margin-top: 100px;
+  text-align: center;
+
+  .close{
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    &:hover {
+      &::before, &::after {
+        background: #ffffff;
+      }
+    }
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      top: 50%;
+      left: 0;
+      margin-top: -1px;
+      background: #000;
+    }
+    &::before {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    &.thick {
+      &::before, &::after {
+        background-color: $button_c;
+        height: 4px;
+        margin-top: -2px;
+      }
+    }
+  }
+}
+
+.rideau-modal.version-2 {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    border: none;
+    overflow-y: hidden;
+    top: 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: none;
+
+    /* IMPORTANT: Doesn't seem to be used, change stored-products to a rideau-modal version 2 */
+    .stored-products {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 30px;
+                
+        table.up-down-controls {
+            tr {
+                td {
+                    padding: 0px;
+                }
+            }
+        }
+    }
+
+    .center-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    p {
+        color: white;
+    }
+    h2, h5 {
+        color: white;
+    }
+    .close-reveal-modal.version-2 {
+        transform: translate(-50%,0px);
+        right: none;
+        left: none;
+        top: auto;
+        bottom: 0;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        color: #aaaaaa;
+        cursor: pointer;
+        font-size: 2.5rem;
+        font-weight: bold;
+        line-height: 1;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        .close {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            &:hover {
+                &::before, &::after {
+                    background: #ffffff;
+                }
+            }
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                margin-top: -1px;
+                background: #000;
+            }
+            &::before {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            &::after {
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+            &.thick {
+                &::before, &::after {
+                    background-color: $button_c;
+                    height: 4px;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+#collections-modal {
+    p {
+        margin-bottom: 8px;
+        font-size: 15px;
+        a.disabled {
+            cursor: default;
+        }
+        small {
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+#eboutique-modal {
+    p {
+        margin-bottom: 8px;
+        font-size: 15px;
+    }
+}
+
+.reveal-modal {
+    border: none;
+    input {
+        font-size: 1em;
+        color: $input_c;
+        background-color: $input_b_c;
+        &[type="text"], &[type="password"], &[type="date"], &[type="datetime"], &[type="datetime-local"], &[type="month"], &[type="week"], &[type="email"], &[type="number"], &[type="search"], &[type="tel"], &[type="time"], &[type="url"], &[type="color"] {
+            font-size: 15px;
+            color: $input_c;
+            &:focus {
+                color: $input_c;
+                background-color: $input_f_b;
+            }
+        }
+        &.btn-qty {
+            background-color: black;
+        }
+    }
+    .close-reveal-modal {
+        @include centerer(true,false);
+        position: initial;
+    }
+    section > div:last-child {
+        //@include centerer(true,false);
+        position: initial;
+    }
+    >:last-child {
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
+
+/* Info modal */
+#info-modal {
+    p {
+        font-size: 11px;
+        letter-spacing: 1px;
+        line-height: 1.3;
+    }
+    h5 {
+        font-size: 12px;
+    }
+}
+
+/* Shopping cart */
+#purchase-modal, #carr-modal {
+    height: 80%;
+    .modal_title {
+        text-align:center;
+        color: white;
+    }
+    .accordion {
+        .accordion-navigation {
+            &.active > a, dd.active > a {
+                background: none;
+                font-weight: bold;
+                color: $accordeon_t_c;
+            }
+            a {
+                font-size: 0.9rem;
+                background: none;
+                color: white;
+                &:active, &:focus {
+                    background: none;
+                    font-weight: bold;
+                }
+                &:hover, &:focus {
+                    color: $accordeon_t_c;
+                }
+                &:hover {
+                    background: none;
+                }
+            }
+            .columns {
+                position: relative;
+            }
+            .vertical-align, #checkboxship {
+                height: initial;
+                margin-top: 25px;
+            }
+            > .content.active, dd > .content.active {
+                background: none;
+                color: white;
+            }
+        }
+    }
+}
+
+.content.active > label {
+  background: none;
+  color: $label_c;
+}
+
+.lists {
+  p, label {
+    color: $label_c;
+  }
+}
+
+.imgdetail {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  margin: auto;
+}
+
+/* Checkout forms */
+.vertical-align {
+  @include centerer(false, true);
+}
+
+.checkboxterms {
+  margin: 18px 0 !important;
+  label {
+    font-size: 0.7em !important;
+  }
+}
+
+.button.rideau-button {
+    height: 39px;
+    min-width: 215px;
+    a {
+        /**/
+    }
+    p {
+        margin-top: 0px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Gender containers are found on eboutique and detail pages */
+.gender_containers {
+    .hidden {
+        display: none;
+    }
+}
+
+#detail-body {
+    .oneperframe {
+        ul {
+            list-style: none;
+            li {
+                background-position: center center;
+                background-size: cover;
+                height: 680px;
+            }
+        }
+    }
+    
+    .product-showcase {
+        position: block;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        @media screen and (min-width: $tablet) {
+            position: fixed;
+            top: 25%;
+            right: 30px;
+            width: 280px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        p {
+            margin: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }    
+        .box-container {
+            .box {
+                margin-bottom: 3px;
+                label {
+                    color: $body_c;
+                    margin: 0;
+                }
+            }
+        }
+        .title {
+            font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .item-name {
+            font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 0px;
+        }
+        .item-price {
+            font-size: 0.7rem;
+        }
+        input[type="checkbox"] + label, input[type="radio"] + label {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        /* The color labels */
+        .label {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #555;
+            border-radius: 2px;
+            &.white { background-color: #fff; }
+            &.black { background-color: #000; }
+            &.blue { background-color: #4343ed; }
+            &.green { background-color: #57e09b; }
+        }
+        
+        #back-button {
+            letter-spacing: 0px;
+            font-size: 0.7rem;
+            margin-top: 15px;
+        }
+        #add-cart {
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}
+
+/* TO-DO: Implement a [place]-body id on each EJS */
+/* TO-DO: Move all elements related to #eboutique-body here */
+#eboutique-body {
+    /* Mixit up configuration */
+    #Container {
+        text-align: center;
+        margin: 50px 115px;
+        .mix {
+            display: none;
+            margin: 3%;
+        }
+    }
+
+    /* The eboutique left menu */
+    #menui {
+        position: fixed;
+        bottom: 20%;
+        background: none;
+        white-space: nowrap;
+        left: 10px;
+        width: 10%;
+        @media screen and (max-width: $large) {
+            width: 8%;
+        }
+        a {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        p {
+            text-align: right;
+            margin-bottom: 0.2rem;
+            @media screen and (max-width: $tablet) {
+                text-align: left;
+            }
+        }
+    }    
+}
+
+.sly-container {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    
+    /* Example wrapper */
+    .wrap {
+        position: relative;
+        margin: 3em 0;
+        height: 100%;
+    }
+
+    /* Frame */
+    .frame {
+        height: 250px;
+        line-height: 250px;
+        overflow: hidden;
+        height: 100%;
+    }
+    .frame ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-size: 50px;
+    }
+    .frame ul li {
+        float: left;
+        width: 227px;
+        height: 100%;
+        margin: 0 1px 0 0;
+        padding: 0;
+        color: #ddd;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    /* Scrollbar */
+    .scrollbar {
+        margin-top: 10px;
+        height: 2px;
+        background: #f7f7f7;
+        line-height: 0;
+    }
+    .scrollbar .handle {
+        width: 100px;
+        height: 100%;
+        background: #ccc;
+        cursor: pointer;
+    }
+    .scrollbar .handle .mousearea {
+        position: absolute;
+        top: -9px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+    }
+
+    /* One Item Per Frame example */
+    .oneperframe {
+        height: 100%;
+        line-height: 300px;
+        
+        ul li {
+            background-size: contain; /* Cover is also a good idea */
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 800px;
+            min-width: 320px;
+            
+            opacity: 0.05;
+            
+            &.active {
+                opacity: 1.0;
+            }
+            
+            //No longer used
+                     img {
+                height: 90vh; //70 + 30 of the header/footer
+                opacity: 0.05;
+            }
+            //No longer used
+                     &.active {
+                img {
+                    opacity: 1.0;
+                    
+                }
+            }
+        }
+    }
+}
+
+.sly-container-v2 {
+    &.pagespan {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Example wrapper */
+    .wrap {
+        position: relative;
+        margin: 3em 0;
+        height: 100%;
+    }
+
+    /* Scrollbar */
+    .scrollbar {
+        margin: 0 0 1em 0;
+        height: 2px;
+        background: #ccc;
+        line-height: 0;
+    }
+    .scrollbar .handle {
+        width: 100px;
+        height: 100%;
+        background: #292a33;
+        cursor: pointer;
+    }
+    .scrollbar .handle .mousearea {
+        position: absolute;
+        top: -9px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+    }
+
+    /* One Item Per Frame example*/
+    .oneperframe {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .oneperframe ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-size: 50px;
+    }
+
+    .oneperframe ul li {
+        float: left;
+        padding: 0;
+        cursor: pointer;
+        width: 600px;
+        background-size: contain; /* Cover is also a good idea */
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 800px;
+        min-width: 100px;
+    }
+}
+
+/* Lookbook */
+#lookbook-body {
+    /* Sly lookbook slider */
+    .photo-data {
+        position: fixed;
+        bottom: 13%;
+        left: 30px;
+        width: 17%;
+        text-align: right;
+        background: none;
+        z-index: 999;
+    }
+    
+    .stage-description {
+        p, h6 {
+            font-size: 8px;
+            letter-spacing: 2px;
+            margin-bottom: 0.2rem;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+        }
+        h5 {
+            letter-spacing: 1px;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+        }
+        .look-span {
+            font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+        }
+    }
+
+    /* The photo selector on the right */
+    #photo-selector {
+        position: fixed;
+        top: 150px;
+        right: 0px;
+        width: 130px;
+        overflow: hidden;
+        
+        background: none;
+        @media (max-height: $short) {
+            visibility: hidden;
+        }
+        
+        #my-thumbs-list{
+            overflow: hidden;
+        }
+        
+        .two-stories  {
+            overflow: hidden;
+            .single-story {
+                float: left;
+                position: relative;
+                width: 49%;
+                height: 65px; /* = width for a 1:1 aspect ratio */
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                /* you change this to "contain" if you don't want the images to be cropped */
+            }
+        }
+    }
+
+    #lookbook-slider {
+        .active img {
+            border: 1px solid #e5e5e5;
+        }
+    }
+}
