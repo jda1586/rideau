@@ -1,9 +1,10 @@
 {
   "name": "rideau",
   "version": "0.0.0",
+  "description": "Rideau",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "forever --verbose --uid \"uilearnapp\" --watch --watchDirectory ../uilearnapp/ ./index.js",
     "dev": "nodemon -e ejs,js --debug ./bin/www"
   },
   "dependencies": {
