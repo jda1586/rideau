@@ -21,12 +21,21 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	var products = db.get('eboutique').value();
     var name = req.params.name;
 
-	console.dir(products);
+	//console.dir(products);
     
     if (!_.isUndefined(name)) {
         var product = _.find(products, _.matchesProperty('name', name));
-        return res.render('detail', { product: product });
+        
+        console.log("TEST:");
+        console.log(product);
+        
+        if (!_.isUndefined(product)) {
+            return res.render('detail', { product: product });
+        }
     }
+    
+    console.log("NOTEST");
+    
     
 	//TODO: Remove wholeprice if the user is not registered
 	return res.render('eboutique', { products: products });
