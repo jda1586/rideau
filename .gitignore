@@ -1,6 +1,7 @@
 npm-debug.log
 nohup.out
 node_modules/
-foundation/
+.dropbox
 public/stylesheets/rideau.css
 *.env
+desktop.ini

@@ -14,94 +14,24 @@ var slug = require('slug');
 
 //Landing page
 router.get('/', function(req, res, next) {
-	return res.render('landing');
+    return res.render('landing');
 });
-//Eboutique page
+//Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
-	var products = db.get('eboutique').value();
+    var products = _.filter(db.get('eboutique').value(), { enabled: 1 });
     var name = req.params.name;
-
-	//console.dir(products);
     
     if (!_.isUndefined(name)) {
         var product = _.find(products, _.matchesProperty('name', name));
-        
-        console.log("TEST:");
-        console.log(product);
         
         if (!_.isUndefined(product)) {
             return res.render('detail', { product: product });
         }
     }
     
-    console.log("NOTEST");
-    
-    
-	//TODO: Remove wholeprice if the user is not registered
-	return res.render('eboutique', { products: products });
+    //TODO: Remove wholeprice if the user is not registered
+    return res.render('eboutique', { products: products });
 });
-
-/*//Product detail view
-router.get('/detail/:name', function (req, res) {
-	'use strict';
-
-	var objs = [];
-	var name = req.params.name;
-
-	logToDb("Detail view " + name);
-
-	if (!name) return res.redirect('/eboutique');
-
-	connection.query("SELECT * FROM eboutique WHERE name=? AND enabled=1", [name], function(err, rows, fields) {
-		if (err) {
-			throw err;
-			res.send('Error');
-		}
-
-		//TO-DO: Optimize please, no need to use an array
-		for (var i = 0; i < rows.length; i++) {
-			var images = JSON.parse(rows[i].images);
-			var itemPrice = getNamepriceField(req, rows[i].price, rows[i].wholeprice);
-			objs.push({ id_item: rows[i].id_item, name: rows[i].name, price: itemPrice, description: rows[i].description, information: rows[i].information, fit: rows[i].fit, male_images: images.male, female_images: images.female });
-		}
-
-		//connection.end(); //Causes errors when uncommented
-		console.log(req.session.isAuthenticated);
-		return res.render('detail', { data: objs[0], isAuthenticated: req.session.isAuthenticated });
-	});
-});*/
-
-
-/*//Product detail view
-//TODO: Add a parameter to the url to show only an specified product from the DB
-router.get('/detail/:name', function (req, res) {
-	'use strict';
-
-	var objs = [];
-	var name = req.params.name;
-
-	logToDb("Detail view " + name);
-
-	if (!name) return res.redirect('/eboutique');
-
-	connection.query("SELECT * FROM eboutique WHERE name=? AND enabled=1", [name], function(err, rows, fields) {
-		if (err) {
-			throw err;
-			res.send('Error');
-		}
-
-		//TO-DO: Optimize please, no need to use an array
-		for (var i = 0; i < rows.length; i++) {
-			var images = JSON.parse(rows[i].images);
-			var itemPrice = getNamepriceField(req, rows[i].price, rows[i].wholeprice);
-			objs.push({ id_item: rows[i].id_item, name: rows[i].name, price: itemPrice, description: rows[i].description, information: rows[i].information, fit: rows[i].fit, male_images: images.male, female_images: images.female });
-		}
-
-		//connection.end(); //Causes errors when uncommented
-		console.log(req.session.isAuthenticated);
-		return res.render('detail', { data: objs[0], isAuthenticated: req.session.isAuthenticated });
-	});
-});*/
 
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {

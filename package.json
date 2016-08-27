@@ -1,11 +1,12 @@
 {
   "name": "rideau",
-  "version": "0.0.0",
-  "description": "Rideau",
+  "version": "2.2.0",
+  "description": "Rideau website",
   "private": true,
   "scripts": {
-    "start": "forever --verbose --uid \"uilearnapp\" --watch --watchDirectory ../uilearnapp/ ./index.js",
-    "dev": "nodemon -e ejs,js --debug ./bin/www"
+    "start": "forever --verbose --uid \"rideau\" --watch --watchDirectory ../rideau/ ./bin/www",
+    "dev": "nodemon -e ejs,js --debug ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
