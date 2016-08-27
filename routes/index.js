@@ -12,13 +12,21 @@ var router = express.Router();
 var _ = require('lodash');
 var slug = require('slug');
 
+//DB functions
+function getEboutique() {
+    return db.get('eboutique').cloneDeep().value();
+}
+function getCollections() {
+    return db.get('collections').cloneDeep().value();
+}
+
 //Landing page
 router.get('/', function(req, res, next) {
     return res.render('landing');
 });
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
-    var products = _.filter(db.get('eboutique').value(), { enabled: 1 });
+    var products = _.filter(getEboutique(), { enabled: 1 });
     var name = req.params.name;
     
     if (!_.isUndefined(name)) {
