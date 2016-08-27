@@ -40,12 +40,21 @@ router.get('/eboutique/:name?', function(req, res, next) {
     //TODO: Remove wholeprice if the user is not registered
     return res.render('eboutique', { products: products });
 });
-//Collectiosn view using new sly carrousel
-router.get('/collections/:album?', function(req, res, next) {
+//Collections view using new sly carrousel
+router.get('/collections/:name?', function(req, res, next) {
     var looks = getCollections();
-    var album = req.params.album;
+    var name = req.params.name;
     
-	var objs = [];
+    if (!_.isUndefined(name)) {
+        var album = _.find(looks, { name : name });
+        if (!_.isUndefined(album)) {
+            return res.render('collections', { album: album });
+        }
+    }
+    
+    return res.redirect('/');
+    
+    /*var objs = [];
 	if (!album) return res.redirect('/');
 
 	connection.query("SELECT * FROM lookbook WHERE album=?", [album], function(err, rows, fields) {
@@ -61,7 +70,9 @@ router.get('/collections/:album?', function(req, res, next) {
 
 		//connection.end(); //Causes errors when uncommented
 		return res.render('collections', { objs: objs, album: album, isMobile: isMobile(req) });
-	});
+	});*/
+    
+    
 });
 
 /*
