@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr"><head>
+	<% include partials/head.ejs %>
+</head>
+<body id="lookbook-body">
+	<% include partials/header.ejs %>
+    
+    <div class="fullpage-height">
+        <div class="photo-data show-for-medium-up">
+            <div class="stage-description">
+                <div class="row">
+                    <h5>LOOK <span class="look-number">1</span></h5>
+                </div>
+                <div class="row">
+                    <p>ART DIRECTOR <span class="look-span">DYLAN GRANGER</span></p>
+                    <p>STYLING <span class="look-span">SEAN AIKENS</span></p>
+                    <p>PHOTOGRAPHER <span class="look-span">HANNAH SIDER</span></p>
+                    <p>MODEL <span class="look-span">DANIELOH</span></p>
+                    <p>MODEL <span class="look-span">ADESUWA AIGH EWI</span></p>
+                </div>
+                <div class="row">
+                    <br/>
+                    <p>40.744544 - 73.993255</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="photo-selector" class="show-for-large-up">
+            <div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
+                <div class="two-stories">
+                    <% for(var i = 0; i < objs.length; i++) { %>
+                        <div class="single-story" data-bg-image="/images/lookbook/<%= album %>/<%= objs[i] %>" look-id="<%= i %>"></div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="large-10 small-10 large-offset-1 small-offset-1 columns">
+                <div id="lookbook-slider">
+                    <div class="pagespan sly-container-v2">
+                        <div class="wrap">
+                            <div class="frame oneperframe" id="oneperframe">
+                                <ul class="clearfix">
+                                    <% for(var i = 0; i < objs.length; i++) { %>
+                                        <li style='background-image: url("/images/lookbook/<%= album %>/<%= objs[i] %>' look-id="<%= i %>"></li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                            <div class="scrollbar">
+                                <div class="handle">
+                                    <div class="mousearea"></div>
+                                </div>
+                            </div>
+                            <div class="show-for-small-only">
+                                <div class="stage-description text-center">
+                                    <div class="row">
+                                        <h5 class="text-center">LOOK <span class="look-number">1</span></h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-4 columns">
+                                            <p>PHOTOGRAPHER <span class="look-span">HANNAH SIDER</span></p>
+                                        </div>
+                                        <div class="small-4 columns">
+                                            <p>STYLING <span class="look-span">SEAN AIKENS</span></p>
+                                            <p>ART DIRECTOR <span class="look-span">DYLAN GRANGER</span></p>
+                                        </div>
+                                        <div class="small-4 columns">
+                                            <p>MODEL <span class="look-span">DANIELOH</span></p>
+                                            <p>MODEL <span class="look-span">ADESUWA AIGH EWI</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="large-1 small-1 columns"><!--  --></div>
+        </div>
+    </div>
+    
+    <% include partials/footer.ejs %>
+    
+	<script src="/javascripts/rideau-lookbook-manager.js"></script>
+	
+	<script>            
+        $(document).ready(function() {
+            var $oneperframe = $('#oneperframe');
+            
+            $('.single-story').click(function() {
+                var itemNumber = $(this).attr('look-id');
+                $oneperframe.sly('toCenter', itemNumber);
+                //$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
+            });
+            
+            $($('.rideau-thumb')[0]).trigger("click"); //Always load the first article
+            
+            /* Load images on the photo-selector */
+            var stories = $('.two-stories').children();
+            stories.each(function() {
+                var imgPath = $(this).attr('data-bg-image');
+                console.log($(this).attr('data-bg-image'));
+                $(this).css('background-image', 'url(' + imgPath + ')');
+            });
+            
+            //Function to adjust the view on mobiles
+            $(window).bind('resize', function(e) {
+                window.resizeEvt;
+                
+                $(window).resize(function() {
+                    clearTimeout(window.resizeEvt);
+                    window.resizeEvt = setTimeout(function() {
+                        /*if(window.innerWidth <= 600) {
+                            //$('#lookbook-slider img').removeClass("nodisplay");
+                        } else {
+                            //$('#lookbook-slider img').addClass("nodisplay");
+                            //$($('.rideau-thumb')[0]).trigger("click");
+                        }*/
+                        fixImageSize();
+                        fixSliderHeight();
+                    }, 150);
+                });
+            });
+            
+            function fixSliderHeight() {
+                $('#my-thumbs-list').height(window.innerHeight - 250);
+            }
+            
+            function fixImageSize() {
+                $('li').css('width', $('#oneperframe').width());
+                var frm = $('#oneperframe');
+                frm.sly('reload');
+            }
+            
+            //The one per frame image Sly slider
+            (function () {
+                var $wrap  = $oneperframe.parent();
+
+                //Call Sly on frame
+                $oneperframe.sly({
+                    horizontal: 1,
+                    itemNav: 'forceCentered',
+                    smart: 1,
+                    activateMiddle: 1,
+                    mouseDragging: 1,
+                    touchDragging: 1,
+                    releaseSwing: 0,
+                    startAt: 0,
+                    scrollBar: $wrap.find('.scrollbar'),
+                    scrollBy: 0,
+                    speed: 300,
+                    elasticBounds: 1,
+                    easing: 'easeOutExpo',
+                    dragHandle: 1,
+                    dynamicHandle: 1,
+                    clickBar: 0,
+
+                    //Buttons
+                    prev: $wrap.find('.prev'),
+                    next: $wrap.find('.next')
+                });
+                
+                $oneperframe.sly('on', 'active', function(a, b) {
+                    $('.look-number').html(b + 1); //Update look number
+                });
+                
+            }());
+            
+            $(document).mousemove(function(e) {
+                if (document.body) {
+                    var width = (document.body.clientWidth);
+                } else {
+                    var width = (window.innerWidth);
+                }
+                
+                var div = document.getElementById ("my-thumbs-list");
+                var rect = div.getBoundingClientRect();
+                
+                //console.log((e.pageX - $(window).width()) + 200);
+                
+                if (((e.pageX - $(window).width()) + 200) < 0) {
+                    $('.photo-data').removeClass("hidden");
+                    $('#my-thumbs-list').addClass("hidden");
+                } else {
+                    $('.photo-data').addClass("hidden");
+                    $('#my-thumbs-list').removeClass("hidden");
+                }
+            });
+            
+            fixImageSize();
+            fixSliderHeight();
+        });
+	</script>
+	
+	<% include partials/scripts.ejs %>
+</body>
+</html>

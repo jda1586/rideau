@@ -40,10 +40,62 @@ router.get('/eboutique/:name?', function(req, res, next) {
     //TODO: Remove wholeprice if the user is not registered
     return res.render('eboutique', { products: products });
 });
+//Collectiosn view using new sly carrousel
+router.get('/collections/:album?', function(req, res, next) {
+    var looks = getCollections();
+    var album = req.params.album;
+    
+	var objs = [];
+	if (!album) return res.redirect('/');
+
+	connection.query("SELECT * FROM lookbook WHERE album=?", [album], function(err, rows, fields) {
+		if (err) {
+			 throw err;
+			 return;
+		}
+
+		var images = JSON.parse(rows[0].images);
+		for (var i = 0; i < images.length; i++) {
+			objs.push(images[i]);
+		}
+
+		//connection.end(); //Causes errors when uncommented
+		return res.render('collections', { objs: objs, album: album, isMobile: isMobile(req) });
+	});
+});
+
+/*
+//Lookbook using the new sly style
+router.get('/lookbook/:album?', function (req, res, next) {
+	'use strict';
+
+	var album = req.params.album;
+	var objs = [];
+
+	logToDb("Lookbook view " + album);
+
+	if (!album) return res.redirect('/');
+
+	connection.query("SELECT * FROM lookbook WHERE album=?", [album], function(err, rows, fields) {
+		if (err) {
+			 throw err;
+			 return;
+		}
+
+		var images = JSON.parse(rows[0].images);
+		for (var i = 0; i < images.length; i++) {
+			objs.push(images[i]);
+		}
+
+		//connection.end(); //Causes errors when uncommented
+		return res.render('lookbook', { objs: objs, album: album, isMobile: isMobile(req) });
+	});
+});    
+*/
 
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
-	return res.redirect('/');
+    return res.redirect('/');
 });
 
 module.exports = router;
