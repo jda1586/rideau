@@ -29,7 +29,7 @@
             <div id="photo-selector" class="show-for-large-up">
                 <div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
                     <div class="two-stories">
-                        <% for(var i = 0; i < objs.length; i++) { %>
+                        <% for(var i = 0; i < album.images.length; i++) { %>
                             <div class="single-story" data-bg-image="/images/lookbook/<%= album %>/<%= objs[i] %>" look-id="<%= i %>"></div>
                         <% } %>
                     </div>

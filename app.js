@@ -15,14 +15,18 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('dev', {
+    skip: function (req, res) {
+        return res.statusCode < 400; //Only log errors
+    }
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
     src: path.join(__dirname, '/public/scss'),
     dest: path.join(__dirname, '/public/stylesheets'),
-    debug: true,
+    debug: false,
     prefix: '/stylesheets',
     outputStyle: 'compressed'
 }));
