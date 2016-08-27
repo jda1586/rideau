@@ -15,7 +15,6 @@
 *.md
 .DS_Store
 node_modules/*
-public/*
 apk/*
 icons/*
 screenshots/*

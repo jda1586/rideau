@@ -30,7 +30,7 @@
                 <div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
                     <div class="two-stories">
                         <% for(var i = 0; i < album.images.length; i++) { %>
-                            <div class="single-story" data-bg-image="/images/lookbook/<%= album %>/<%= objs[i] %>" look-id="<%= i %>"></div>
+                            <div class="single-story" data-bg-image="/images/collections/<%= album.name %>/<%= album.images[i] %>" look-id="<%= i %>"></div>
                         <% } %>
                     </div>
                 </div>
@@ -43,8 +43,8 @@
                             <div class="wrap">
                                 <div class="frame oneperframe" id="oneperframe">
                                     <ul class="clearfix">
-                                        <% for(var i = 0; i < objs.length; i++) { %>
-                                            <li style='background-image: url("/images/lookbook/<%= album %>/<%= objs[i] %>' look-id="<%= i %>"></li>
+                                        <% for(var i = 0; i < album.images.length; i++) { %>
+                                            <li style='background-image: url("/images/collections/<%= album.name %>/<%= album.images[i] %>' look-id="<%= i %>"></li>
                                         <% } %>
                                     </ul>
                                 </div>

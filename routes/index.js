@@ -45,9 +45,12 @@ router.get('/collections/:name?', function(req, res, next) {
     var looks = getCollections();
     var name = req.params.name;
     
+    console.log(name);
+    
     if (!_.isUndefined(name)) {
         var album = _.find(looks, { name : name });
         if (!_.isUndefined(album)) {
+            console.log(album);
             return res.render('collections', { album: album });
         }
     }
