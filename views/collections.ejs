@@ -2,6 +2,7 @@
 <html class="no-js rideau" lang="en" dir="ltr">
     <head>
         <% include _head.ejs %>
+        <link rel="stylesheet" href="/plugins/thumbnail-scroller-2.0.3/thumbnail-scroller-2.0.3.css">
     </head>
     <body id="lookbook-body">
         <% include _header.ejs %>
@@ -82,10 +83,9 @@
         </div>
         
         <% include _footer.ejs %>
+        <script src="/plugins/thumbnail-scroller-2.0.3/thumbnail-scroller-2.0.3.js"></script>
         
-        <script src="/javascripts/rideau-lookbook-manager.js"></script>
-        
-        <script>            
+        <script>
             $(document).ready(function() {
                 var $oneperframe = $('#oneperframe');
                 
@@ -175,7 +175,7 @@
                         var width = (window.innerWidth);
                     }
                     
-                    var div = document.getElementById ("my-thumbs-list");
+                    var div = document.getElementById("my-thumbs-list");
                     var rect = div.getBoundingClientRect();
                     
                     //console.log((e.pageX - $(window).width()) + 200);
