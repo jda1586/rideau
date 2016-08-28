@@ -140,35 +140,103 @@ html.rideau {
         }
     }
     
-    /* Lookbook */
-    body#lookbook {
+    /* Collections */
+    body#collections {
         /* Sly lookbook slider */
         .photo-data {
             position: fixed;
+            width: 17%;
             bottom: 13%;
             left: 30px;
-            width: 17%;
             text-align: right;
             background: none;
             z-index: 999;
-        }
-        
-        .stage-description {
-            p, h6 {
-                font-size: 8px;
-                letter-spacing: 2px;
-                margin-bottom: 0.2rem;
-                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-            }
-            h5 {
-                letter-spacing: 1px;
-                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-            }
-            .look-span {
-                font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+            
+            .stage-description {
+                p, h6 {
+                    font-size: 8px;
+                    letter-spacing: 2px;
+                    margin-bottom: 0.2rem;
+                    text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+                }
+                h5 {
+                    letter-spacing: 1px;
+                    text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+                }
+                .look-span {
+                    font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+                }
             }
         }
 
+        /* The mail slider */
+        #lookbook-slider {
+            .active img {
+                border: 1px solid #e5e5e5;
+            }
+            
+            /* The photo carrousel */
+            .sly-container-v2 {
+                &.pagespan {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                
+                /* Example wrapper */
+                .wrap {
+                    position: relative;
+                    margin: 3em 0;
+                    height: 100%;
+                }
+
+                /* Scrollbar */
+                .scrollbar {
+                    margin: 0 0 1em 0;
+                    height: 2px;
+                    background: #ccc;
+                    line-height: 0;
+                    .handle {
+                        width: 100px;
+                        height: 100%;
+                        background: #292a33;
+                        cursor: pointer;
+                        .mousearea {
+                            position: absolute;
+                            top: -9px;
+                            left: 0;
+                            width: 100%;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                /* One Item Per Frame example*/
+                .oneperframe {
+                    height: 100%;
+                    overflow: hidden;
+                    ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        height: 100%;
+                        font-size: 50px;
+                        li {
+                            float: left;
+                            padding: 0;
+                            cursor: pointer;
+                            width: 600px;
+                            background-size: contain;
+                            /* Cover is also a good idea */
+                            background-repeat: no-repeat;
+                            background-position: center top;
+                            height: 800px;
+                            min-width: 100px;
+                        }
+                    }
+                }
+            }            
+        }
+        
         /* The photo selector on the right */
         #photo-selector {
             position: fixed;
@@ -199,75 +267,8 @@ html.rideau {
                     /* you change this to "contain" if you don't want the images to be cropped */
                 }
             }
-        }
-
-        #lookbook-slider {
-            .active img {
-                border: 1px solid #e5e5e5;
-            }
-        }
-        
-        /* The photo carrousel */
-        .sly-container-v2 {
-            &.pagespan {
-                width: 100%;
-                margin: 0 auto;
-            }
-            
-            /* Example wrapper */
-            .wrap {
-                position: relative;
-                margin: 3em 0;
-                height: 100%;
-            }
-
-            /* Scrollbar */
-            .scrollbar {
-                margin: 0 0 1em 0;
-                height: 2px;
-                background: #ccc;
-                line-height: 0;
-                .handle {
-                    width: 100px;
-                    height: 100%;
-                    background: #292a33;
-                    cursor: pointer;
-                    .mousearea {
-                        position: absolute;
-                        top: -9px;
-                        left: 0;
-                        width: 100%;
-                        height: 20px;
-                    }
-                }
-            }
-
-            /* One Item Per Frame example*/
-            .oneperframe {
-                height: 100%;
-                overflow: hidden;
-                ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    height: 100%;
-                    font-size: 50px;
-                    li {
-                        float: left;
-                        padding: 0;
-                        cursor: pointer;
-                        width: 600px;
-                        background-size: contain;
-                        /* Cover is also a good idea */
-                        background-repeat: no-repeat;
-                        background-position: center top;
-                        height: 800px;
-                        min-width: 100px;
-                    }
-                }
-            }
-        }
-    }    
+        }        
+    }
     
     header {
         //
