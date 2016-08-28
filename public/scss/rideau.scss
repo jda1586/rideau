@@ -1268,45 +1268,44 @@ body.modal-open {
         height: 2px;
         background: #ccc;
         line-height: 0;
-    }
-    .scrollbar .handle {
-        width: 100px;
-        height: 100%;
-        background: #292a33;
-        cursor: pointer;
-    }
-    .scrollbar .handle .mousearea {
-        position: absolute;
-        top: -9px;
-        left: 0;
-        width: 100%;
-        height: 20px;
+        .handle {
+            width: 100px;
+            height: 100%;
+            background: #292a33;
+            cursor: pointer;
+            .mousearea {
+                position: absolute;
+                top: -9px;
+                left: 0;
+                width: 100%;
+                height: 20px;
+            }
+        }
     }
 
     /* One Item Per Frame example*/
     .oneperframe {
         height: 100%;
         overflow: hidden;
-    }
-
-    .oneperframe ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-size: 50px;
-    }
-
-    .oneperframe ul li {
-        float: left;
-        padding: 0;
-        cursor: pointer;
-        width: 600px;
-        background-size: contain; /* Cover is also a good idea */
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 800px;
-        min-width: 100px;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-size: 50px;
+            li {
+                float: left;
+                padding: 0;
+                cursor: pointer;
+                width: 600px;
+                background-size: contain;
+                /* Cover is also a good idea */
+                background-repeat: no-repeat;
+                background-position: center top;
+                height: 800px;
+                min-width: 100px;
+            }
+        }
     }
 }
 
