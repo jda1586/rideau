@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	$('#Container').mixItUp();
+    
+    var elements = document.querySelectorAll('.demo-image');
+    Intense(elements);
 	
 	$(document).mousemove(function(e) {
 		if (document.body) {

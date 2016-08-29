@@ -140,6 +140,11 @@ html.rideau {
         }
     }
     
+    /* Zoom images */
+    .demo-image {
+        cursor: url("/rideau-data/zoom-images/plus.png") 50 50, pointer;
+    }
+    
     /* Collections */
     body#collections {
         /* Sly lookbook slider */
@@ -171,10 +176,6 @@ html.rideau {
 
         /* The mail slider */
         #lookbook-slider {
-            .active img {
-                border: 1px solid #e5e5e5;
-            }
-            
             /* The photo carrousel */
             .sly-container-v2 {
                 &.pagespan {
@@ -231,6 +232,11 @@ html.rideau {
                             background-position: center top;
                             height: 800px;
                             min-width: 100px;
+                            img {
+                                display: block;
+                                margin: auto;
+                                border: 1px solid #e5e5e5;
+                            }
                         }
                     }
                 }
