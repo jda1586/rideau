@@ -151,21 +151,21 @@ html.rideau {
             text-align: right;
             background: none;
             z-index: 999;
-            
-            .stage-description {
-                p, h6 {
-                    font-size: 8px;
-                    letter-spacing: 2px;
-                    margin-bottom: 0.2rem;
-                    text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-                }
-                h5 {
-                    letter-spacing: 1px;
-                    text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-                }
-                .look-span {
-                    font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-                }
+        }
+        
+        .stage-description {
+            p, h6 {
+                font-size: 8px;
+                letter-spacing: 2px;
+                margin-bottom: 0.2rem;
+                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+            }
+            h5 {
+                letter-spacing: 1px;
+                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+            }
+            .look-span {
+                font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
             }
         }
 
@@ -234,7 +234,7 @@ html.rideau {
                         }
                     }
                 }
-            }            
+            }
         }
         
         /* The photo selector on the right */
