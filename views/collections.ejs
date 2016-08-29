@@ -45,7 +45,9 @@
                                 <div class="frame oneperframe" id="oneperframe">
                                     <ul class="clearfix">
                                         <% for(var i = 0; i < album.images.length; i++) { %>
-                                            <li style='background-image: url("/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>' look-id="<%= i %>"></li>
+                                            <li look-id="<%= i %>">
+                                                <img src="/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>" />
+                                            </li>
                                         <% } %>
                                     </ul>
                                 </div>
@@ -90,12 +92,11 @@
                 var $oneperframe = $('#oneperframe');
                 
                 $('.single-story').click(function() {
-                    var itemNumber = $(this).attr('look-id');
-                    $oneperframe.sly('toCenter', itemNumber);
+                    $oneperframe.sly('toCenter', $(this).attr('look-id'));
                     //$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
                 });
                 
-                $($('.rideau-thumb')[0]).trigger("click"); //Always load the first article
+                $($('.rideau-thumb')[0]).trigger("click"); //Always load the first image
                 
                 /* Load images on the photo-selector */
                 var stories = $('.two-stories').children();
@@ -130,6 +131,7 @@
                 
                 function fixImageSize() {
                     $('li').css('width', $('#oneperframe').width());
+                    $('#oneperframe').height($("li.active img").height() + 30);
                     var frm = $('#oneperframe');
                     frm.sly('reload');
                 }
@@ -164,6 +166,10 @@
                     
                     $oneperframe.sly('on', 'active', function(a, b) {
                         $('.look-number').html(b + 1); //Update look number
+                        console.log("test");
+                        console.log(b);
+                        console.log(a);
+                        fixImageSize();
                     });
                     
                 }());
