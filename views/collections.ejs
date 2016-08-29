@@ -113,25 +113,15 @@
                     $(window).resize(function() {
                         clearTimeout(window.resizeEvt);
                         window.resizeEvt = setTimeout(function() {
-                            /*if(window.innerWidth <= 600) {
-                                //$('#lookbook-slider img').removeClass("nodisplay");
-                            } else {
-                                //$('#lookbook-slider img').addClass("nodisplay");
-                                //$($('.rideau-thumb')[0]).trigger("click");
-                            }*/
-                            fixImageSize();
-                            fixSliderHeight();
+                            slyFixes();
                         }, 150);
                     });
                 });
                 
-                function fixSliderHeight() {
-                    $('#my-thumbs-list').height(window.innerHeight - 250);
-                }
-                
-                function fixImageSize() {
-                    $('li').css('width', $('#oneperframe').width());
-                    $('#oneperframe').height($("li.active img").height() + 30);
+                function slyFixes() {
+                    $('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
+                    $('li').css('width', $('#oneperframe').width()); //Oneframe li elements width
+                    $('#oneperframe').height($("li.active img").height() + 30); //Scroller/image gap
                     var frm = $('#oneperframe');
                     frm.sly('reload');
                 }
@@ -166,12 +156,8 @@
                     
                     $oneperframe.sly('on', 'active', function(a, b) {
                         $('.look-number').html(b + 1); //Update look number
-                        console.log("test");
-                        console.log(b);
-                        console.log(a);
-                        fixImageSize();
+                        slyFixes();
                     });
-                    
                 }());
                 
                 $(document).mousemove(function(e) {
@@ -184,8 +170,6 @@
                     var div = document.getElementById("my-thumbs-list");
                     var rect = div.getBoundingClientRect();
                     
-                    //console.log((e.pageX - $(window).width()) + 200);
-                    
                     if (((e.pageX - $(window).width()) + 200) < 0) {
                         $('.photo-data').removeClass("hidden");
                         $('#my-thumbs-list').addClass("hidden");
@@ -195,8 +179,7 @@
                     }
                 });
                 
-                fixImageSize();
-                fixSliderHeight();
+                slyFixes();
             });
         </script>
         
