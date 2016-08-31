@@ -4,25 +4,45 @@
 		<% include _head.ejs %>
 	</head>
 	
-	<body id="press-body">
+	<body id="press">
 		<% include _header.ejs %>
 		
 		<section id="headerpanel">
-			<div id="press" class="valign-middle">
+			<div id="press-area" class="valign-middle">
 				<div class="spanMiddle fullpage-height">
 					<div class="row">
 						<div class="small-6 small-centered columns">
 							<div class="press-item">
-								<a href="http://www.complex.com/style/2015/07/rideau-brand-designer-dylan-granger-interview"><img id="complex-logo" src="/images/rideau_press_logos/complex.png" width="150px"/></a>
+								<a href="http://www.complex.com/style/2015/07/rideau-brand-designer-dylan-granger-interview"><img id="complex-logo" src="/rideau-data/press/complex.png" width="150px"/></a>
 								<p>2015</p>
 							</div>
 							<div class="press-item">
-								<a href="#" data-reveal-id="press-gallery-modal"><img id="highsnobiety-logo" src="/images/rideau_press_logos/essentialhomme.png" width="150px"/></a>
-								<% include partials/press-gallery-modal.ejs %>
+								<a href="#" data-reveal-id="press-gallery-modal"><img id="highsnobiety-logo" src="/rideau-data/press/essentialhomme.png" width="150px"/></a>
+								<div id="press-gallery-modal" class="reveal-modal rideau-modal" data-reveal aria-hidden="true" role="dialog">
+									<section id="headerpanel">
+										<div class="row ">
+											<div class="small-6  columns">
+												<div class="spanMiddle">
+													<img id="essential-img1" src="/rideau-data/press/essentialhomme1.jpg" style="max-width:85%"/>
+												</div>
+											</div>
+											<div class="small-6  columns">
+												<div class="spanMiddle">
+													<img id="essential-img2" src="/rideau-data/press/essentialhomme2.jpg" style="max-width:85%"/>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="small-6 small-centered columns text-center">
+												<a class="close-reveal-modal"><span class="close thick"></span></a>
+											</div>
+										</div>
+									</section>
+								</div>
 								<p>2016</p>
 							</div>
 							<div class="press-item">
-								<a href="http://www.highsnobiety.com/2016/03/16/best-upcoming-brands-march/"><img id="highsnobiety-logo" src="/images/rideau_press_logos/highsnobiety.jpg" width="150px"/></a>
+								<a href="http://www.highsnobiety.com/2016/03/16/best-upcoming-brands-march/"><img id="highsnobiety-logo" src="/rideau-data/press/highsnobiety.jpg" width="150px"/></a>
 								<p>2016</p>
 							</div>
 						</div>

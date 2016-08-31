@@ -129,8 +129,14 @@ html.rideau {
     p {
         font-size: 0.9em;
     }
-    
-    #landing-body {
+        
+    /* Zoom images */
+    .demo-image {
+        cursor: url("/rideau-data/zoom-images/plus.png") 50 50, pointer;
+    }
+	
+	/* Landing page */
+	body#landing {
         .fluid {
             width: 100%;
         }
@@ -138,11 +144,6 @@ html.rideau {
             width: 100%;
             height: 600px;
         }
-    }
-    
-    /* Zoom images */
-    .demo-image {
-        cursor: url("/rideau-data/zoom-images/plus.png") 50 50, pointer;
     }
     
     /* Collections */
@@ -275,7 +276,21 @@ html.rideau {
             }
         }        
     }
-    
+	
+	/* About */
+	body#about {
+		//
+	}
+	
+	/* Press */
+	body#press {
+		#press-area {
+			.press-item {
+				margin-top: 50px;
+			}
+		}
+	}
+	
     header {
         //
     }
@@ -665,16 +680,6 @@ header {
     text-align: center;
     vertical-align: middle;
   }
-}
-
-#press {
-    .press-item {
-        margin-top: 50px;
-    }
-}
-
-#about {
-    
 }
 
 /* Loading gif */
