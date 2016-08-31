@@ -13,7 +13,7 @@
 					<div class="male_container">
                         <div class="show-for-medium-up">
                             <% for(var i = 0; i < product.images.male.length; i++) { %>
-                                <img class="imgdetail" src="/rideau-data/eboutique/hd/<%= product.images.male[i] %>" />
+                                <img src="/rideau-data/eboutique/hd/<%= product.images.male[i] %>" class="imgdetail demo-image" data-image="/rideau-data/eboutique/hd/<%= product.images.male[i] %>" data-title="title" data-caption="caption" />
                             <% } %>
                         </div>
                         <div class="show-for-small-only">
@@ -22,7 +22,7 @@
                                     <div class="frame oneperframe" id="oneperframe">
                                         <ul class="clearfix">
                                             <% for(var i = 0; i < product.images.male.length; i++) { %>
-                                                <li style='background-image: url("/rideau-data/eboutique/hd/<%= product.images.male[i] %>' look-id="<%= i %>"></li>
+                                                <li style='background-image: url("/rideau-data/eboutique/hd/<%= product.images.male[i] %>")' look-id="<%= i %>"></li>
                                             <% } %>
                                         </ul>
                                     </div>
