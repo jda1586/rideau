@@ -701,13 +701,14 @@ header {
 		color: $header_h_c;
 	}
 	.header-text-container {
-		margin-top: 30px;
-	}
-	.header-top-text {
-		font-size: 0.6rem;
-		letter-spacing: 2px;
-		@media screen and (max-width: $tablet) {
+		margin-top: 38px;
+		
+		.header-top-text {
 			font-size: 0.6rem;
+			letter-spacing: 2px;
+			@media screen and (max-width: $tablet) {
+				font-size: 0.6rem;
+			}
 		}
 	}
 	#shopping-cart {
