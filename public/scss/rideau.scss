@@ -697,24 +697,27 @@ input {
 }
 
 header {
-  h5 {
-	color: $header_h_c;
-  }
-  #shopping-cart {
-	max-width: 20px;
-	margin-top: -20px;
-  }
-  #rideau-logo {
-	max-width: 250px;
-  margin-top: 10px;
-  }
-}
-
-.header-top-text {
-  font-size: 0.8rem;
-  @media screen and (max-width: $tablet) {
-	font-size: 0.6rem;
-  }
+	h5 {
+		color: $header_h_c;
+	}
+	.header-text-container {
+		margin-top: 30px;
+	}
+	.header-top-text {
+		font-size: 0.6rem;
+		letter-spacing: 2px;
+		@media screen and (max-width: $tablet) {
+			font-size: 0.6rem;
+		}
+	}
+	#shopping-cart {
+		max-width: 20px;
+		margin-top: -20px;
+	}
+	#rideau-logo {
+		max-width: 250px;
+	margin-top: 10px;
+	}
 }
 
 .header-bot-buttons {
