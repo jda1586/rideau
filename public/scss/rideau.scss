@@ -442,8 +442,38 @@ html.rideau {
 		}
 	}
 	
+	/* Header configuration */
 	header {
-		//
+		h5 {
+			color: $header_h_c;
+		}
+		.apc-container a {
+			font-size: 8px;
+			margin: 0 10px;
+		}
+		#rideau-logo {
+			max-width: 250px;
+			margin-top: 17px;
+			@media screen and (max-width: $tablet) {
+				max-width: 150px;
+				margin-top: 7px;
+			}
+		}
+		.header-text-container {
+			margin-top: 38px;
+			
+			.header-top-text {
+				font-size: 0.6rem;
+				letter-spacing: 2px;
+				@media screen and (max-width: $tablet) {
+					font-size: 0.6rem;
+				}
+			}
+		}
+		#shopping-cart {
+			margin-top: -40px;
+			max-width: 20px;
+		}
 	}
 	
 	/* Footer configuration */
@@ -694,31 +724,6 @@ input {
   margin-bottom: 4px;
   margin-left: 6px;
   width: 13px;
-}
-
-header {
-	h5 {
-		color: $header_h_c;
-	}
-	.header-text-container {
-		margin-top: 38px;
-		
-		.header-top-text {
-			font-size: 0.6rem;
-			letter-spacing: 2px;
-			@media screen and (max-width: $tablet) {
-				font-size: 0.6rem;
-			}
-		}
-	}
-	#shopping-cart {
-		max-width: 20px;
-		margin-top: -20px;
-	}
-	#rideau-logo {
-		max-width: 250px;
-	margin-top: 10px;
-	}
 }
 
 .header-bot-buttons {
