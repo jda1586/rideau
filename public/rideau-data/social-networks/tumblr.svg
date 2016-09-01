@@ -1,1 +1,55 @@
-<svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 622l201 306h-402zm365 530h94l-459-691-459 691h94l104-160h522zm403-256q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1792"
+   height="1792"
+   viewBox="0 0 1792 1792"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="tumblr.svg">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="0.13169643"
+     inkscape:cx="-239.18643"
+     inkscape:cy="896.00001"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 896.30469 90.515625 A 777.61902 777.61902 0 0 0 118.68555 868.13477 A 777.61902 777.61902 0 0 0 896.30469 1645.7539 A 777.61902 777.61902 0 0 0 1673.9238 868.13477 A 777.61902 777.61902 0 0 0 896.30469 90.515625 z M 803.63867 396.0625 L 939.11133 396.0625 L 939.11133 631.4707 L 1123.9941 631.4707 L 1123.9941 771.38477 L 938.55469 771.38477 L 938.55469 1058.9824 C 938.55469 1070.0866 939.75817 1080.4506 942.16406 1090.0742 C 944.56995 1099.6978 948.73404 1109.414 954.65625 1119.2227 C 960.57851 1129.0313 969.73899 1136.7115 982.13867 1142.2637 C 994.53829 1147.8158 1009.6219 1150.4073 1027.3887 1150.0371 C 1056.2595 1149.2968 1081.0593 1143.9293 1101.7871 1133.9355 L 1146.2031 1265.5195 C 1137.6899 1278.4745 1117.1484 1290.6898 1084.5762 1302.1641 C 1052.0038 1313.6384 1019.245 1319.5596 986.30273 1319.9297 C 947.80823 1320.67 912.55221 1315.86 880.53516 1305.4961 C 848.51811 1295.1322 822.14576 1281.4366 801.41797 1264.4102 C 780.69017 1247.3838 763.10926 1227.765 748.67383 1205.5566 C 734.2384 1183.3483 723.96667 1161.14 717.85938 1138.9316 C 711.75208 1116.7233 708.69922 1094.886 708.69922 1073.418 L 708.69922 771.38477 L 615.42383 771.38477 L 615.42383 652.01367 C 642.07385 642.39005 665.94699 629.52879 687.04492 613.42773 C 708.14286 597.32668 724.98558 580.67044 737.57031 563.45898 C 750.15505 546.24751 760.88814 527.37085 769.77148 506.82812 C 778.65482 486.28539 784.94704 467.96239 788.64844 451.86133 C 792.34983 435.76027 795.12587 419.38282 796.97656 402.72656 C 797.3467 400.87586 798.17913 399.30135 799.47461 398.00586 C 800.7701 396.71037 802.15812 396.0625 803.63867 396.0625 z "
+     id="path3335" />
+</svg>

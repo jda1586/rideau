@@ -444,6 +444,15 @@ html.rideau {
 			a {
 				display: inline-block;
 			}
+			
+			svg {
+				width: 20px;
+				height: 20px;
+				&.replaced-svg:hover path {
+					fill: #666 !important;
+				}
+			}
+			
 			.rideau-instagram {
 				background-image: url(/rideau-data/social-networks/instagram.svg);
 				background-size: contain;
