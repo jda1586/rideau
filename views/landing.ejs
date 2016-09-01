@@ -30,5 +30,36 @@
 		
 		<% include _footer.ejs %>
 		<% include _scripts.ejs %>
+		
+		<script>
+			$(function() {
+				var $allVideos = $(".fluid-vid"), //Find all videos
+					$fluidEl = $(".fluid"); //The element that is fluid width
+				
+				//Figure out and save aspect ratio for each video
+				$allVideos.each(function() {
+					$(this).data('aspectRatio', this.height / this.width).removeAttr('height').removeAttr('width');
+				});
+					
+				function fixVideos() {
+					var newWidth = $fluidEl.width();
+					//Resize all videos according to their own aspect ratio
+					$allVideos.each(function() {
+						var $el = $(this);
+						
+						$el.width(newWidth).height(newWidth * $el.data('aspectRatio'));
+					});
+				}
+				
+				//When the window is resized
+				$(window).resize(function() {
+					console.log("rsz");
+					fixVideos();
+				}).resize();
+				
+				fixVideos();
+			});
+		</script>
+		
 	</body>
 </html>

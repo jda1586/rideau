@@ -201,6 +201,9 @@ html.rideau {
 		&.landing-fix {
 			padding-top: 80px;
 			padding-bottom: 0px;
+			@media screen and (max-width: $tablet) {
+				padding-top: 140px;
+			}
 		}
 	}
 	
