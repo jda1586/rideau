@@ -1,14 +1,16 @@
 $(document).ready(function() {
 	$('#Container').mixItUp();
     
-    var elements = document.querySelectorAll('.zoomable-image');
-    Intense(elements);
+    var elements = $('.zoomable-image');
+	console.log(elements);
+	if (elements.length) Intense(elements);
 	
 	$(document).mousemove(function(e) {
+		var height;
 		if (document.body) {
-			var height = (document.body.clientHeight);
+			height = (document.body.clientHeight);
 		} else {
-			var height = (window.innerHeight);
+			height = (window.innerHeight);
 		}
 		
 		/*  console.log(e.pageY - $(window).scrollTop()); */
