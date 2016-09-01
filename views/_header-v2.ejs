@@ -83,5 +83,27 @@
 
 <!-- TODO: Add cart here -->
 <div class="header_white">
-	<img id="r-logo" class="hidden" src="/rideau-data/landing/rideau-logo-hidden.svg" width="75" />
+	<img id="r-top-logo" class="hidden" src="/rideau-data/landing/rideau-logo-hidden.svg" />
 </div>
+
+<script>
+	$(document).mousemove(function(e) {
+		var height;
+		if (document.body) {
+			height = (document.body.clientHeight);
+		} else {
+			height = (window.innerHeight);
+		}
+		
+		/* console.log(e.pageY - $(window).scrollTop()); */
+		if ((e.pageY - $(window).scrollTop()) < 150 /*|| (e.pageY - $(window).scrollTop()) > (height - 60)*/ ) { //The bottom limit is commented, uncomment to enable that functionality
+			$('header').removeClass("hidden");
+			$('#r-top-logo').addClass("hidden");
+			//$('footer').removeClass("hidden"); //No longer used, footer is always visible
+		} else {
+			$('header').addClass("hidden");
+			$('#r-top-logo').removeClass("hidden");
+			//$('footer').addClass("hidden"); //No longer used, footer is always visible
+		}
+	});	
+</script>

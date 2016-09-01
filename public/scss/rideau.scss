@@ -141,6 +141,11 @@ html.rideau {
 		height: 100vh;
 	}
 	
+	#r-top-logo {
+		width: 75px;
+		margin-top: 8px;
+	}
+	
 	/* New header, container, footer */
 	header.rideau {
 		background: #fff;
@@ -182,12 +187,14 @@ html.rideau {
 			}
 		}
 	}
+	
 	section.rideau {
 		margin: 0 auto;
 		overflow: auto;
-		padding: 150px 0;
+		padding: 170px 0;
 		width: 100%;
 	}
+	
 	footer.rideau {
 		background: #fff;
 		bottom: 0;
@@ -198,8 +205,11 @@ html.rideau {
 		min-height: 65px;
 		padding: 10px;
 		
-		@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
-			height: 160px;
+		@media screen and (max-width: $large) {
+			height: 105px;
+		}
+		@media screen and (max-width: $tablet) {
+			height: 185px;
 		}
 		
 		.icons {
