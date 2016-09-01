@@ -13,7 +13,7 @@ $(document).ready(function() {
 			height = (window.innerHeight);
 		}
 		
-		/*  console.log(e.pageY - $(window).scrollTop()); */
+		/* console.log(e.pageY - $(window).scrollTop()); */
 		if ((e.pageY - $(window).scrollTop()) < 150 /*|| (e.pageY - $(window).scrollTop()) > (height - 60)*/ ) { //The bottom limit is commented, uncomment to enable that functionality
 			$('header').removeClass("hidden");
 			$('#r-logo').addClass("hidden");
