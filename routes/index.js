@@ -24,6 +24,10 @@ function getCollections() {
 router.get('/', function(req, res, next) {
 	return res.render('landing');
 });
+//Landing v2 page
+router.get('/lv2', function(req, res, next) {
+	return res.render('landing-v2');
+});
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
 	var products = _.filter(getEboutique(), { enabled: 1 });
