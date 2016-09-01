@@ -2,13 +2,13 @@
 
 /* Mixins */
 @mixin centered() {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 }
 
 @mixin vertical-align($position: relative) {
@@ -19,19 +19,18 @@
   transform: translateY(-50%);
 }
 
-
 @mixin centerer($horizontal: true, $vertical: true) {
   position: absolute;
   @if ($horizontal and $vertical) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
   } @else if ($horizontal) {
-    left: 50%;
-    transform: translate(-50%, 0);
+	left: 50%;
+	transform: translate(-50%, 0);
   } @else if ($vertical) {
-    top: 50%;
-    transform: translate(0, -50%);
+	top: 50%;
+	transform: translate(0, -50%);
   }
 }
 
@@ -117,165 +116,310 @@ $accordeon_t_c: #ffffff; // Accordeon title color
   font-style: normal;
 }*/
 
-/* Core */
+/* Rideau core */
 html.rideau {
-    background-color: white;
-    
-    h1, h2, h3, h4, h5, h6, p {
-        font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
-        letter-spacing: 2px;
-        color: $body_c;
-    }
-    p {
-        font-size: 0.9em;
-    }
-        
-    /* Zoom images */
-    .demo-image {
-        cursor: url("/rideau-data/zoom-images/plus.png") 50 50, pointer;
-    }
+	background-color: white;
+	
+	h1, h2, h3, h4, h5, h6, p {
+		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+		letter-spacing: 2px;
+		color: $body_c;
+	}
+	p {
+		font-size: 0.9em;
+	}
+		
+	/* Zoom images */
+	.zoom-container {
+		figcaption {
+			h1 {
+				font-family: Sackers;
+				font-size: 25px;
+			}
+			h2 {
+				font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+				font-size: 14px;
+				letter-spacing: 3px;
+			}
+		}
+	}
+	.zoomable-image {
+		&.opened {
+			cursor: url("/rideau-data/zoom-images/close.png"), pointer;
+		}
+		&.closed {
+			cursor: url("/rideau-data/zoom-images/plus.png"), pointer;
+		}
+	}
 	
 	/* Landing page */
 	body#landing {
-        .fluid {
-            width: 100%;
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-        }
-    }
-    
-    /* Collections */
-    body#collections {
-        /* Sly lookbook slider */
-        .photo-data {
-            position: fixed;
-            width: 17%;
-            bottom: 13%;
-            left: 30px;
-            text-align: right;
-            background: none;
-            z-index: 999;
-        }
-        
-        .stage-description {
-            p, h6 {
-                font-size: 8px;
-                letter-spacing: 2px;
-                margin-bottom: 0.2rem;
-                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-            }
-            h5 {
-                letter-spacing: 1px;
-                text-shadow: 0 0 1px rgba(255, 255, 255, 1);
-            }
-            .look-span {
-                font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-            }
-        }
+		.fluid {
+			width: 100%;
+		}
+		iframe {
+			width: 100%;
+			height: 600px;
+		}
+	}
+	
+	/* Collections */
+	body#collections {
+		/* Sly lookbook slider */
+		.photo-data {
+			position: fixed;
+			width: 17%;
+			bottom: 13%;
+			left: 30px;
+			text-align: right;
+			background: none;
+			z-index: 999;
+		}
+		
+		.stage-description {
+			p, h6 {
+				font-size: 8px;
+				letter-spacing: 2px;
+				margin-bottom: 0.2rem;
+				text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+			}
+			h5 {
+				letter-spacing: 1px;
+				text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+			}
+			.look-span {
+				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+			}
+		}
 
-        /* The mail slider */
-        #lookbook-slider {
-            /* The photo carrousel */
-            .sly-container-v2 {
-                &.pagespan {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-                
-                /* Example wrapper */
-                .wrap {
-                    position: relative;
-                    margin: 3em 0;
-                    height: 100%;
-                }
+		/* The mail slider */
+		#lookbook-slider {
+			/* The photo carrousel */
+			.sly-container-v2 {
+				&.pagespan {
+					width: 100%;
+					margin: 0 auto;
+				}
+				
+				/* Example wrapper */
+				.wrap {
+					position: relative;
+					margin: 3em 0;
+					height: 100%;
+				}
 
-                /* Scrollbar */
-                .scrollbar {
-                    margin: 0 0 1em 0;
-                    height: 2px;
-                    background: #ccc;
-                    line-height: 0;
-                    .handle {
-                        width: 100px;
-                        height: 100%;
-                        background: #292a33;
-                        cursor: pointer;
-                        .mousearea {
-                            position: absolute;
-                            top: -9px;
-                            left: 0;
-                            width: 100%;
-                            height: 20px;
-                        }
-                    }
-                }
+				/* Scrollbar */
+				.scrollbar {
+					margin: 0 0 1em 0;
+					height: 2px;
+					background: #ccc;
+					line-height: 0;
+					.handle {
+						width: 100px;
+						height: 100%;
+						background: #292a33;
+						cursor: pointer;
+						.mousearea {
+							position: absolute;
+							top: -9px;
+							left: 0;
+							width: 100%;
+							height: 20px;
+						}
+					}
+				}
 
-                /* One Item Per Frame example*/
-                .oneperframe {
-                    height: 100%;
-                    overflow: hidden;
-                    ul {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        height: 100%;
-                        font-size: 50px;
-                        li {
-                            float: left;
-                            padding: 0;
-                            cursor: pointer;
-                            width: 600px;
-                            background-size: contain;
-                            /* Cover is also a good idea */
-                            background-repeat: no-repeat;
-                            background-position: center top;
-                            height: 800px;
-                            min-width: 100px;
-                            img {
-                                display: block;
-                                margin: auto;
-                                border: 1px solid #e5e5e5;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        /* The photo selector on the right */
-        #photo-selector {
-            position: fixed;
-            top: 150px;
-            right: 0px;
-            width: 130px;
-            overflow: hidden;
-            
-            background: none;
-            @media (max-height: $short) {
-                visibility: hidden;
-            }
-            
-            #my-thumbs-list{
-                overflow: hidden;
-            }
-            
-            .two-stories  {
-                overflow: hidden;
-                .single-story {
-                    float: left;
-                    position: relative;
-                    width: 49%;
-                    height: 65px; /* = width for a 1:1 aspect ratio */
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    /* you change this to "contain" if you don't want the images to be cropped */
-                }
-            }
-        }        
-    }
+				/* One Item Per Frame example*/
+				.oneperframe {
+					height: 100%;
+					overflow: hidden;
+					ul {
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						height: 100%;
+						font-size: 50px;
+						li {
+							float: left;
+							padding: 0;
+							cursor: pointer;
+							width: 600px;
+							background-size: contain;
+							/* Cover is also a good idea */
+							background-repeat: no-repeat;
+							background-position: center top;
+							height: 800px;
+							min-width: 100px;
+							img {
+								display: block;
+								margin: auto;
+								border: 1px solid #e5e5e5;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		/* The photo selector on the right */
+		#photo-selector {
+			position: fixed;
+			top: 150px;
+			right: 0px;
+			width: 130px;
+			overflow: hidden;
+			
+			background: none;
+			@media (max-height: $short) {
+				visibility: hidden;
+			}
+			
+			#my-thumbs-list{
+				overflow: hidden;
+			}
+			
+			.two-stories  {
+				overflow: hidden;
+				.single-story {
+					float: left;
+					position: relative;
+					width: 49%;
+					height: 65px; /* = width for a 1:1 aspect ratio */
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					/* you change this to "contain" if you don't want the images to be cropped */
+				}
+			}
+		}
+	}
+	
+	/* TO-DO: Implement a [place]-body id on each EJS */
+	/* TO-DO: Move all elements related to #eboutique-body here */
+	body#eboutique {
+		/* Mixit up configuration */
+		#Container {
+			text-align: center;
+			margin: 50px 115px;
+			.mix {
+				display: none;
+				margin: 3%;
+			}
+		}
+
+		/* The eboutique left menu */
+		#menui {
+			position: fixed;
+			bottom: 20%;
+			background: none;
+			white-space: nowrap;
+			left: 10px;
+			width: 10%;
+			@media screen and (max-width: $large) {
+				width: 8%;
+			}
+			a {
+				font-size: 0.8rem;
+				margin-top: 10px;
+			}
+			p {
+				text-align: right;
+				margin-bottom: 0.2rem;
+				@media screen and (max-width: $tablet) {
+					text-align: left;
+				}
+			}
+		}
+	}
+	
+	/* Detail page */
+	body#detail {
+		.oneperframe {
+			ul {
+				list-style: none;
+				li {
+					background-position: center center;
+					background-size: cover;
+					height: 680px;
+				}
+			}
+		}
+		
+		.product-showcase {
+			position: block;
+			text-align: center;
+			width: 100%;
+			padding: 10px;
+			@media screen and (min-width: $tablet) {
+				position: fixed;
+				top: 25%;
+				right: 30px;
+				width: 280px;
+				text-align: left;
+				vertical-align: middle;
+			}
+			p {
+				margin: 2px;
+				font-size: 0.75rem;
+				letter-spacing: 1px;
+				line-height: 1.4;
+			}	
+			.box-container {
+				.box {
+					margin-bottom: 3px;
+					label {
+						color: $body_c;
+						margin: 0;
+					}
+				}
+			}
+			.title {
+				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				font-size: 0.75rem;
+				letter-spacing: 0px;
+				font-weight: bold;
+				margin-top: 10px;
+			}
+			.item-price {
+				font-size: 0.7rem;
+			}
+			.item-name {
+				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				font-size: 1.2rem;
+				font-weight: bold;
+				letter-spacing: 1px;
+				margin-bottom: 0px;
+			}
+			/* The color labels */
+			.label {
+				width: 20px;
+				height: 20px;
+				border: 1px solid #555;
+				border-radius: 2px;
+				&.white { background-color: #fff; }
+				&.black { background-color: #000; }
+				&.blue { background-color: #4343ed; }
+				&.green { background-color: #57e09b; }
+			}
+			#size-chooser {
+				p {
+					margin: 0px 5px;
+					display: inline-block;
+					cursor: pointer;
+				}
+			}
+			#add-cart {
+				margin-top: 10px;
+				width: 100%;
+				max-width: 200px;
+			}
+			#back-button {
+				letter-spacing: 0px;
+				font-size: 0.7rem;
+				margin-top: 15px;
+			}
+		}
+	}
 	
 	/* About */
 	body#about {
@@ -291,45 +435,45 @@ html.rideau {
 		}
 	}
 	
-    header {
-        //
-    }
-    
-    footer {
-        .icons {
-            a {
-                display: inline-block;
-            }
-            .rideau-instagram {
-                background-image: url(/rideau-data/social-networks/instagram.svg);
-                background-size: contain;
-                background-position: center center;
-                width: 20px;
-                height: 20px;
-            }
-            .rideau-tumblr {
-                background-image: url(/rideau-data/social-networks/tumblr.svg);
-                background-size: contain;
-                background-position: center center;
-                width: 20px;
-                height: 20px;
-            }
-            .rideau-twitter {
-                background-image: url(/rideau-data/social-networks/twitter.svg);
-                background-size: contain;
-                background-position: center center;
-                width: 20px;
-                height: 20px;
-            }
-            .rideau-vimeo {
-                background-image: url(/rideau-data/social-networks/vimeo.svg);
-                background-size: contain;
-                background-position: center center;
-                width: 20px;
-                height: 20px;
-            }
-        }
-    }
+	header {
+		//
+	}
+	
+	footer {
+		.icons {
+			a {
+				display: inline-block;
+			}
+			.rideau-instagram {
+				background-image: url(/rideau-data/social-networks/instagram.svg);
+				background-size: contain;
+				background-position: center center;
+				width: 20px;
+				height: 20px;
+			}
+			.rideau-tumblr {
+				background-image: url(/rideau-data/social-networks/tumblr.svg);
+				background-size: contain;
+				background-position: center center;
+				width: 20px;
+				height: 20px;
+			}
+			.rideau-twitter {
+				background-image: url(/rideau-data/social-networks/twitter.svg);
+				background-size: contain;
+				background-position: center center;
+				width: 20px;
+				height: 20px;
+			}
+			.rideau-vimeo {
+				background-image: url(/rideau-data/social-networks/vimeo.svg);
+				background-size: contain;
+				background-position: center center;
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
 }
 
 /* Old style activate if needed */
@@ -345,17 +489,17 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 /* Fonts */
 .akzidenz {
-    font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
-    letter-spacing: 3px;
+	font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+	letter-spacing: 3px;
 }
 
 .sackers {
-    font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+	font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 /* Dreaded blue box */
 :focus {
-    outline: none;
+	outline: none;
 }
 
 /* Letter spacing overrides */
@@ -377,10 +521,10 @@ textarea {
   color: $input_c;
   background-color: $input_b_c;
   &:focus {
-    height: 25px;
-    font-size: 10px;
-    color: $input_c;
-    background-color: $input_f_b;
+	height: 25px;
+	font-size: 10px;
+	color: $input_c;
+	background-color: $input_f_b;
   }
 }
 
@@ -397,11 +541,11 @@ button {
   &:hover, 
   &:active, 
   &:focus {
-    background: $button_f_b;
-    color: $button_c;
+	background: $button_f_b;
+	color: $button_c;
   }
   &:focus {
-    border: 1px solid $button_c;
+	border: 1px solid $button_c;
   }
 }
 
@@ -412,67 +556,67 @@ button, .button {
 }
 
 a {
-    color: $link_c;
-    
-    &:hover {
-        color: $link_h_c;
-    }
-    &:focus {
-        outline: thin dotted rgba(0, 0, 0, 0.3);
-        color: $link_f_c;
-    }
-    &.disabled {
-        color: $link_dis_c;
-        cursor: default;
-    }
+	color: $link_c;
+	
+	&:hover {
+		color: $link_h_c;
+	}
+	&:focus {
+		outline: thin dotted rgba(0, 0, 0, 0.3);
+		color: $link_f_c;
+	}
+	&.disabled {
+		color: $link_dis_c;
+		cursor: default;
+	}
 }
 
 input {
    &[type=checkbox], &[type=radio] {
-      opacity: 0;
-      position: absolute;
+	  opacity: 0;
+	  position: absolute;
 
-      &:checked + label:before {
-         background: white;
-         color: $input_checked_c;
-      }
+	  &:checked + label:before {
+		 background: white;
+		 color: $input_checked_c;
+	  }
 
-      & + label:before {
-         display: inline-block;
-         text-align: center;
-         line-height: 1;
+	  & + label:before {
+		 display: inline-block;
+		 text-align: center;
+		 line-height: 1;
 
-         border: 0.0625rem solid white;
-         width: 16px;
-         height: 15px;
-         margin-right: 0.2rem;
+		 border: 0.0625rem solid white;
+		 width: 16px;
+		 height: 15px;
+		 margin-right: 0.2rem;
 
-         font-size: 0.875rem;
-         color: $input_b_c;
-         background: $input_b_c;
-      }
+		 font-size: 0.875rem;
+		 color: $input_b_c;
+		 background: $input_b_c;
+	  }
    }
 
    &[type=checkbox] {
-      & + label:before {
-         content: "\2715";
-         padding-left: 1px;
-         border-radius: 0.125rem;
-      }
+	  & + label:before {
+		 content: "\2715";
+		 padding-left: 1px;
+		 border-radius: 0.125rem;
+	  }
    }
 
    &[type=radio] {
-      & + label:before {
-         content: "\2713";
-         border-radius: 50%;
-      }
+	  & + label:before {
+		 content: "\2713";
+		 border-radius: 50%;
+	  }
    }
 }
 
 .middle-title {
   h6 {
-    line-height: 0.4;
-    font-size: 9px;
+	line-height: 0.4;
+	font-size: 9px;
   }
 }
 
@@ -497,58 +641,58 @@ input {
 }
 
 footer {
-    min-height: 65px;
-    padding: 10px;
-    .icons {
-        @media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
-            text-align: center;
-        }
-        font-size: 8px;
-    }
-    .central-butons {
-        text-align: center;
-        margin-top: 4px;
-        letter-spacing: 1px;
-        a {
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-    }
-    .right-butons {
-        text-align: center;
-        line-height: 1rem;
-        a {
-            font-size: 0.7rem;
-        }
-    }
-    .row.wide-90 {
-        max-width: none;
-        width: 90%;
-    }
-    a:hover {
-        color: black;
-    }
+	min-height: 65px;
+	padding: 10px;
+	.icons {
+		@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
+			text-align: center;
+		}
+		font-size: 8px;
+	}
+	.central-butons {
+		text-align: center;
+		margin-top: 4px;
+		letter-spacing: 1px;
+		a {
+			font-size: 0.8rem;
+			margin-top: 10px;
+		}
+	}
+	.right-butons {
+		text-align: center;
+		line-height: 1rem;
+		a {
+			font-size: 0.7rem;
+		}
+	}
+	.row.wide-90 {
+		max-width: none;
+		width: 90%;
+	}
+	a:hover {
+		color: black;
+	}
 }
 
 /* Header configuration */
 #headera {
-    position: fixed;
-    left: 0%;
-    top: 0;
-    line-height: 45px;
-    height: 150px;
-    width: 100%;
-    background: white;
-    visibility: visible;
-    background-color: rgba(255, 255, 255, 0.7);
-    transition: all 0.3s ease;
-    z-index: 999;
+	position: fixed;
+	left: 0%;
+	top: 0;
+	line-height: 45px;
+	height: 150px;
+	width: 100%;
+	background: white;
+	visibility: visible;
+	background-color: rgba(255, 255, 255, 0.7);
+	transition: all 0.3s ease;
+	z-index: 999;
 
-    @media screen and (max-width: $tablet) {
-        .rideau-menu-column {
-            line-height: 1rem;
-        }
-    }
+	@media screen and (max-width: $tablet) {
+		.rideau-menu-column {
+			line-height: 1rem;
+		}
+	}
 }
 
 .hidden {
@@ -558,7 +702,7 @@ footer {
 }
 
 .nodisplay {
-    display: none;
+	display: none;
 }
 
 .header_white {
@@ -587,14 +731,14 @@ footer {
 
 header {
   h5 {
-    color: $header_h_c;
+	color: $header_h_c;
   }
   #shopping-cart {
-    max-width: 20px;
-    margin-top: -20px;
+	max-width: 20px;
+	margin-top: -20px;
   }
   #rideau-logo {
-    max-width: 250px;
+	max-width: 250px;
   margin-top: 10px;
   }
 }
@@ -602,17 +746,17 @@ header {
 .header-top-text {
   font-size: 0.8rem;
   @media screen and (max-width: $tablet) {
-    font-size: 0.6rem;
+	font-size: 0.6rem;
   }
 }
 
 .header-bot-buttons {
   h6 {
-    font-size: 0.5rem;
-    letter-spacing: 2px;
+	font-size: 0.5rem;
+	letter-spacing: 2px;
   }
   img {
-    vertical-align: top;
+	vertical-align: top;
   width: 20px;
   }
 }
@@ -630,9 +774,9 @@ header {
   margin-top: 10px;
   letter-spacing: 4px;
   p {
-    line-height: 2;
-    margin-bottom: 0px;
-    font-size: 0.6rem;
+	line-height: 2;
+	margin-bottom: 0px;
+	font-size: 0.6rem;
   }
 }
 
@@ -641,11 +785,11 @@ header {
   bottom: 0%;
   right: 0%;
   p {
-    font-size: 0.6em;
-    margin-bottom: 0px;
-    a {
-      color: #bbb;
-    }
+	font-size: 0.6em;
+	margin-bottom: 0px;
+	a {
+	  color: #bbb;
+	}
   }
 }
 
@@ -656,12 +800,12 @@ header {
   height: 100%;
   width: 100%;
   .columns {
-    display: table-cell;
-    vertical-align: middle;
-    float: none;
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
   }
   [class*="column"] + [class*="column"]:last-child {
-    float: none;
+	float: none;
   }
 }
 
@@ -671,14 +815,14 @@ header {
   display: table;
   width: 100%;
   .row, .columns {
-    display: table;
-    /*width: 100%;
-    height: 100%;*/
+	display: table;
+	/*width: 100%;
+	height: 100%;*/
   }
   .spanMiddle {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
   }
 }
 
@@ -712,7 +856,7 @@ header {
 }
 
 .lookbook-main-img {
-    /*max-height: 80%;*/
+	/*max-height: 80%;*/
 }
 
 #gallery_01 img {
@@ -740,7 +884,7 @@ header {
 
 /* Uploadarticle config */
 #uploadForm label {
-    color: #000000;
+	color: #000000;
 }
 
 /* Contact config */
@@ -749,11 +893,11 @@ header {
   padding-bottom: 30px;
   display: block !important;
   p {
-    font-size: 10px;
-    margin: 0;
+	font-size: 10px;
+	margin: 0;
   }
   h5 {
-    font-size: 12px;
+	font-size: 12px;
   }
 }
 
@@ -769,18 +913,18 @@ header {
   background-color: $button_b_c;
   width: 50%;
   &:hover, &:active {
-    background: $button_f_b;
-    color: $button_f_c;
+	background: $button_f_b;
+	color: $button_f_c;
   }
   &:focus {
-    background: $button_f_b;
-    color: $button_f_c;
+	background: $button_f_b;
+	color: $button_f_c;
   }
   
   /* Disabled */
   /*&.btn-qty {
-    padding: 0.1rem 0.8rem 0.1rem 0.5rem;
-    background-color: $button_b_c;
+	padding: 0.1rem 0.8rem 0.1rem 0.5rem;
+	background-color: $button_b_c;
   }*/
   
 }
@@ -793,62 +937,62 @@ header {
   
 /* IMPORTANT: This modal is deprecated please see version-2 */
 .rideau-modal {
-    background: rgba(0, 0, 0, 0.75);
-    border: none;
-    overflow-y: auto;
-    box-shadow: none;
+	background: rgba(0, 0, 0, 0.75);
+	border: none;
+	overflow-y: auto;
+	box-shadow: none;
   
-    .stored-products {
-        height: 400px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding: 30px;
-        
-        .item-buy-data {
-            text-align: left;
-            padding-top: 10px;
-            p {
-                margin-bottom: 0.5rem;
-            }
-        }
-                
-        table.up-down-controls {
-            background-color: transparent;
-            border: none;
-        
-            tr {
-                td {
-                    padding: 0px;
-                    input {
-                        padding: 0px;
-                        margin: 0 auto;
-                        height: 20px;
-                        &.quantity {
-                            width: 50px;
-                            text-align: center;
-                        }
-                        &.btn-qty {
-                            width: 20px;
-                            margin-top: 0px;
-                        }                            
-                    }                       
-                }
-            }
-        }
-    }
+	.stored-products {
+		height: 400px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 30px;
+		
+		.item-buy-data {
+			text-align: left;
+			padding-top: 10px;
+			p {
+				margin-bottom: 0.5rem;
+			}
+		}
+				
+		table.up-down-controls {
+			background-color: transparent;
+			border: none;
+		
+			tr {
+				td {
+					padding: 0px;
+					input {
+						padding: 0px;
+						margin: 0 auto;
+						height: 20px;
+						&.quantity {
+							width: 50px;
+							text-align: center;
+						}
+						&.btn-qty {
+							width: 20px;
+							margin-top: 0px;
+						}							
+					}					   
+				}
+			}
+		}
+	}
 
-    p {
-        color: white;
-        a {
-            color: $modal_link_c;
-            &.disabled {
-                color: $link_dis_c;
-            }
-        }
-    }
-    h2, h5 {
-        color: white;
-    }
+	p {
+		color: white;
+		a {
+			color: $modal_link_c;
+			&.disabled {
+				color: $link_dis_c;
+			}
+		}
+	}
+	h2, h5 {
+		color: white;
+	}
 }
 
 /* IMPORTANT: This modal is deprecated please see version-2 */
@@ -862,154 +1006,154 @@ header {
   text-align: center;
 
   .close{
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    &:hover {
-      &::before, &::after {
-        background: #ffffff;
-      }
-    }
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      height: 2px;
-      width: 100%;
-      top: 50%;
-      left: 0;
-      margin-top: -1px;
-      background: #000;
-    }
-    &::before {
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
-    &::after {
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-    }
-    &.thick {
-      &::before, &::after {
-        background-color: $button_c;
-        height: 4px;
-        margin-top: -2px;
-      }
-    }
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	&:hover {
+	  &::before, &::after {
+		background: #ffffff;
+	  }
+	}
+	&::before, &::after {
+	  content: '';
+	  position: absolute;
+	  height: 2px;
+	  width: 100%;
+	  top: 50%;
+	  left: 0;
+	  margin-top: -1px;
+	  background: #000;
+	}
+	&::before {
+	  -webkit-transform: rotate(45deg);
+	  -moz-transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  -o-transform: rotate(45deg);
+	  transform: rotate(45deg);
+	}
+	&::after {
+	  -webkit-transform: rotate(-45deg);
+	  -moz-transform: rotate(-45deg);
+	  -ms-transform: rotate(-45deg);
+	  -o-transform: rotate(-45deg);
+	  transform: rotate(-45deg);
+	}
+	&.thick {
+	  &::before, &::after {
+		background-color: $button_c;
+		height: 4px;
+		margin-top: -2px;
+	  }
+	}
   }
 }
 
 .rideau-modal.version-2 {
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    border: none;
-    overflow-y: hidden;
-    top: 0;
-    height: 100%;
+	background: rgba(0, 0, 0, 0.75);
+	color: white;
+	border: none;
+	overflow-y: hidden;
+	top: 0;
+	height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
-    box-shadow: none;
+	box-shadow: none;
 
-    /* IMPORTANT: Doesn't seem to be used, change stored-products to a rideau-modal version 2 */
-    .stored-products {
-        height: 400px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding: 30px;
-                
-        table.up-down-controls {
-            tr {
-                td {
-                    padding: 0px;
-                }
-            }
-        }
-    }
+	/* IMPORTANT: Doesn't seem to be used, change stored-products to a rideau-modal version 2 */
+	.stored-products {
+		height: 400px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 30px;
+				
+		table.up-down-controls {
+			tr {
+				td {
+					padding: 0px;
+				}
+			}
+		}
+	}
 
-    .center-container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+	.center-container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 
-    p {
-        color: white;
-    }
-    h2, h5 {
-        color: white;
-    }
-    .close-reveal-modal.version-2 {
-        transform: translate(-50%,0px);
-        right: none;
-        left: none;
-        top: auto;
-        bottom: 0;
-        color: #ffffff;
-        text-align: center;
-        width: 100%;
-        color: #aaaaaa;
-        cursor: pointer;
-        font-size: 2.5rem;
-        font-weight: bold;
-        line-height: 1;
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        .close {
-            position: relative;
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            overflow: hidden;
-            &:hover {
-                &::before, &::after {
-                    background: #ffffff;
-                }
-            }
-            &::before, &::after {
-                content: '';
-                position: absolute;
-                height: 2px;
-                width: 100%;
-                top: 50%;
-                left: 0;
-                margin-top: -1px;
-                background: #000;
-            }
-            &::before {
-                -webkit-transform: rotate(45deg);
-                -moz-transform: rotate(45deg);
-                -ms-transform: rotate(45deg);
-                -o-transform: rotate(45deg);
-                transform: rotate(45deg);
-            }
-            &::after {
-                -webkit-transform: rotate(-45deg);
-                -moz-transform: rotate(-45deg);
-                -ms-transform: rotate(-45deg);
-                -o-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-            }
-            &.thick {
-                &::before, &::after {
-                    background-color: $button_c;
-                    height: 4px;
-                    margin-top: -2px;
-                }
-            }
-        }
-    }
+	p {
+		color: white;
+	}
+	h2, h5 {
+		color: white;
+	}
+	.close-reveal-modal.version-2 {
+		transform: translate(-50%,0px);
+		right: none;
+		left: none;
+		top: auto;
+		bottom: 0;
+		color: #ffffff;
+		text-align: center;
+		width: 100%;
+		color: #aaaaaa;
+		cursor: pointer;
+		font-size: 2.5rem;
+		font-weight: bold;
+		line-height: 1;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		.close {
+			position: relative;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			overflow: hidden;
+			&:hover {
+				&::before, &::after {
+					background: #ffffff;
+				}
+			}
+			&::before, &::after {
+				content: '';
+				position: absolute;
+				height: 2px;
+				width: 100%;
+				top: 50%;
+				left: 0;
+				margin-top: -1px;
+				background: #000;
+			}
+			&::before {
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+			&::after {
+				-webkit-transform: rotate(-45deg);
+				-moz-transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				-o-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+			}
+			&.thick {
+				&::before, &::after {
+					background-color: $button_c;
+					height: 4px;
+					margin-top: -2px;
+				}
+			}
+		}
+	}
 }
 
 body.modal-open {
@@ -1017,112 +1161,112 @@ body.modal-open {
 }
 
 #collections-modal {
-    p {
-        margin-bottom: 8px;
-        font-size: 15px;
-        a.disabled {
-            cursor: default;
-        }
-        small {
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
-    }
+	p {
+		margin-bottom: 8px;
+		font-size: 15px;
+		a.disabled {
+			cursor: default;
+		}
+		small {
+			font-size: 12px;
+			letter-spacing: 1px;
+		}
+	}
 }
 
 #eboutique-modal {
-    p {
-        margin-bottom: 8px;
-        font-size: 15px;
-    }
+	p {
+		margin-bottom: 8px;
+		font-size: 15px;
+	}
 }
 
 .reveal-modal {
-    border: none;
-    input {
-        font-size: 1em;
-        color: $input_c;
-        background-color: $input_b_c;
-        &[type="text"], &[type="password"], &[type="date"], &[type="datetime"], &[type="datetime-local"], &[type="month"], &[type="week"], &[type="email"], &[type="number"], &[type="search"], &[type="tel"], &[type="time"], &[type="url"], &[type="color"] {
-            font-size: 15px;
-            color: $input_c;
-            &:focus {
-                color: $input_c;
-                background-color: $input_f_b;
-            }
-        }
-        &.btn-qty {
-            background-color: black;
-        }
-    }
-    .close-reveal-modal {
-        @include centerer(true,false);
-        position: initial;
-    }
-    section > div:last-child {
-        //@include centerer(true,false);
-        position: initial;
-    }
-    >:last-child {
-        margin-bottom: 0;
-        text-align: center;
-    }
+	border: none;
+	input {
+		font-size: 1em;
+		color: $input_c;
+		background-color: $input_b_c;
+		&[type="text"], &[type="password"], &[type="date"], &[type="datetime"], &[type="datetime-local"], &[type="month"], &[type="week"], &[type="email"], &[type="number"], &[type="search"], &[type="tel"], &[type="time"], &[type="url"], &[type="color"] {
+			font-size: 15px;
+			color: $input_c;
+			&:focus {
+				color: $input_c;
+				background-color: $input_f_b;
+			}
+		}
+		&.btn-qty {
+			background-color: black;
+		}
+	}
+	.close-reveal-modal {
+		@include centerer(true,false);
+		position: initial;
+	}
+	section > div:last-child {
+		//@include centerer(true,false);
+		position: initial;
+	}
+	>:last-child {
+		margin-bottom: 0;
+		text-align: center;
+	}
 }
 
 /* Info modal */
 #info-modal {
-    p {
-        font-size: 11px;
-        letter-spacing: 1px;
-        line-height: 1.3;
-    }
-    h5 {
-        font-size: 12px;
-    }
+	p {
+		font-size: 11px;
+		letter-spacing: 1px;
+		line-height: 1.3;
+	}
+	h5 {
+		font-size: 12px;
+	}
 }
 
 /* Shopping cart */
 #purchase-modal, #carr-modal {
-    height: 80%;
-    .modal_title {
-        text-align:center;
-        color: white;
-    }
-    .accordion {
-        .accordion-navigation {
-            &.active > a, dd.active > a {
-                background: none;
-                font-weight: bold;
-                color: $accordeon_t_c;
-            }
-            a {
-                font-size: 0.9rem;
-                background: none;
-                color: white;
-                &:active, &:focus {
-                    background: none;
-                    font-weight: bold;
-                }
-                &:hover, &:focus {
-                    color: $accordeon_t_c;
-                }
-                &:hover {
-                    background: none;
-                }
-            }
-            .columns {
-                position: relative;
-            }
-            .vertical-align, #checkboxship {
-                height: initial;
-                margin-top: 25px;
-            }
-            > .content.active, dd > .content.active {
-                background: none;
-                color: white;
-            }
-        }
-    }
+	height: 80%;
+	.modal_title {
+		text-align:center;
+		color: white;
+	}
+	.accordion {
+		.accordion-navigation {
+			&.active > a, dd.active > a {
+				background: none;
+				font-weight: bold;
+				color: $accordeon_t_c;
+			}
+			a {
+				font-size: 0.9rem;
+				background: none;
+				color: white;
+				&:active, &:focus {
+					background: none;
+					font-weight: bold;
+				}
+				&:hover, &:focus {
+					color: $accordeon_t_c;
+				}
+				&:hover {
+					background: none;
+				}
+			}
+			.columns {
+				position: relative;
+			}
+			.vertical-align, #checkboxship {
+				height: initial;
+				margin-top: 25px;
+			}
+			> .content.active, dd > .content.active {
+				background: none;
+				color: white;
+			}
+		}
+	}
 }
 
 .content.active > label {
@@ -1132,7 +1276,7 @@ body.modal-open {
 
 .lists {
   p, label {
-    color: $label_c;
+	color: $label_c;
   }
 }
 
@@ -1152,240 +1296,117 @@ body.modal-open {
 .checkboxterms {
   margin: 18px 0 !important;
   label {
-    font-size: 0.7em !important;
+	font-size: 0.7em !important;
   }
 }
 
 .button.rideau-button {
-    height: 39px;
-    min-width: 215px;
-    a {
-        /**/
-    }
-    p {
-        margin-top: 0px;
-        font-size: 0.7rem;
-    }
+	height: 39px;
+	min-width: 215px;
+	a {
+		/**/
+	}
+	p {
+		margin-top: 0px;
+		font-size: 0.7rem;
+	}
 }
 
 /* Gender containers are found on eboutique and detail pages */
 .gender_containers {
-    .hidden {
-        display: none;
-    }
-}
-
-#detail-body {
-    .oneperframe {
-        ul {
-            list-style: none;
-            li {
-                background-position: center center;
-                background-size: cover;
-                height: 680px;
-            }
-        }
-    }
-    
-    .product-showcase {
-        position: block;
-        text-align: center;
-        width: 100%;
-        padding: 10px;
-        @media screen and (min-width: $tablet) {
-            position: fixed;
-            top: 25%;
-            right: 30px;
-            width: 280px;
-            text-align: left;
-            vertical-align: middle;
-        }
-        p {
-            margin: 2px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            line-height: 1.4;
-        }    
-        .box-container {
-            .box {
-                margin-bottom: 3px;
-                label {
-                    color: $body_c;
-                    margin: 0;
-                }
-            }
-        }
-        .title {
-            font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .item-name {
-            font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 0px;
-        }
-        .item-price {
-            font-size: 0.7rem;
-        }
-        input[type="checkbox"] + label, input[type="radio"] + label {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-        /* The color labels */
-        .label {
-            width: 20px;
-            height: 20px;
-            border: 1px solid #555;
-            border-radius: 2px;
-            &.white { background-color: #fff; }
-            &.black { background-color: #000; }
-            &.blue { background-color: #4343ed; }
-            &.green { background-color: #57e09b; }
-        }
-        
-        #back-button {
-            letter-spacing: 0px;
-            font-size: 0.7rem;
-            margin-top: 15px;
-        }
-        #add-cart {
-            width: 100%;
-            max-width: 200px;
-        }
-    }
-}
-
-/* TO-DO: Implement a [place]-body id on each EJS */
-/* TO-DO: Move all elements related to #eboutique-body here */
-#eboutique-body {
-    /* Mixit up configuration */
-    #Container {
-        text-align: center;
-        margin: 50px 115px;
-        .mix {
-            display: none;
-            margin: 3%;
-        }
-    }
-
-    /* The eboutique left menu */
-    #menui {
-        position: fixed;
-        bottom: 20%;
-        background: none;
-        white-space: nowrap;
-        left: 10px;
-        width: 10%;
-        @media screen and (max-width: $large) {
-            width: 8%;
-        }
-        a {
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-        p {
-            text-align: right;
-            margin-bottom: 0.2rem;
-            @media screen and (max-width: $tablet) {
-                text-align: left;
-            }
-        }
-    }    
+	.hidden {
+		display: none;
+	}
 }
 
 .sly-container {
-    margin: 0 auto;
-    height: 100%;
-    width: 100%;
-    
-    /* Example wrapper */
-    .wrap {
-        position: relative;
-        margin: 3em 0;
-        height: 100%;
-    }
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	
+	/* Example wrapper */
+	.wrap {
+		position: relative;
+		margin: 3em 0;
+		height: 100%;
+	}
 
-    /* Frame */
-    .frame {
-        height: 250px;
-        line-height: 250px;
-        overflow: hidden;
-        height: 100%;
-    }
-    .frame ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-size: 50px;
-    }
-    .frame ul li {
-        float: left;
-        width: 227px;
-        height: 100%;
-        margin: 0 1px 0 0;
-        padding: 0;
-        color: #ddd;
-        text-align: center;
-        cursor: pointer;
-    }
+	/* Frame */
+	.frame {
+		height: 250px;
+		line-height: 250px;
+		overflow: hidden;
+		height: 100%;
+	}
+	.frame ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		font-size: 50px;
+	}
+	.frame ul li {
+		float: left;
+		width: 227px;
+		height: 100%;
+		margin: 0 1px 0 0;
+		padding: 0;
+		color: #ddd;
+		text-align: center;
+		cursor: pointer;
+	}
 
-    /* Scrollbar */
-    .scrollbar {
-        margin-top: 10px;
-        height: 2px;
-        background: #f7f7f7;
-        line-height: 0;
-    }
-    .scrollbar .handle {
-        width: 100px;
-        height: 100%;
-        background: #ccc;
-        cursor: pointer;
-    }
-    .scrollbar .handle .mousearea {
-        position: absolute;
-        top: -9px;
-        left: 0;
-        width: 100%;
-        height: 20px;
-    }
+	/* Scrollbar */
+	.scrollbar {
+		margin-top: 10px;
+		height: 2px;
+		background: #f7f7f7;
+		line-height: 0;
+	}
+	.scrollbar .handle {
+		width: 100px;
+		height: 100%;
+		background: #ccc;
+		cursor: pointer;
+	}
+	.scrollbar .handle .mousearea {
+		position: absolute;
+		top: -9px;
+		left: 0;
+		width: 100%;
+		height: 20px;
+	}
 
-    /* One Item Per Frame example */
-    .oneperframe {
-        height: 100%;
-        line-height: 300px;
-        
-        ul li {
-            background-size: contain; /* Cover is also a good idea */
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 800px;
-            min-width: 320px;
-            
-            opacity: 0.05;
-            
-            &.active {
-                opacity: 1.0;
-            }
-            
-            //No longer used
-                     img {
-                height: 90vh; //70 + 30 of the header/footer
-                opacity: 0.05;
-            }
-            //No longer used
-                     &.active {
-                img {
-                    opacity: 1.0;
-                    
-                }
-            }
-        }
-    }
+	/* One Item Per Frame example */
+	.oneperframe {
+		height: 100%;
+		line-height: 300px;
+		
+		ul li {
+			background-size: contain; /* Cover is also a good idea */
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 800px;
+			min-width: 320px;
+			
+			opacity: 0.05;
+			
+			&.active {
+				opacity: 1.0;
+			}
+			
+			//No longer used
+					 img {
+				height: 90vh; //70 + 30 of the header/footer
+				opacity: 0.05;
+			}
+			//No longer used
+					 &.active {
+				img {
+					opacity: 1.0;
+					
+				}
+			}
+		}
+	}
 }

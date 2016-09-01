@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('#Container').mixItUp();
     
-    var elements = document.querySelectorAll('.demo-image');
+    var elements = document.querySelectorAll('.zoomable-image');
     Intense(elements);
 	
 	$(document).mousemove(function(e) {
