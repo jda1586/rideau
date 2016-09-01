@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 	return res.render('landing');
 });
 //Landing v2 page
-router.get('/lv2', function(req, res, next) {
+router.get('/v2', function(req, res, next) {
 	return res.render('landing-v2');
 });
 //Eboutique and product detail pages (now they are on the same route)
@@ -65,7 +65,10 @@ router.get('/collections/:name?', function(req, res, next) {
 router.get('/about', function (req, res, next) {
 	return res.render('about');
 });
-
+//About v2
+router.get('/about-v2', function (req, res, next) {
+	return res.render('about-v2');
+});
 //Press
 router.get('/press', function (req, res, next) {
 	return res.render('press');

@@ -135,7 +135,108 @@ html.rideau {
 	p {
 		font-size: 0.9em;
 	}
+	
+	/* One full page style */
+	.one-full-page {
+		height: 100vh;
+	}
+	
+	/* New header, container, footer */
+	header.rideau {
+		background: #fff;
+		height: 60px;
+		left: 0;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 999;
 		
+		#shopping-cart {
+			margin-top: 0px;
+			max-width: 20px;
+		}
+		h5 {
+			color: $header_h_c;
+		}
+		.apc-container a {
+			font-size: 8px;
+			margin: 0 10px;
+		}
+		#rideau-logo {
+			max-width: 250px;
+			margin-top: 17px;
+			@media screen and (max-width: $tablet) {
+				max-width: 150px;
+				margin-top: 7px;
+			}
+		}
+		.header-text-container {
+			margin-top: 38px;
+			
+			.header-top-text {
+				font-size: 0.6rem;
+				letter-spacing: 2px;
+				@media screen and (max-width: $tablet) {
+					font-size: 0.6rem;
+				}
+			}
+		}
+	}
+	section.rideau {
+		margin: 0 auto;
+		overflow: auto;
+		padding: 150px 0;
+		width: 100%;
+	}
+	footer.rideau {
+		background: #fff;
+		bottom: 0;
+		height: 60px;
+		left: 0;
+		position: fixed;
+		width: 100%;
+		min-height: 65px;
+		padding: 10px;
+		
+		@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
+			height: 160px;
+		}
+		
+		.icons {
+			font-size: 8px;
+			margin-top: 15px;
+			
+			@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
+				text-align: center;
+			}
+			a {
+				display: inline-block;
+			}
+			
+			svg {
+				width: 20px;
+				height: 20px;
+				&.replaced-svg:hover path {
+					fill: $rideau-gray !important;
+				}
+			}
+		}
+		.foot-buttons {
+			text-align: center;
+			margin-top: 9px;
+			letter-spacing: 1px;
+			a {
+				font-size: 0.55rem;
+				margin-top: 10px;
+			}
+			.bordered {
+				padding: 2px 10px;
+				border: 1px solid black;
+			}
+		}		
+		
+	}
+	
 	/* Zoom images */
 	.zoom-container {
 		figcaption {
@@ -435,92 +536,11 @@ html.rideau {
 	
 	/* Press */
 	body#press {
-		#press-area {
-			.press-item {
-				margin-top: 50px;
-			}
-		}
-	}
-	
-	/* Header configuration */
-	header {
-		h5 {
-			color: $header_h_c;
-		}
-		.apc-container a {
-			font-size: 8px;
-			margin: 0 10px;
-		}
-		#rideau-logo {
-			max-width: 250px;
-			margin-top: 17px;
-			@media screen and (max-width: $tablet) {
-				max-width: 150px;
-				margin-top: 7px;
-			}
-		}
-		.header-text-container {
-			margin-top: 38px;
-			
-			.header-top-text {
-				font-size: 0.6rem;
-				letter-spacing: 2px;
-				@media screen and (max-width: $tablet) {
-					font-size: 0.6rem;
-				}
-			}
-		}
-		#shopping-cart {
-			margin-top: -40px;
-			max-width: 20px;
-		}
-	}
-	
-	/* Footer configuration */
-	footer {
-		min-height: 65px;
-		padding: 10px;
 		
-		.icons {
-			font-size: 8px;
-			@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
-				text-align: center;
-			}
-			a {
-				display: inline-block;
-			}
-			
-			svg {
-				width: 20px;
-				height: 20px;
-				&.replaced-svg:hover path {
-					fill: $rideau-gray !important;
-				}
-			}
+		.press-item {
+			margin-top: 50px;
 		}
-		.central-butons {
-			text-align: center;
-			margin-top: 4px;
-			letter-spacing: 1px;
-			a {
-				font-size: 0.8rem;
-				margin-top: 10px;
-			}
-		}
-		.right-butons {
-			text-align: center;
-			line-height: 1rem;
-			a {
-				font-size: 0.7rem;
-			}
-		}
-		.row.wide-90 {
-			max-width: none;
-			width: 90%;
-		}
-		a:hover {
-			color: $rideau-gray;
-		}
+		
 	}
 }
 
@@ -668,11 +688,6 @@ input {
   }
 }
 
-.fullpage-height {
-  height: 90vh; /* TODO: Fix this, we should be able to use 100vh and see only 1 screen height */
-  min-height: 640px;
-}
-
 /* Header configuration */
 #headera {
 	position: fixed;
@@ -712,13 +727,13 @@ input {
   height:84px;
 }
 
-.header_spacer {
-  text-align: center;
-  width: 100%;
-  z-index: 800;
-  height: 75px;
-  background-color: white;
-}
+/*.header_spacer {
+	text-align: center;
+	width: 100%;
+	z-index: 800;
+	height: 75px;
+	background-color: white;
+}*/
 
 .shopping-cart {
   margin-bottom: 4px;
@@ -770,36 +785,38 @@ input {
 }
 
 /* Vertical align */
-
 .valign-middle {
-  display: table;
-  height: 100%;
-  width: 100%;
-  .columns {
-	display: table-cell;
-	vertical-align: middle;
-	float: none;
-  }
-  [class*="column"] + [class*="column"]:last-child {
-	float: none;
-  }
+	display: table;
+	height: 100%;
+	width: 100%;
+	.columns {
+		display: table-cell;
+		vertical-align: middle;
+		float: none;
+	}
+	[class*="column"] + [class*="column"]:last-child {
+		float: none;
+	}
 }
 
 #headerpanel {
-  text-align: center;
-  position: relative;
-  display: table;
-  width: 100%;
-  .row, .columns {
-	display: table;
-	/*width: 100%;
-	height: 100%;*/
-  }
-  .spanMiddle {
-	display: table-cell;
 	text-align: center;
-	vertical-align: middle;
-  }
+	position: relative;
+	display: table;
+	width: 100%;
+	.row, .columns {
+		display: table;
+	}
+	.spanMiddle {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+	}
+}
+
+.fullpage-height {
+	height: 90vh; /* TODO: Fix this, we should be able to use 100vh and see only 1 screen height */
+	min-height: 640px;
 }
 
 /* Loading gif */
