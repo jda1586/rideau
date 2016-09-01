@@ -6,25 +6,27 @@
 	
 	<body id="landing">
 		<% include _header.ejs %>
-
-		<div class="row text-center">
-			<div class="large-12 columns margin-bottom-10">
-				<div class="fluid">
-					<iframe class="fluid-vid" src="https://player.vimeo.com/video/175421830?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		
+		<section class="rideau landing-fix">
+			<div class="row">
+				<div class="large-12 columns margin-bottom-10 no-padding">
+					<div class="fluid">
+						<iframe class="fluid-vid" src="https://player.vimeo.com/video/175421830?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
 				</div>
+				<!-- Old landing structure -->
+				<!-- <div class="large-6 small-12 margin-bottom-10 columns">
+					<a href="/lookbook/aw16-campaign">
+						<img src="/rideau-data/landing/collection-left.jpg" data-zoom-image="rideau-data/resized/collection-left.jpg" />
+					</a>
+				</div>
+				<div class="large-6 small-12 margin-bottom-10 columns">
+					<a href="/lookbook/aw16-campaign">
+						<img src="/rideau-data/landing/collection-right.jpg" data-zoom-image="rideau-data/resized/collection-right.jpg" />
+					</a>
+				</div> -->
 			</div>
-			<!-- Old landing structure -->
-			<!-- <div class="large-6 small-12 margin-bottom-10 columns">
-				<a href="/lookbook/aw16-campaign">
-					<img src="/rideau-data/landing/collection-left.jpg" data-zoom-image="rideau-data/resized/collection-left.jpg" />
-				</a>
-			</div>
-			<div class="large-6 small-12 margin-bottom-10 columns">
-				<a href="/lookbook/aw16-campaign">
-					<img src="/rideau-data/landing/collection-right.jpg" data-zoom-image="rideau-data/resized/collection-right.jpg" />
-				</a>
-			</div> -->
-		</div>
+		</section>
 		
 		<% include _footer.ejs %>
 		<% include _scripts.ejs %>

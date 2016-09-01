@@ -12,11 +12,11 @@
 }
 
 @mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+	position: $position;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 @mixin centerer($horizontal: true, $vertical: true) {
@@ -148,8 +148,8 @@ html.rideau {
 	
 	/* New header, container, footer */
 	header.rideau {
-		background: #fff;
-		height: 60px;
+		background: rgba(255, 255, 255, 0.55);
+		height: 135px;
 		left: 0;
 		position: fixed;
 		width: 100%;
@@ -163,9 +163,13 @@ html.rideau {
 		h5 {
 			color: $header_h_c;
 		}
-		.apc-container a {
-			font-size: 8px;
-			margin: 0 10px;
+		.apc-container {
+			margin-top: 5px;
+			
+			a {
+				font-size: 8px;
+				margin: 0 10px;
+			}
 		}
 		#rideau-logo {
 			max-width: 250px;
@@ -193,6 +197,11 @@ html.rideau {
 		overflow: auto;
 		padding: 170px 0;
 		width: 100%;
+		
+		&.landing-fix {
+			padding-top: 80px;
+			padding-bottom: 0px;
+		}
 	}
 	
 	footer.rideau {
@@ -236,7 +245,7 @@ html.rideau {
 			margin-top: 9px;
 			letter-spacing: 1px;
 			a {
-				font-size: 0.55rem;
+				font-size: 0.45rem;
 				margin-top: 10px;
 			}
 			.bordered {
@@ -546,6 +555,7 @@ html.rideau {
 	
 	/* Press */
 	body#press {
+		text-align: center;
 		
 		.press-item {
 			margin-top: 50px;

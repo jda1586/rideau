@@ -65,13 +65,13 @@ router.get('/collections/:name?', function(req, res, next) {
 router.get('/about', function (req, res, next) {
 	return res.render('about');
 });
-//About v2
-router.get('/about-v2', function (req, res, next) {
-	return res.render('about-v2');
-});
 //Press
 router.get('/press', function (req, res, next) {
 	return res.render('press');
+});
+//Contact
+router.get('/contact', function (req, res, next) {
+	return res.render('contact');
 });
 
 //This function must appear last on the routes
