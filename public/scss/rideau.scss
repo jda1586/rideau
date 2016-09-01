@@ -49,6 +49,7 @@ $short: 300px;
 
 /* Body color */
 $body_c: #000;
+$rideau-gray: #444;
 
 /* Input, Textarea */
 $input_b_c: #a9a9a9; // Input background
@@ -119,6 +120,12 @@ $accordeon_t_c: #ffffff; // Accordeon title color
 /* Rideau core */
 html.rideau {
 	background-color: white;
+	
+	/* All transitions */
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
 	
 	h1, h2, h3, h4, h5, h6, p {
 		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
@@ -439,8 +446,16 @@ html.rideau {
 		//
 	}
 	
+	/* Footer configuration */
 	footer {
+		min-height: 65px;
+		padding: 10px;
+		
 		.icons {
+			font-size: 8px;
+			@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
+				text-align: center;
+			}
 			a {
 				display: inline-block;
 			}
@@ -449,38 +464,32 @@ html.rideau {
 				width: 20px;
 				height: 20px;
 				&.replaced-svg:hover path {
-					fill: #666 !important;
+					fill: $rideau-gray !important;
 				}
 			}
-			
-			.rideau-instagram {
-				background-image: url(/rideau-data/social-networks/instagram.svg);
-				background-size: contain;
-				background-position: center center;
-				width: 20px;
-				height: 20px;
+		}
+		.central-butons {
+			text-align: center;
+			margin-top: 4px;
+			letter-spacing: 1px;
+			a {
+				font-size: 0.8rem;
+				margin-top: 10px;
 			}
-			.rideau-tumblr {
-				background-image: url(/rideau-data/social-networks/tumblr.svg);
-				background-size: contain;
-				background-position: center center;
-				width: 20px;
-				height: 20px;
+		}
+		.right-butons {
+			text-align: center;
+			line-height: 1rem;
+			a {
+				font-size: 0.7rem;
 			}
-			.rideau-twitter {
-				background-image: url(/rideau-data/social-networks/twitter.svg);
-				background-size: contain;
-				background-position: center center;
-				width: 20px;
-				height: 20px;
-			}
-			.rideau-vimeo {
-				background-image: url(/rideau-data/social-networks/vimeo.svg);
-				background-size: contain;
-				background-position: center center;
-				width: 20px;
-				height: 20px;
-			}
+		}
+		.row.wide-90 {
+			max-width: none;
+			width: 90%;
+		}
+		a:hover {
+			color: $rideau-gray;
 		}
 	}
 }
@@ -634,55 +643,6 @@ input {
   min-height: 640px;
 }
 
-/* Footer configuration (old configuration for the sticky header) */
-#footera {
-  position: fixed;
-  left: 0%;
-  bottom: 0;
-  line-height: 60px;
-  height: 60px;
-  width: 100%;
-  background: white;
-  visibility: visible;
-  opacity: 1;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-footer {
-	min-height: 65px;
-	padding: 10px;
-	.icons {
-		@media screen and (max-width: $large) { /* TODO: Improve this hardcode, we should use the variable $breakpoints, large from _settings.css */
-			text-align: center;
-		}
-		font-size: 8px;
-	}
-	.central-butons {
-		text-align: center;
-		margin-top: 4px;
-		letter-spacing: 1px;
-		a {
-			font-size: 0.8rem;
-			margin-top: 10px;
-		}
-	}
-	.right-butons {
-		text-align: center;
-		line-height: 1rem;
-		a {
-			font-size: 0.7rem;
-		}
-	}
-	.row.wide-90 {
-		max-width: none;
-		width: 90%;
-	}
-	a:hover {
-		color: black;
-	}
-}
-
 /* Header configuration */
 #headera {
 	position: fixed;
@@ -694,7 +654,6 @@ footer {
 	background: white;
 	visibility: visible;
 	background-color: rgba(255, 255, 255, 0.7);
-	transition: all 0.3s ease;
 	z-index: 999;
 
 	@media screen and (max-width: $tablet) {
@@ -707,7 +666,6 @@ footer {
 .hidden {
   visibility: hidden;
   opacity: 0;
-  transition: all 0.3s ease;
 }
 
 .nodisplay {
