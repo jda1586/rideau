@@ -46,7 +46,7 @@
                                     <ul class="clearfix">
                                         <% for(var i = 0; i < album.images.length; i++) { %>
                                             <li look-id="<%= i %>">
-                                                <img src="/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>" class="demo-image" data-image="/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>" data-title="title" data-caption="caption" />
+                                                <img src="/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>" class="zoomable-image closed" data-image="/rideau-data/collections/<%= album.name %>/hd/<%= album.images[i] %>" data-title="Look <%= i + 1 %>" data-caption="DYLAN GRANGER" />
                                             </li>
                                         <% } %>
                                     </ul>
