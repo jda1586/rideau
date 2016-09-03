@@ -69,6 +69,14 @@ router.get('/about', function (req, res, next) {
 router.get('/press', function (req, res, next) {
 	return res.render('press');
 });
+//Sizing
+router.get('/sizing', function (req, res, next) {
+	return res.render('sizing');
+});
+//Stockist
+router.get('/stockist', function (req, res, next) {
+	return res.render('stockist');
+});
 //Contact
 router.get('/contact', function (req, res, next) {
 	return res.render('contact');
