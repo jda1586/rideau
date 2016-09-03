@@ -95,16 +95,16 @@ $accordeon_t_c: #ffffff; // Accordeon title color
 
 /* Font configuration */
 @font-face {
-  font-family: 'AkzidenzGrotesk-Light';
-  src: url('../fonts/AkzidenzGrotesk-Light.eot');
-  src: url('../fonts/AkzidenzGrotesk-Light.woff2') format("woff2"), url('../fonts/AkzidenzGrotesk-Light.woff') format("woff"), url('../fonts/AkzidenzGrotesk-Light.ttf') format("truetype"), url('../fonts/AkzidenzGrotesk-Light.svg#AkzidenzGrotesk-Light') format("svg"), url('../fonts/AkzidenzGrotesk-Light.eot?#iefix') format("embedded-opentype");
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'AkzidenzGrotesk-Light';
+	src: url('../fonts/AkzidenzGrotesk-Light.eot');
+	src: url('../fonts/AkzidenzGrotesk-Light.woff2') format("woff2"), url('../fonts/AkzidenzGrotesk-Light.woff') format("woff"), url('../fonts/AkzidenzGrotesk-Light.ttf') format("truetype"), url('../fonts/AkzidenzGrotesk-Light.svg#AkzidenzGrotesk-Light') format("svg"), url('../fonts/AkzidenzGrotesk-Light.eot?#iefix') format("embedded-opentype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: Sackers;
-  src: url("../fonts/SackersGothicStd-Light.otf") format("opentype");
+	font-family: 'Sackers';
+	src: url("../fonts/SackersGothicStd-Light.otf") format("opentype");
 }
 
 /* The font from the internet */
@@ -127,6 +127,17 @@ html.rideau {
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	
+	/* Fonts */
+	.akzidenz {
+		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+		letter-spacing: 3px;
+	}
+
+	.sackers {
+		font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+	}
+	
+	/* The default font is Akzidenz */
 	h1, h2, h3, h4, h5, h6, p {
 		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
 		letter-spacing: 2px;
@@ -578,22 +589,30 @@ html.rideau {
 	
 	/* Themes (generical pages like stockist and sizing, try to stick as much as possible to these themes) */
 	.seven-style-theme {
+		font
+	
 		.left-box {
 			.title {
-				//
+				font-weight: bold;
+				font-size: 1.2em;
+				letter-spacing: 2px;
 			}
 		}
 		.right-box {
 			.title {
-				//
+				font-weight: bold;
+				font-size: 1em;
+				letter-spacing: 2px;
 			}
 			.box-item {
-				//
-				//
-				//
+				font-weight: bold;
+				font-size: 1.5em;
+				letter-spacing: 0px;
 				
 				.box-title {
-					//
+					font-weight: bold;
+					font-size: 1.5em;
+					letter-spacing: 0px;
 				}
 			}
 		}
@@ -610,16 +629,6 @@ body, h1, h2, h3, h4, h5, h6, p {
   letter-spacing: 2px;
   color: $body_c;
 }*/
-
-/* Fonts */
-.akzidenz {
-	font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
-	letter-spacing: 3px;
-}
-
-.sackers {
-	font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-}
 
 /* Dreaded blue box */
 :focus {
