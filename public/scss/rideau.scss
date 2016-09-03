@@ -117,6 +117,10 @@ $accordeon_t_c: #ffffff; // Accordeon title color
   font-style: normal;
 }*/
 
+/* Vars */
+$sackers_font: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+$akzidenz_font: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+
 /* Rideau core */
 html.rideau {
 	background-color: white;
@@ -129,22 +133,19 @@ html.rideau {
 	
 	/* Fonts */
 	.akzidenz {
-		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+		font-family: $akzidenz_font;
 		letter-spacing: 3px;
 	}
 
 	.sackers {
-		font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+		font-family: $sackers_font;
 	}
 	
 	/* The default font is Akzidenz */
 	h1, h2, h3, h4, h5, h6, p {
-		font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+		font-family: $akzidenz_font;
 		letter-spacing: 2px;
 		color: $body_c;
-	}
-	p {
-		font-size: 0.9em;
 	}
 	
 	/* One full page style */
@@ -205,8 +206,8 @@ html.rideau {
 	
 	section.rideau {
 		margin: 0 auto;
-		overflow: auto;
-		padding: 170px 0;
+		overflow: none;
+		padding: 180px 0;
 		width: 100%;
 		
 		&.landing-fix {
@@ -274,11 +275,11 @@ html.rideau {
 	.zoom-container {
 		figcaption {
 			h1 {
-				font-family: Sackers;
+				font-family: $sackers_font;
 				font-size: 25px;
 			}
 			h2 {
-				font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+				font-family: $akzidenz_font;
 				font-size: 14px;
 				letter-spacing: 3px;
 			}
@@ -329,7 +330,7 @@ html.rideau {
 				text-shadow: 0 0 1px rgba(255, 255, 255, 1);
 			}
 			.look-span {
-				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				font-family: $sackers_font;
 			}
 		}
 
@@ -515,7 +516,7 @@ html.rideau {
 				}
 			}
 			.title {
-				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				font-family: $sackers_font;
 				font-size: 0.75rem;
 				letter-spacing: 0px;
 				font-weight: bold;
@@ -525,7 +526,7 @@ html.rideau {
 				font-size: 0.7rem;
 			}
 			.item-name {
-				font-family: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				font-family: $sackers_font;
 				font-size: 1.2rem;
 				font-weight: bold;
 				letter-spacing: 1px;
@@ -587,32 +588,49 @@ html.rideau {
 		
 	}
 	
+	
 	/* Themes (generical pages like stockist and sizing, try to stick as much as possible to these themes) */
 	.seven-style-theme {
-		font
+		height: 100%;
+		
+		h1, h2, h3, h4, h5, h6, p {
+			font-family: $sackers_font;
+			font-size: 0.75em;
+			letter-spacing: 0px;
+			line-height: 0.8;
+		}
+		
+		p {
+			line-height: 1.2;
+			margin-bottom: 0.5em;
+		}
 	
 		.left-box {
 			.title {
 				font-weight: bold;
-				font-size: 1.2em;
-				letter-spacing: 2px;
+				font-size: 1.1em;
+				letter-spacing: 1px;
+				text-align: right;
+				margin-right: 33px;
 			}
 		}
 		.right-box {
 			.title {
+				margin-bottom: 40px;
 				font-weight: bold;
-				font-size: 1em;
-				letter-spacing: 2px;
+				letter-spacing: 1px;
 			}
 			.box-item {
-				font-weight: bold;
-				font-size: 1.5em;
-				letter-spacing: 0px;
+				margin-top: 40px;
+			
+				.phone {
+					margin-top: 30px;
+				}
 				
 				.box-title {
 					font-weight: bold;
-					font-size: 1.5em;
-					letter-spacing: 0px;
+					font-size: 1.1em;
+					margin-bottom: 25px;
 				}
 			}
 		}
@@ -1032,8 +1050,8 @@ input {
 						&.btn-qty {
 							width: 20px;
 							margin-top: 0px;
-						}							
-					}					   
+						}
+					}
 				}
 			}
 		}
@@ -1454,7 +1472,7 @@ body.modal-open {
 			}
 			
 			//No longer used
-					 img {
+			 img {
 				height: 90vh; //70 + 30 of the header/footer
 				opacity: 0.05;
 			}
