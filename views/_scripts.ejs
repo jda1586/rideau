@@ -17,13 +17,16 @@
 
 <script>
 	$(document).ready(function() {
-		$(window).resize(adjustLayout);
-		function adjustLayout(){
-			var a = (($(document).height() - $('section.rideau').height()) / 2) * 0.9;
-			$('section.rideau').css("padding-top", a + "px");
-			$('section.rideau').css("padding-top", a + "px");
+		function adjustLayout() {
+			var sectionRideau = $('section.rideau');
+			var newPadding = (($(document).height() - sectionRideau.height()) / 2) * 0.8;
+			
+			sectionRideau.css("padding-top", newPadding + "px");
+			sectionRideau.css("padding-bottom", newPadding + "px");
 		}
+		$(window).resize(adjustLayout);
 		
+		adjustLayout();
 	});
 </script>
 
