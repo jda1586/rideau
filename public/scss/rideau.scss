@@ -34,17 +34,6 @@
   }
 }
 
-/* For width */
-$mobile: 320px;
-$tablet: 640px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
-
-/* For height */
-$tall: 600px;
-$short: 300px;
-
 /* Colors configuration */
 
 /* Body color */
@@ -117,9 +106,20 @@ $accordeon_t_c: #ffffff; // Accordeon title color
   font-style: normal;
 }*/
 
-/* Vars */
+/* Variables */
 $sackers_font: Sackers, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 $akzidenz_font: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif;
+
+/* For width */
+$mobile: 320px;
+$tablet: 640px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+/* For height */
+$tall: 600px;
+$short: 300px;
 
 /* Rideau core */
 html.rideau {
@@ -581,7 +581,21 @@ html.rideau {
 	
 	/* Sizing */
 	body#sizing {
-		
+		.sizing-table {
+			font-family: $sackers_font;
+			width: 100%;
+			border: none;
+			
+			tr {
+				background: none;
+				
+				td {
+					text-align: center;
+					font-size: 0.55em;
+					padding: 2.3px 0;
+				}
+			}
+		}
 	}
 	
 	/* Stockist */
@@ -616,14 +630,14 @@ html.rideau {
 			}
 		}
 		.right-box {
+			margin-bottom: 80px;
+			
 			.title {
-				margin-bottom: 40px;
+				margin-bottom: 16px;
 				font-weight: bold;
 				letter-spacing: 1px;
 			}
 			.box-item {
-				margin-top: 40px;
-			
 				.phone {
 					margin-top: 30px;
 				}
