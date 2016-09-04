@@ -10,11 +10,13 @@
 <script src="/javascripts/sly/plugins.js"></script>
 <script src="/javascripts/sly/sly.js"></script>
 
+<!-- Sweetalert -->
+<script src="/plugins/sweet-alert/sweetalert.min.js"></script>
+
 <!-- Own scripts -->
 <script src="/javascripts/rideau.js"></script>
 
-<!-- Clean scripts -->
-
+<!-- Clean inline scripts -->
 <script>
 	$(document).ready(function() {
 		function adjustLayout() {
@@ -30,6 +32,7 @@
 	});
 </script>
 
+<!-- Unclean inline scripts -->
 <script>
 	//Hide prices in eboutique (TODO: Relocate pls)
 	$(".outer").hover(function() {
