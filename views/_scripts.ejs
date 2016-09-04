@@ -13,6 +13,23 @@
 <!-- Own scripts -->
 <script src="/javascripts/rideau.js"></script>
 
+<!-- Clean scripts -->
+
+<script>
+	$(document).ready(function() {
+		function adjustLayout() {
+			var sectionRideau = $('section.rideau');
+			var newPadding = (($(document).height() - sectionRideau.height()) / 2) * 0.8;
+			
+			sectionRideau.css("padding-top", newPadding + "px");
+			sectionRideau.css("padding-bottom", newPadding + "px");
+		}
+		$(window).resize(adjustLayout);
+		
+		adjustLayout();
+	});
+</script>
+
 <script>
 	//Hide prices in eboutique (TODO: Relocate pls)
 	$(".outer").hover(function() {
@@ -20,7 +37,7 @@
 	});
 
 	$(".outer").mouseleave(function() {
-		$(this).find(".inner").css("visibility","hidden");
+		$(this).find(".inner").css("visibility", "hidden");
 	});
 	
 	$(document).ready(function() {
