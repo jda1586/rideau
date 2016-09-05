@@ -24,7 +24,7 @@
 							<a href="#" data-reveal-id="login-modal">WHOLESALER ACCESS</a>
 						</div>
 						<div class="small-12 medium-12 large-2 columns">
-							<a class="bordered" href="#" data-reveal-id="subscription-modal">SUBSCRIBE</a>
+							<a class="subscribe bordered">SUBSCRIBE</a>
 						</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 				<div class="row">
 					<div class="foot-buttons">
 						<div class="small-12 large-2 columns">
-							<a class="bordered" href="/press">SUBSCRIBE</a>
+							<a class="subscribe bordered">SUBSCRIBE</a>
 						</div>
 						<div class="small-12 large-4 columns">
 							<a href="/press">WHOLESALER ACCESS</a>
@@ -273,6 +273,28 @@
 					}
 					$('#login-modal').foundation('reveal', 'close');
 				}
+			});
+		});
+		
+		$("a.subscribe").click(function() {
+			swal({
+			  title: "An input!",
+			  text: "Write something interesting:",
+			  type: "input",
+			  showCancelButton: true,
+			  closeOnConfirm: false,
+			  animation: "pop",
+			  inputPlaceholder: "Write something"
+			},
+			function(inputValue){
+			  if (inputValue === false) return false;
+			  
+			  if (inputValue === "") {
+				swal.showInputError("You need to write something!");
+				return false
+			  }
+			  
+			  swal("Nice!", "You wrote: " + inputValue, "success");
 			});
 		});
 	});
