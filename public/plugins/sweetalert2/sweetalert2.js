@@ -581,7 +581,7 @@
 
     // Cancel button
     if (params.showCancelButton) {
-      //$cancelBtn.style.display = 'inline-block'; //Disabled
+      $cancelBtn.style.display = 'block'; //Disabled
     } else {
       hide($cancelBtn);
     }

@@ -24,6 +24,7 @@
 	overflow-y: auto;
 	display: none;
 	z-index: 2000;
+	color: #FFF;
 	&:focus {
 		outline: none;
 	}
@@ -150,7 +151,11 @@
 		margin: 0;
 		padding: 0;
 		line-height: normal;
-		color: #555;
+		color: #FFF;
+		p {
+			color: #FFF;
+			margin: auto;
+		}
 	}
 	.swal2-icon {
 		width: 80px;
@@ -295,7 +300,7 @@
 		}
 	}
 	.swal2-input, .swal2-textarea, .swal2-select, .swal2-radio, .swal2-checkbox {
-		margin: 20px auto;
+		margin: 5px auto;
 	}
 	.swal2-input:not([type="file"]), .swal2-textarea {
 		width: 100%;
