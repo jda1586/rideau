@@ -284,7 +284,6 @@
 				cancelButtonText: '',
 				showCancelButton: true,
 				showLoaderOnConfirm: true,
-				allowOutsideClick: false,
 				preConfirm: function(email) {
 					return new Promise(function(resolve, reject) {
 						setTimeout(function() {
@@ -306,29 +305,17 @@
 		});
 		
 		$("a.wholesaler-access").click(function() {
+			//For this alert we are using a different process since SweetAlerts has no username & password dialog type
 			swal({
-				//title: 'Login', //Aren't we using a title?
-				input: 'email',
-				confirmButtonText: 'Log in',
-				cancelButtonText: '',
+				confirmButtonText: 'Continue',
 				showCancelButton: true,
-				showLoaderOnConfirm: true,
-				allowOutsideClick: false,
-				preConfirm: function(email) {
-					return new Promise(function(resolve, reject) {
-						setTimeout(function() {
-						if (email === 'taken@example.com') {
-							reject('This email is already taken.');
-						} else {
-							resolve();
-						}
-						}, 1000);
-					});
-				}
-			}).then(function(email) {
+				html: "<p class='text-left'>Username:</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>Password:</p><input class='swal2-input wholesaler-access pass' type='password'>"
+			}).then(function() {
+				var user = $('.wholesaler-access.user').val(),
+					pass = $('.wholesaler-access.pass').val();
+					
 				swal({
-					title: 'You are now subscribed',
-					background: "#000",
+					title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
 					showCancelButton: false
 				});
 			});
