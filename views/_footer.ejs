@@ -21,7 +21,7 @@
 							<a href="#" data-reveal-id="info-modal">INFORMATION</a>
 						</div>
 						<div class="small-12 medium-12 large-4 columns">
-							<a href="#" data-reveal-id="login-modal">WHOLESALER ACCESS</a>
+							<a class="wholesaler-access">WHOLESALER ACCESS</a>
 						</div>
 						<div class="small-12 medium-12 large-2 columns">
 							<a class="subscribe bordered">SUBSCRIBE</a>
@@ -299,7 +299,37 @@
 			}).then(function(email) {
 				swal({
 					title: 'You are now subscribed',
-					background: "#000"
+					background: "#000",
+					showCancelButton: false
+				});
+			});
+		});
+		
+		$("a.wholesaler-access").click(function() {
+			swal({
+				//title: 'Login', //Aren't we using a title?
+				input: 'email',
+				confirmButtonText: 'Log in',
+				cancelButtonText: '',
+				showCancelButton: true,
+				showLoaderOnConfirm: true,
+				allowOutsideClick: false,
+				preConfirm: function(email) {
+					return new Promise(function(resolve, reject) {
+						setTimeout(function() {
+						if (email === 'taken@example.com') {
+							reject('This email is already taken.');
+						} else {
+							resolve();
+						}
+						}, 1000);
+					});
+				}
+			}).then(function(email) {
+				swal({
+					title: 'You are now subscribed',
+					background: "#000",
+					showCancelButton: false
 				});
 			});
 		});
