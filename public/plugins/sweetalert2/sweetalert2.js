@@ -30,7 +30,6 @@
     'icon',
     'image',
     'input',
-    'userpass',
     'select',
     'radio',
     'checkbox',
@@ -105,8 +104,6 @@
       '<h2></h2>' +
       '<div class="' + swalClasses.content + '"></div>' +
       '<input class="' + swalClasses.input + '">' +
-      '<input class="' + swalClasses.userpass + ' user">' +
-      '<input class="' + swalClasses.userpass + ' pass">' +
       '<select class="' + swalClasses.select + '"></select>' +
       '<div class="' + swalClasses.radio + '"></div>' +
       '<label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">' +
