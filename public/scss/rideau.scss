@@ -564,14 +564,22 @@ html.rideau {
 					}
 				}
 			}
-			.cart-button {
-				margin-top: 10px;
-				width: 100%;
-				max-width: 200px;
-				
+			a.cart-button {
+				.cart-icon {
+					margin-top: -5px;
+				}
+				p {
+					display: inline-block;
+					font-weight: bold;
+					color: white;
+				}			
 				&.disabled {
 					background-color: #AAA;
 				}
+				
+				margin-top: 10px;
+				width: 100%;
+				max-width: 200px;
 			}
 			#back-button {
 				letter-spacing: 0px;

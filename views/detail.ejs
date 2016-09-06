@@ -88,7 +88,7 @@
 						</span>
 						<br/>
 						<a class="cart-button tiny button disabled">
-							<strong>ADD TO</strong>
+							<p><strong>ADD TO</strong></p>
 							<img class="cart-icon" src="/rideau-data/shopping/shop-white.png" />
 						</a>
 					</div>
@@ -205,11 +205,10 @@
 					var item = { name : "TEST", category: "ADF", price: 2342, color: "R", date: new Date() };
 					storedCart.push(item);
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
-					console.log(storedCart);
+					
 					
 					
 					$('.cart-button .cart-count').html(storedCart.length);
-					//$('.cart-icon').fadeOut(250);$('.cart-count').fadeIn(250);
 					
 					$('header .cart-icon').fadeOut(250, function() {
 						$('header .cart-count').fadeIn(250, function() {
