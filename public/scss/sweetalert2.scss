@@ -64,18 +64,16 @@
 			margin: 0 5px;
 			cursor: pointer;
 			
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			
 			&.swal2-confirm {
 				display: block;
-				margin-top: 20px;
-				margin-left: auto;
-				margin-right: auto;
 				
 			}
 			&.swal2-cancel {
 				display: block;
-				margin-top: 20px;
-				margin-left: auto;
-				margin-right: auto;
 				height: 40px;
 				background-color: none;
 				background-image: url("/rideau-data/extras/modal-close.png");
@@ -96,7 +94,6 @@
 				width: 40px;
 				height: 40px;
 				padding: 0;
-				margin: -2px 30px;
 				vertical-align: top;
 				background-color: transparent !important;
 				color: transparent;
@@ -328,6 +325,7 @@
 	}
 	.swal2-input {
 		background-color: #A9A9A9;
+		color: white;
 		//text-align: center; //Disabled
 	
 		&:not([type="file"]) {
