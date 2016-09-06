@@ -87,9 +87,9 @@
 							<% } %>
 						</span>
 						<br/>
-						<a class="add-cart tiny button disabled">
+						<a class="cart-button tiny button disabled">
 							<strong>ADD TO</strong>
-							<img class="shopping-cart" src="/rideau-data/shopping/shop-white.png" />
+							<img class="cart-icon" src="/rideau-data/shopping/shop-white.png" />
 						</a>
 					</div>
 				</div>
@@ -121,7 +121,7 @@
 				//The one per frame image Sly slider
 				(function () {
 					var $wrap  = $oneperframe.parent();
-
+					
 					//Call Sly on frame
 					$oneperframe.sly({
 						horizontal: 1,
@@ -140,7 +140,7 @@
 						dragHandle: 1,
 						dynamicHandle: 1,
 						clickBar: 0,
-
+						
 						//Buttons
 						prev: $wrap.find('.prev'),
 						next: $wrap.find('.next')
@@ -189,17 +189,36 @@
 				sizeChooser.on('click', function(el) {
 					sizeChooser.removeClass('selected'); //Remove all selected classes
 					$(el.target).addClass('selected');
-					$('.add-cart.button').removeClass('disabled');
+					$('.cart-button.button').removeClass('disabled');
 				});
 				
 				/* Add to cart button */
-				$('.add-cart.button').on('click', function() {
+				$('.cart-button.button').on('click', function() {
 					if (!sizeChooser.hasClass('selected')) {
 						$('.size-chooser').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); //Flash the size selector
 						return;
 					}
 					
 					//
+					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
+					if (_.isEmpty(storedCart)) storedCart = [];
+					var item = { name : "TEST", category: "ADF", price: 2342, color: "R", date: new Date() };
+					storedCart.push(item);
+					localStorage.setItem("storedCart", JSON.stringify(storedCart));
+					console.log(storedCart);
+					
+					//$('.cart-icon').fadeOut(250);$('.cart-count').fadeIn(250); 
+					
+					$('header .cart-icon').fadeOut(250, function() {
+						$('header .cart-count').fadeIn(250, function() {
+							$('header .cart-count').fadeOut(250, function() {
+								$('header .cart-icon').fadeIn(250, function() {
+									//alert('done');
+									console.log("a done");
+								});
+							});
+						});
+					});
 					
 				});
 				
@@ -208,7 +227,6 @@
 					var frm = $('#oneperframe');
 					frm.sly('reload');
 				}
-				
 				fixImageSize();
 			});
 		</script>
