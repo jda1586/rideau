@@ -158,6 +158,19 @@ html.rideau {
 		margin-top: 8px;
 	}
 	
+	a.cart-button {
+		.cart-icon {
+			width: 15px;
+			margin-left: 5px;
+		}
+		.cart-count {
+			display: none;
+			margin-top: 5px;
+			font-size: 0.8em;
+			margin-right: 0px;
+		}
+	}
+	
 	/* New header, container, footer */
 	header.rideau {
 		background: rgba(255, 255, 255, 0.55);
@@ -168,10 +181,6 @@ html.rideau {
 		top: 0;
 		z-index: 999;
 		
-		#shopping-cart {
-			margin-top: 0px;
-			max-width: 20px;
-		}
 		h5 {
 			color: $header_h_c;
 		}
@@ -544,14 +553,30 @@ html.rideau {
 				&.blue { background-color: #4343ed; }
 				&.green { background-color: #57e09b; }
 			}
-			#size-chooser {
+			.size-chooser {
 				p {
 					margin: 0px 5px;
 					display: inline-block;
 					cursor: pointer;
+					
+					&.selected {
+						font-weight: bold;
+					}
 				}
 			}
-			#add-cart {
+			a.cart-button {
+				.cart-icon {
+					margin-top: -5px;
+				}
+				p {
+					display: inline-block;
+					font-weight: bold;
+					color: white;
+				}			
+				&.disabled {
+					background-color: #AAA;
+				}
+				
 				margin-top: 10px;
 				width: 100%;
 				max-width: 200px;
@@ -726,28 +751,6 @@ label {
   color: $label_c;
 }
 
-button {
-  font-family: AkzidenzGrotesk-Light, AkzidenzGrLt, Akzidenz Gr Lt Regular, sans-serif !important;
-  letter-spacing: 3px;
-  background: $button_b_c;
-  color: $button_c;
-  &:hover, 
-  &:active, 
-  &:focus {
-	background: $button_f_b;
-	color: $button_c;
-  }
-  &:focus {
-	border: 1px solid $button_c;
-  }
-}
-
-button, .button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 0.4rem 2rem 0.51rem 2rem;
-}
-
 a {
 	color: $link_c;
 	
@@ -859,12 +862,6 @@ input {
 	height: 75px;
 	background-color: white;
 }*/
-
-.shopping-cart {
-  margin-bottom: 4px;
-  margin-left: 6px;
-  width: 13px;
-}
 
 .header-bot-buttons {
   h6 {

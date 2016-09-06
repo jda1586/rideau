@@ -81,15 +81,15 @@
 				<div class="box-container">
 					<p class="title"><strong>SIZE</strong></p>
 					<div class="text-center">
-						<span id="size-chooser">
+						<span class="size-chooser">
 							<% for(var i = 0; i <= 6; i++) { %>
 								   <p class="text-center size-<%= i %>"><%= i %></p>
 							<% } %>
 						</span>
 						<br/>
-						<a id="add-cart" class="tiny button" data-reveal-id="addedtocart-modal">
-							<strong>ADD TO</strong>
-							<img class="shopping-cart" src="/rideau-data/shopping/shop-white.png" />
+						<a class="cart-button tiny button disabled">
+							<p><strong>ADD TO</strong></p>
+							<img class="cart-icon" src="/rideau-data/shopping/shop-white.png" />
 						</a>
 					</div>
 				</div>
@@ -121,7 +121,7 @@
 				//The one per frame image Sly slider
 				(function () {
 					var $wrap  = $oneperframe.parent();
-
+					
 					//Call Sly on frame
 					$oneperframe.sly({
 						horizontal: 1,
@@ -140,7 +140,7 @@
 						dragHandle: 1,
 						dynamicHandle: 1,
 						clickBar: 0,
-
+						
 						//Buttons
 						prev: $wrap.find('.prev'),
 						next: $wrap.find('.next')
@@ -183,22 +183,52 @@
 					});
 				});
 				
+				
+				/* Size chooser buttons */
+				var sizeChooser = $('.size-chooser p');
+				sizeChooser.on('click', function(el) {
+					sizeChooser.removeClass('selected'); //Remove all selected classes
+					$(el.target).addClass('selected');
+					$('.cart-button.button').removeClass('disabled');
+				});
+				
+				/* Add to cart button */
+				$('.cart-button.button').on('click', function() {
+					if (!sizeChooser.hasClass('selected')) {
+						$('.size-chooser').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); //Flash the size selector
+						return;
+					}
+					
+					//
+					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
+					if (_.isEmpty(storedCart)) storedCart = [];
+					var item = { name : "TEST", category: "ADF", price: 2342, color: "R", date: new Date() };
+					storedCart.push(item);
+					localStorage.setItem("storedCart", JSON.stringify(storedCart));
+					
+					
+					
+					$('.cart-button .cart-count').html(storedCart.length);
+					
+					$('header .cart-icon').fadeOut(250, function() {
+						$('header .cart-count').fadeIn(250, function() {
+							$('header .cart-count').fadeOut(250, function() {
+								$('header .cart-icon').fadeIn(250, function() {
+									//alert('done');
+									console.log("a done");
+								});
+							});
+						});
+					});
+					
+				});
+				
 				function fixImageSize() {
 					$('li').css('width', $('#oneperframe').width());
 					var frm = $('#oneperframe');
 					frm.sly('reload');
 				}
-				
 				fixImageSize();
-				
-				$('input#size-0').trigger('click');
-				
-				/* Size chooser */
-				$('#size-chooser p').on('click', function(el) {
-					console.log(el.target);
-					//TODO: Remove all selected classes
-					$(el.target).addClass('selected');
-				});
 			});
 		</script>
 		
