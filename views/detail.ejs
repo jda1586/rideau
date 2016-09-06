@@ -207,7 +207,9 @@
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					console.log(storedCart);
 					
-					//$('.cart-icon').fadeOut(250);$('.cart-count').fadeIn(250); 
+					
+					$('.cart-button .cart-count').html(storedCart.length);
+					//$('.cart-icon').fadeOut(250);$('.cart-count').fadeIn(250);
 					
 					$('header .cart-icon').fadeOut(250, function() {
 						$('header .cart-count').fadeIn(250, function() {
