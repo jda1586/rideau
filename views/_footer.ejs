@@ -278,23 +278,31 @@
 		
 		$("a.subscribe").click(function() {
 			swal({
-			  title: "An input!",
-			  text: "Write something interesting:",
-			  type: "input",
-			  showCancelButton: true,
-			  closeOnConfirm: false,
-			  animation: "pop",
-			  inputPlaceholder: "Write something"
-			},
-			function(inputValue){
-			  if (inputValue === false) return false;
-			  
-			  if (inputValue === "") {
-				swal.showInputError("You need to write something!");
-				return false
-			  }
-			  
-			  swal("Nice!", "You wrote: " + inputValue, "success");
+				title: 'Sign up for our newsletter',
+				input: 'email',
+				confirmButtonText: 'Continue',
+				cancelButtonText: '',
+				showCancelButton: true,
+				showLoaderOnConfirm: true,
+				allowOutsideClick: false,
+				preConfirm: function(email) {
+					return new Promise(function(resolve, reject) {
+						setTimeout(function() {
+						if (email === 'taken@example.com') {
+							reject('This email is already taken.');
+						} else {
+							resolve();
+						}
+						}, 2000);
+					});
+				}
+			}).then(function(email) {
+				swal({
+					title: 'Ajax request finished!',
+					type: 'success',
+					background: "#000",
+					html: 'Submitted email: ' + email
+				});
 			});
 		});
 	});
