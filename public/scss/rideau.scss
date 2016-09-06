@@ -544,17 +544,25 @@ html.rideau {
 				&.blue { background-color: #4343ed; }
 				&.green { background-color: #57e09b; }
 			}
-			#size-chooser {
+			.size-chooser {
 				p {
 					margin: 0px 5px;
 					display: inline-block;
 					cursor: pointer;
+					
+					&.selected {
+						font-weight: bold;
+					}
 				}
 			}
-			#add-cart {
+			.add-cart {
 				margin-top: 10px;
 				width: 100%;
 				max-width: 200px;
+				
+				&.disabled {
+					background-color: #AAA;
+				}
 			}
 			#back-button {
 				letter-spacing: 0px;
