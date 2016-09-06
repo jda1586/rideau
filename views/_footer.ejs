@@ -293,15 +293,13 @@
 						} else {
 							resolve();
 						}
-						}, 200000);
+						}, 1000);
 					});
 				}
 			}).then(function(email) {
 				swal({
-					title: 'Ajax request finished!',
-					type: 'success',
-					background: "#000",
-					html: 'Submitted email: ' + email
+					title: 'You are now subscribed',
+					background: "#000"
 				});
 			});
 		});
