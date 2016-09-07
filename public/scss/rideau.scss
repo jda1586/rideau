@@ -489,11 +489,12 @@ html.rideau {
 			text-align: center;
 			width: 100%;
 			padding: 10px;
+			
 			@media screen and (min-width: $tablet) {
 				position: fixed;
 				top: 25%;
 				right: 30px;
-				width: 280px;
+				width: 340px;
 				text-align: left;
 				vertical-align: middle;
 			}
