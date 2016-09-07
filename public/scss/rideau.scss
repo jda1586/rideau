@@ -173,28 +173,9 @@ html.rideau {
 		h5 {
 			color: $header_h_c;
 		}
-		.apc-container {
-			margin-top: 5px;
-			
-			a {
-				font-size: 8px;
-				margin: 0 10px;
-			}
-		}
 		
 		@import '../rideau-data/header/style.scss';
 		
-		.header-text-container {
-			margin-top: 38px;
-			
-			.header-top-text {
-				font-size: 0.6rem;
-				letter-spacing: 2px;
-				@media screen and (max-width: $tablet) {
-					font-size: 0.6rem;
-				}
-			}
-		}
 		#collections-modal {
 			p {
 				margin-bottom: 8px;
@@ -598,6 +579,10 @@ html.rideau {
 	/* About */
 	body#about {
 		//
+		p {
+			font-size: 13px;
+			text-align: center;
+		}
 	}
 	
 	/* Press */

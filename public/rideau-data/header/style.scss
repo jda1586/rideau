@@ -3,13 +3,36 @@
 // - Always end style definitions (with the structure key: value) with a semicolon (;) or the processor will fail to process the file
 // - Use em's as much as possible for font-size rules, this will help the mobile experience. 16px is 1em always, see (http://pxtoem.com/)
 
-#rideau-logo {
+#rideau-logo { //The logo
 	max-width: 210px; //Max width of the logo (note that it is better to change the SVG if you want to preserve the margins)
 	margin-top: 17px;
 	margin-bottom: 8px; //Gap between the logo and the ABOUT, PRESS, CONTACT buttons
+	
 	@media screen and (max-width: $tablet) {
 		max-width: 150px; //Same as above, for lower than $tablet screens (i.e. mobile version)
 		margin-top: 7px;
 		margin-bottom: 0px; //Same as above, for lower than $tablet screens (i.e. mobile version)
+	}
+}
+
+.header-text-container { //Collections and E-boutique texts
+	margin-top: 38px;
+	
+	.header-top-text {
+		font-size: 0.8rem;
+		letter-spacing: 0px; //Tracking
+		
+		@media screen and (max-width: $tablet) {
+			font-size: 0.6rem; //Font size for mobile
+		}
+	}
+}
+
+.apc-container { //The about, press, contact texts
+	margin-top: 5px;
+	
+	a {
+		font-size: 0.7em;
+		margin: 0 10px;
 	}
 }
