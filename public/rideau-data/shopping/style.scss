@@ -1,0 +1,18 @@
+//Notes: 
+// - You can comment using double double slashes //, comment lines are ignored by the processor
+// - Always end style definitions (with the structure key: value) with a semicolon (;) or the processor will fail to process the file
+// - Use em's as much as possible for font-size rules, this will help the mobile experience. 16px is 1em always, see (http://pxtoem.com/)
+
+a.cart-button {
+	.cart-icon { //The shopping cart cart icon
+		width: 18px;
+		margin-left: -7px; //This anti-margin fixes the icon centering caused by its dimensions
+		margin-top: 2px; //Added 6/SEP/2016
+	}
+	.cart-count { //The cart item count, we never show this counter but it is implemented
+		display: none;
+		margin-top: 5px;
+		font-size: 0.8em;
+		margin-right: 0px;
+	}
+}

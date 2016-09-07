@@ -158,18 +158,7 @@ html.rideau {
 		margin-top: 8px;
 	}
 	
-	a.cart-button {
-		.cart-icon {
-			width: 15px;
-			margin-left: 5px;
-		}
-		.cart-count {
-			display: none;
-			margin-top: 5px;
-			font-size: 0.8em;
-			margin-right: 0px;
-		}
-	}
+	@import '../rideau-data/shopping/style.scss';
 	
 	/* New header, container, footer */
 	header.rideau {
@@ -184,33 +173,9 @@ html.rideau {
 		h5 {
 			color: $header_h_c;
 		}
-		.apc-container {
-			margin-top: 5px;
-			
-			a {
-				font-size: 8px;
-				margin: 0 10px;
-			}
-		}
-		#rideau-logo {
-			max-width: 250px;
-			margin-top: 17px;
-			@media screen and (max-width: $tablet) {
-				max-width: 150px;
-				margin-top: 7px;
-			}
-		}
-		.header-text-container {
-			margin-top: 38px;
-			
-			.header-top-text {
-				font-size: 0.6rem;
-				letter-spacing: 2px;
-				@media screen and (max-width: $tablet) {
-					font-size: 0.6rem;
-				}
-			}
-		}
+		
+		@import '../rideau-data/header/style.scss';
+		
 		#collections-modal {
 			p {
 				margin-bottom: 8px;
@@ -614,6 +579,10 @@ html.rideau {
 	/* About */
 	body#about {
 		//
+		p {
+			font-size: 13px;
+			text-align: center;
+		}
 	}
 	
 	/* Press */
