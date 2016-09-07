@@ -211,6 +211,28 @@ html.rideau {
 				}
 			}
 		}
+		#collections-modal {
+			p {
+				margin-bottom: 8px;
+				font-size: 15px;
+				
+				
+				a.disabled {
+					cursor: default;
+				}
+				small {
+					font-size: 12px;
+					letter-spacing: 1px;
+				}
+			}
+		}
+
+		#eboutique-modal {
+			p {
+				margin-bottom: 8px;
+				font-size: 15px;
+			}
+		}
 	}
 	
 	section.rideau {
@@ -1273,27 +1295,6 @@ input {
 
 body.modal-open {
   overflow: hidden;
-}
-
-#collections-modal {
-	p {
-		margin-bottom: 8px;
-		font-size: 15px;
-		a.disabled {
-			cursor: default;
-		}
-		small {
-			font-size: 12px;
-			letter-spacing: 1px;
-		}
-	}
-}
-
-#eboutique-modal {
-	p {
-		margin-bottom: 8px;
-		font-size: 15px;
-	}
 }
 
 .reveal-modal {
