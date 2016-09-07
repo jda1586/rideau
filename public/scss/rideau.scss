@@ -484,6 +484,15 @@ html.rideau {
 			}
 		}
 		
+		/* Gender containers are found on eboutique and detail pages */
+		.gender_containers {
+			padding-top: 80px;
+			
+			.hidden {
+				display: none;
+			}
+		}
+		
 		.product-showcase {
 			position: block;
 			text-align: center;
@@ -1383,13 +1392,6 @@ body.modal-open {
 	p {
 		margin-top: 0px;
 		font-size: 0.7rem;
-	}
-}
-
-/* Gender containers are found on eboutique and detail pages */
-.gender_containers {
-	.hidden {
-		display: none;
 	}
 }
 
