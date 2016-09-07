@@ -25,7 +25,7 @@
 			progressBar: false,
 			progressBarId: 'progress',
 			fadeEffect: true,
-			timeToFade: 500, // in milliseconds (eg: 1000 = 1sec)
+			timeToFade: 250, // in milliseconds (eg: 1000 = 1sec)
 			timeOut: 2000 // in milliseconds (eg: 2000 = 2sec)
 		}, options);
 

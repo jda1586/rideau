@@ -1,11 +1,14 @@
 #splashscreen {
 	position: fixed;
+	background-image: url("/rideau-data/landing/flag.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
 	z-index: 99999;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: #FFF;
+	background-color: #FFF;
 	transition: 1s 0.4s;
 }
 
