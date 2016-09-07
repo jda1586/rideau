@@ -158,18 +158,7 @@ html.rideau {
 		margin-top: 8px;
 	}
 	
-	a.cart-button {
-		.cart-icon {
-			width: 15px;
-			margin-left: 5px;
-		}
-		.cart-count {
-			display: none;
-			margin-top: 5px;
-			font-size: 0.8em;
-			margin-right: 0px;
-		}
-	}
+	@import '../rideau-data/shopping/style.scss';
 	
 	/* New header, container, footer */
 	header.rideau {
@@ -193,7 +182,7 @@ html.rideau {
 			}
 		}
 		
-		@import '../rideau-data/landing/style.scss';
+		@import '../rideau-data/header/style.scss';
 		
 		.header-text-container {
 			margin-top: 38px;

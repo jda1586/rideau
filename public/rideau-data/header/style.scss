@@ -1,4 +1,7 @@
-//This style affects the main logo, affets all pages in the site where the header is present
+//Notes: 
+// - You can comment using double double slashes //, comment lines are ignored by the processor
+// - Always end style definitions (with the structure key: value) with a semicolon (;) or the processor will fail to process the file
+// - Use em's as much as possible for font-size rules, this will help the mobile experience. 16px is 1em always, see (http://pxtoem.com/)
 
 #rideau-logo {
 	max-width: 210px; //Max width of the logo (note that it is better to change the SVG if you want to preserve the margins)
