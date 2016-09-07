@@ -192,14 +192,9 @@ html.rideau {
 				margin: 0 10px;
 			}
 		}
-		#rideau-logo {
-			max-width: 250px;
-			margin-top: 17px;
-			@media screen and (max-width: $tablet) {
-				max-width: 150px;
-				margin-top: 7px;
-			}
-		}
+		
+		@import '../rideau-data/landing/style.scss';
+		
 		.header-text-container {
 			margin-top: 38px;
 			

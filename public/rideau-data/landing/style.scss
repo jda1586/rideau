@@ -1,0 +1,12 @@
+//This style affects the main logo, affets all pages in the site where the header is present
+
+#rideau-logo {
+	max-width: 210px; //Max width of the logo (note that it is better to change the SVG if you want to preserve the margins)
+	margin-top: 17px;
+	margin-bottom: 8px; //Gap between the logo and the ABOUT, PRESS, CONTACT buttons
+	@media screen and (max-width: $tablet) {
+		max-width: 150px; //Same as above, for lower than $tablet screens (i.e. mobile version)
+		margin-top: 7px;
+		margin-bottom: 0px; //Same as above, for lower than $tablet screens (i.e. mobile version)
+	}
+}
