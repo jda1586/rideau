@@ -36,7 +36,7 @@ function dirToTree(filename, getPath) {
 		//Assuming it's a file. In real life it could be a symlink or something else!
 		if (path.extname(filename) !== '.txt') {
 			info.type = "image";
-			info.data = filename;
+			info.data = filename.split("public").pop(); //Remove "public" from the path
 		} else {
 			info.type = "file";
 			info.data = _.trim(fs.readFileSync(filename, 'utf8'));
@@ -46,28 +46,26 @@ function dirToTree(filename, getPath) {
 	return info;
 }
 
-function treeToJSON(tree) {
-	var info;
+function treeToJSON(tree, clearPublicPath) {
+	var info = {};
 	
-	//console.log(tree);
+	console.log("--");
+	console.log("--");
+	console.log(tree);
 	
-	info = _.map(tree, function(el) {
-		var temp = {};
+	_.each(tree, function(el) {
+		console.log(el);
+		console.log(el);
+		console.log(el);
 		
+	
 		if (el.type === "folder") {
-			temp[el.name] = treeToJSON(el.children);
-			
+			info[el.name] = treeToJSON(el.children);
 		} else {
 			var keyName = (el.name.split('.'))[0]; //Remove extension
-			temp[keyName] = el.data;
+			info[keyName] = el.data;
 		}
-		
-		return temp;
 	});
-	
-	/*info = _.map(tree, function(el) {
-		return { name: "asdf" };
-	});*/
 	
 	return info;
 }
@@ -119,12 +117,10 @@ router.get('/press', function (req, res, next) {
 	
 	var data = dirToTree("public/rideau-data/press");
 	
-	console.log(data.children[0]);
+	console.log(data);
 	console.log("-");
 	data = treeToJSON(data.children);
 	console.log(data);
-	console.log("-");
-	console.log(data[0]);
 	
 	return res.render('press', { data: data });
 });
