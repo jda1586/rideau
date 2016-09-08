@@ -49,16 +49,7 @@ function dirToTree(filename, getPath) {
 function treeToJSON(tree, clearPublicPath) {
 	var info = {};
 	
-	console.log("--");
-	console.log("--");
-	console.log(tree);
-	
 	_.each(tree, function(el) {
-		console.log(el);
-		console.log(el);
-		console.log(el);
-		
-	
 		if (el.type === "folder") {
 			info[el.name] = treeToJSON(el.children);
 		} else {
@@ -116,10 +107,12 @@ router.get('/about', function (req, res, next) {
 router.get('/press', function (req, res, next) {
 	
 	var data = dirToTree("public/rideau-data/press");
+	data = treeToJSON(data.children);
 	
 	console.log(data);
-	console.log("-");
-	data = treeToJSON(data.children);
+	data = _.sortBy(data, function(el) {
+		return -el.relevance;
+	});
 	console.log(data);
 	
 	return res.render('press', { data: data });
