@@ -91,13 +91,10 @@ router.get('/about', function (req, res, next) {
 //Press
 router.get('/press', function (req, res, next) {
 	
-	var test = dirTree("public/rideau-data/press");
-	test = test.children;
+	var data = dirTree("public/rideau-data/press");
+	data = data.children;
 	
-	console.log(test);
-	console.log(test[0]);
-	
-	return res.render('press');
+	return res.render('press', data);
 });
 //Sizing
 router.get('/sizing', function (req, res, next) {
