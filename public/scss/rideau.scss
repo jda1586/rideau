@@ -158,6 +158,13 @@ html.rideau {
 		margin-top: 8px;
 	}
 	
+	/* Gender containers are found on eboutique and detail pages */
+	.gender_containers {
+		.hidden {
+			display: none;
+		}
+	}
+	
 	@import '../rideau-data/shopping/style.scss';
 	
 	/* New header, container, footer */
@@ -439,7 +446,11 @@ html.rideau {
 		/* Mixit up configuration */
 		#Container {
 			text-align: center;
-			margin: 50px 115px;
+			//margin: 50px 115px; //Disabled as it causes errors with the modal, using padding-top instead
+			padding-top: 60px;
+			padding-left: 30px;
+			padding-right: 30px;
+			
 			.mix {
 				display: none;
 				margin: 3%;
@@ -487,10 +498,6 @@ html.rideau {
 		/* Gender containers are found on eboutique and detail pages */
 		.gender_containers {
 			padding-top: 80px;
-			
-			.hidden {
-				display: none;
-			}
 		}
 		
 		.product-showcase {
