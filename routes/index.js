@@ -22,15 +22,15 @@ function getCollections() {
 }
 
 //Folder structure functions
-function dirTree(filename, getPath) {
-	var stats = fs.lstatSync(filename),	
+function dirToTree(filename, getPath) {
+	var stats = fs.lstatSync(filename),
 		info = { name: path.basename(filename) };
 		if (getPath) info.path = filename;
 	
 	if (stats.isDirectory()) {
 		info.type = "folder";
 		info.children = fs.readdirSync(filename).map(function(child) { //TODO: Change this to read async
-			return dirTree(filename + '/' + child, getPath);
+			return dirToTree(filename + '/' + child, getPath);
 		});
 	} else {
 		//Assuming it's a file. In real life it could be a symlink or something else!
@@ -42,6 +42,32 @@ function dirTree(filename, getPath) {
 			info.data = _.trim(fs.readFileSync(filename, 'utf8'));
 		}
 	}
+	
+	return info;
+}
+
+function treeToJSON(tree) {
+	var info;
+	
+	//console.log(tree);
+	
+	info = _.map(tree, function(el) {
+		var temp = {};
+		
+		if (el.type === "folder") {
+			temp[el.name] = treeToJSON(el.children);
+			
+		} else {
+			var keyName = (el.name.split('.'))[0]; //Remove extension
+			temp[keyName] = el.data;
+		}
+		
+		return temp;
+	});
+	
+	/*info = _.map(tree, function(el) {
+		return { name: "asdf" };
+	});*/
 	
 	return info;
 }
@@ -91,10 +117,16 @@ router.get('/about', function (req, res, next) {
 //Press
 router.get('/press', function (req, res, next) {
 	
-	var data = dirTree("public/rideau-data/press");
-	data = data.children;
+	var data = dirToTree("public/rideau-data/press");
 	
-	return res.render('press', data);
+	console.log(data.children[0]);
+	console.log("-");
+	data = treeToJSON(data.children);
+	console.log(data);
+	console.log("-");
+	console.log(data[0]);
+	
+	return res.render('press', { data: data });
 });
 //Sizing
 router.get('/sizing', function (req, res, next) {
