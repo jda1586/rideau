@@ -33,12 +33,7 @@ function dirTree(filename, getPath) {
 			return dirTree(filename + '/' + child, getPath);
 		});
 	} else {
-		// Assuming it's a file. In real life it could be a symlink or
-		// something else!
-		
-		
-		console.log(path.extname(filename));
-		
+		//Assuming it's a file. In real life it could be a symlink or something else!
 		if (path.extname(filename) !== '.txt') {
 			info.type = "image";
 			info.data = filename;
