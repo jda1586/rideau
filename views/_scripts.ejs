@@ -22,10 +22,8 @@
 			var sectionRideau = $('section.rideau');
 			
 			sectionRideau.each(function(el) {
-				var newPadding = ((document.body.clientHeight - $(this).height() / 2);
-				if (newPadding < 0) newPadding = 0;
-				
-				console.log(newPadding);
+				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
+				if (newPadding < $('footer').height()) newPadding = $('footer').height();
 				
 				$(this).css("padding-top", newPadding + "px");
 				$(this).css("padding-bottom", newPadding + "px");
