@@ -21,8 +21,7 @@
 					<div class="header-text-container">
 						<div class="row">
 							<div class="small-12 medium-12 large-12 rideau-menu-column columns">
-								<a href="#" class="header-top-text" data-reveal-id="collections-modal">collections</a>
-								<a class="amodal" href="#collectionsModal">collections</a>
+								<a class="amodal header-top-text" href="#collectionsModal">collections</a>
 							</div>
 						</div>
 					</div>
@@ -54,10 +53,7 @@
 					<div class="header-text-container">
 						<div class="row">
 							<div class="small-12 medium-12 small-12 rideau-menu-column columns">
-								<a href="#" class="header-top-text sackers" data-reveal-id="eboutique-modal">e-boutique</a>
-								
-								<a class="amodal" href="#eboutiqueModal">e-boutique</a>
-								
+								<a class="amodal header-top-text" href="#eboutiqueModal">e-boutique</a>
 							</div>
 						</div>
 					</div>
@@ -67,28 +63,26 @@
 	</div>
 </header>
 
-
-
-
-
+<!-- Good modals -->
 <div id="collectionsModal" class="animated-rideau-modal">
 	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 	<div class="closeContainer close-collectionsModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
-		
-	<div class="modal-content padding-auto-adjustable">
-		<div class="row">
-			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-				<div class="spanMiddle">
-					<p><a href="/collections/ss15-lookbook">SS15 LOOKBOOK</a></p>
-					<p><a href="/collections/aw16-campaign">AW16 CAMPAIGN</a></p>
-					<p><a href="#" class="disabled">SS16 LOOKBOOK<br/></a></p>
-					<p><a href="#" class="disabled">SS16 CAMPAIGN<br/></a></p>
+
+	<div class="modal-content">
+		<div class="auto-adjustable-y">
+			<div class="row">
+				<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+					<a href="/collections/ss15-lookbook"><p>ss15 lookbook</p></a>
+					<a href="/collections/aw16-campaign"><p>AW16 CAMPAIGN</p></a>
+					<a href="#" class="disabled"><p>SS16 LOOKBOOK<br/></p></a>
+					<a href="#" class="disabled"><p>SS16 CAMPAIGN<br/></p></a>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 </div>
 
 <div id="eboutiqueModal" class="animated-rideau-modal">
@@ -98,49 +92,17 @@
 	</div>
 		
 	<div class="modal-content">
-			  <!--Your modal content goes here-->
-			  eee
-	</div>
-</div>
-
-
-
-
-
-<!-- Collections modal class ideau-modal akzidenz -->
-<div id="collections-modal" class="reveal-modal rideau-modal version-2 small" data-reveal aria-hidden="true" role="dialog">
-	<div class="center-container relative">
-		<div class="center-block">
+		<div class="auto-adjustable-y">
 			<div class="row">
 				<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-					<div class="spanMiddle">
-						<p><a href="/collections/ss15-lookbook">SS15 LOOKBOOK</a></p>
-						<p><a href="/collections/aw16-campaign">AW16 CAMPAIGN</a></p>
-						<p><a href="#" class="disabled">SS16 LOOKBOOK<br/></a></p>
-						<p><a href="#" class="disabled">SS16 CAMPAIGN<br/></a></p>
-					</div>
+					<a href="/eboutique#male"><span class="male_button"><p>xy</p></span></a>
+					<span class="separator-dash"> | </span>
+					<a href="#" class="disabled"><span class="female_button"><p>xx</p></span></a>
 				</div>
 			</div>
 		</div>
-		<a class="close-reveal-modal version-2 absolute"><span class="close thick"></span></a>
 	</div>
-</div>
-
-<!-- Eboutique modal -->
-<div id="eboutique-modal" class="reveal-modal rideau-modal version-2" data-reveal aria-hidden="true" role="dialog">
-	<div class="center-container relative">
-		<div class="center-block">
-			<div class="row">
-				<div class="small-6 small-centered columns">
-					<div class="spanMiddle">
-						<p><a href="/eboutique#male"><span class="male_button">XY</span></a> | <a href="#" class="disabled"><span class="female_button">XX</span></a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="close-reveal-modal version-2 absolute"><span class="close thick"></span></a>
-	</div>
-</div>
+</div>	
 
 <!-- TODO: Add cart here -->
 <div class="header_white">
