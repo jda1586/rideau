@@ -184,30 +184,30 @@ html.rideau {
 		color: white;
 		text-align: center;
 		
-		div.modal-content {
-			p {
-				font-family: $sackers_font;
-				margin-bottom: 10px;
-				font-size: 1em !important; //TODO: SOLVE THIS
-				color: white;
-			}
-			
-			a {
-				&.disabled {
-					cursor: default;
+		p {
+			font-family: $sackers_font;
+			margin-bottom: 10px;
+			font-size: 1em !important; //TODO: SOLVE THIS
+			color: white;
+		}
+		
+		a {
+			&.disabled {
+				cursor: default;
+				color: gray;
+				
+				p {
 					color: gray;
-					
-					p {
-						color: gray;
-						font-size: 1em;
-					}
+					font-size: 1em;
 				}
 			}
 		}
-
+		
 		.closeContainer {
-			position: relative;
-			top: 90%;
+			position: fixed;
+			left: 50%;
+			bottom: 5%;
+			transform: translateX(-50%);
 		}
 	}
 	
@@ -621,8 +621,10 @@ html.rideau {
 	body#about {
 		//
 		p {
-			font-size: 13px;
+			font-size: 0.8em;
 			text-align: center;
+			
+			
 		}
 	}
 	

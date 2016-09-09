@@ -81,27 +81,23 @@
 			</div>
 		</div>
 	</div>
-	
 </div>
 
 <div id="eboutiqueModal" class="animated-rideau-modal">
-	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-	<div class="closeContainer close-eboutiqueModal"> 
-		<img src="/rideau-data/extras/modal-close.png" />
-	</div>
-		
-	<div class="modal-content">
-		<div class="auto-adjustable-y">
-			<div class="row">
-				<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-					<a href="/eboutique#male"><span class="male_button"><p>xy</p></span></a>
-					<span class="separator-dash"> | </span>
-					<a href="#" class="disabled"><span class="female_button"><p>xx</p></span></a>
-				</div>
+			<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+		<div class="closeContainer close-eboutiqueModal"> 
+			<img src="/rideau-data/extras/modal-close.png" />
+		</div>
+	<div class="auto-adjustable-y">
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				<a href="/eboutique#male"><span class="male_button"><p>xy</p></span></a>
+				<span class="separator-dash"> | </span>
+				<a href="#" class="disabled"><span class="female_button"><p>xx</p></span></a>
 			</div>
 		</div>
 	</div>
-</div>	
+</div>
 
 <!-- TODO: Add cart here -->
 <div class="header_white">
@@ -109,12 +105,6 @@
 </div>
 
 <script>
-	$(function() {
-		$('.amodal').each(function() {
-			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1) });
-		});
-	});
-	
 	$(document).mousemove(function(e) {
 		var height;
 		if (document.body) {
