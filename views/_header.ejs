@@ -71,10 +71,10 @@
 
 
 
-<div id="collectionsModal">
-	<!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-	<div class="close-collectionsModal"> 
-		CLOSE MODAL
+<div id="collectionsModal" class="animated-rideau-modal">
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-collectionsModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
 		
 	<div class="modal-content">
@@ -83,10 +83,10 @@
 	</div>
 </div>
 
-<div id="eboutiqueModal">
-	<!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-	<div class="close-eboutiqueModal"> 
-		CLOSE MODAL
+<div id="eboutiqueModal" class="animated-rideau-modal">
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-eboutiqueModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
 		
 	<div class="modal-content">
@@ -142,7 +142,7 @@
 <script>
 	$(function() {
 		$('.amodal').each(function() {
-			$(this).animatedModal( { modalTarget: $(this).attr('href').substr(1) } )
+			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1) });
 		});
 	});
 	

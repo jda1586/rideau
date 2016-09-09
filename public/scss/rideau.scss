@@ -165,6 +165,37 @@ html.rideau {
 		}
 	}
 	
+	.animated-rideau-modal {
+		background-color: rgba(0, 0, 0, 0.75);
+		color: white;
+		text-align: center;
+		
+		.closeContainer {
+			position: relative;
+			top: 90%;
+		}
+	}
+	
+	//TODO: ERASE THESE SETYLES
+	#collections-modal {
+		p {
+			margin-bottom: 8px;
+			font-size: 15px;
+			
+			a.disabled {
+				cursor: default;
+			}
+		}
+	}
+
+	//TODO: ERASE THESE SETYLES
+	#eboutique-modal {
+		p {
+			margin-bottom: 8px;
+			font-size: 15px;
+		}
+	}
+	
 	@import '../rideau-data/shopping/style.scss';
 	
 	/* New header, container, footer */
@@ -182,29 +213,7 @@ html.rideau {
 		}
 		
 		@import '../rideau-data/header/style.scss';
-		
-		#collections-modal {
-			p {
-				margin-bottom: 8px;
-				font-size: 15px;
-				
-				
-				a.disabled {
-					cursor: default;
-				}
-				small {
-					font-size: 12px;
-					letter-spacing: 1px;
-				}
-			}
-		}
-
-		#eboutique-modal {
-			p {
-				margin-bottom: 8px;
-				font-size: 15px;
-			}
-		}
+	
 	}
 	
 	section.rideau {
