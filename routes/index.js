@@ -73,9 +73,12 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	data = treeToJSON(data.children);
 	
 	if (!_.isUndefined(name)) {
-		var product = data[name];
+		data = data[name];
 		
-		if (!_.isUndefined(product)) {
+		if (!_.isUndefined(data)) {
+		
+			console.log(data);
+		
 			return res.render('detail', { data: data });
 		}
 	}
