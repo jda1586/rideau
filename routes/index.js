@@ -75,10 +75,7 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	data = _.compact(_.map(data, function(el) {
 		if (el.enabled === "1") return el;
 	}));
-<<<<<<< HEAD
-	
-	console.log(data);
-	
+
 	if (!_.isUndefined(name)) {
 		data = data[name];
 		
@@ -86,16 +83,6 @@ router.get('/eboutique/:name?', function(req, res, next) {
 			data.images.male = _.omit(data.images.male, 'featured'); //Omit the featured image (only shown en eboutique page)
 			data.images.female = _.omit(data.images.female, 'featured'); //Omit the featured image (only shown en eboutique page)
 		
-=======
-	
-	if (!_.isUndefined(name)) {
-		data = data[name];
-		
-		if (!_.isUndefined(data)) {
-			data.images.male = _.omit(data.images.male, 'featured'); //Omit the featured image (only shown en eboutique page)
-			data.images.female = _.omit(data.images.female, 'featured'); //Omit the featured image (only shown en eboutique page)
-		
->>>>>>> dropbox/master
 			return res.render('detail', { data: data });
 		}
 	}
