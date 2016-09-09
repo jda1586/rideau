@@ -28,6 +28,18 @@
 		$(window).resize(adjustLayout);
 		
 		adjustLayout();
+		
+		//TODO: Improve this section... It is unmaintanable
+		function adjustLayout2() {
+			var sectionRideau = $('.auto-adjustable-y');
+			var newPadding = ((document.body.clientHeight - sectionRideau.height()) / 2) * 0.95;
+			
+			sectionRideau.css("padding-top", newPadding + "px");
+			sectionRideau.css("padding-bottom", newPadding + "px");
+		}
+		$(window).resize(adjustLayout2);
+		
+		adjustLayout2();
 	});
 </script>
 

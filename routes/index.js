@@ -76,6 +76,8 @@ router.get('/eboutique/:name?', function(req, res, next) {
 		if (el.enabled === "1") return el;
 	}));
 	
+	console.log(data);
+	
 	if (!_.isUndefined(name)) {
 		data = data[name];
 		

@@ -165,10 +165,46 @@ html.rideau {
 		}
 	}
 	
+	#collectionsModal {
+		//
+	}
+	
+	#eboutiqueModal {
+		a {
+			display: inline-block;
+		}
+		.separator-dash {
+			font-size: 0.8em;
+			margin-right: 2px;
+		}
+	}
+	
 	.animated-rideau-modal {
 		background-color: rgba(0, 0, 0, 0.75);
 		color: white;
 		text-align: center;
+		
+		div.modal-content {
+			p {
+				font-family: $sackers_font;
+				margin-bottom: 10px;
+				font-size: 1em !important; //TODO: SOLVE THIS
+				color: white;
+			}
+			
+			a {
+				&.disabled {
+					cursor: default;
+					color: gray;
+					
+					p {
+						color: gray;
+						font-size: 1em;
+					}
+				}
+			}
+		}
+		
 		
 		.closeContainer {
 			position: relative;
@@ -176,7 +212,13 @@ html.rideau {
 		}
 	}
 	
-	//TODO: ERASE THESE SETYLES
+	.collectionsModal {
+		p {
+			font-family: $sackers_font;
+		}
+	}
+	
+	/*//TODO: ERASE THESE SETYLES
 	#collections-modal {
 		p {
 			margin-bottom: 8px;
@@ -194,7 +236,7 @@ html.rideau {
 			margin-bottom: 8px;
 			font-size: 15px;
 		}
-	}
+	}*/
 	
 	@import '../rideau-data/shopping/style.scss';
 	
