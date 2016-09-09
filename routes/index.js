@@ -65,22 +65,24 @@ function treeToJSON(tree, clearPublicPath) {
 router.get('/', function(req, res, next) {
 	return res.render('landing');
 });
+
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
-	var products = _.filter(getEboutique(), { enabled: 1 });
 	var name = req.params.name;
+	var data = dirToTree("public/rideau-data/eboutique");
+	data = treeToJSON(data.children);
 	
 	if (!_.isUndefined(name)) {
-		var product = _.find(products, _.matchesProperty('name', name));
+		var product = data[name];
 		
 		if (!_.isUndefined(product)) {
-			return res.render('detail', { product: product });
+			return res.render('detail', { data: data });
 		}
 	}
 	
-	//TODO: Remove wholeprice if the user is not registered
-	return res.render('eboutique', { products: products });
+	return res.render('eboutique', { data: data });
 });
+
 //Collections view using new sly carrousel
 router.get('/collections/:name?', function(req, res, next) {
 	var looks = getCollections();
@@ -113,7 +115,6 @@ router.get('/press', function (req, res, next) {
 	data = _.sortBy(data, function(el) {
 		return -el.relevance;
 	});
-	console.log(data);
 	
 	return res.render('press', { data: data });
 });
