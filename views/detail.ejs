@@ -12,18 +12,18 @@
 				<div class="gender_containers">
 					<div class="male_container">
 						<div class="show-for-medium-up">
-							<% for(var i = 0; i < product.images.male.length; i++) { %>
-								<img src="/rideau-data/eboutique/hd/<%= product.images.male[i] %>" class="imgdetail zoomable-image closed" data-image="/rideau-data/eboutique/hd/<%= product.images.male[i] %>" data-title="<%= product.name %>" data-caption="<%= product.fit %>" />
-							<% } %>
+							<% Object.keys(data.images.male).forEach(function(key) { %>
+								<img src="<%- data.images.male[key] %>" class="imgdetail zoomable-image closed" data-image="<%- data.images.male[key] %>" data-title="<%- data.name %>" data-caption="<%- data.fit %>" />
+							<% }); %>
 						</div>
 						<div class="show-for-small-only">
 							<div class="pagespan sly-container-v2">
 								<div class="wrap">
 									<div class="frame oneperframe" id="oneperframe">
 										<ul class="clearfix">
-											<% for(var i = 0; i < product.images.male.length; i++) { %>
-												<li style='background-image: url("/rideau-data/eboutique/hd/<%= product.images.male[i] %>")' look-id="<%= i %>"></li>
-											<% } %>
+											<% Object.keys(data.images.male).forEach(function(key) { %>
+												<li style='background-image: url("<%- data.images.male[key] %>")' look-id="0"></li>
+											<% }); %>
 										</ul>
 									</div>
 									<div class="scrollbar">
@@ -42,22 +42,21 @@
 			</div>
 			
 			<div class="product-showcase">
-				<input type="hidden" name="id_item" value="<%= product.name %>" />
+				<input type="hidden" name="id_item" value="<%- data.name %>" />
 				
-				<h5 class="item-name"><span class="ref" data-storage="<%= product.name %>"><%= product.name %></span></h5>
-				<p class="item-price"><span  class="price" data-storage="<%= product.price.normal %>"></span><%= product.price.normal %> USD</p>
+				<h5 class="item-name"><span class="ref" data-storage="<%- data.name %>"><%- data.name %></span></h5>
+				<p class="item-price"><span  class="price" data-storage="<%- data.price.normal %>"></span><%- data.price.name %> USD</p>
 
 				<div class="box-container">
 					<a class="curtain"><p class="title"><strong>INFORMATION <span class="tab-plus-minus">-</span></strong></p></a>
 					<div class="box">
-						<!-- Disabled temporarily -->
-						<p><%= product.information %></p>
+						<p><%- data.information %></p>
 					</div>
 				</div>
 				<div class="box-container">
 					<a class="curtain"><p class="title"><strong>FIT <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
-						<p><%= product.fit %></p>
+						<p><%- data.fit %></p>
 					</div>
 				</div>
 				<div class="box-container">

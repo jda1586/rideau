@@ -7,63 +7,63 @@
 		<% include _header.ejs %>
 
 		<!-- Debug modal disabled -->
-        <!-- <div id="debug-panel">
+		<!-- <div id="debug-panel">
 			<p style="color: gray;">DEBUG CONTROLS:</p>
 			<p><a href="#" data-reveal-id="db-modal">Get DB status</a></p>
 			<p><a href="/blog">Show blog template proposal</a></p>
 			<p><a href="/loading">Show loading debug</a></p>
-            <p><a href="#" data-reveal-id="test-stripe">Test Stripe</a></p>
+			<p><a href="#" data-reveal-id="test-stripe">Test Stripe</a></p>
 		</div> -->
 
 		<div id="sandbox" class="sandbox config-open">
 			<div id="Container" class="akzidenz">
-				<% for(var i = 0; i < products.length; i++) { %>
-                    <a class="outer" href="eboutique/<%= products[i].name %>">
-                        <div class="mix category-<%= products[i].category %>" data-myorder="4">
-                            <div class="gender_containers">
-                                <img class="male_container" src="/rideau-data/eboutique/compressed/<%= products[i].images.male[0] %>" style="width:250px;" />
-                                <img class="female_container hidden" src="/rideau-data/eboutique/thumbs/<%= products[i].images.female[0] %>" style="width:250px;" />
-                            </div>
-                            <div class="inner item-data">
-                                <p class="item-name" align="center"><%= products[i].name %></p>
-								<p class="item-price" align="center"><%= products[i].price.normal %> USD</p>
-                            </div>
-                        </div>
-                    </a>
-				<% } %>
+				<% Object.keys(data).forEach(function(key) { %>
+					<a class="outer" href="eboutique/<%- key %>">
+						<div class="mix category-<%- data[key].category %>" data-myorder="4">
+							<div class="gender_containers">
+								<img class="male_container" src="<%- data[key].images.male.featured %>" style="width: 250px;" />
+								<img class="female_container hidden" src="<%- data[key].images.female.featured %>" style="width:250px;" />
+							</div>
+							<div class="inner item-data">
+								<p class="item-name" align="center"><%- key %></p>
+								<p class="item-price" align="center"><%- data[key].price.normal %> USD</p>
+							</div>
+						</div>
+					</a>
+				<% }); %>
 			</div>
 		</div>
-
+		
 		<div id="menui" class="sackers">
-            <div class="sackers" id="menui">
-                <div class="row">
-                    <p><a data-filter=".category-JACKET" class="filter">JACKET</a></p>
-                </div>
-                <div class="row">
-                    <p><a data-filter=".category-TOP" class="filter">TOP</a></p>
-                </div>
-                <div class="row">
-                    <p><a data-filter=".category-SHIRT" class="filter">SHIRT</a></p>
-                </div>
-                <div class="row">
-                    <p><a data-filter=".category-PANT" class="filter">PANT</a></p>
-                </div>
-                <div class="row">
-                    <p><a data-filter=".category-SHORT" class="filter">SHORT</a></p>
-                </div>
-                <!-- Disabled by Rideau's request -->
-                <!-- <div class="row">
-                    <p><a data-filter=".category-HAT" class="filter">HAT</a></p>
-                </div> -->
-                <div class="row">
-                    <p><a class="filter" data-filter="all">ALL</a></p>
-                </div>
-                <br/>
-                <div class="row">
-                    <p><a><span class="male_button">XY</span></a> | <a class="disabled"><span class="female_button">XX</span></a></p>
-                </div>
-            </div>
-        </div>
+			<div class="sackers" id="menui">
+				<div class="row">
+					<p><a data-filter=".category-JACKET" class="filter">JACKET</a></p>
+				</div>
+				<div class="row">
+					<p><a data-filter=".category-TOP" class="filter">TOP</a></p>
+				</div>
+				<div class="row">
+					<p><a data-filter=".category-SHIRT" class="filter">SHIRT</a></p>
+				</div>
+				<div class="row">
+					<p><a data-filter=".category-PANT" class="filter">PANT</a></p>
+				</div>
+				<div class="row">
+					<p><a data-filter=".category-SHORT" class="filter">SHORT</a></p>
+				</div>
+				<!-- Disabled by Rideau's request -->
+				<!-- <div class="row">
+					<p><a data-filter=".category-HAT" class="filter">HAT</a></p>
+				</div> -->
+				<div class="row">
+					<p><a class="filter" data-filter="all">ALL</a></p>
+				</div>
+				<br/>
+				<div class="row">
+					<p><a><span class="male_button">XY</span></a> | <a class="disabled"><span class="female_button">XX</span></a></p>
+				</div>
+			</div>
+		</div>
 
 		<% include _footer.ejs %>
 
@@ -76,13 +76,13 @@
 							<h2>DB status</h2>
 							<p>mySQL DB status is [running]</p>
 							<h2>Object 0 structure:</h2>
-							<p><%= JSON.stringify(products[0], null, 4) %></p>
 						</div>
 					</div>
 				</div>
 			</section>
 			<a class="close-reveal-modal"><span class="close thick"></span></a>
 		</div>
+		
 		<!-- Footer scripts -->
 		<% include _scripts.ejs %>
 	</body>

@@ -22,6 +22,7 @@
 						<div class="row">
 							<div class="small-12 medium-12 large-12 rideau-menu-column columns">
 								<a href="#" class="header-top-text" data-reveal-id="collections-modal">collections</a>
+								<a class="amodal" href="#collectionsModal">collections</a>
 							</div>
 						</div>
 					</div>
@@ -54,6 +55,9 @@
 						<div class="row">
 							<div class="small-12 medium-12 small-12 rideau-menu-column columns">
 								<a href="#" class="header-top-text sackers" data-reveal-id="eboutique-modal">e-boutique</a>
+								
+								<a class="amodal" href="#eboutiqueModal">e-boutique</a>
+								
 							</div>
 						</div>
 					</div>
@@ -62,6 +66,46 @@
 		</div>
 	</div>
 </header>
+
+
+
+
+
+<div id="collectionsModal" class="animated-rideau-modal">
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-collectionsModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>
+		
+	<div class="modal-content padding-auto-adjustable">
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				<div class="spanMiddle">
+					<p><a href="/collections/ss15-lookbook">SS15 LOOKBOOK</a></p>
+					<p><a href="/collections/aw16-campaign">AW16 CAMPAIGN</a></p>
+					<p><a href="#" class="disabled">SS16 LOOKBOOK<br/></a></p>
+					<p><a href="#" class="disabled">SS16 CAMPAIGN<br/></a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="eboutiqueModal" class="animated-rideau-modal">
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-eboutiqueModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>
+		
+	<div class="modal-content">
+			  <!--Your modal content goes here-->
+			  eee
+	</div>
+</div>
+
+
+
+
 
 <!-- Collections modal class ideau-modal akzidenz -->
 <div id="collections-modal" class="reveal-modal rideau-modal version-2 small" data-reveal aria-hidden="true" role="dialog">
@@ -104,6 +148,12 @@
 </div>
 
 <script>
+	$(function() {
+		$('.amodal').each(function() {
+			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1) });
+		});
+	});
+	
 	$(document).mousemove(function(e) {
 		var height;
 		if (document.body) {
