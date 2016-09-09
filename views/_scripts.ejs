@@ -20,7 +20,9 @@
 	$(document).ready(function() {
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
-			var newPadding = (($(document).height() - sectionRideau.height()) / 2) * 0.8;
+			var newPadding = (($(document).height() - sectionRideau.height()) / 2);
+			
+			console.log(newPadding);
 			
 			sectionRideau.css("padding-top", newPadding + "px");
 			sectionRideau.css("padding-bottom", newPadding + "px");
@@ -32,7 +34,7 @@
 		//TODO: Improve this section... It is unmaintanable
 		function adjustLayout2() {
 			var sectionRideau = $('.auto-adjustable-y');
-			var newPadding = ((document.body.clientHeight - sectionRideau.height()) / 2) * 0.95;
+			var newPadding = ((document.body.clientHeight - sectionRideau.height()) / 2);
 			
 			sectionRideau.css("padding-top", newPadding + "px");
 			sectionRideau.css("padding-bottom", newPadding + "px");
