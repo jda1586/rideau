@@ -76,8 +76,8 @@ router.get('/eboutique/:name?', function(req, res, next) {
 		data = data[name];
 		
 		if (!_.isUndefined(data)) {
-		
-			console.log(data);
+			data.images.male = _.omit(data.images.male, 'featured'); //Omit the featured image (only shown en eboutique page)
+			data.images.female = _.omit(data.images.female, 'featured'); //Omit the featured image (only shown en eboutique page)
 		
 			return res.render('detail', { data: data });
 		}
