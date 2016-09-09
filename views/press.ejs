@@ -9,45 +9,44 @@
 		
 		<section class="rideau">
 			<div class="row">
-				<div class="small-6 small-centered columns">
-				
-					<% Object.keys(data).forEach(function(key) { %>
+				<% Object.keys(data).forEach(function(key) { %>
+					<div class="small-12 medium-6 large-4 columns">
 						<div class="press-item">
 							<a href="<%- data[key].link %>" target="_blank">
-								<img src="<%- data[key].logo %>"/>
+								<div class="press-image" style="background-image: url('<%- data[key].logo %>')"></div>
+								<p><%- data[key].title %></p>
 							</a>
-							<p><%- data[key].title %></p>
 						</div>
-					<% }); %>
-					
-					<div class="press-item">
-						<a href="#" data-reveal-id="press-gallery-modal">
-							<img id="highsnobiety-logo" src="/rideau-data/press/essential-homme/logo.png" width="150px"/>
-						</a>
-						<div id="press-gallery-modal" class="reveal-modal rideau-modal" data-reveal aria-hidden="true" role="dialog">
-							<section id="headerpanel">
-								<div class="row">
-									<div class="small-6 columns">
-										<div class="spanMiddle">
-											<img id="essential-img1" src="/rideau-data/press/essential-homme/essential-homme.jpg" style="max-width:85%" />
-										</div>
-									</div>
-									<div class="small-6 columns">
-										<div class="spanMiddle">
-											<img id="essential-img2" src="/rideau-data/press/essential-homme/essential-homme-1.jpg" style="max-width:85%" />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="small-6 small-centered columns text-center">
-										<a class="close-reveal-modal"><span class="close thick"></span></a>
-									</div>
-								</div>
-							</section>
-						</div>
-						<p>2016</p>
 					</div>
+				<% }); %>
+			</div>
+			
+			<div class="press-item">
+				<a href="#" data-reveal-id="press-gallery-modal">
+					<img id="highsnobiety-logo" src="/rideau-data/press/essential-homme/logo.png" width="150px"/>
+				</a>
+				<div id="press-gallery-modal" class="reveal-modal rideau-modal" data-reveal aria-hidden="true" role="dialog">
+					<section id="headerpanel">
+						<div class="row">
+							<div class="small-6 columns">
+								<div class="spanMiddle">
+									<img id="essential-img1" src="/rideau-data/press/essential-homme/essential-homme.jpg" style="max-width:85%" />
+								</div>
+							</div>
+							<div class="small-6 columns">
+								<div class="spanMiddle">
+									<img id="essential-img2" src="/rideau-data/press/essential-homme/essential-homme-1.jpg" style="max-width:85%" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-6 small-centered columns text-center">
+								<a class="close-reveal-modal"><span class="close thick"></span></a>
+							</div>
+						</div>
+					</section>
 				</div>
+				<p>2016</p>
 			</div>
 		</section>
 		

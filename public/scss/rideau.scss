@@ -632,6 +632,16 @@ html.rideau {
 		
 		.press-item {
 			margin-top: 50px;
+			
+			.press-image {
+				width: 180px;
+				height: 50px;
+				margin: 0 auto;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+			
 			img {
 				max-width: 150px;
 			}
