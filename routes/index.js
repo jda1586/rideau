@@ -72,6 +72,10 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	var data = dirToTree("public/rideau-data/eboutique");
 	data = treeToJSON(data.children);
 	
+	data = _.compact(_.map(data, function(el) {
+		if (el.enabled === "1") return el;
+	}));
+	
 	if (!_.isUndefined(name)) {
 		data = data[name];
 		
