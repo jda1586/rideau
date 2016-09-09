@@ -20,12 +20,16 @@
 	$(document).ready(function() {
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
-			var newPadding = (($(document).height() - sectionRideau.height()) / 2);
 			
-			console.log(newPadding);
-			
-			sectionRideau.css("padding-top", newPadding + "px");
-			sectionRideau.css("padding-bottom", newPadding + "px");
+			sectionRideau.each(function(el) {
+				var newPadding = ((document.body.clientHeight - $(this).height() / 2);
+				if (newPadding < 0) newPadding = 0;
+				
+				console.log(newPadding);
+				
+				$(this).css("padding-top", newPadding + "px");
+				$(this).css("padding-bottom", newPadding + "px");
+			});
 		}
 		$(window).resize(adjustLayout);
 		
@@ -34,10 +38,14 @@
 		//TODO: Improve this section... It is unmaintanable
 		function adjustLayout2() {
 			var sectionRideau = $('.auto-adjustable-y');
-			var newPadding = ((document.body.clientHeight - sectionRideau.height()) / 2);
 			
-			sectionRideau.css("padding-top", newPadding + "px");
-			sectionRideau.css("padding-bottom", newPadding + "px");
+			sectionRideau.each(function(el) {
+				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
+				if (newPadding < 0) newPadding = 0;
+				
+				$(this).css("padding-top", newPadding + "px");
+				$(this).css("padding-bottom", newPadding + "px");
+			});
 		}
 		$(window).resize(adjustLayout2);
 		
