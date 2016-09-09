@@ -171,8 +171,9 @@ html.rideau {
 	
 	#eboutiqueModal {
 		a {
-			display: inline-block;
+			display: inline-block; //For the special XX | XY separator
 		}
+		
 		.separator-dash {
 			font-size: 0.8em;
 			margin-right: 2px;
@@ -180,6 +181,7 @@ html.rideau {
 	}
 	
 	.animated-rideau-modal {
+		font-family: $sackers_font;
 		background-color: rgba(0, 0, 0, 0.75);
 		color: white;
 		text-align: center;
@@ -187,18 +189,16 @@ html.rideau {
 		p {
 			font-family: $sackers_font;
 			margin-bottom: 10px;
-			font-size: 1em !important; //TODO: SOLVE THIS
+			font-size: 0.8em;
 			color: white;
 		}
 		
 		a {
 			&.disabled {
 				cursor: default;
-				color: gray;
 				
 				p {
 					color: gray;
-					font-size: 1em;
 				}
 			}
 		}
