@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-LC391608
-=======
 Standard Issue Tee
->>>>>>> dropbox/master

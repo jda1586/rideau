@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-ML121602
-=======
 Modified Cropped Trouser
->>>>>>> dropbox/master

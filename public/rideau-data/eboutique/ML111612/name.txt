@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-ML111612
-=======
 Standard Issue Tunic
->>>>>>> dropbox/master

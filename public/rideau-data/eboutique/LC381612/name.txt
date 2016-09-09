@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-LC381612
-=======
 Airport Sweater
->>>>>>> dropbox/master
