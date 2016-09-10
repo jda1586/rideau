@@ -111,13 +111,16 @@ router.get('/', function(req, res, next) {
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
 	var name = req.params.name;
-	var data = dirToTree("public/rideau-data/eboutique");
-	data = treeToJSON(data.children);
 	
-	data = _.compact(_.map(data, function(el) {
+	var data = dirToArray("public/rideau-data/eboutique");
+	
+	
+	data.walkInside = _.compact(_.map(data.walkInside, function(el) {
 		if (el.enabled === "1") return el;
 	}));
-
+	
+	console.log(data);
+	
 	if (!_.isUndefined(name)) {
 		data = data[name];
 		
@@ -128,6 +131,8 @@ router.get('/eboutique/:name?', function(req, res, next) {
 			return res.render('detail', { data: data });
 		}
 	}
+	
+	console.log(data.walkInside[30]);
 	
 	return res.render('eboutique', { data: data });
 });
@@ -159,6 +164,8 @@ router.get('/press', function (req, res, next) {
 		return -el.relevance;
 	});
 	
+	console.log(data);
+	
 	return res.render('press', { data: data });
 });
 //Sizing
@@ -175,8 +182,6 @@ router.get('/contact', function (req, res, next) {
 });
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
-	console.log("NF");
-	
 	return res.redirect('/');
 });
 
