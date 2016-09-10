@@ -91,9 +91,22 @@ function dirToArray(walkPath) {
 
 //Middleware
 router.get('*', function(req, res, next) {
-	console.log("mid");
+	console.log("Middleware load");
+	
+	//Load collection menus (these are obtained from the public folder)
+	var extraData = dirToArray("public/rideau-data/collections");
+	extraData.walkInside = _.sortBy(extraData.walkInside, function(el) {
+		return -el.relevance;
+	});
+	
+	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
 	
 	return next();
+});
+
+//Landing page
+router.get('/', function(req, res, next) {
+	return res.render('landing');
 });
 
 //Eboutique and product detail pages (now they are on the same route)
@@ -119,7 +132,6 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	
 	return res.render('eboutique', { data: data });
 });
-
 //Collections view using new sly carrousel
 router.get('/collections/:name?', function(req, res, next) {
 	var looks = getCollections();
@@ -137,7 +149,6 @@ router.get('/collections/:name?', function(req, res, next) {
 	
 	return res.redirect('/');
 });
-
 //About
 router.get('/about', function (req, res, next) {
 	return res.render('about');
@@ -149,12 +160,7 @@ router.get('/press', function (req, res, next) {
 		return -el.relevance;
 	});
 	
-	var extraData = dirToArray("public/rideau-data/collections");
-	extraData.walkInside = _.sortBy(extraData.walkInside, function(el) {
-		return -el.relevance;
-	});
-	
-	return res.render('press', { data: data, extraData: extraData });
+	return res.render('press', { data: data });
 });
 //Sizing
 router.get('/sizing', function (req, res, next) {
@@ -186,9 +192,10 @@ router.get('/contact', function (req, res, next) {
 	
 	return res.render('contact', { modalData: modalData });
 });
-
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
+	console.log("NF");
+	
 	return res.redirect('/');
 });
 
