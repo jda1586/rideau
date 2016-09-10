@@ -94,8 +94,6 @@ function dirToObj(walkPath) {
 		data = {};
 	
 	fs.readdirSync(walkPath).forEach(function(child) {
-		console.log(child);
-		
 		var stats = fs.lstatSync(walkPath + "/" + child);
 		if (stats.isFile()) {
 			if (path.extname(child) !== '.txt') {
@@ -118,11 +116,7 @@ router.get('*', function(req, res, next) {
 	console.log("Middleware load");
 	
 	//Load collection menus (these are obtained from the public folder)
-	var extraData = dirToArray("public/rideau-data/collections");
-	extraData.walkInside = _.sortBy(extraData.walkInside, function(el) {
-		return -el.relevance;
-	});
-	
+	var extraData = dirToObj("public/rideau-data/collections");
 	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
 	
 	return next();
@@ -136,14 +130,9 @@ router.get('/', function(req, res, next) {
 router.get('/eboutique/:name?', function(req, res, next) {
 	var name = req.params.name;
 	
-	var data = dirToArray("public/rideau-data/eboutique");
-	
-	
-	data.walkInside = _.compact(_.map(data.walkInside, function(el) {
-		if (el.enabled === "1") return el;
-	}));
-	
+	var data = dirToObj("public/rideau-data/eboutique");
 	console.log(data);
+	
 	
 	if (!_.isUndefined(name)) {
 		data = data[name];
@@ -155,9 +144,7 @@ router.get('/eboutique/:name?', function(req, res, next) {
 			return res.render('detail', { data: data });
 		}
 	}
-	
-	console.log(data.walkInside[30]);
-	
+
 	return res.render('eboutique', { data: data });
 });
 //Collections view using new sly carrousel
@@ -184,9 +171,6 @@ router.get('/about', function (req, res, next) {
 //Press
 router.get('/press', function (req, res, next) {
 	var data = dirToObj("public/rideau-data/press");
-	
-	console.log(data);
-	
 	return res.render('press', { data: data });
 });
 //Sizing
