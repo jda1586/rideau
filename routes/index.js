@@ -89,9 +89,11 @@ function dirToArray(walkPath) {
 	return data;
 }
 
-//Landing page
-router.get('/', function(req, res, next) {
-	return res.render('landing');
+//Middleware
+router.get('*', function(req, res, next) {
+	console.log("mid");
+	
+	return next();
 });
 
 //Eboutique and product detail pages (now they are on the same route)
@@ -142,20 +144,17 @@ router.get('/about', function (req, res, next) {
 });
 //Press
 router.get('/press', function (req, res, next) {
-	
-	/*var data = dirToTree("public/rideau-data/press");
-	data = treeToJSON(data.children);
-	
-	//console.log(data);
-	data = _.sortBy(data, function(el) {
+	var data = dirToArray("public/rideau-data/press");
+	data.walkInside = _.sortBy(data.walkInside, function(el) {
 		return -el.relevance;
-	});*/
+	});
 	
-	console.log("START");
-	var test = dirToArray("public/rideau-data/collections");
-	console.log(test);
+	var extraData = dirToArray("public/rideau-data/collections");
+	extraData.walkInside = _.sortBy(extraData.walkInside, function(el) {
+		return -el.relevance;
+	});
 	
-	return res.render('press', { data: data });
+	return res.render('press', { data: data, extraData: extraData });
 });
 //Sizing
 router.get('/sizing', function (req, res, next) {
