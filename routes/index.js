@@ -89,6 +89,30 @@ function dirToArray(walkPath) {
 	return data;
 }
 
+function dirToObj(walkPath) {
+	var stats = fs.lstatSync(walkPath),
+		data = {};
+	
+	fs.readdirSync(walkPath).forEach(function(child) {
+		console.log(child);
+		
+		var stats = fs.lstatSync(walkPath + "/" + child);
+		if (stats.isFile()) {
+			if (path.extname(child) !== '.txt') {
+				var keyName = (child.split('.'))[0];
+				data[keyName] = walkPath.split("public").pop() + "/" + child;
+			} else {
+				var keyName = (child.split('.'))[0];
+				data[keyName] = _.trim(fs.readFileSync(walkPath + "/" + child, 'utf8'));
+			}
+		} else {
+			data[child] = dirToObj(walkPath + "/" + child);
+		}
+	});
+
+	return data;
+}
+
 //Middleware
 router.get('*', function(req, res, next) {
 	console.log("Middleware load");
@@ -159,10 +183,7 @@ router.get('/about', function (req, res, next) {
 });
 //Press
 router.get('/press', function (req, res, next) {
-	var data = dirToArray("public/rideau-data/press");
-	data.walkInside = _.sortBy(data.walkInside, function(el) {
-		return -el.relevance;
-	});
+	var data = dirToObj("public/rideau-data/press");
 	
 	console.log(data);
 	

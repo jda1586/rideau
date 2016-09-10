@@ -9,16 +9,16 @@
 		
 		<section class="rideau">
 			<div class="row">
-				<% for(var i = 0; i < data.walkInside.length; i++) {%>
+				<% Object.keys(data).forEach(function(key) { %>
 					<div class="small-12 medium-6 large-4 columns">
 						<div class="press-item">
-							<a class="<%- data.walkInside[i].class %>" href="<%- data.walkInside[i].link %>" target="_blank">
-								<div class="press-image" style="background-image: url('<%- data.walkInside[i].logo %>')"></div>
-								<p><%- data.walkInside[i].title %></p>
+							<a class="<%- data[key].class %>" href="<%- data[key].link %>" target="_blank">
+								<div class="press-image" style="background-image: url('<%- data[key].logo %>')"></div>
+								<p><%- data[key].title %></p>
 							</a>
 						</div>
 					</div>
-				<% } %>
+				<% }); %>
 			</div>
 			
 			<div id="essentialHomeModal" class="animated-rideau-modal">
