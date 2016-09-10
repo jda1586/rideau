@@ -196,6 +196,7 @@ html.rideau {
 		a {
 			&.disabled {
 				cursor: default;
+				pointer-events: none;
 				
 				p {
 					color: gray;
