@@ -55,10 +55,38 @@ function treeToJSON(tree, clearPublicPath) {
 		} else {
 			var keyName = (el.name.split('.'))[0]; //Remove extension
 			info[keyName] = el.data;
+			//
 		}
 	});
 	
 	return info;
+}
+
+function dirToArray(walkPath) {
+	var stats = fs.lstatSync(walkPath),
+		data = { walkKey: walkPath.substr(walkPath.lastIndexOf('/') + 1), walkPath: walkPath.split("public").pop(), walkInside: [] };
+	
+	fs.readdirSync(walkPath).forEach(function(child) {
+		var stats = fs.lstatSync(walkPath + "/" + child);
+		
+		if (stats.isFile()) {
+		
+			if (path.extname(child) !== '.txt') {
+				var keyName = (child.split('.'))[0];
+				data[keyName] = walkPath.split("public").pop() + "/" + child;
+			} else {
+				var keyName = (child.split('.'))[0];
+				data[keyName] = _.trim(fs.readFileSync(walkPath + "/" + child, 'utf8'));
+			}
+		
+		
+		} else {
+			data["walkInside"].push(dirToArray(walkPath + "/" + child));
+		}
+	
+	});
+
+	return data;
 }
 
 //Landing page
@@ -115,13 +143,17 @@ router.get('/about', function (req, res, next) {
 //Press
 router.get('/press', function (req, res, next) {
 	
-	var data = dirToTree("public/rideau-data/press");
+	/*var data = dirToTree("public/rideau-data/press");
 	data = treeToJSON(data.children);
 	
-	console.log(data);
+	//console.log(data);
 	data = _.sortBy(data, function(el) {
 		return -el.relevance;
-	});
+	});*/
+	
+	console.log("START");
+	var test = dirToArray("public/rideau-data/collections");
+	console.log(test);
 	
 	return res.render('press', { data: data });
 });
@@ -135,7 +167,25 @@ router.get('/stockist', function (req, res, next) {
 });
 //Contact
 router.get('/contact', function (req, res, next) {
-	return res.render('contact');
+	var modalData = {};
+	
+	var collections = dirToTree("public/rideau-data/collections");
+	//console.log(collections);
+	
+	//console.log(collections.children[0].children);
+	
+	collections = treeToJSON(collections.children);
+	
+	
+	collections = _.sortBy(collections, function(el) {
+		return -el.relevance;
+	});
+	
+	console.log(collections);
+	
+	modalData = { collections: collections };
+	
+	return res.render('contact', { modalData: modalData });
 });
 
 //This function must appear last on the routes
