@@ -73,10 +73,13 @@
 		<div class="auto-adjustable-y">
 			<div class="row">
 				<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-					<a href="/collections/ss15-lookbook"><p>ss15 lookbook</p></a>
-					<a href="/collections/aw16-campaign"><p>AW16 CAMPAIGN</p></a>
-					<a href="#" class="disabled"><p>SS16 LOOKBOOK<br/></p></a>
-					<a href="#" class="disabled"><p>SS16 CAMPAIGN<br/></p></a>
+					
+					<% for(var i = 0; i < extraData.walkInside.length; i++) {%>
+					   <a class="<%- extraData.walkInside[i].class %>" href="/collections/<%- extraData.walkInside[i].walkKey %>">
+							<p><%- extraData.walkInside[i].name %></p>
+					   </a>
+					<% } %>
+					
 				</div>
 			</div>
 		</div>
