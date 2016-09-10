@@ -131,6 +131,17 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	var name = req.params.name;
 	
 	var data = dirToObj("public/rideau-data/eboutique");
+	
+	console.log(data);
+	
+	data = _.pickBy(_.mapValues(data, function(el) {
+		if (el.enabled == '1') {
+			return el;
+		}
+		
+	}), _.negate(_.isUndefined));
+	
+	
 	console.log(data);
 	
 	
