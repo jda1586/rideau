@@ -129,10 +129,7 @@ router.get('/', function(req, res, next) {
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
 	var name = req.params.name;
-	
 	var data = dirToObj("public/rideau-data/eboutique");
-	
-	console.log(data);
 	
 	data = _.pickBy(_.mapValues(data, function(el) {
 		if (el.enabled == '1') {
@@ -140,10 +137,6 @@ router.get('/eboutique/:name?', function(req, res, next) {
 		}
 		
 	}), _.negate(_.isUndefined));
-	
-	
-	console.log(data);
-	
 	
 	if (!_.isUndefined(name)) {
 		data = data[name];
@@ -160,17 +153,17 @@ router.get('/eboutique/:name?', function(req, res, next) {
 });
 //Collections view using new sly carrousel
 router.get('/collections/:name?', function(req, res, next) {
-	var looks = getCollections();
 	var name = req.params.name;
 	
-	console.log(name);
-	
 	if (!_.isUndefined(name)) {
-		var album = _.find(looks, { name : name });
-		if (!_.isUndefined(album)) {
-			console.log(album);
-			return res.render('collections', { album: album });
-		}
+		var data = dirToObj("public/rideau-data/collections");
+		data = _.pickBy(_.mapValues(data, function(el, key) {
+			if (key.indexOf(name) != -1) return el;
+		}), _.negate(_.isUndefined));
+		data = data[_.head(_.keys(data))];
+		
+		return res.render('collections', { data: data });
+		
 	}
 	
 	return res.redirect('/');
