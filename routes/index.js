@@ -108,7 +108,6 @@ router.get('*', function(req, res, next) {
 router.get('/', function(req, res, next) {
 	return res.render('landing');
 });
-
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
 	var name = req.params.name;
@@ -172,25 +171,7 @@ router.get('/stockist', function (req, res, next) {
 });
 //Contact
 router.get('/contact', function (req, res, next) {
-	var modalData = {};
-	
-	var collections = dirToTree("public/rideau-data/collections");
-	//console.log(collections);
-	
-	//console.log(collections.children[0].children);
-	
-	collections = treeToJSON(collections.children);
-	
-	
-	collections = _.sortBy(collections, function(el) {
-		return -el.relevance;
-	});
-	
-	console.log(collections);
-	
-	modalData = { collections: collections };
-	
-	return res.render('contact', { modalData: modalData });
+	return res.render('contact');
 });
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
