@@ -57,7 +57,7 @@
     showConfirmButton: true,
     showCancelButton: false,
     preConfirm: null,
-    confirmButtonText: 'OK',
+    confirmButtonText: 'ok',
     confirmButtonColor: '#A9A9A9',
     confirmButtonClass: null,
     cancelButtonText: '',
