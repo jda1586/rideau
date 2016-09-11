@@ -10,25 +10,52 @@
 								<a href="/">
 									<img id="rideau-logo" src="/rideau-data/landing/rideau-logo-shown.svg"/>
 								</a>
+								<div class="apc-container text-center">
+									<a href="/about">about</a>
+									<a href="/press">press</a>
+									<a href="/contact">contact</a>
+								</div>
 							</div>
-							<div class="small-12 medium-12 large-12 columns">
+							
+							<div class="small-4 columns">
+								<div class="header-text-container">
+									<div class="row">
+										<div class="small-12 medium-12 large-12 rideau-menu-column columns">
+											<a class="amodal header-top-text" href="#collectionsModal">collections</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="small-4 columns">
 								<% include _cart-button.ejs %>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="small-6 medium-3 large-3 columns">
-					<div class="header-text-container">
-						<div class="row">
-							<div class="small-12 medium-12 large-12 rideau-menu-column columns">
-								<a class="amodal header-top-text" href="#collectionsModal">collections</a>
+							
+							<div class="small-4 columns">
+								<div class="header-text-container">
+									<div class="row">
+										<div class="small-12 medium-12 large-12 rideau-menu-column columns">
+											<a class="amodal header-top-text" href="#eboutiqueModal">e-boutique</a>
+										</div>
+									</div>
+								</div>
 							</div>
+								
+							
 						</div>
 					</div>
 				</div>
 				
-				<!-- Hide logo in this position in mobiles -->
 				<div class="hide-for-small-only">
+					<div class="small-6 medium-3 large-3 columns">
+						<div class="header-text-container">
+							<div class="row">
+								<div class="small-12 medium-12 large-12 rideau-menu-column columns">
+									<a class="amodal header-top-text" href="#collectionsModal">collections</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="small-12 medium-6 large-6 columns">
 						<div class="row">
 							<div class="small-12 medium-12 large-12 columns">
@@ -48,16 +75,19 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="small-6 medium-3 large-3 columns">
-					<div class="header-text-container">
-						<div class="row">
-							<div class="small-12 medium-12 small-12 rideau-menu-column columns">
-								<a class="amodal header-top-text" href="#eboutiqueModal">e-boutique</a>
+					<div class="small-6 medium-3 large-3 columns">
+						<div class="header-text-container">
+							<div class="row">
+								<div class="small-12 medium-12 small-12 rideau-menu-column columns">
+									<a class="amodal header-top-text" href="#eboutiqueModal">e-boutique</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				
+				
+				
 			</div>
 		</div>
 	</div>
@@ -143,9 +173,10 @@
 					<div class="row">
 						<div class="small-12 large-12 columns">
 							<div class="item-buy-data">
-								<h5 class="lt-1"><strong>ref</strong></h5>
-								<p>size: size</p>
-								<p>color: white</p>
+								<h5 class="item-name"><strong>ref</strong></h5>
+								<h5 class="item-sku">ref</h5>
+								<p>size: <span class="item-size">size</span></p>
+								<p>color: <span class="item-color">white</span></p>
 							</div>
 						</div>
 					</div>
@@ -185,19 +216,20 @@
 			console.log("regenerate cart");
 			
 			var rideauCart = JSON.parse(localStorage.storedCart);
-			console.log(rideauCart.length);
+			console.log(rideauCart);
 			
 			var blueprintItem = $('blueprints .item');
-			
 			
 			var cartItems = $('.cart-items');
 			cartItems.empty(); //Empty cart
 			_.times(rideauCart.length, function(i) {
-				console.log("add" + i);
-				cartItems.append(blueprintItem.clone());
-				cartItems.append("<p>" + i + "</p>");
+				var tempItem = blueprintItem.clone();
+				tempItem.find('.item-name').html(rideauCart[i].name);
+				tempItem.find('.item-sku').html(rideauCart[i].sku);
+				tempItem.find('.item-price').html(rideauCart[i].price);
+				
+				cartItems.append(tempItem);
 			});
-			
 		});
 	});
 	

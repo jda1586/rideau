@@ -18,6 +18,10 @@
 .header-text-container { //Collections and E-boutique texts
 	margin-top: 38px;
 	
+	@media screen and (max-width: $tablet) {
+		margin-top: 0; //Font size for mobile
+	}
+	
 	.header-top-text {
 		font-size: 0.8rem;
 		letter-spacing: 0px; //Tracking
@@ -34,5 +38,9 @@
 	a {
 		font-size: 0.7em;
 		margin: 0 10px;
+		
+		@media screen and (max-width: $tablet) {
+			font-size: 0.6rem; //Font size for mobile
+		}
 	}
 }
