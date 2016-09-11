@@ -75,6 +75,7 @@
                 } 
 
                  if (id.hasClass(settings.modalTarget+'-on')) {
+					id.css({ 'visibility': 'visible' });
                     settings.beforeOpen();
                     id.css({'opacity':settings.opacityIn,'z-index':settings.zIndexIn});
                     id.addClass(settings.animatedIn);  
@@ -105,6 +106,7 @@
 
         function afterClose () {       
             id.css({'z-index':settings.zIndexOut});
+			id.css({ 'visibility': 'hidden' });
             settings.afterClose(); //afterClose
         }
 
