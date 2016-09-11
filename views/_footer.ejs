@@ -289,8 +289,10 @@
 			
 			swal({
 				title: 'sign up for our newsletter',
+				width: 600,
+				padding: 80,
 				input: 'email',
-				confirmButtonText: 'Continue',
+				confirmButtonText: 'continue',
 				cancelButtonText: '',
 				showCancelButton: true,
 				showLoaderOnConfirm: true,
@@ -318,7 +320,9 @@
 			//For this alert we are using a different process since SweetAlerts has no username & password dialog type
 			swal({
 				title: 'wholesaler access',
-				confirmButtonText: 'Continue',
+				width: 600,
+				padding: 80,
+				confirmButtonText: 'continue',
 				showCancelButton: true,
 				html: "<p class='text-left'>user name</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>password</p><input class='swal2-input wholesaler-access pass' type='password'>"
 			}).then(function() {

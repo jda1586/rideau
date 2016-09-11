@@ -74,7 +74,9 @@
     imageClass: null,
     timer: null,
     width: 500,
-    padding: 20,
+    //padding: 20,
+    paddingTopBottom: 20,
+    paddingLeftRight: 90,
     background: '#FFF',
     input: null, // 'text' | 'email' | 'password' | 'select' | 'radio' | 'checkbox' | 'textarea' | 'file'
     inputPlaceholder: '',
@@ -454,7 +456,11 @@
       modal.style.marginLeft = -width / 2 + widthUnits;
     }
 
-    modal.style.padding = params.padding + 'px';
+    //modal.style.padding = params.padding + 'px';
+    modal.style.paddingTop = params.paddingTopBottom + 'px';
+    modal.style.paddingBottom = params.paddingTopBottom + 'px';
+	modal.style.paddingLeft = params.paddingLeftRight + 'px';
+    modal.style.paddingRight = params.paddingLeftRight + 'px';
     //modal.style.background = params.background; //Disabled
 
     if (widthUnits === 'px') {

@@ -25,6 +25,7 @@
 	display: none;
 	z-index: 2000;
 	color: #FFF;
+	//padding: 20px 90px;
 	&:focus {
 		outline: none;
 	}
@@ -56,10 +57,11 @@
 	
 	button {
 		&.styled {
+			font-family: $sackers_font;
 			color: #FFF;
 			border: 0;
 			box-shadow: none;
-			font-size: 17px;
+			font-size: 0.7em;
 			font-weight: 500;
 			border-radius: 0px;
 			padding: 10px 32px;
@@ -337,7 +339,7 @@
 		//text-align: center; //Disabled
 	
 		&:not([type="file"]) {
-			height: 43px;
+			height: 25px;
 			padding: 0 12px;
 		}
 		&[type="file"] {
