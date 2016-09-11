@@ -143,9 +143,13 @@ html.rideau {
 	
 	/* The default font is Akzidenz */
 	h1, h2, h3, h4, h5, h6, p {
-		font-family: $akzidenz_font;
+		font-family: $sackers_font;
 		letter-spacing: 2px;
 		color: $body_c;
+	}
+	
+	p {
+		font-family: $akzidenz_font;
 	}
 	
 	/* One full page style */
@@ -289,11 +293,11 @@ html.rideau {
 			margin-top: 9px;
 			letter-spacing: 1px;
 			a {
-				font-size: 0.45rem;
+				font-size: 0.6em;
 				margin-top: 10px;
 			}
 			.bordered {
-				padding: 2px 10px;
+				padding: 7px 14px;
 				border: 1px solid black;
 			}
 		}		
@@ -339,7 +343,7 @@ html.rideau {
 		/* Sly lookbook slider */
 		.photo-data {
 			position: fixed;
-			width: 17%;
+			width: 20%;
 			bottom: 13%;
 			left: 30px;
 			text-align: right;
@@ -349,7 +353,9 @@ html.rideau {
 		
 		.stage-description {
 			p, h6 {
-				font-size: 8px;
+				font-family: $sackers_font;
+				font-size: 0.6em;
+				font-weight: bold;
 				letter-spacing: 2px;
 				margin-bottom: 0.2rem;
 				text-shadow: 0 0 1px rgba(255, 255, 255, 1);
@@ -360,6 +366,7 @@ html.rideau {
 			}
 			.look-span {
 				font-family: $sackers_font;
+				font-weight: normal;
 			}
 		}
 
@@ -479,27 +486,40 @@ html.rideau {
 			.mix {
 				display: none;
 				margin: 3%;
+				
+				.item-data p {
+					font-family: $sackers_font;
+					font-size: 0.5em;
+				}
+				
 			}
 		}
 
 		/* The eboutique left menu */
 		#menui {
 			position: fixed;
-			bottom: 20%;
+			bottom: 10%;
 			background: none;
 			white-space: nowrap;
 			left: 10px;
 			width: 10%;
+			
 			@media screen and (max-width: $large) {
+				bottom: 18%;
 				width: 8%;
 			}
+			@media screen and (max-width: $tablet) {
+				bottom: 30%;
+			}
+			
 			a {
-				font-size: 0.8rem;
+				font-size: 0.6em;
 				margin-top: 10px;
 			}
 			p {
+				font-family: $sackers_font;
 				text-align: right;
-				margin-bottom: 0.2rem;
+				margin-bottom: 0.2em;
 				@media screen and (max-width: $tablet) {
 					text-align: left;
 				}
