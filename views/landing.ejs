@@ -5,7 +5,7 @@
 	</head>
 	
 	<body id="landing">
-		<div id="splashscreen">
+		<div id="splashscreen" style="display: none;">
 			<div id="progress"></div>
 			<div id="status"></div>
 		</div>
@@ -58,7 +58,6 @@
 				
 				//When the window is resized
 				$(window).resize(function() {
-					console.log("rsz");
 					fixVideos();
 				}).resize();
 				

@@ -22,11 +22,18 @@
 <!-- Splash screen -->
 <script type="text/javascript">
 	$(document).ready(function () {
-		$.SplashScreen({
-			progressCount: false,
-			progressBar: false,
-			timeToFade: 250, //In milliseconds (eg: 1000 = 1sec)
-			timeOut: 1000 //In milliseconds (eg: 2000 = 2sec)
+		
+		$.get("/rideau-data/landing/splash-enabled.txt", function(data) {
+			if (JSON.parse(data)) {
+				$('#splashscreen').show(); //TODO: Fix this, it is never dissapearing...
+				$.SplashScreen({
+					progressCount: false,
+					progressBar: false,
+					timeToFade: 250, //In milliseconds (eg: 1000 = 1sec)
+					timeOut: 1000 //In milliseconds (eg: 2000 = 2sec)
+				});
+			}
 		});
+
 	});
 </script>
