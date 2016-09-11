@@ -180,7 +180,7 @@ html.rideau {
 		
 		.separator-dash {
 			font-size: 0.8em;
-			margin-right: 2px;
+			margin-right: 5px;
 		}
 	}
 	
@@ -193,7 +193,8 @@ html.rideau {
 		p {
 			font-family: $sackers_font;
 			margin-bottom: 10px;
-			font-size: 0.8em;
+			font-size: 0.7em;
+			letter-spacing: 2.5px;
 			color: white;
 		}
 		
@@ -293,7 +294,7 @@ html.rideau {
 			margin-top: 9px;
 			letter-spacing: 1px;
 			a {
-				font-size: 0.6em;
+				font-size: 0.48em;
 				margin-top: 10px;
 			}
 			.bordered {
@@ -656,6 +657,10 @@ html.rideau {
 		.press-item {
 			margin-top: 50px;
 			
+			p {
+				font-size: 0.7rem;
+			}
+			
 			.press-image {
 				width: 180px;
 				height: 50px;
@@ -713,9 +718,10 @@ html.rideau {
 		}
 		
 		p {
+			font-family: $akzidenz_font;
 			line-height: 1.2;
 			margin-bottom: 0.7em;
-			font-size: 0.5em;
+			font-size: 0.8em;
 		}
 	
 		.left-box {
