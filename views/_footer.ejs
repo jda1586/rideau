@@ -39,10 +39,10 @@
 							<a class="subscribe bordered">subscribe</a>
 						</div>
 						<div class="small-12 large-4 columns">
-							<a href="/press">wholesaler access</a>
+							<a class="wholesaler-access">wholesaler access</a>
 						</div>
 						<div class="small-12 large-2 columns">
-							<a href="/press">information</a>
+							<a href="#" data-reveal-id="info-modal">information</a>
 						</div>
 						<div class="small-12 large-2 columns">
 							<a href="/stockist">stockist</a>
@@ -138,35 +138,35 @@
 
 <!-- Post Login modal -->
 <div id="loggedin-modal" class="reveal-modal rideau-modal small" data-reveal aria-hidden="true" role="dialog">
-		<div class="row">
-			<div class="large-12 columns">
-				<h2>Thank you!</h2>
-				<br/>
-				<p>You are logged now.</p>
-				<br/>
-			</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<h2>Thank you!</h2>
+			<br/>
+			<p>You are logged now.</p>
+			<br/>
 		</div>
-		<div class="row">
-			<div class="large-12 columns text-center">
-				<a class="close-reveal-modal"><span class="close thick"></span></a>
-			</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns text-center">
+			<a class="close-reveal-modal"><span class="close thick"></span></a>
 		</div>
+	</div>
 </div>
 
 <!-- Post Login modal -->
 <div id="loggederror-modal" class="reveal-modal rideau-modal small" data-reveal aria-hidden="true" role="dialog">
-		<div class="row">
-			<div class="large-12 columns">
-				<h2>Login error!</h2>
-				<br/>
-				<p>Try again please.</p>
-			</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<h2>Login error!</h2>
+			<br/>
+			<p>Try again please.</p>
 		</div>
-		<div class="row">
-			<div class="large-12 columns text-center">
-				<a class="close-reveal-modal" data-reveal-id="login-modal"><span class="close thick"></span></a>
-			</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns text-center">
+			<a class="close-reveal-modal" data-reveal-id="login-modal"><span class="close thick"></span></a>
 		</div>
+	</div>
 </div>
 
 <!-- Subscription modal -->
@@ -299,11 +299,11 @@
 				preConfirm: function(email) {
 					return new Promise(function(resolve, reject) {
 						setTimeout(function() {
-						if (email === 'taken@example.com') {
-							reject('This email is already taken.');
-						} else {
-							resolve();
-						}
+							if (email === 'taken@example.com') {
+								reject('This email is already taken.');
+							} else {
+								resolve();
+							}
 						}, 1000);
 					});
 				}

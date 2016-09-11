@@ -44,39 +44,39 @@
 			<div class="product-showcase">
 				<input type="hidden" name="id_item" value="<%- data.name %>" />
 				
-				<h5 class="item-name"><span class="ref" data-storage="<%- data.name %>"><%- data.name %></span></h5>
-				<p class="item-price"><span  class="price" data-storage="<%- data.price.normal %>"></span><%- data.price.name %> USD</p>
+				<h5 class="item-name"><span class="ref" data-storage="<%- data.name %>"><%- data.name.toLowerCase() %></span></h5>
+				<p class="item-sku"><span  class="sku" data-storage="<%- data.sku %>"></span><%- data.sku.toLowerCase() %></p>
+				<p class="item-price"><span  class="price" data-storage="<%- data.price.normal %>"></span><%- data.price.normal %> usd</p>
 
 				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>INFORMATION <span class="tab-plus-minus">-</span></strong></p></a>
+					<a class="curtain"><p class="title"><strong>information <span class="tab-plus-minus">-</span></strong></p></a>
 					<div class="box">
 						<p><%- data.information %></p>
 					</div>
 				</div>
 				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>FIT <span class="tab-plus-minus">+</span></strong></p></a>
+					<a class="curtain"><p class="title"><strong>fit <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
 						<p><%- data.fit %></p>
 					</div>
 				</div>
 				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>COLORS <span class="tab-plus-minus">+</span></strong></p></a>
+					<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
-						<span class="label white"></span>
-						<span class="label black"></span>
-						<span class="label blue"></span>
-						<span class="label green"></span>
+						<% Object.keys(data.colors).forEach(function(key) { %>
+							<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+						<% }); %>
 					</div>
 				</div>
 				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>LOOK <span class="tab-plus-minus">+</span></strong></p></a>
+					<a class="curtain"><p class="title"><strong>look <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
 						<p>Look data</p>
 					</div>
 				</div>
 				
 				<div class="box-container">
-					<p class="title"><strong>SIZE</strong></p>
+					<p class="title"><strong>size</strong></p>
 					<div class="text-center">
 						<span class="size-chooser">
 							<% for(var i = 0; i <= 6; i++) { %>
@@ -85,16 +85,16 @@
 						</span>
 						<br/>
 						<a class="cart-button tiny button disabled">
-							<p><strong>ADD TO CART</strong></p>
+							<p><strong>add to cart</strong></p>
 							<!-- Cart icon disabled, uncomment to enable -->
 							<!-- <img class="cart-icon" src="/rideau-data/shopping/shop-white.png" /> -->
 						</a>
 					</div>
 				</div>
 				
-				<p class="title"><a class="male_button">XY</a> | <a class="disabled female_button">XX</a></p>
+				<p class="title"><a class="male_button">xy</a> | <a class="disabled female_button">xx</a></p>
 				
-				<p id="back-button"><a href="/eboutique">BACK</a></p>
+				<p id="back-button"><a href="/eboutique">back</a></p>
 			</div>
 		</div>
 		
