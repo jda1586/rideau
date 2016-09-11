@@ -5,6 +5,11 @@
 	</head>
 	
 	<body id="landing">
+		<div id="splashscreen">
+			<div id="progress"></div>
+			<div id="status"></div>
+		</div>
+		
 		<% include _header.ejs %>
 		
 		<section class="rideau landing-fix">
@@ -30,11 +35,6 @@
 		
 		<% include _footer.ejs %>
 		<% include _scripts.ejs %>
-		
-		<div id="splashscreen">
-			<div id="progress"></div>
-			<div id="status"></div>
-		</div>
 		
 		<script>
 			$(function() {
