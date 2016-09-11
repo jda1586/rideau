@@ -108,56 +108,17 @@
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
 				
-				<div class="cart-items">
-					
-					<div class="row item">
-						<div class="small-12 medium-8 large-8 columns">
-							<div class="row">
-								<div class="small-4 large-4 columns">
-									<img src="http://placehold.it/100x100" style="width: 200px;" />
-								</div>
-								<div class="small-8 large-8 columns">
-									<div class="row">
-										<div class="small-12 large-12 columns">
-											<div class="item-buy-data">
-												<h5 class="lt-1"><strong>ref</strong></h5>
-												<p>size: size</p>
-												<p>color: white</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="small-12 medium-4 large-4 columns">
-							<div class="row">
-								<div class="small-6 large-6 columns">
-									<p>Qnty:</p>
-									<table class="up-down-controls" cellSpacing="0" cellPadding="0" width="100%" border="0">
-										<tr>
-											<td align="">
-												<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
-											</td>
-											<td align="">
-												<input type="text" name="quantity" class="quantity" placeholder="0" value="QTY" />
-											</td>
-											<td align="">
-												<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
-											</td>
-										</tr>
-									</table>
-								</div>
-								<div class="small-6 large-6 columns">
-									<p>Unit price:</p>
-									<p><span class="item-price">price</span> usd</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
 				
-
+				
+				<div class="cart-items">
+				
+				
+				
+					cart
+				
+				
+				
+				</div>
 				
 				
 				
@@ -171,7 +132,75 @@
 	<img id="r-top-logo" class="hidden" src="/rideau-data/landing/rideau-logo-hidden.svg" />
 </div>
 
+<blueprints>
+	<div class="row item">
+		<div class="small-12 medium-8 large-8 columns">
+			<div class="row">
+				<div class="small-4 large-4 columns">
+					<img src="http://placehold.it/100x100" style="width: 200px;" />
+				</div>
+				<div class="small-8 large-8 columns">
+					<div class="row">
+						<div class="small-12 large-12 columns">
+							<div class="item-buy-data">
+								<h5 class="lt-1"><strong>ref</strong></h5>
+								<p>size: size</p>
+								<p>color: white</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 medium-4 large-4 columns">
+			<div class="row">
+				<div class="small-6 large-6 columns">
+					<p>Qnty:</p>
+					<table class="up-down-controls" cellSpacing="0" cellPadding="0" width="100%" border="0">
+						<tr>
+							<td align="">
+								<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
+							</td>
+							<td align="">
+								<input type="text" name="quantity" class="quantity" placeholder="0" value="0" />
+							</td>
+							<td align="">
+								<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="small-6 large-6 columns">
+					<p>Unit price:</p>
+					<p><span class="item-price">price</span> usd</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</blueprints>
+
 <script>
+	$(function() {
+		$('a[href="#cartModal"]').on('click', function() {
+			console.log("regenerate cart");
+			
+			var rideauCart = JSON.parse(localStorage.storedCart);
+			console.log(rideauCart.length);
+			
+			var blueprintItem = $('blueprints .item');
+			
+			
+			var cartItems = $('.cart-items');
+			cartItems.empty(); //Empty cart
+			_.times(rideauCart.length, function(i) {
+				console.log("add" + i);
+				cartItems.append(blueprintItem.clone());
+				cartItems.append("<p>" + i + "</p>");
+			});
+			
+		});
+	});
+	
 	$(document).mousemove(function(e) {
 		var height;
 		if (document.body) {

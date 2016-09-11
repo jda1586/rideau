@@ -44,9 +44,10 @@
 			<div class="product-showcase">
 				<input type="hidden" name="id_item" value="<%- data.name %>" />
 				
-				<h5 class="item-name"><span class="ref" data-storage="<%- data.name %>"><%- data.name.toLowerCase() %></span></h5>
-				<p class="item-sku"><span  class="sku" data-storage="<%- data.sku %>"></span><%- data.sku.toLowerCase() %></p>
-				<p class="item-price"><span  class="price" data-storage="<%- data.price.normal %>"></span><%- data.price.normal %> usd</p>
+				<h5 class="item-name"><%- data.name.toLowerCase() %></h5>
+				<p class="item-category" style="display: none;"><%- data.category %></p>
+				<p class="item-sku"><%- data.sku.toLowerCase() %></p>
+				<p class="item-price"><%- data.price.normal %> usd</p>
 
 				<div class="box-container">
 					<a class="curtain"><p class="title"><strong>information <span class="tab-plus-minus">-</span></strong></p></a>
@@ -202,13 +203,33 @@
 					//
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
 					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name : "TEST", category: "ADF", price: 2342, color: "R", date: new Date() };
+					var item = { name : $('.item-sku').html(), category: $('.item-category').html(), price: $('.item-price').html(), color: "R", date: new Date() };
 					storedCart.push(item);
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					
 					$('.cart-button .cart-count').html(storedCart.length);
 					
-					$('header .cart-icon').fadeOut(250, function() {
+					swal({
+						title: 'thank you',
+						width: 600,
+						padding: 80,
+						confirmButtonText: 'view cart',
+						showCancelButton: true,
+						html: "<p>item has been added to your cart</p>"
+					}).then(function() {
+						var user = $('.wholesaler-access.user').val(),
+							pass = $('.wholesaler-access.pass').val();
+							
+						swal({
+							title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
+							showCancelButton: false
+						});
+					});
+					
+					
+					
+					//Currently disabled...
+					/*$('header .cart-icon').fadeOut(250, function() {
 						$('header .cart-count').fadeIn(250, function() {
 							$('header .cart-count').fadeOut(250, function() {
 								$('header .cart-icon').fadeIn(250, function() {
@@ -217,7 +238,7 @@
 								});
 							});
 						});
-					});
+					});*/
 					
 				});
 				

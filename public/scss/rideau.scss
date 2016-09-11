@@ -131,6 +131,10 @@ html.rideau {
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	
+	blueprints {
+		display: none !important;
+	}
+	
 	/* Fonts */
 	.akzidenz {
 		font-family: $akzidenz_font;
