@@ -42,7 +42,7 @@
 			
 			sectionRideau.each(function(el) {
 				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
-				if (newPadding < 0) newPadding = 0;
+				if (newPadding < 0) newPadding = 100;
 				
 				$(this).css("padding-top", newPadding + "px");
 				$(this).css("padding-bottom", newPadding + "px");

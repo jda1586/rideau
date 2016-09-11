@@ -200,15 +200,15 @@
 						return;
 					}
 					
-					//
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
 					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name : $('.item-sku').html(), category: $('.item-category').html(), price: $('.item-price').html(), color: "R", date: new Date() };
+					var item = { name: $('.product-showcase .item-name').html(), sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
 					storedCart.push(item);
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					
 					$('.cart-button .cart-count').html(storedCart.length);
 					
+					//Show add to cart confirmation
 					swal({
 						title: 'thank you',
 						width: 600,
@@ -225,8 +225,6 @@
 							showCancelButton: false
 						});
 					});
-					
-					
 					
 					//Currently disabled...
 					/*$('header .cart-icon').fadeOut(250, function() {
