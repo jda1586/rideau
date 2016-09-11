@@ -24,9 +24,9 @@
 			sectionRideau.each(function(el) {
 				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
 				console.log(newPadding);
-				if (newPadding < ($('footer').height() + $('header').height()) / 2) newPadding = (($('footer').height() + $('header').height()) / 2) + 50; //TODO: DRY'fy this section
-				//newPadding = newPadding + 50; //Always add 50 px to each side
-				
+				//if (newPadding < ($('footer').height() + $('.header_white').height())) newPadding = (($('footer').height() + $('.header_white').height()) / 2) + 0; //TODO: DRY'fy this section //No longer used...
+				if (newPadding < $('header').height()) newPadding = $('.header_white').height();
+				//newPadding = newPadding + 50; //Always add 50 px to each side //No longer used
 				
 				$(this).css("padding-top", newPadding + "px");
 				$(this).css("padding-bottom", newPadding + "px");
