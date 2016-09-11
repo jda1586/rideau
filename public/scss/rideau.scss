@@ -132,7 +132,7 @@ html.rideau {
 	-o-transition: all 0.5s ease;
 	
 	blueprints {
-		display: none !important;
+		display: none !important; //Blueprints are never shown
 	}
 	
 	/* Fonts */
@@ -143,6 +143,17 @@ html.rideau {
 
 	.sackers {
 		font-family: $sackers_font;
+	}
+	
+	.bold {
+		font-weight: bold;
+	}
+	
+	a[href^="mailto"] {
+		p {
+			color: black;
+			text-decoration: underline;
+		}
 	}
 	
 	/* The default font is Akzidenz */
@@ -189,7 +200,6 @@ html.rideau {
 	}
 	
 	#cartModal {
-		
 		.cart-items {
 			.item {
 				
@@ -719,6 +729,31 @@ html.rideau {
 		}
 	}
 	
+	/* Contact */
+	body#contact {
+		/* Contact config */
+		.contact-info {
+			text-align: center;
+			padding-bottom: 30px;
+			display: block !important;
+			
+			p {
+				font-size: 0.8em;
+				margin: 0;
+			}
+			h5 {
+				font-size: 12px;
+				letter-spacing: 1px;
+							
+				&.bold {
+					font-size: 0.9em;
+					font-weight: bold;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	
 	/* Press */
 	body#press {
 		text-align: center;
@@ -727,7 +762,7 @@ html.rideau {
 			margin-top: 50px;
 			
 			p {
-				font-size: 0.7rem;
+				font-size: 0.8em;
 			}
 			
 			.press-image {
@@ -1143,20 +1178,6 @@ input {
 /* Uploadarticle config */
 #uploadForm label {
 	color: #000000;
-}
-
-/* Contact config */
-.contact-info {
-  text-align: center;
-  padding-bottom: 30px;
-  display: block !important;
-  p {
-	font-size: 10px;
-	margin: 0;
-  }
-  h5 {
-	font-size: 12px;
-  }
 }
 
 .login-box {

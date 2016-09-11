@@ -25,7 +25,7 @@
 		
 		$.get("/rideau-data/landing/splash-enabled.txt", function(data) {
 			if (JSON.parse(data)) {
-				$('#splashscreen').show(); //TODO: Fix this, it is never dissapearing...
+				$('#splashscreen').show(); //TODO: Fix this, it is never dissapearing when shown
 				$.SplashScreen({
 					progressCount: false,
 					progressBar: false,
