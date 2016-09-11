@@ -68,7 +68,6 @@
 	<div class="closeContainer close-collectionsModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
-
 	<div class="modal-content">
 		<div class="auto-adjustable-y">
 			<div class="row">
@@ -85,16 +84,83 @@
 </div>
 
 <div id="eboutiqueModal" class="animated-rideau-modal" style="visibility: hidden;">
-			<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-		<div class="closeContainer close-eboutiqueModal"> 
-			<img src="/rideau-data/extras/modal-close.png" />
-		</div>
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-eboutiqueModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
 				<a href="/eboutique#male"><span class="male_button"><p>xy</p></span></a>
 				<span class="separator-dash"> | </span>
 				<a href="#" class="disabled"><span class="female_button"><p>xx</p></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-cartModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>
+	<div class="auto-adjustable-y">
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				
+				<div class="cart-items">
+					
+					<div class="row item">
+						<div class="small-12 medium-8 large-8 columns">
+							<div class="row">
+								<div class="small-4 large-4 columns">
+									<img src="http://placehold.it/100x100" style="width: 200px;" />
+								</div>
+								<div class="small-8 large-8 columns">
+									<div class="row">
+										<div class="small-12 large-12 columns">
+											<div class="item-buy-data">
+												<h5 class="lt-1"><strong>ref</strong></h5>
+												<p>size: size</p>
+												<p>color: white</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="small-12 medium-4 large-4 columns">
+							<div class="row">
+								<div class="small-6 large-6 columns">
+									<p>Qnty:</p>
+									<table class="up-down-controls" cellSpacing="0" cellPadding="0" width="100%" border="0">
+										<tr>
+											<td align="">
+												<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
+											</td>
+											<td align="">
+												<input type="text" name="quantity" class="quantity" placeholder="0" value="QTY" />
+											</td>
+											<td align="">
+												<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="small-6 large-6 columns">
+									<p>Unit price:</p>
+									<p><span class="item-price">price</span> usd</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+
+				
+				
+				
 			</div>
 		</div>
 	</div>
