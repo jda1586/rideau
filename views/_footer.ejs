@@ -288,7 +288,7 @@
 			//TODO: Change this to the second type of modal (wholesaler-access)
 			
 			swal({
-				title: 'Sign up for our newsletter',
+				title: 'sign up for our newsletter',
 				input: 'email',
 				confirmButtonText: 'Continue',
 				cancelButtonText: '',
@@ -317,9 +317,10 @@
 		$("a.wholesaler-access").click(function() {
 			//For this alert we are using a different process since SweetAlerts has no username & password dialog type
 			swal({
+				title: 'wholesaler access',
 				confirmButtonText: 'Continue',
 				showCancelButton: true,
-				html: "<p class='text-left'>Username:</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>Password:</p><input class='swal2-input wholesaler-access pass' type='password'>"
+				html: "<p class='text-left'>user name</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>password</p><input class='swal2-input wholesaler-access pass' type='password'>"
 			}).then(function() {
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();

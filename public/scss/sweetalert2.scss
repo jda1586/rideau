@@ -33,8 +33,9 @@
 	}
 	h2 {
 		color: #FFF;
-		font-size: 30px;
+		font-size: 0.9em;
 		text-align: center;
+		letter-spacing: 1px;
 		font-weight: 600;
 		text-transform: none;
 		position: relative;
@@ -152,7 +153,9 @@
 		padding: 0;
 		line-height: normal;
 		color: #FFF;
-		p {
+		p.text-left {
+			font-family: $sackers_font;
+			font-size: 0.7em !important; //Fix this...
 			color: #FFF;
 			margin: auto;
 		}
