@@ -44,13 +44,11 @@
 							<div class="wrap">
 								<div class="frame oneperframe" id="oneperframe">
 									<ul class="clearfix">
-									
 										<% Object.keys(data.hd).forEach(function(key) { %>
 											<li look-id="<%= key %>">
-												<img src="<%- data.hd[key] %>" class="zoomable-image closed" data-image="<%- data.hd[key] %>" data-title="Look <%= key + 1 %>" data-caption="DYLAN GRANGER" />
+												<img src="<%- data.hd[key] %>" class="zoomable-image closed" data-image="<%- data.hd[key] %>" data-title="Look <%- key %>" data-caption="DYLAN GRANGER" />
 											</li>
 										<% }); %>
-									
 									</ul>
 								</div>
 								<div class="scrollbar">
@@ -94,13 +92,13 @@
 				var $oneperframe = $('#oneperframe');
 				
 				$('.single-story').click(function() {
-					$oneperframe.sly('toCenter', $(this).attr('look-id'));
+					$oneperframe.sly('toCenter', $(this).attr('look-id') - 1);
 					//$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
 				});
 				
 				$($('.rideau-thumb')[0]).trigger("click"); //Always load the first image
 				
-				/* Load images on the photo-selector */
+				//Load images on the photo-selector
 				var stories = $('.two-stories').children();
 				stories.each(function() {
 					var imgPath = $(this).attr('data-bg-image');
@@ -113,10 +111,7 @@
 					window.resizeEvt;
 					
 					$(window).resize(function() {
-						clearTimeout(window.resizeEvt);
-						window.resizeEvt = setTimeout(function() {
-							slyFixes();
-						}, 150);
+						slyFixes();
 					});
 				});
 				
@@ -124,8 +119,7 @@
 					$('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
 					$('li').css('width', $('#oneperframe').width()); //Oneframe li elements width
 					$('#oneperframe').height($("li.active img").height() + 30); //Scroller/image gap
-					var frm = $('#oneperframe');
-					frm.sly('reload');
+					$('#oneperframe').sly('reload');
 				}
 				
 				//The one per frame image Sly slider
