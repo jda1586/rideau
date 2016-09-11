@@ -23,7 +23,10 @@
 			
 			sectionRideau.each(function(el) {
 				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
-				if (newPadding < $('footer').height()) newPadding = $('footer').height();
+				console.log(newPadding);
+				if (newPadding < ($('footer').height() + $('header').height()) / 2) newPadding = (($('footer').height() + $('header').height()) / 2) + 50; //TODO: DRY'fy this section
+				//newPadding = newPadding + 50; //Always add 50 px to each side
+				
 				
 				$(this).css("padding-top", newPadding + "px");
 				$(this).css("padding-bottom", newPadding + "px");
