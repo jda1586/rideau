@@ -25,7 +25,7 @@
 								<img class="female_container hidden" src="<%- data[key].images.female.featured %>" style="width:250px;" />
 							</div>
 							<div class="inner item-data">
-								<p class="item-name" align="center"><%- data[key].name %></p>
+								<p class="item-name" align="center"><%- data[key].name.toLowerCase() %></p>
 								<p class="item-price" align="center"><%- data[key].price.normal %> usd</p>
 							</div>
 						</div>
@@ -50,6 +50,9 @@
 				</div>
 				<div class="row">
 					<p><a data-filter=".category-SHORT" class="filter">short</a></p>
+				</div>
+				<div class="row">
+					<p><a data-filter=".category-SWEATSHIRT" class="filter">sweatshirt</a></p>
 				</div>
 				<!-- Disabled by Rideau's request -->
 				<!-- <div class="row">

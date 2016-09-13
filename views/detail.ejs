@@ -13,7 +13,7 @@
 					<div class="male_container">
 						<div class="show-for-medium-up">
 							<% Object.keys(data.images.male).forEach(function(key) { %>
-								<img src="<%- data.images.male[key] %>" class="imgdetail zoomable-image closed" data-image="<%- data.images.male[key] %>" data-title="<%- data.name %>" data-caption="<%- data.fit %>" />
+								<img src="<%- data.images.male[key] %>" class="imgdetail zoomable-image closed" />
 							<% }); %>
 						</div>
 						<div class="show-for-small-only">
@@ -184,7 +184,6 @@
 					});
 				});
 				
-				
 				/* Size chooser buttons */
 				var sizeChooser = $('.size-chooser p');
 				sizeChooser.on('click', function(el) {
@@ -202,7 +201,7 @@
 					
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
 					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name: $('.product-showcase .item-name').html(), sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
+					var item = { name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-sku').html() + "/images/male/featured.jpg", sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
 					storedCart.push(item);
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					
