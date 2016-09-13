@@ -872,10 +872,12 @@ html.rideau {
 		}
 		
 		.closeContainer {
-			position: fixed;
+			/*position: fixed;
 			left: 50%;
 			bottom: 5%;
-			transform: translateX(-50%);
+			transform: translateX(-50%);*/
+			
+			margin-top: -50px;
 		}
 	}
 	
