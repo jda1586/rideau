@@ -522,6 +522,7 @@ html.rideau {
 			text-align: center;
 			width: 100%;
 			padding: 10px;
+			padding-bottom: 210px;
 			
 			@media screen and (min-width: $tablet) {
 				position: fixed;
@@ -600,7 +601,7 @@ html.rideau {
 					font-weight: bold;
 					font-size: 0.8em;
 					color: white;
-				}			
+				}
 				&.disabled {
 					background-color: #AAA;
 				}
