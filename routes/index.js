@@ -192,6 +192,10 @@ router.get('/stockists', function (req, res, next) {
 router.get('/contact', function (req, res, next) {
 	return res.render('contact');
 });
+//Admin
+router.get('/rideau-admin', function (req, res, next) {
+	return res.render('rideau-admin');
+});
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
 	return res.redirect('/');
