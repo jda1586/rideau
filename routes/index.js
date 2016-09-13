@@ -207,6 +207,10 @@ router.get('/subscriptions/add', function (req, res, next) {
     }
     res.json({ok: true});
 });
+//Admin
+router.get('/rideau-admin', function (req, res, next) {
+	return res.render('rideau-admin');
+});
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {
     return res.redirect('/');
