@@ -797,6 +797,12 @@ html.rideau {
 	#cartModal {
 		.cart-items {
 			.item {
+				margin-bottom: 5px;
+				
+				.item-image {
+					width: 80px;
+				}
+			
 				
 				table.up-down-controls {
 					background-color: transparent;
