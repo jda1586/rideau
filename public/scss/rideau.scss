@@ -485,13 +485,13 @@ html.rideau {
 			}
 			
 			a {
-				font-size: 0.6em;
+				font-size: 0.7em;
 				margin-top: 10px;
 			}
 			p {
 				font-family: $sackers_font;
 				text-align: right;
-				margin-bottom: 0.2em;
+				margin-bottom: 0em;
 				@media screen and (max-width: $tablet) {
 					text-align: left;
 				}
@@ -522,6 +522,7 @@ html.rideau {
 			text-align: center;
 			width: 100%;
 			padding: 10px;
+			padding-bottom: 210px;
 			
 			@media screen and (min-width: $tablet) {
 				position: fixed;
@@ -587,6 +588,7 @@ html.rideau {
 					
 					&.selected {
 						font-weight: bold;
+						font-size: 0.8em;
 					}
 				}
 			}
@@ -600,7 +602,7 @@ html.rideau {
 					font-weight: bold;
 					font-size: 0.8em;
 					color: white;
-				}			
+				}
 				&.disabled {
 					background-color: #AAA;
 				}
@@ -624,8 +626,7 @@ html.rideau {
 		p {
 			font-size: 0.8em;
 			text-align: center;
-			
-			
+			letter-spacing: 1.5px;
 		}
 	}
 	
@@ -640,6 +641,7 @@ html.rideau {
 			p {
 				font-size: 0.8em;
 				margin: 0;
+				letter-spacing: 1.5px;
 			}
 			h5 {
 				font-size: 12px;
@@ -663,6 +665,7 @@ html.rideau {
 			
 			p {
 				font-size: 0.8em;
+				letter-spacing: 1.5px;
 			}
 			
 			.press-image {
@@ -706,10 +709,12 @@ html.rideau {
 	}
 	
 	/* Stockist */
-	body#stockist {
-		
+	body#stockists {
+		p {
+			font-family: $sackers_font;
+			font-size: 0.5em;
+		}
 	}
-	
 	
 	/* Themes (generical pages like stockist and sizing, try to stick as much as possible to these themes) */
 	.seven-style-theme {
