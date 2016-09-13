@@ -358,7 +358,8 @@
 				swal({
 					title: 'You are now subscribed',
 					background: "#000",
-					showCancelButton: false
+					showConfirmButton: false,
+					showCancelButton: true
 				});
 			});
 		});
@@ -371,7 +372,7 @@
 				padding: 80,
 				confirmButtonText: 'continue',
 				showCancelButton: true,
-				html: "<p class='text-left'>user name</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>password</p><input class='swal2-input wholesaler-access pass' type='password'>"
+				html: "<p class='text-left'>username</p><input class='swal2-input wholesaler-access user' type='text'><p class='text-left'>password</p><input class='swal2-input wholesaler-access pass' type='password'>"
 			}).then(function() {
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();

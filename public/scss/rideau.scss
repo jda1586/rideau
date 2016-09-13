@@ -485,13 +485,13 @@ html.rideau {
 			}
 			
 			a {
-				font-size: 0.6em;
+				font-size: 0.7em;
 				margin-top: 10px;
 			}
 			p {
 				font-family: $sackers_font;
 				text-align: right;
-				margin-bottom: 0.2em;
+				margin-bottom: 0em;
 				@media screen and (max-width: $tablet) {
 					text-align: left;
 				}
