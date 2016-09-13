@@ -708,10 +708,12 @@ html.rideau {
 	}
 	
 	/* Stockist */
-	body#stockist {
-		
+	body#stockists {
+		p {
+			font-family: $sackers_font;
+			font-size: 0.5em;
+		}
 	}
-	
 	
 	/* Themes (generical pages like stockist and sizing, try to stick as much as possible to these themes) */
 	.seven-style-theme {

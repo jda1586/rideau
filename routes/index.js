@@ -184,9 +184,9 @@ router.get('/press', function (req, res, next) {
 router.get('/sizing', function (req, res, next) {
 	return res.render('sizing');
 });
-//Stockist
-router.get('/stockist', function (req, res, next) {
-	return res.render('stockist');
+//Stockists
+router.get('/stockists', function (req, res, next) {
+	return res.render('stockists');
 });
 //Contact
 router.get('/contact', function (req, res, next) {
