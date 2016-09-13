@@ -184,106 +184,6 @@ html.rideau {
 		}
 	}
 	
-	#collectionsModal {
-		//
-	}
-	
-	#eboutiqueModal {
-		a {
-			display: inline-block; //For the special XX | XY separator
-		}
-		
-		.separator-dash {
-			font-size: 0.8em;
-			margin-right: 5px;
-		}
-	}
-	
-	#cartModal {
-		.cart-items {
-			.item {
-				
-				table.up-down-controls {
-					background-color: transparent;
-					border: none;
-				
-					tr {
-						td {
-							padding: 0px;
-							input {
-								padding: 0px;
-								margin: 0 auto;
-								height: 20px;
-								&.quantity {
-									width: 50px;
-									text-align: center;
-								}
-								&.btn-qty {
-									width: 20px;
-									margin-top: 0px;
-								}
-							}
-						}
-					}
-				}
-				
-				table {
-					background: none;
-					
-					
-				}
-				
-				.item-buy-data {
-					text-align: left;
-					
-					h5 {
-						text-align: left;
-						color: white;
-						font-size: 0.8em;
-						font-weight: bold;
-					}
-					p {
-						text-align: left;
-						font-size: 0.6em;
-					}
-				}
-			}
-		}
-	}
-	
-	.animated-rideau-modal {
-		font-family: $sackers_font;
-		background-color: rgba(0, 0, 0, 0.75);
-		color: white;
-		text-align: center;
-		
-		p {
-			font-family: $sackers_font;
-			margin-bottom: 10px;
-			font-size: 0.7em;
-			letter-spacing: 2.5px;
-			color: white;
-		}
-		
-		a {
-			&.disabled {
-				cursor: default;
-				pointer-events: none;
-				
-				p {
-					color: gray;
-				}
-			}
-		}
-		
-		.closeContainer {
-			position: fixed;
-			left: 50%;
-			bottom: 5%;
-			transform: translateX(-50%);
-		}
-	}
-	
 	@import '../rideau-data/shopping/style.scss';
 	
 	/* New header, container, footer */
@@ -865,8 +765,24 @@ html.rideau {
 	/* Modals */
 	
 	/* Info modal */
-	#info-modal {
+	#collectionsModal {
+		//
+	}
+	
+	#eboutiqueModal {
+		a {
+			display: inline-block; //For the special XX | XY separator
+		}
+		
+		.separator-dash {
+			font-size: 0.8em;
+			margin-right: 5px;
+		}
+	}
+	
+	#informationModal {
 		p {
+			font-family: $akzidenz_font;
 			color: white;
 			font-size: 11px;
 			letter-spacing: 1px;
@@ -875,6 +791,93 @@ html.rideau {
 		h5 {
 			color: white;
 			font-size: 12px;
+		}
+	}
+	
+	#cartModal {
+		.cart-items {
+			.item {
+				
+				table.up-down-controls {
+					background-color: transparent;
+					border: none;
+				
+					tr {
+						td {
+							padding: 0px;
+							input {
+								padding: 0px;
+								margin: 0 auto;
+								height: 20px;
+								&.quantity {
+									width: 50px;
+									text-align: center;
+								}
+								&.btn-qty {
+									width: 20px;
+									margin-top: 0px;
+								}
+							}
+						}
+					}
+				}
+				
+				table {
+					background: none;
+					
+					
+				}
+				
+				.item-buy-data {
+					text-align: left;
+					
+					h5 {
+						text-align: left;
+						color: white;
+						font-size: 0.8em;
+						font-weight: bold;
+					}
+					p {
+						text-align: left;
+						font-size: 0.6em;
+					}
+				}
+			}
+		}
+	}
+	
+	.animated-rideau-modal {
+		font-family: $sackers_font;
+		background-color: rgba(0, 0, 0, 0.75);
+		color: white;
+		text-align: center;
+		
+		p {
+			font-family: $sackers_font;
+			margin-bottom: 10px;
+			font-size: 0.7em;
+			letter-spacing: 2.5px;
+			color: white;
+		}
+		
+		a {
+			&.disabled {
+				cursor: default;
+				pointer-events: none;
+				
+				p {
+					color: gray;
+				}
+			}
+		}
+		
+		.closeContainer {
+			/*position: fixed;
+			left: 50%;
+			bottom: 5%;
+			transform: translateX(-50%);*/
+			
+			margin-top: -50px;
 		}
 	}
 	

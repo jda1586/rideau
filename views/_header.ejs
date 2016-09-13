@@ -89,30 +89,24 @@
 </header>
 
 <div id="collectionsModal" class="animated-rideau-modal" style="visibility: hidden;">
+	<div class="auto-adjustable-y">
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				<% Object.keys(extraData).forEach(function(key) { %>
+					<a class="<%- extraData[key].class %>" href="/collections/<%- key.substr(key.indexOf("-") + 1) %>">
+						<p><%- extraData[key].name %></p>
+					</a>
+				<% }); %>
+			</div>
+		</div>
+	</div>
 	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 	<div class="closeContainer close-collectionsModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
-	<div class="modal-content">
-		<div class="auto-adjustable-y">
-			<div class="row">
-				<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-					<% Object.keys(extraData).forEach(function(key) { %>
-						<a class="<%- extraData[key].class %>" href="/collections/<%- key.substr(key.indexOf("-") + 1) %>">
-							<p><%- extraData[key].name %></p>
-						</a>
-					<% }); %>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 
 <div id="eboutiqueModal" class="animated-rideau-modal" style="visibility: hidden;">
-	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-	<div class="closeContainer close-eboutiqueModal"> 
-		<img src="/rideau-data/extras/modal-close.png" />
-	</div>
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
@@ -122,6 +116,10 @@
 			</div>
 		</div>
 	</div>
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-eboutiqueModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>	
 </div>
 
 <div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
