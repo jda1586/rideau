@@ -1,356 +1,397 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
-	<head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rideau</title>
-        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
-        <link rel="stylesheet" href="/stylesheets/foundation.css" />
-        <link rel="stylesheet" href="/stylesheets/basic.css" />
-        <link href="/stylesheets/jquery.tagit.css" rel="stylesheet" /> 
-        <script src="/javascripts/vendor/jquery.js"></script>
-	</head>
-	
-	<body>
-        <div class="row">
-            <div class="large-3 large-centered columns">
-                <img id="rideau-logo" src="/images/rideau-logo-shown.svg"/>
-                <p class="text-center">Admin console</p>
-			</div>
-		</div>
-		
-        <div class="row" style="max-width:none">
-            <ul class="accordion" data-accordion>
-              <li class="accordion-navigation">
-                <a href="#admin-purchases">Purchases</a>
-                <div id="admin-purchases" class="content active">
-					<table>
-					  <thead>
-						<tr>
-						  <th width="50">Date</th>
-						  <th>Products</th>
-						  <th>Address</th>
-						  <th width="150">Status</th>
-						  <th width="150">Notes</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr>
-						  <td>11/05/2016</td>
-						  <td>LC071505 green, LC071505 green, LC071505 green</td>
-						  <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
-						  <td>Pending</td>
-						  <td>3 items!!</td>
-						</tr>
-						<tr>
-						  <td>23/02/2016</td>
-						  <td>LC131610 blue, LC131610 blue, LC131610 green</td>
-						  <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
-						  <td>Pending</td>
-						  <td>testing notes</td>
-						</tr>
-						<tr>
-						  <td>05/01/2016</td>
-						  <td>LC071505 blue, LC071505 blue, LC131610 green</td>
-						  <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
-						  <td>Pending</td>
-						  <td>importantn notes: 123</td>
-						</tr>
-						<tr>
-						  <td>09/02/2016</td>
-						  <td>LC071505 unset color</td>
-						  <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
-						  <td>Seen</td>
-						  <td>notes 123</td>
-						</tr>
-					  </tbody>
-					</table>
-                </div>
-              </li>
-			  <li class="accordion-navigation">
-                <a href="#admin-subscriptions">Subscriptions</a>
-                <div id="admin-subscriptions" class="content">
-                    <p id="subscription-list">
-					 <table></table>
-                    </p>
-                </div>
-              </li>
-              <li class="accordion-navigation">
-                <a href="#admin-users">User management</a>
-                <div id="admin-users" class="content">
-                    <table>
-					  <thead>
-						<tr>
-						  <th>User</th>
-						  <th>Role</th>
-						  <th>Last login</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr>
-						  <td>freeprofile</td>
-						  <td>Super admin</td>
-						  <td>11/15/2016</td>
-						</tr>
-						<tr>
-						  <td>paulina</td>
-						  <td>Super admin</td>
-						  <td>10/05/2016</td>
-						</tr>
-						<tr>
-						  <td>wholesaler example</td>
-						  <td>Wholesaler</td>
-						  <td>17/07/2016</td>
-						</tr>
-					  </tbody>
-					</table>
-                </div>
-              </li>
-				
-			<li class="accordion-navigation">
-                <a href="#panel1a">Collections</a>
-                <div id="panel1a" class="content">
-                    <p>Disabled</p>
-                </div>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rideau</title>
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="/stylesheets/foundation.css"/>
+    <link rel="stylesheet" href="/stylesheets/basic.css"/>
+    <link href="/stylesheets/jquery.tagit.css" rel="stylesheet"/>
+    <script src="/javascripts/vendor/jquery.js"></script>
+</head>
+
+<body>
+<div class="row">
+    <div class="large-3 large-centered columns">
+        <img id="rideau-logo" src="/images/rideau-logo-shown.svg"/>
+        <p class="text-center">Admin console</p>
+    </div>
+</div>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Site Title</li>
+            <li>
+                <a href="#">One</a>
+                <ul class="menu vertical">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                </ul>
             </li>
-            
-			<li class="accordion-navigation">
-                <a href="#panel2a">E-boutique</a>
-                <div id="panel2a" class="content">
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li>
+                <button type="button" class="button">Search</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row" style="max-width:none">
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#admin-purchases">Purchases</a>
+            <div id="admin-purchases" class="content active">
+                <table>
+                    <thead>
+                    <tr>
+                        <th width="50">Date</th>
+                        <th>Products</th>
+                        <th>Address</th>
+                        <th width="150">Status</th>
+                        <th width="150">Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>11/05/2016</td>
+                        <td>LC071505 green, LC071505 green, LC071505 green</td>
+                        <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
+                        <td>Pending</td>
+                        <td>3 items!!</td>
+                    </tr>
+                    <tr>
+                        <td>23/02/2016</td>
+                        <td>LC131610 blue, LC131610 blue, LC131610 green</td>
+                        <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
+                        <td>Pending</td>
+                        <td>testing notes</td>
+                    </tr>
+                    <tr>
+                        <td>05/01/2016</td>
+                        <td>LC071505 blue, LC071505 blue, LC131610 green</td>
+                        <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
+                        <td>Pending</td>
+                        <td>importantn notes: 123</td>
+                    </tr>
+                    <tr>
+                        <td>09/02/2016</td>
+                        <td>LC071505 unset color</td>
+                        <td>Sample address, Sample address, Sample address, Sample address #123 int 500</td>
+                        <td>Seen</td>
+                        <td>notes 123</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+        <li class="accordion-navigation">
+            <a href="#admin-subscriptions">Subscriptions</a>
+            <div id="admin-subscriptions" class="content">
+                <p id="subscription-list">
+                <table></table>
+                </p>
+            </div>
+        </li>
+        <li class="accordion-navigation">
+            <a href="#admin-users">User management</a>
+            <div id="admin-users" class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Role</th>
+                        <th>Last login</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>freeprofile</td>
+                        <td>Super admin</td>
+                        <td>11/15/2016</td>
+                    </tr>
+                    <tr>
+                        <td>paulina</td>
+                        <td>Super admin</td>
+                        <td>10/05/2016</td>
+                    </tr>
+                    <tr>
+                        <td>wholesaler example</td>
+                        <td>Wholesaler</td>
+                        <td>17/07/2016</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+
+        <li class="accordion-navigation">
+            <a href="#panel1a">Collections</a>
+            <div id="panel1a" class="content">
+                <p>Disabled</p>
+            </div>
+        </li>
+
+        <li class="accordion-navigation">
+            <a href="#panel2a">E-boutique</a>
+            <div id="panel2a" class="content">
+                <div class="row">
+                    <div class="large-5 columns text-center">
+                        <button id="eboutique-prev">Previous</button>
+                    </div>
+                    <div class="large-2 columns">
+                        <h3 id="item-selector" class="text-center">Item</h3>
+                    </div>
+                    <div class="large-5 columns text-center">
+                        <button id="eboutique-next">Next</button>
+                    </div>
+                </div>
+                <form id="uploadForm" enctype="multipart/form-data" action="/processUpload" method="post">
                     <div class="row">
-                        <div class="large-5 columns text-center">
-                            <button id="eboutique-prev">Previous</button>
+                        <div class="large-6 columns">
+                            <label>Product name:
+                                <input type="text" name="outfitname" id="outfitname" placeholder="Name of the Article"/>
+                            </label>
                         </div>
-                        <div class="large-2 columns">
-                            <h3 id="item-selector" class="text-center">Item</h3>
-                        </div>
-                        <div class="large-5 columns text-center">
-                            <button id="eboutique-next">Next</button>
+                        <div class="large-6 columns">
+                            <label>Price:
+                                <input type="text" name="price" id="price" placeholder="Price of the Article"/>
+                            </label>
                         </div>
                     </div>
-                    <form id="uploadForm" enctype="multipart/form-data" action="/processUpload" method="post">
-                        <div class="row">
-                            <div class="large-6 columns">
-                                <label>Product name:
-                                    <input type="text" name="outfitname" id="outfitname" placeholder="Name of the Article" />
-                                </label>
-                            </div>
-                            <div class="large-6 columns">
-                                <label>Price:
-                                    <input type="text" name="price"  id="price" placeholder="Price of the Article" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <input type="submit" value="Upload Article & Images" name="submit">
-                        </div>
-                    </form>
-                </div>
-            </li>
-			
-			
-              <li class="accordion-navigation">
-                <a href="#admin-log">Log</a>
-                <div id="admin-log" class="content">
-                    <p id="log-list">
-                        <table></table>
+                    <div class="row">
+                        <input type="submit" value="Upload Article & Images" name="submit">
+                    </div>
+                </form>
+            </div>
+        </li>
+
+
+        <li class="accordion-navigation">
+            <a href="#admin-log">Log</a>
+            <div id="admin-log" class="content">
+                <p id="log-list">
+                <table></table>
+                </p>
+            </div>
+        </li>
+        <li class="accordion-navigation">
+            <a href="#admin-advanced">Advanced settings</a>
+            <div id="admin-advanced" class="content">
+                <div class="panel">
+                    <h5>Real price calculator</h5>
+                    <p>
+                        <small>/api/eboutique/get_purchase_price</small>
                     </p>
+                    <div data-alert class="alert-box success  round">
+                        Warning level: Safe to use.
+                        <a href="#" class="close">&times;</a>
+                    </div>
+                    <h6>Post values:</h6>
+                    <label>cart
+                        <input id="price-validator-cart" type="text" placeholder='{"key" : "value"}'
+                               value='{"LC0915082":{"ref":"LC0915082","size":"6","qty":3,"price":"345"},"LC0415082":{"ref":"LC0415082","size":"6","qty":2,"price":"345"},"LC0415055":{"ref":"LC0415055","size":"5","qty":1,"price":"345"},"LC0315063":{"ref":"LC0315063","size":"2","qty":4,"price":"345"}}'/>
+                    </label>
+                    <button id="price-validator-run">Run</button>
                 </div>
-              </li>
-              <li class="accordion-navigation">
-                <a href="#admin-advanced">Advanced settings</a>
-                <div id="admin-advanced" class="content">
-                    <div class="panel">
-                        <h5>Real price calculator</h5>
-                        <p><small>/api/eboutique/get_purchase_price</small></p>
-                        <div data-alert class="alert-box success  round">
-							Warning level: Safe to use.
-						  <a href="#" class="close">&times;</a>
-						</div>
-                        <h6>Post values:</h6>
-                        <label>cart
-                            <input id="price-validator-cart" type="text" placeholder='{"key" : "value"}' value='{"LC0915082":{"ref":"LC0915082","size":"6","qty":3,"price":"345"},"LC0415082":{"ref":"LC0415082","size":"6","qty":2,"price":"345"},"LC0415055":{"ref":"LC0415055","size":"5","qty":1,"price":"345"},"LC0315063":{"ref":"LC0315063","size":"2","qty":4,"price":"345"}}' />
-                        </label>
-						<button id="price-validator-run">Run</button>
+                <div class="panel">
+                    <h5>Get eboutique specific item</h5>
+                    <p>
+                        <small>/api/eboutique/get_item</small>
+                    </p>
+                    <div data-alert class="alert-box success  round">
+                        Warning level: Safe to use.
+                        <a href="#" class="close">&times;</a>
                     </div>
-					<div class="panel">
-                        <h5>Get eboutique specific item</h5>
-                        <p><small>/api/eboutique/get_item</small></p>
-                        <div data-alert class="alert-box success  round">
-							Warning level: Safe to use.
-						  <a href="#" class="close">&times;</a>
-						</div>						
-                        <h6>Post values:</h6>
-                        <label>id_item
-                            <input id="eboutique-item" type="text" placeholder='100' value='100' />
-                        </label>
-                        <button id="price-validator-run">Run</button>
+                    <h6>Post values:</h6>
+                    <label>id_item
+                        <input id="eboutique-item" type="text" placeholder='100' value='100'/>
+                    </label>
+                    <button id="price-validator-run">Run</button>
+                </div>
+                <div class="panel">
+                    <h5>Create admin user</h5>
+                    <p>
+                        <small>/api/create_users</small>
+                    </p>
+                    <div data-alert class="alert-box alert round">
+                        Warning level: Changing these settings might damage this account and prevent the user from
+                        logging in temporarily.
+                        <a href="#" class="close">&times;</a>
                     </div>
-                    <div class="panel">
-                        <h5>Create admin user</h5>
-                        <p><small>/api/create_users</small></p>
-						<div data-alert class="alert-box alert round">
-							Warning level: Changing these settings might damage this account and prevent the user from logging in temporarily.
-						  <a href="#" class="close">&times;</a>
-						</div>
 
-                        <h6>Post values:</h6>
-                        <label for="login-username">User name 
-                            <input id="login-username" type="text" placeholder='Enter username please' />
-                        </label>
-                        <label for="login-email">User email 
-                            <input id="login-email" type="text" placeholder='Enter email please' />
-                        </label>
-                        <label for="login-password">Password
-                            <input id="login-password" type="text" placeholder='Enter password please' />
-                        </label>
-                        <label for="login-role">Role: 1-Admin, 2-Guest-Admin, 3-Guest, 4-Anonymous
-                            <input id="login-role" type="text" placeholder='Enter please role (1, 2, 3 or 4)' />
-                        </label>
-                        <button id="user-create-run">Create</button>
-                        <div class="created-user"></div>
-                    </div>
+                    <h6>Post values:</h6>
+                    <label for="login-username">User name
+                        <input id="login-username" type="text" placeholder='Enter username please'/>
+                    </label>
+                    <label for="login-email">User email
+                        <input id="login-email" type="text" placeholder='Enter email please'/>
+                    </label>
+                    <label for="login-password">Password
+                        <input id="login-password" type="text" placeholder='Enter password please'/>
+                    </label>
+                    <label for="login-role">Role: 1-Admin, 2-Guest-Admin, 3-Guest, 4-Anonymous
+                        <input id="login-role" type="text" placeholder='Enter please role (1, 2, 3 or 4)'/>
+                    </label>
+                    <button id="user-create-run">Create</button>
+                    <div class="created-user"></div>
                 </div>
-              </li>
-            </ul>
-        </div>
-		
-        <script src="/javascripts/foundation/foundation.js"></script>
-        <script src="/javascripts/foundation/foundation.reveal.js"></script>
-        <script src="/javascripts/foundation/foundation.accordion.js"></script>
-        <script src="/javascripts/foundation/foundation.tooltip.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" charset="utf-8"></script>
-        <script src="/javascripts/vendor/tag-it.js" charset="utf-8"></script>
-        
-        <script>
-            $(document).ready(function() {
-                var collectionNumber = 0,
-				eboutiqueNumber = 0;
-				
-                $('#eboutique-prev').click(function () {
-                    eboutiqueNumber--;
-                    updateEboutiqueView();
-				});
-                $('#eboutique-next').click(function () {
-                    eboutiqueNumber++;
-                    updateEboutiqueView();
-				});
-                $("a[href='#admin-subscriptions']").click(function () {
-                    getSubscriptionList();
-				});
-				 $("a[href='#admin-log']").click(function () {
-                    getLogList();
-				});
-                 $('#user-create-run').click(function () {
-                    createUser();
-                 })
-                function createUser() {
-                    var username = $('input#login-username').val();
-                    var password = $('input#login-password').val();
-                    var email = $('input#login-email').val();
-                    var role = $('input#login-role').val();
-                    $.post('/api/create_user', { username: username, password: password, email:email, role: role }, function(data) {
-                        if(data) {
-                            console.log(data);
-                            $('div.created-user').text(data.user);
-                        }
-                    });
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script src="/javascripts/foundation/foundation.js"></script>
+<script src="/javascripts/foundation/foundation.reveal.js"></script>
+<script src="/javascripts/foundation/foundation.accordion.js"></script>
+<script src="/javascripts/foundation/foundation.tooltip.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" charset="utf-8"></script>
+<script src="/javascripts/vendor/tag-it.js" charset="utf-8"></script>
+
+<script>
+    $(document).ready(function () {
+        var collectionNumber = 0,
+                eboutiqueNumber = 0;
+
+        $('#eboutique-prev').click(function () {
+            eboutiqueNumber--;
+            updateEboutiqueView();
+        });
+        $('#eboutique-next').click(function () {
+            eboutiqueNumber++;
+            updateEboutiqueView();
+        });
+        $("a[href='#admin-subscriptions']").click(function () {
+            getSubscriptionList();
+        });
+        $("a[href='#admin-log']").click(function () {
+            getLogList();
+        });
+        $('#user-create-run').click(function () {
+            createUser();
+        })
+        function createUser() {
+            var username = $('input#login-username').val();
+            var password = $('input#login-password').val();
+            var email = $('input#login-email').val();
+            var role = $('input#login-role').val();
+            $.post('/api/create_user', {
+                username: username,
+                password: password,
+                email: email,
+                role: role
+            }, function (data) {
+                if (data) {
+                    console.log(data);
+                    $('div.created-user').text(data.user);
                 }
-                function updateEboutiqueView() {                   
-                    $.post('/api/eboutique/get_item', { id_item: eboutiqueNumber }, function(data) {
-                        if(data) {
-                            console.log(data.name);
-                            $('#item-selector').text(data.name);
-						}
-					});
-				}
-                function getSubscriptionList() {
-                    $.get('/api/get_subscriptions', function(data) {
-                        if (data) {
-                            var listBox = document.createElement("table");
-							var tabHead = document.createElement("thead");
-							var headRow = document.createElement("tr");
-							$(headRow).append("<th>E-mail</th>");
-							$(headRow).append("<th>Date and time</th>");
-							$(tabHead).append(headRow);
-							var tabBody = document.createElement("tbody");
-                            jQuery.each( data, function( i, val ) {
-                                var listItem = document.createElement("tr");
-								var rowMail = document.createElement("th");
-								$(rowMail).append("<i class='fi-mail small'></i>");
-                                $(rowMail).append('<span>' + val.mail + '</span>');
-								var rowDate = document.createElement("th");
-                                $(rowDate).append("<i class='fi-info small'></i>");
-                                $(rowDate).append('<span>' + val.created_datetime + '</span>');
-								$(listItem).append(rowMail);
-								$(listItem).append(rowDate);
-                                $(tabBody).append(listItem);
-							});
-							$(listBox).append(tabHead);
-							$(listBox).append(tabBody);
-                            $('#subscription-list').html("");
-                            $('#subscription-list').append(listBox);
-						}
-					});
-				}
-				
-                function getLogList() {
-                    $.get('/api/get_log', function(data) {
-                        if (data) {
-                            var listBox = document.createElement("table");
-							var tabHead = document.createElement("thead");
-							var headRow = document.createElement("tr");
-							$(headRow).append("<th>Text</th>");
-							$(headRow).append("<th>Date and time</th>");
-							$(tabHead).append(headRow);
-							var tabBody = document.createElement("tbody");
-                            jQuery.each( data, function( i, val ) {
-                                var listItem = document.createElement("tr");
-								var rowText = document.createElement("th");
-								$(rowText).append("<i class='fi-mail small'></i>");
-                                $(rowText).append('<span>' + val.text + '</span>');
-								var rowTime = document.createElement("th");
-                                $(rowTime).append("<i class='fi-info small'></i>");
-                                $(rowTime).append('<span>' + val.date + '</span>');
-								$(listItem).append(rowText);
-								$(listItem).append(rowTime);
-                                $(tabBody).append(listItem);
-							});
-							$(listBox).append(tabHead);
-							$(listBox).append(tabBody);
-                            $('#log-list').html("");
-                            $('#log-list').append(listBox);
-						}
-					});
-				}
-				
-                //$('#item-selector').val(eboutiqueNumber);
+            });
+        }
 
-                //Setup tagit
-                $("#outfitcolor").tagit();
-                $("#look").tagit();
-                
-                //Price validator function
-                $('#price-validator-run').click(function () {
-                    var cart = $('#price-validator-cart').val();
-                    cart = JSON.parse(cart);
-					
-                    console.log(cart);
-					
-                    $.post('/api/eboutique/get_purchase_price', { cart : cart } , function(data) {
-                        if(data) {
-                            alert("Cart price: " + data.finalPrice);
-						}
-					});
-				});
-			});
-		</script>
-		
-        <!-- Init foundation, must be last on this script -->
-        <script>
-            $(document).foundation();
-		</script>
-	</body>
+        function updateEboutiqueView() {
+            $.post('/api/eboutique/get_item', {id_item: eboutiqueNumber}, function (data) {
+                if (data) {
+                    console.log(data.name);
+                    $('#item-selector').text(data.name);
+                }
+            });
+        }
+
+        function getSubscriptionList() {
+            $.get('/api/get_subscriptions', function (data) {
+                if (data) {
+                    var listBox = document.createElement("table");
+                    var tabHead = document.createElement("thead");
+                    var headRow = document.createElement("tr");
+                    $(headRow).append("<th>E-mail</th>");
+                    $(headRow).append("<th>Date and time</th>");
+                    $(tabHead).append(headRow);
+                    var tabBody = document.createElement("tbody");
+                    jQuery.each(data, function (i, val) {
+                        var listItem = document.createElement("tr");
+                        var rowMail = document.createElement("th");
+                        $(rowMail).append("<i class='fi-mail small'></i>");
+                        $(rowMail).append('<span>' + val.mail + '</span>');
+                        var rowDate = document.createElement("th");
+                        $(rowDate).append("<i class='fi-info small'></i>");
+                        $(rowDate).append('<span>' + val.created_datetime + '</span>');
+                        $(listItem).append(rowMail);
+                        $(listItem).append(rowDate);
+                        $(tabBody).append(listItem);
+                    });
+                    $(listBox).append(tabHead);
+                    $(listBox).append(tabBody);
+                    $('#subscription-list').html("");
+                    $('#subscription-list').append(listBox);
+                }
+            });
+        }
+
+        function getLogList() {
+            $.get('/api/get_log', function (data) {
+                if (data) {
+                    var listBox = document.createElement("table");
+                    var tabHead = document.createElement("thead");
+                    var headRow = document.createElement("tr");
+                    $(headRow).append("<th>Text</th>");
+                    $(headRow).append("<th>Date and time</th>");
+                    $(tabHead).append(headRow);
+                    var tabBody = document.createElement("tbody");
+                    jQuery.each(data, function (i, val) {
+                        var listItem = document.createElement("tr");
+                        var rowText = document.createElement("th");
+                        $(rowText).append("<i class='fi-mail small'></i>");
+                        $(rowText).append('<span>' + val.text + '</span>');
+                        var rowTime = document.createElement("th");
+                        $(rowTime).append("<i class='fi-info small'></i>");
+                        $(rowTime).append('<span>' + val.date + '</span>');
+                        $(listItem).append(rowText);
+                        $(listItem).append(rowTime);
+                        $(tabBody).append(listItem);
+                    });
+                    $(listBox).append(tabHead);
+                    $(listBox).append(tabBody);
+                    $('#log-list').html("");
+                    $('#log-list').append(listBox);
+                }
+            });
+        }
+
+        //$('#item-selector').val(eboutiqueNumber);
+
+        //Setup tagit
+        $("#outfitcolor").tagit();
+        $("#look").tagit();
+
+        //Price validator function
+        $('#price-validator-run').click(function () {
+            var cart = $('#price-validator-cart').val();
+            cart = JSON.parse(cart);
+
+            console.log(cart);
+
+            $.post('/api/eboutique/get_purchase_price', {cart: cart}, function (data) {
+                if (data) {
+                    alert("Cart price: " + data.finalPrice);
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Init foundation, must be last on this script -->
+<script>
+    $(document).foundation();
+</script>
+</body>
 </html>
