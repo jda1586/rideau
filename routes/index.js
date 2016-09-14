@@ -138,14 +138,6 @@ router.get('/eboutique/:name?', function(req, res, next) {
 		
 	}), _.negate(_.isUndefined));
 	
-	console.log(data);
-	console.log(name);
-	console.log(name);
-	console.log(name);
-	
-	
-	
-	
 	if (!_.isUndefined(name)) {
 		var item = data[name] || data[name.toLowerCase()] || data[name.toUpperCase()];
 		if (!_.isUndefined(item)) {
@@ -154,7 +146,8 @@ router.get('/eboutique/:name?', function(req, res, next) {
 			if (!_.isUndefined(data)) {
 				data.images.male = _.omit(data.images.male, 'featured'); //Omit the featured image (only shown en eboutique page)
 				data.images.female = _.omit(data.images.female, 'featured'); //Omit the featured image (only shown en eboutique page)
-				data.sku = name; //Append SKU
+				data.key = name; //Append key value (the folder name as is)
+				data.sku = name.toLowerCase(); //Append SKU, always in lowercase
 			
 				console.log(data);
 			

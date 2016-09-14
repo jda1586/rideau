@@ -43,10 +43,11 @@
 			
 			<div class="product-showcase">
 				<input type="hidden" name="id_item" value="<%- data.name %>" />
+				<p class="item-key"><%- data.key %></p>
 				
 				<h5 class="item-name"><%- data.name.toLowerCase() %></h5>
 				<p class="item-category" style="display: none;"><%- data.category %></p>
-				<p class="item-sku"><%- data.sku.toLowerCase() %></p>
+				<p class="item-sku"><%- data.sku %></p>
 				<p class="item-price"><%- data.price.normal %> usd</p>
 
 				<div class="box-container">
@@ -201,7 +202,7 @@
 					
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
 					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-sku').html() + "/images/male/featured.jpg", sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
+					var item = { name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-key').html() + "/images/male/featured.jpg", sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
 					storedCart.push(item);
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					

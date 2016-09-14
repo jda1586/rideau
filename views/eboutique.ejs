@@ -18,7 +18,7 @@
 		<div id="sandbox" class="sandbox config-open">
 			<div id="Container" class="akzidenz">
 				<% Object.keys(data).forEach(function(key) { %>
-					<a class="outer" href="eboutique/<%- key %>">
+					<a class="outer" href="eboutique/<%- key.toUpperCase() %>">
 						<div class="mix category-<%- data[key].category %>" data-myorder="4">
 							<div class="gender_containers">
 								<img class="male_container" src="<%- data[key].images.male.featured %>" style="width: 250px;" />
