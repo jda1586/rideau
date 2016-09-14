@@ -220,13 +220,13 @@
 						$.get("/subscriptions/add", { email: email }).done(function() {
 							resolve();
 						}).fail(function() {
-							reject('We could not save your email.');
+							reject('we could not save your email.');
 						});
 					});
 				}
 			}).then(function(email) {
 				swal({
-					title: 'You are now subscribed',
+					title: 'you are now subscribed',
 					background: "#000",
 					showConfirmButton: false,
 					showCancelButton: true
