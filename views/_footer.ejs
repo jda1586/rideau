@@ -149,7 +149,6 @@
 		$('.amodal').each(function() {
 			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1) });
 		});
-	
 		
 		//Show SVG's
 		jQuery('img.svg').each(function() {
@@ -218,13 +217,11 @@
 				showLoaderOnConfirm: true,
 				preConfirm: function(email) {
 					return new Promise(function(resolve, reject) {
-						setTimeout(function() {
-							if (email === 'taken@example.com') {
-								reject('This email is already taken.');
-							} else {
-								resolve();
-							}
-						}, 1000);
+						$.get("/subscriptions/add", { email: email }).done(function() {
+							resolve();
+						}).fail(function() {
+							reject('We could not save your email.');
+						});
 					});
 				}
 			}).then(function(email) {

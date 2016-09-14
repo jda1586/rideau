@@ -64,7 +64,10 @@ function treeToJSON(tree, clearPublicPath) {
 
 function dirToArray(walkPath) {
 	var stats = fs.lstatSync(walkPath),
-		data = { walkKey: walkPath.substr(walkPath.lastIndexOf('/') + 1), walkPath: walkPath.split("public").pop(), walkInside: [] };
+		data = { walkKey: walkPath.substr(walkPath.lastIndexOf('/') + 1),
+			walkPath: walkPath.split("public").pop(),
+			walkInside: [] 
+		};
 	
 	fs.readdirSync(walkPath).forEach(function(child) {
 		var stats = fs.lstatSync(walkPath + "/" + child);
@@ -195,6 +198,18 @@ router.get('/stockists', function (req, res, next) {
 //Contact
 router.get('/contact', function (req, res, next) {
 	return res.render('contact');
+});
+//Subscriptions
+router.get('/subscriptions/add', function (req, res, next) {
+	try {
+		db.get('subscriptions')
+			.push({ email: req.query.email, date: new Date()})
+			.value();
+	} catch (e) {
+		console.log(e.message);
+	}
+	
+	return res.json({ok: true});
 });
 //Admin
 router.get('/rideau-admin', function (req, res, next) {
