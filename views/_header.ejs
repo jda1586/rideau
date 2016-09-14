@@ -225,7 +225,58 @@
 				
 				cartItems.append(tempItem);
 			});
+			
+			
+			
+			//Increment value buttons Plus and Minus (TODO: Relocate pls)
+			$("input.btn-qty").on("click", function(el) {
+				console.log($(this));
+			
+				if (this.value == "+") {
+					var quantityInput = $(this).parent().prev().find('input');
+					quantityInput.val(+quantityInput.val() + 1);
+				} else {
+					var quantityInput = $(this).parent().next().find('input');
+					quantityInput.val(+quantityInput.val() - 1)
+					if (+quantityInput.val() < 0) quantityInput.val(0);
+				}
+				
+				
+				/*
+				var totalPrice = $(".total-sum").html();
+				var $button = $(this);
+				var item = $(this).attr("item");
+				var oldValue = $("input.quantity[item='"+item+"']").val();
+				var storedCart = JSON.parse(localStorage.getItem('storedCart'));
+				
+				if ($button.val() == "+") {
+					var newVal = parseFloat(oldValue) + 1;
+					var newTotal = parseFloat(totalPrice) + parseFloat(storedCart[item].price);
+				} else {
+					//Don't allow decrementing below zero
+					if (oldValue > 0) {
+						var newVal = parseFloat(oldValue) - 1;
+						var newTotal = parseFloat(totalPrice) - parseFloat(storedCart[item].price);
+					} else {
+						newVal = 0;
+					}
+				}
+				if (newVal < 1 ) $(this).closest(".item").remove();
+				// Update quantity
+				$("input.quantity[item='"+item+"']").val(newVal);
+				updateLocalStorage();
+				// Update price
+				$(".total-sum").html(newTotal);
+				if (newTotal == 0) {
+					$('#empty-carr-modal').foundation('reveal', 'open');
+					$('#carr-modal').foundation('reveal', 'close');
+				}*/
+			});
+			
+			
 		});
+		
+		
 		
 		
 		//Cart proceed to purchase
@@ -233,16 +284,14 @@
 			
 		});
 		
-		console.log("pttp");
-		
 		$('.back-to-shopping-button.button').on('click', function() {
-			console.log('close');
 			$('.close-cartModal').trigger('click');
 		});
 	});
 	
 	$(document).mousemove(function(e) {
 		var height;
+		
 		if (document.body) {
 			height = (document.body.clientHeight);
 		} else {
