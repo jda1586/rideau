@@ -139,7 +139,6 @@ router.get('/eboutique/:name?', function(req, res, next) {
 	}), _.negate(_.isUndefined));
 	
 	if (!_.isUndefined(name)) {
-		name = name.toLowerCase();
 		data = data[name];
 		
 		if (!_.isUndefined(data)) {
