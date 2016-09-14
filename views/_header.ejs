@@ -123,30 +123,28 @@
 </div>
 
 <div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
-	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-	<div class="closeContainer close-cartModal"> 
-		<img src="/rideau-data/extras/modal-close.png" />
-	</div>
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-				
-				
-				
-				<div class="cart-items">
-				
-				
-				
-					cart
-				
-				
-				
-				</div>
-				
-				
-				
+				<div class="cart-items">your cart is empty</div>
 			</div>
 		</div>
+		<div class="row margin-top-50">
+			<div class="small-12 medium-6 large-6 columns">
+				<a class="back-to-shopping-button tiny button">
+					<p><strong>back to shopping</strong></p>
+				</a>
+			</div>
+			<div class="small-12 medium-6 large-6 columns">
+				<a class="proceed-to-purchase-button tiny button">
+					<p><strong>proceed to purchase</strong></p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-cartModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
 </div>
 
@@ -227,11 +225,73 @@
 				
 				cartItems.append(tempItem);
 			});
+			
+			
+			
+			//Increment value buttons Plus and Minus (TODO: Relocate pls)
+			$("input.btn-qty").on("click", function(el) {
+				console.log($(this));
+			
+				if (this.value == "+") {
+					var quantityInput = $(this).parent().prev().find('input');
+					quantityInput.val(+quantityInput.val() + 1);
+				} else {
+					var quantityInput = $(this).parent().next().find('input');
+					quantityInput.val(+quantityInput.val() - 1)
+					if (+quantityInput.val() < 0) quantityInput.val(0);
+				}
+				
+				
+				/*
+				var totalPrice = $(".total-sum").html();
+				var $button = $(this);
+				var item = $(this).attr("item");
+				var oldValue = $("input.quantity[item='"+item+"']").val();
+				var storedCart = JSON.parse(localStorage.getItem('storedCart'));
+				
+				if ($button.val() == "+") {
+					var newVal = parseFloat(oldValue) + 1;
+					var newTotal = parseFloat(totalPrice) + parseFloat(storedCart[item].price);
+				} else {
+					//Don't allow decrementing below zero
+					if (oldValue > 0) {
+						var newVal = parseFloat(oldValue) - 1;
+						var newTotal = parseFloat(totalPrice) - parseFloat(storedCart[item].price);
+					} else {
+						newVal = 0;
+					}
+				}
+				if (newVal < 1 ) $(this).closest(".item").remove();
+				// Update quantity
+				$("input.quantity[item='"+item+"']").val(newVal);
+				updateLocalStorage();
+				// Update price
+				$(".total-sum").html(newTotal);
+				if (newTotal == 0) {
+					$('#empty-carr-modal').foundation('reveal', 'open');
+					$('#carr-modal').foundation('reveal', 'close');
+				}*/
+			});
+			
+			
+		});
+		
+		
+		
+		
+		//Cart proceed to purchase
+		$('.proceed-to-purchase-button.button').on('click', function() {
+			
+		});
+		
+		$('.back-to-shopping-button.button').on('click', function() {
+			$('.close-cartModal').trigger('click');
 		});
 	});
 	
 	$(document).mousemove(function(e) {
 		var height;
+		
 		if (document.body) {
 			height = (document.body.clientHeight);
 		} else {
