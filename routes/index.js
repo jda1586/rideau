@@ -128,8 +128,13 @@ router.get('/', function(req, res, next) {
 });
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
-	var name = req.params.name;
+	var name = req.params.name.toLowerCase();
 	var data = dirToObj("public/rideau-data/eboutique");
+	
+	console.log(name.toUpperCase());
+	console.log(name);
+	console.log(name);
+	console.log(name);
 	
 	data = _.pickBy(_.mapValues(data, function(el) {
 		if (el.enabled == '1') {
