@@ -138,8 +138,15 @@ router.get('/eboutique/:name?', function(req, res, next) {
 		
 	}), _.negate(_.isUndefined));
 	
-	if (!_.isUndefined(name)) {
-		data = data[name];
+	console.log(data);
+	console.log(name);
+	console.log(name);
+	console.log(name);
+	
+	var item = data[name] || data[name.toLowerCase()] || data[name.toUpperCase()];
+	
+	if (!_.isUndefined(item)) {
+		data = item;
 		
 		if (!_.isUndefined(data)) {
 			data.images.male = _.omit(data.images.male, 'featured'); //Omit the featured image (only shown en eboutique page)
