@@ -268,8 +268,7 @@ html.rideau {
 				padding: 7px 14px;
 				border: 1px solid black;
 			}
-		}		
-		
+		}
 	}
 	
 	/* Zoom images */
@@ -807,7 +806,6 @@ html.rideau {
 				.item-image {
 					width: 80px;
 				}
-			
 				
 				table.up-down-controls {
 					background-color: transparent;
@@ -816,10 +814,12 @@ html.rideau {
 					tr {
 						td {
 							padding: 0px;
+							
 							input {
 								padding: 0px;
 								margin: 0 auto;
 								height: 20px;
+								
 								&.quantity {
 									width: 50px;
 									text-align: center;
@@ -863,6 +863,13 @@ html.rideau {
 		color: white;
 		text-align: center;
 		
+		a.button {
+			p {
+				font-size: 0.8em;
+				margin: 0px;
+			}
+		}
+		
 		p {
 			font-family: $sackers_font;
 			margin-bottom: 10px;
@@ -895,6 +902,12 @@ html.rideau {
 	@import 'sweetalert2';
 	
 }
+
+
+/* Old CSS rules, do not erase unless necesary */
+/* Old CSS rules, do not erase unless necesary */
+/* Old CSS rules, do not erase unless necesary */
+
 
 /* Old style activate if needed */
 /*body, p {
