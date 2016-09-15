@@ -783,6 +783,26 @@ html.rideau {
 	
 	/* Sizing */
 	body#sizing {
+	
+		@media only screen and (max-width: 620px) and (min-width: 5px) {
+			.title {
+				font-size: 10px !important;
+				padding: 15px;
+			}
+			.icn_left {
+				font-size: 20px;
+				position: absolute;
+				right: 24vh;
+				top: 12vh;
+			}
+			.icn_rigth {
+				font-size: 20px;
+				position: absolute;
+				right: 7vh;
+				top: 12vh;
+			}
+		}
+	
 		.sizing-table {
 			font-family: $sackers_font;
 			width: 100%;
