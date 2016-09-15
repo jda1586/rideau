@@ -80,14 +80,12 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				
 			</div>
 		</div>
 	</div>
 </header>
 
+<!-- Collections modal -->
 <div id="collectionsModal" class="animated-rideau-modal" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
@@ -106,6 +104,7 @@
 	</div>
 </div>
 
+<!-- Eboutique modal -->
 <div id="eboutiqueModal" class="animated-rideau-modal" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
@@ -122,6 +121,7 @@
 	</div>	
 </div>
 
+<!-- Cart modal -->
 <div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
@@ -144,6 +144,21 @@
 	</div>
 	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 	<div class="closeContainer close-cartModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
+	</div>
+	<!-- The hidden review modal opener, triggered by jQuery unless we really want a visible button -->
+	<a class="amodal nodisplay" href="#reviewModal">review</a>
+</div>
+
+<!-- Review modal -->
+<div id="reviewModal" class="animated-rideau-modal" style="visibility: hidden;">
+	<div class="auto-adjustable-y">
+		<div class="row">
+			<p>review</p>
+		</div>
+	</div>
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-reviewModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
 </div>
@@ -204,14 +219,10 @@
 <script>
 	$(function() {
 		$('a[href="#cartModal"]').on('click', function() {
-			console.log("regenerate cart");
-			
 			var rideauCart = JSON.parse(localStorage.storedCart);
-			console.log(rideauCart);
-			
 			var blueprintItem = $('blueprints .item');
-			
 			var cartItems = $('.cart-items');
+			
 			cartItems.empty(); //Empty cart
 			_.times(rideauCart.length, function(i) {
 				var tempItem = blueprintItem.clone();
@@ -226,8 +237,6 @@
 				cartItems.append(tempItem);
 			});
 			
-			
-			
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
 				console.log($(this));
@@ -241,9 +250,7 @@
 					if (+quantityInput.val() < 0) quantityInput.val(0);
 				}
 				
-				
-				/*
-				var totalPrice = $(".total-sum").html();
+				/* var totalPrice = $(".total-sum").html();
 				var $button = $(this);
 				var item = $(this).attr("item");
 				var oldValue = $("input.quantity[item='"+item+"']").val();
@@ -272,12 +279,7 @@
 					$('#carr-modal').foundation('reveal', 'close');
 				}*/
 			});
-			
-			
 		});
-		
-		
-		
 		
 		//Cart proceed to purchase
 		$('.proceed-to-purchase-button.button').on('click', function() {
@@ -286,6 +288,10 @@
 		
 		$('.back-to-shopping-button.button').on('click', function() {
 			$('.close-cartModal').trigger('click');
+		});
+		$('.proceed-to-purchase-button.button').on('click', function() {
+			$('.close-cartModal').trigger('click');
+			$('a[href$="#reviewModal"]').trigger('click');
 		});
 	});
 	
