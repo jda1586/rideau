@@ -294,6 +294,46 @@ html.rideau {
 		}
 	}
 	
+	.modal_title {
+		text-align:center;
+		color: white;
+	}
+	.accordion {
+		.accordion-navigation {
+			&.active > a, dd.active > a {
+				background: none;
+				font-weight: bold;
+				color: $accordeon_t_c;
+			}
+			a {
+				font-size: 0.9rem;
+				background: none;
+				color: white;
+				&:active, &:focus {
+					background: none;
+					font-weight: bold;
+				}
+				&:hover, &:focus {
+					color: $accordeon_t_c;
+				}
+				&:hover {
+					background: none;
+				}
+			}
+			.columns {
+				position: relative;
+			}
+			.vertical-align, #checkboxship {
+				height: initial;
+				margin-top: 25px;
+			}
+			> .content.active, dd > .content.active {
+				background: none;
+				color: white;
+			}
+		}
+	}
+	
 	/* Landing page */
 	body#landing {
 		.fluid {
