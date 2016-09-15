@@ -28,16 +28,12 @@
   ],
   "subscriptions": [
     {
-      "email": "sample@mail.com",
-      "date": "543213243"
-    },
-    {
-      "email": "sample2131@mail.com",
-      "date": "53215324"
-    },
-    {
       "email": "pluna@enera.mx",
-      "date": "2016-09-13T15:47:09.308Z"
+      "date": 1473969719592
+    },
+    {
+      "email": "p@p.com",
+      "date": 1473970234454
     }
   ],
   "landing": [],
