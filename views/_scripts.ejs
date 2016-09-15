@@ -16,7 +16,7 @@
 
 <!-- Clean inline scripts -->
 <script>
-	$(document).ready(function() {
+	$(function() {
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
 			
@@ -32,11 +32,9 @@
 			});
 		}
 		$(window).resize(adjustLayout);
-		
 		adjustLayout();
 		
-		//TODO: Improve this section... It is unmaintanable
-		function adjustLayout2() {
+		window.adjustModals = function() {
 			var sectionRideau = $('.auto-adjustable-y');
 			
 			sectionRideau.each(function(el) {
@@ -47,9 +45,21 @@
 				$(this).css("padding-bottom", newPadding + "px");
 			});
 		}
-		$(window).resize(adjustLayout2);
+		$(window).resize(window.adjustModals);
+		window.adjustModals();
 		
-		adjustLayout2();
+		//Adjust modals after opening accordions inside them
+		$('.accordion-title').on('click', function() {
+			setTimeout(function() {
+				window.adjustModals();
+				console.log("TIME");
+			}, 25);
+		});
+		
+		//Init animated modals
+		$('.amodal').each(function() {
+			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1), beforeOpen: function() { window.adjustModals(); } });
+		});
 	});
 </script>
 
