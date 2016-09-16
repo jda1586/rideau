@@ -332,7 +332,11 @@
 							</td>
 						</tr>
 					</table>
-					<small><p class="hidden">Remove from cart</p></small>
+					<a class="remove-from-cart-button">
+						<small>
+							<p class="hidden">remove from cart</p>
+						</small>
+					</a>
 				</div>
 				<div class="small-6 large-6 columns">
 					<p>Unit price:</p>
@@ -362,11 +366,14 @@
 				cartItems.append(tempItem);
 			});
 			
-			
-			
 			$('input.quantity').on("change", function() {
-				if (this.value < 0) {
+				
+				
+				if (this.value <= 0) {
 					this.value = 0;
+					$(this).closest('table.up-down-controls').next(".remove-from-cart-button").find("p").removeClass("hidden");
+				} else {
+					$(this).closest('table.up-down-controls').next(".remove-from-cart-button").find("p").addClass("hidden");
 				}
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
@@ -380,7 +387,6 @@
 					quantityInput.val(+quantityInput.val() - 1);
 					quantityInput.trigger("change");
 				}
-				
 				
 				
 				/* var totalPrice = $(".total-sum").html();
