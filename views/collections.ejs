@@ -117,7 +117,7 @@
 				
 				function slyFixes() {
 					$('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
-					$('li').css('width', $('#oneperframe').width()); //Oneframe li elements width
+					$('#oneperframe li').css('width', $('#oneperframe').width()); //Oneframe li elements width
 					$('#oneperframe').height($("li.active img").height() + 30); //Scroller/image gap
 					$('#oneperframe').sly('reload');
 				}

@@ -861,13 +861,10 @@ html.rideau {
 		label {
 			font-size: 0.8em;
 		}
-	}
-	
-	.animated-rideau-modal {
-		font-family: $sackers_font;
-		background-color: rgba(0, 0, 0, 0.75);
-		color: white;
-		text-align: center;
+		
+		.purchase-process {
+			list-style: none;
+		}
 		
 		&.modal-with-accordion {
 			.modal_title {
@@ -910,6 +907,13 @@ html.rideau {
 				}
 			}
 		}
+	}
+	
+	.animated-rideau-modal {
+		font-family: $sackers_font;
+		background-color: rgba(0, 0, 0, 0.75);
+		color: white;
+		text-align: center;
 		
 		a.button {
 			p {
