@@ -325,7 +325,7 @@
 								<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
 							</td>
 							<td align="">
-								<input type="text" name="quantity" class="item-quantity" placeholder="1" value="1" />
+								<input type="text" name="quantity" class="item-quantity" placeholder="1" value="1" readonly />
 							</td>
 							<td align="">
 								<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
@@ -349,7 +349,7 @@
 
 <script>
 	$(function() {
-		$('a[href="#cartModal"]').on('click', function() {
+		window.abc = function regenerateCart() {
 			var rideauCart = JSON.parse(localStorage.storedCart);
 			var blueprintItem = $('blueprints .item');
 			var cartItems = $('.cart-items');
@@ -363,6 +363,8 @@
 				tempItem.find('.item-name').html(el.name);
 				tempItem.find('.item-image').attr('src', el.image);
 				tempItem.find('.item-sku').html(el.sku);
+				tempItem.find('.item-size').html(el.size);
+				tempItem.find('.item-color').html(el.color);
 				tempItem.find('.item-price').html(el.price);
 				tempItem.find('.item-quantity').val(el.quantity);
 				
@@ -385,16 +387,35 @@
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
+				var storedCart = JSON.parse(localStorage.storedCart),
+					item = $(this).closest('.item');
+					key = [item.find('.item-sku').html(), item.find('.item-size').html(), item.find('.item-color').html()].join('-');
+				
+				console.log(storedCart[key]);
+				
 				if (this.value == "+") {
 					var quantityInput = $(this).parent().prev().find('input');
-					quantityInput.val(+quantityInput.val() + 1);
-					quantityInput.trigger("change");
+					//quantityInput.val(+quantityInput.val() + 1);
+					
+
+					
+					storedCart[key].quantity++;
+					console.log('+');
+					
+					//storedCart[[].join('-')]
 				} else {
 					var quantityInput = $(this).parent().next().find('input');
-					quantityInput.val(+quantityInput.val() - 1);
-					quantityInput.trigger("change");
+					//quantityInput.val(+quantityInput.val() - 1);
+					
+					storedCart[key].quantity--;
+					if (storedCart[key].quantity < 0) storedCart[key].quantity = 0;
+					
+					console.log('-');
 				}
 				
+				quantityInput.trigger("change");
+				localStorage.storedCart = JSON.stringify(storedCart);
+				window.abc();
 				
 				/* var totalPrice = $(".total-sum").html();
 				var $button = $(this);
@@ -425,6 +446,10 @@
 					$('#carr-modal').foundation('reveal', 'close');
 				}*/
 			});
+		}
+		
+		$('a[href="#cartModal"]').on('click', function() {
+			window.abc();
 		});
 		
 		//Cart first step buttons

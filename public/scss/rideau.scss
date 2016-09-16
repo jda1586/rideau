@@ -823,6 +823,10 @@ html.rideau {
 								&.item-quantity {
 									width: 50px;
 									text-align: center;
+									
+									&[readonly] {
+										background-color: white;
+									}
 								}
 								&.btn-qty {
 									width: 20px;
@@ -1286,7 +1290,7 @@ input {
 }
   
 /* IMPORTANT: This modal is deprecated please see version-2 */
-.rideau-modal {
+/*.rideau-modal {
 	background: rgba(0, 0, 0, 0.75);
 	border: none;
 	overflow-y: auto;
@@ -1343,7 +1347,7 @@ input {
 	h2, h5 {
 		color: white;
 	}
-}
+}*/
 
 /* IMPORTANT: This modal is deprecated please see version-2 */
 .close-reveal-modal {
