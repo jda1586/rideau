@@ -129,17 +129,19 @@
 				<div class="cart-items">your cart is empty</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="margin-top-50">
-				<div class="small-12 medium-6 large-6 columns">
-					<a class="back-to-shopping-button tiny button">
-						<p><strong>back to shopping</strong></p>
-					</a>
-				</div>
-				<div class="small-12 medium-6 large-6 columns">
-					<a class="proceed-to-purchase-button tiny button">
-						<p><strong>proceed to purchase</strong></p>
-					</a>
+		<div class="shop-buttons hidden">
+			<div class="row">
+				<div class="margin-top-50">
+					<div class="small-12 medium-6 large-6 columns">
+						<a class="back-to-shopping-button tiny button">
+							<p><strong>back to shopping</strong></p>
+						</a>
+					</div>
+					<div class="small-12 medium-6 large-6 columns">
+						<a class="proceed-to-purchase-button tiny button">
+							<p><strong>proceed to purchase</strong></p>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -350,13 +352,25 @@
 <script>
 	$(function() {
 		window.abc = function regenerateCart() {
-			var rideauCart = JSON.parse(localStorage.storedCart);
-			var blueprintItem = $('blueprints .item');
-			var cartItems = $('.cart-items');
+			var rideauCart = JSON.parse(localStorage.storedCart),
+				cartItems = $('.cart-items');
 			
-			console.log(rideauCart);
+			
+			
+			if (Object.keys(rideauCart).length == 0) {
+				$('#cartModal .shop-buttons').addClass('hidden');
+				cartItems.html("your cart is empty");
+				
+				
+				return; //Return if there are no cart items
+			} else {
+				$('#cartModal .shop-buttons').removeClass('hidden');
+			}
+			
+			var blueprintItem = $('blueprints .item');
 			
 			cartItems.empty(); //Empty cart
+			
 			_.each(rideauCart, function(el) {
 				var tempItem = blueprintItem.clone();
 				
@@ -375,7 +389,15 @@
 			
 			//Remove items from cart when presssing the remove button
 			$('.remove-from-cart-button').on("click", function() {
-				$(this).closest('.item').hide();
+				var storedCart = JSON.parse(localStorage.storedCart),
+					item = $(this).closest('.item');
+					key = [item.find('.item-sku').html(), item.find('.item-size').html(), item.find('.item-color').html()].join('-');
+				
+				
+				delete storedCart[key];
+				localStorage.storedCart = JSON.stringify(storedCart);
+
+				window.abc();
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
