@@ -592,6 +592,10 @@ html.rideau {
 				}
 			}
 			a.cart-button {
+				margin-top: 10px;
+				width: 100%;
+				max-width: 200px;
+				
 				.cart-icon {
 					margin-top: -5px;
 				}
@@ -605,10 +609,6 @@ html.rideau {
 				&.disabled {
 					background-color: #AAA;
 				}
-				
-				margin-top: 10px;
-				width: 100%;
-				max-width: 200px;
 			}
 			#back-button {
 				font-family: $sackers_font;
@@ -879,18 +879,10 @@ html.rideau {
 						color: $accordeon_t_c;
 					}
 					a {
-						font-size: 0.9rem;
 						background: none;
 						color: white;
-						&:active, &:focus {
-							background: none;
-							font-weight: bold;
-						}
-						&:hover, &:focus {
-							color: $accordeon_t_c;
-						}
-						&:hover {
-							background: none;
+						&.button {
+							background: black;
 						}
 					}
 					.columns {
