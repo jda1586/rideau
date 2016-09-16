@@ -268,8 +268,7 @@ html.rideau {
 				padding: 7px 14px;
 				border: 1px solid black;
 			}
-		}		
-		
+		}
 	}
 	
 	/* Zoom images */
@@ -593,6 +592,10 @@ html.rideau {
 				}
 			}
 			a.cart-button {
+				margin-top: 10px;
+				width: 100%;
+				max-width: 200px;
+				
 				.cart-icon {
 					margin-top: -5px;
 				}
@@ -606,10 +609,6 @@ html.rideau {
 				&.disabled {
 					background-color: #AAA;
 				}
-				
-				margin-top: 10px;
-				width: 100%;
-				max-width: 200px;
 			}
 			#back-button {
 				font-family: $sackers_font;
@@ -807,7 +806,6 @@ html.rideau {
 				.item-image {
 					width: 80px;
 				}
-			
 				
 				table.up-down-controls {
 					background-color: transparent;
@@ -816,10 +814,12 @@ html.rideau {
 					tr {
 						td {
 							padding: 0px;
+							
 							input {
 								padding: 0px;
 								margin: 0 auto;
 								height: 20px;
+								
 								&.quantity {
 									width: 50px;
 									text-align: center;
@@ -857,11 +857,62 @@ html.rideau {
 		}
 	}
 	
+	#reviewModal {
+		label {
+			font-size: 0.8em;
+		}
+		
+		.purchase-process {
+			list-style: none;
+		}
+		
+		&.modal-with-accordion {
+			.modal_title {
+				text-align:center;
+				color: white;
+			}
+			.accordion {
+				.accordion-navigation {
+					&.active > a, dd.active > a {
+						background: none;
+						font-weight: bold;
+						color: $accordeon_t_c;
+					}
+					a {
+						background: none;
+						color: white;
+						&.button {
+							background: black;
+						}
+					}
+					.columns {
+						position: relative;
+					}
+					.vertical-align, #checkboxship {
+						height: initial;
+						margin-top: 25px;
+					}
+					> .content.active, dd > .content.active {
+						background: none;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+	
 	.animated-rideau-modal {
 		font-family: $sackers_font;
 		background-color: rgba(0, 0, 0, 0.75);
 		color: white;
 		text-align: center;
+		
+		a.button {
+			p {
+				font-size: 0.8em;
+				margin: 0px;
+			}
+		}
 		
 		p {
 			font-family: $sackers_font;
@@ -895,6 +946,12 @@ html.rideau {
 	@import 'sweetalert2';
 	
 }
+
+
+/* Old CSS rules, do not erase unless necesary */
+/* Old CSS rules, do not erase unless necesary */
+/* Old CSS rules, do not erase unless necesary */
+
 
 /* Old style activate if needed */
 /*body, p {
@@ -1486,7 +1543,7 @@ body.modal-open {
 }
 
 /* Shopping cart */
-#purchase-modal, #carr-modal {
+/*#purchase-modal, #carr-modal {
 	height: 80%;
 	.modal_title {
 		text-align:center;
@@ -1527,7 +1584,7 @@ body.modal-open {
 			}
 		}
 	}
-}
+}*/
 
 .content.active > label {
   background: none;

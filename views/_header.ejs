@@ -80,14 +80,12 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				
 			</div>
 		</div>
 	</div>
 </header>
 
+<!-- Collections modal -->
 <div id="collectionsModal" class="animated-rideau-modal" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
@@ -106,6 +104,7 @@
 	</div>
 </div>
 
+<!-- Eboutique modal -->
 <div id="eboutiqueModal" class="animated-rideau-modal" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
@@ -119,34 +118,174 @@
 	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 	<div class="closeContainer close-eboutiqueModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
-	</div>	
+	</div>
 </div>
 
+<!-- Cart modal -->
 <div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
+	<div class="auto-adjustable-y">
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				<div class="cart-items">your cart is empty</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="margin-top-50">
+				<div class="small-12 medium-6 large-6 columns">
+					<a class="back-to-shopping-button tiny button">
+						<p><strong>back to shopping</strong></p>
+					</a>
+				</div>
+				<div class="small-12 medium-6 large-6 columns">
+					<a class="proceed-to-purchase-button tiny button">
+						<p><strong>proceed to purchase</strong></p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 	<div class="closeContainer close-cartModal"> 
 		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
+	<!-- The hidden review modal opener, triggered by jQuery unless we really want a visible button -->
+	<a class="amodal nodisplay" href="#reviewModal">review</a>
+</div>
+
+<!-- Review modal -->
+<div id="reviewModal" class="animated-rideau-modal modal-with-accordion" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
-			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-				
-				
-				
-				<div class="cart-items">
-				
-				
-				
-					cart
-				
-				
-				
-				</div>
-				
-				
-				
-			</div>
+			<!-- <h4 class="modal_title"><strong>Checkout</strong></h4> -->
+			<ul class="accordion" data-accordion="" role="tablist">
+				<li class="billing-information accordion-navigation accordion-item is-active" data-accordion-item>
+					<a class="sackers accordion-title" href="#panel1a">1.- billing information</a>
+					<div id="panel1a" class="content active" data="binfo">
+						<div class="row">
+							<div class="small-12 large-6 columns">
+								<label for="firstname" data-storage="first_name">first name *
+									<input required type="text" name="firstname" />
+								</label>
+								<label for="lastname" data-storage="last_name">last name *
+									<input required type="text" name="lastname" />
+								</label>
+								<label for="email" data-storage="email">email *
+									<input required type="text" name="email" />
+								</label>
+								<label for="address" data-storage="address">address *
+									<input type="text" name="address" />
+								</label>
+								<label for="tel" data-storage="telephone">telephone *
+									<input type="text" name="tel" />
+								</label>
+							</div>
+							<div class="small-12 large-6 columns">
+								<label for="bcompany" data-storage="country">company *
+									<input type="text" name="company" />
+								</label>
+								<label for="bcity" data-storage="city">city *
+									<input type="text" name="city" />
+								</label>
+								<label for="bstate" data-storage="state">state/province *
+									<input type="text" name="state" />
+								</label>
+								<label for="bzip" data-storage="zip_code">zip/postalcode *
+									<input type="text" name="zip" />
+								</label>
+								<label for="bcountry" data-storage="country">country *
+									<input type="text" name="country" />
+								</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-12 large-6 columns">
+								<div class="row">
+									<div class="small-12 columns">
+										<input id="checkboxship" name="shipad" type="checkbox">
+										<label for="checkboxship" class="left vertical-align">use for shipping address</label>
+										<br/>
+										<br/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="shipping-information accordion-navigation accordion-item" data-accordion-item>
+					<a class="sackers accordion-title" href="#panel2a">2.- shipping information</a>
+					<div id="panel2a" class="content" data="sinfo">
+						<div class="row">
+							<div class="small-12 large-6 columns">
+								<label for="firstname" data-storage="first_name">First name *
+									<input required type="text" name="firstname" />
+								</label>
+								<label for="lastname" data-storage="last_name">Last name *
+									<input required type="text" name="lastname" />
+								</label>
+								<label for="email" data-storage="email">Email *
+									<input required type="text" name="email" />
+								</label>
+								<label for="address" data-storage="address">Address *
+									<input required type="text" name="address" />
+								</label>
+								<label for="tel" data-storage="telephone">Telephone *
+									<input required type="text" name="tel" />
+								</label>
+							</div>
+							<div class="small-12 large-6 columns">
+								<label for="company" data-storage="company">Company *
+									<input required type="text" name="scompany" id="scompany" />
+								</label>
+								<label for="city" data-storage="city">City *
+									<input required type="text" name="scity" id="scity" />
+								</label>
+								<label for="state" data-storage="state">State/province *
+									<input required type="text" name="sstate" id="sstate"  />
+								</label>
+								<label for="zip" data-storage="zip_code">Zip/postalcode *
+									<input required type="text" name="szip" id="szip"  />
+								</label>
+								<label for="country" data-storage="country">Country *
+									<input required type="text" name="scountry" id="scountry" />
+								</label>
+								<label for="checkboxfed">
+									<input id="checkboxfed" name="fedship" type="checkbox">FedEx standard shipping 20.00 USD
+								</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="margin-top-50">
+								<div class="small-12 medium-6 large-6 columns">
+									<a class="back-to-cart-button tiny button">
+										<p><strong>back to cart</strong></p>
+									</a>
+								</div>
+								<div class="small-12 medium-6 large-6 columns">
+									<a class="purchase-button tiny button">
+										<p><strong>purchase</strong></p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- <li class="review-and-place-order accordion-navigation accordion-item" data-accordion-item>
+					<a class="sackers accordion-title" href="#panel3a">3.- Review and place order</a>
+					<div id="panel3a" class="content">
+
+						<div class="review-products">
+							
+						</div>
+
+						<hr />
+					</div>
+				</li> -->
+			</ul>
 		</div>
+	</div>
+	<!-- Important: To close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+	<div class="closeContainer close-reviewModal"> 
+		<img src="/rideau-data/extras/modal-close.png" />
 	</div>
 </div>
 
@@ -206,14 +345,10 @@
 <script>
 	$(function() {
 		$('a[href="#cartModal"]').on('click', function() {
-			console.log("regenerate cart");
-			
 			var rideauCart = JSON.parse(localStorage.storedCart);
-			console.log(rideauCart);
-			
 			var blueprintItem = $('blueprints .item');
-			
 			var cartItems = $('.cart-items');
+			
 			cartItems.empty(); //Empty cart
 			_.times(rideauCart.length, function(i) {
 				var tempItem = blueprintItem.clone();
@@ -223,15 +358,77 @@
 				tempItem.find('.item-sku').html(rideauCart[i].sku);
 				tempItem.find('.item-price').html(rideauCart[i].price);
 				
-				console.log(tempItem.find('.item-image'));
-				
 				cartItems.append(tempItem);
+			});
+			
+			//Increment value buttons Plus and Minus (TODO: Relocate pls)
+			$("input.btn-qty").on("click", function(el) {
+				if (this.value == "+") {
+					var quantityInput = $(this).parent().prev().find('input');
+					quantityInput.val(+quantityInput.val() + 1);
+				} else {
+					var quantityInput = $(this).parent().next().find('input');
+					quantityInput.val(+quantityInput.val() - 1)
+					if (+quantityInput.val() < 0) quantityInput.val(0);
+				}
+				
+				/* var totalPrice = $(".total-sum").html();
+				var $button = $(this);
+				var item = $(this).attr("item");
+				var oldValue = $("input.quantity[item='"+item+"']").val();
+				var storedCart = JSON.parse(localStorage.getItem('storedCart'));
+				
+				if ($button.val() == "+") {
+					var newVal = parseFloat(oldValue) + 1;
+					var newTotal = parseFloat(totalPrice) + parseFloat(storedCart[item].price);
+				} else {
+					//Don't allow decrementing below zero
+					if (oldValue > 0) {
+						var newVal = parseFloat(oldValue) - 1;
+						var newTotal = parseFloat(totalPrice) - parseFloat(storedCart[item].price);
+					} else {
+						newVal = 0;
+					}
+				}
+				if (newVal < 1 ) $(this).closest(".item").remove();
+				// Update quantity
+				$("input.quantity[item='"+item+"']").val(newVal);
+				updateLocalStorage();
+				// Update price
+				$(".total-sum").html(newTotal);
+				if (newTotal == 0) {
+					$('#empty-carr-modal').foundation('reveal', 'open');
+					$('#carr-modal').foundation('reveal', 'close');
+				}*/
+			});
+		});
+		
+		//Cart first step buttons
+		$('.back-to-shopping-button.button').on('click', function() {
+			$('.close-cartModal').trigger('click');
+		});
+		$('.proceed-to-purchase-button.button').on('click', function() {
+			$('.close-cartModal').trigger('click');
+			$('a[href$="#reviewModal"]').trigger('click');
+		});
+		
+		//Cart second step buttons
+		$('.back-to-cart-button.button').on('click', function() {
+			//TODO
+		});
+		$('.purchase-button.button').on('click', function() {
+			$('.close-reviewModal').trigger('click');
+			swal({
+				title: 'thanks for your purchase',
+				showConfirmButton : false,
+				showCancelButton: true
 			});
 		});
 	});
 	
 	$(document).mousemove(function(e) {
 		var height;
+		
 		if (document.body) {
 			height = (document.body.clientHeight);
 		} else {
