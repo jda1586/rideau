@@ -101,9 +101,9 @@
 		<div id="addedtocart-modal" class="reveal-modal rideau-modal small" data-reveal aria-hidden="true" role="3ialog">
 			<div class="row">
 				<div class="large-12 columns">
-					<h2>Thank you!</h2>
+					<h2>thank you!</h2>
 					<br/>
-					<p>Item was successfully added to your cart!</p>
+					<p>item successfully added to your cart</p>
 					<br/>
 				</div>
 			</div>
@@ -198,10 +198,14 @@
 						return;
 					}
 					
+					var sku = $('.product-showcase .item-sku').html(),
+						size = "3",
+						color = "R";
+					
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
-					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-key').html() + "/images/male/featured.jpg", sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
-					storedCart.push(item);
+					if (_.isEmpty(storedCart)) storedCart = {};
+					var item = { sku: sku, size: size, color: color, name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-key').html() + "/images/male/featured.jpg", category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), quantity: 1, date: new Date() };
+					storedCart[[sku, size, color].join('-')] = item;
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					
 					$('.cart-button .cart-count').html(storedCart.length);
