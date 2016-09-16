@@ -5,7 +5,6 @@
 <script src="/javascripts/foundation/foundation.tooltip.js" type="text/javascript"></script>
 
 <!-- Plugins -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.mixitup.js" type="text/javascript"></script>
 <script src="/javascripts/sly/plugins.js" type="text/javascript"></script>
 <script src="/javascripts/sly/sly.js" type="text/javascript"></script>
@@ -17,7 +16,7 @@
 
 <!-- Clean inline scripts -->
 <script>
-	$(document).ready(function() {
+	$(function() {
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
 			
@@ -33,11 +32,9 @@
 			});
 		}
 		$(window).resize(adjustLayout);
-		
 		adjustLayout();
 		
-		//TODO: Improve this section... It is unmaintanable
-		function adjustLayout2() {
+		window.adjustModals = function() {
 			var sectionRideau = $('.auto-adjustable-y');
 			
 			sectionRideau.each(function(el) {
@@ -48,9 +45,21 @@
 				$(this).css("padding-bottom", newPadding + "px");
 			});
 		}
-		$(window).resize(adjustLayout2);
+		$(window).resize(window.adjustModals);
+		window.adjustModals();
 		
-		adjustLayout2();
+		//Adjust modals after opening accordions inside them
+		$('.accordion-title').on('click', function() {
+			setTimeout(function() {
+				window.adjustModals();
+				console.log("TIME");
+			}, 5);
+		});
+		
+		//Init animated modals
+		$('.amodal').each(function() {
+			$(this).animatedModal({ modalTarget: $(this).attr('href').substr(1), beforeOpen: function() { window.adjustModals(); } });
+		});
 	});
 </script>
 
@@ -93,43 +102,9 @@
 			$('.female_button').trigger("click");
 		}
 
-		//Delete background when clicking to footer bottom text (TODO: Relocate pls)
-		$('a[data-reveal-id]').on('click', function() {
-			var modalDiv = $(this).attr('data-reveal-id');
-			var cartdata = (localStorage && localStorage.getItem('storedCart')) ? localStorage.getItem('storedCart'): "";
-			var arrayModals = ['subscription-modal', 'empty-carr-modal', 'login-modal', 'post-subscription-modal', 'addedtocart-modal'];
-
-			if ( jQuery.inArray(modalDiv, arrayModals) !== -1 ) {
-				$('.reveal-modal-bg').css('background-color','transparent');
-				$('.reveal-modal').css('background','rgba(0, 0, 0, 0.75)');
-			} else {
-				$('.reveal-modal-bg').css('background-color','rgba(0, 0, 0, 0.75)');
-				$('.reveal-modal').css('background','transparent');
-			}
-
-			if (modalDiv == 'carr-modal') {
-
-				$.post('/simple-cart', { cdata: cartdata, modal: "stored-products" }, function(data) {
-					if(data) {
-						$('.stored-products').html(data);
-						$('#carr-modal').foundation('reveal', 'open');
-					}
-				});
-			}
-		});
-
-		// Hide background in eboutique
+		//Hide background in eboutique
 		$('a.close').click(function() {
 			$('#carr-modal').foundation('reveal', 'close');
-		});
-
-		$("input[data-reveal-id='post-subscription-modal']").click(function() {
-			var subemail = $("input[name='subscription-email']").val();
-			$.post('/subscriptions', { email: subemail }, function(data) {
-				if(data) {
-					console.log(data);
-				}
-			});
 		});
 
 		var loggedinHash = window.location.hash;
@@ -144,42 +119,6 @@
 			$('#got-to-stripe').prop('disabled', true);
 		});
 	});
-
-	/*// Store product to local storage
-	var storedItem = {};
-	$("#add-cart").click(function() {
-
-		var el = $(this).parent();
-		var id_item = $("input[name='id_item']").val();
-		var ref_v = $('span.ref').attr('data-storage');
-		var size_v = $("input[id^='size-']:checked").attr('value');
-		var qty_v = 1;
-		var price_v = $('span.price').attr('data-storage');
-
-		var key = ref_v + size_v; //Key of object item is REFERENCE + SIZE
-
-		if (localStorage.getItem("storedCart") === null) {
-			storedItem[key] = {
-				id_item: id_item,
-				ref	: ref_v,
-				size   : size_v,
-				qty	: qty_v,
-				price  : price_v,
-			};
-			localStorage.setItem("storedCart", JSON.stringify(storedItem));
-		} else {
-			var parseddata = JSON.parse(localStorage.getItem("storedCart"));
-			parseddata[key] = {
-				id_item: id_item,
-				ref	: ref_v,
-				size   : size_v,
-				qty	: qty_v,
-				price  : price_v,
-			};
-			localStorage.setItem("storedCart", JSON.stringify(parseddata));
-		}
-		$("#addedtocart-modal").foundation('reveal', 'open');
-	});*/
 </script>
 
 <!-- Init foundation, must be last on this script -->
