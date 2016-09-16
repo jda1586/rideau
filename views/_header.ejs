@@ -368,22 +368,14 @@
 				tempItem.find('.item-price').html(el.price);
 				tempItem.find('.item-quantity').val(el.quantity);
 				
+				if (el.quantity == 0) tempItem.find('.remove-from-cart-button p').removeClass('hidden');
+				
 				cartItems.append(tempItem);
 			});
 			
 			//Remove items from cart when presssing the remove button
 			$('.remove-from-cart-button').on("click", function() {
 				$(this).closest('.item').hide();
-			});
-			//Show or hide remove from cart button
-			$('input.item-quantity').on("change", function() {
-				var removeButton = $(this).closest('table.up-down-controls').next(".remove-from-cart-button").find("p");
-				
-				removeButton.addClass("hidden"); //Assume that we will not remove the cart
-				if (this.value <= 0) {
-					this.value = 0;
-					removeButton.removeClass("hidden");
-				}
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
@@ -394,26 +386,12 @@
 				console.log(storedCart[key]);
 				
 				if (this.value == "+") {
-					var quantityInput = $(this).parent().prev().find('input');
-					//quantityInput.val(+quantityInput.val() + 1);
-					
-
-					
 					storedCart[key].quantity++;
-					console.log('+');
-					
-					//storedCart[[].join('-')]
 				} else {
-					var quantityInput = $(this).parent().next().find('input');
-					//quantityInput.val(+quantityInput.val() - 1);
-					
 					storedCart[key].quantity--;
 					if (storedCart[key].quantity < 0) storedCart[key].quantity = 0;
-					
-					console.log('-');
 				}
 				
-				quantityInput.trigger("change");
 				localStorage.storedCart = JSON.stringify(storedCart);
 				window.abc();
 				
