@@ -782,18 +782,19 @@ html.rideau {
 	
 	/* Info modal */
 	#collectionsModal {
-		p {
-			font-size: 1em;
+		a {
+			p {
+				font-size: 0.9em;
+			}
 		}
 	}
 	
 	#eboutiqueModal {
 		a {
 			display: inline-block; //For the special XX | XY separator
-		}
-		
-		p {
-			font-size: 1em;
+			p {
+				font-size: 0.9em;
+			}
 		}
 		
 		.separator-dash {
