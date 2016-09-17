@@ -230,9 +230,10 @@ html.rideau {
 		min-height: 65px;
 		padding: 10px;
 		
-		@media screen and (max-width: $large) {
+		//This menu was used for tablets and was a bit taller
+		/*@media screen and (max-width: $large) {
 			height: 105px;
-		}
+		}*/
 		@media screen and (max-width: $tablet) {
 			height: 185px;
 		}
@@ -489,7 +490,7 @@ html.rideau {
 				font-family: $sackers_font;
 				text-align: right;
 				margin-bottom: 0em;
-				@media screen and (max-width: $tablet) {
+				@media screen and (max-width: $large) {
 					text-align: left;
 				}
 			}
