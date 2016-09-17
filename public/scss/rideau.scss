@@ -716,6 +716,69 @@ html.rideau {
 		}
 	}
 	
+	@media only screen and (max-width: 640px) and (min-width: 540px) {  
+	.title{
+		font-size: 10px!important;
+		padding: 15px;
+		padding-top: 40px;
+	}
+	
+	.icn_left{
+		font-size: 20px;
+		position: absolute;
+		right: 7em;
+		top: 95px;
+	}
+	.icn_rigth{
+		font-size: 20px;
+		position: absolute;
+		right: 3em;
+		top: 95px;
+	}
+}
+@media only screen and (max-width: 540px) and (min-width: 440px) {  
+	.title{
+		font-size: 10px!important;
+		padding: 15px;
+		padding-top: 40px;
+	}
+	
+	.icn_left{
+		font-size: 20px;
+		position: absolute;
+		right: 5.5em;
+		top: 95px;
+	}
+	.icn_rigth{
+		font-size: 20px;
+		position: absolute;
+		right: 2em;
+		top: 95px;
+	}
+}
+
+@media only screen and (max-width: 440px) and (min-width: 300px) {  
+	.title{
+		font-size: 10px!important;
+		padding: 15px;
+		padding-top: 40px;
+	}
+	
+	.icn_left{
+		font-size: 20px;
+		position: absolute;
+		right: 5.2em;
+		top: 95px;
+	}
+	.icn_rigth{
+		font-size: 20px;
+		position: absolute;
+		right: 1.3em;
+		top: 95px;
+	}
+}
+
+	
 	/* Stockist */
 	body#stockists {
 		p {
