@@ -784,12 +784,18 @@ html.rideau {
 	
 	/* Info modal */
 	#collectionsModal {
-		//
+		p {
+			font-size: 1em;
+		}
 	}
 	
 	#eboutiqueModal {
 		a {
 			display: inline-block; //For the special XX | XY separator
+		}
+		
+		p {
+			font-size: 1em;
 		}
 		
 		.separator-dash {
