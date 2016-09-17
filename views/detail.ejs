@@ -159,8 +159,8 @@
 						//This is only needed if your using an anchor to target the "box" elements
 						e.preventDefault();
 						
-						//Find the next "box" element in the DOM
-						$(this).next('.box').slideToggle('fast');
+						$('.box').slideUp(); //Close all others
+						$(this).next('.box').slideToggle('fast'); //Find the next "box" element in the DOM and open it
 						
 						var tabItem = $(this).find('.tab-plus-minus');
 						
