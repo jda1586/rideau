@@ -178,6 +178,28 @@ router.get('/collections/:name?', function(req, res, next) {
 	
 	return res.redirect('/');
 });
+
+
+//Collections view using new sly carrousel
+router.get('/collections-v2/:name?', function(req, res, next) {
+	var name = req.params.name;
+	
+	if (!_.isUndefined(name)) {
+		var data = dirToObj("public/rideau-data/collections");
+		data = _.pickBy(_.mapValues(data, function(el, key) {
+			if (key.indexOf(name) != -1) return el;
+		}), _.negate(_.isUndefined));
+		data = data[_.head(_.keys(data))];
+		
+		return res.render('collections-v2', { data: data });
+		
+	}
+	
+	return res.redirect('/');
+});
+
+
+
 //About
 router.get('/about', function (req, res, next) {
 	return res.render('about');
