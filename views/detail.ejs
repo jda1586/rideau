@@ -64,7 +64,9 @@
 					<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
 						<% Object.keys(data.colors).forEach(function(key) { %>
-							<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+							<a href="/eboutique/<%- key %>">
+								<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+							</a>
 						<% }); %>
 					</div>
 				</div>
@@ -199,7 +201,7 @@
 					}
 					
 					var sku = $('.product-showcase .item-sku').html(),
-						size = "3",
+						size = $('.size-chooser').find(".selected").html(),
 						color = "R";
 					
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
