@@ -223,11 +223,8 @@
 					}).then(function() {
 						var user = $('.wholesaler-access.user').val(),
 							pass = $('.wholesaler-access.pass').val();
-							
-						swal({
-							title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-							showCancelButton: false
-						});
+						
+						$('a[href="#cartModal"]').click();
 					});
 					
 					//Currently disabled...
