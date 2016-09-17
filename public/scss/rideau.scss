@@ -511,6 +511,15 @@ html.rideau {
 			}
 		}
 		
+		.imgdetail {
+			max-width: 100%;
+			height: auto;
+			-ms-interpolation-mode: bicubic;
+			display: block;
+			margin: auto;
+			margin-bottom: 30px;
+		}
+		
 		/* Gender containers are found on eboutique and detail pages */
 		.gender_containers {
 			padding-top: 80px;
@@ -1599,14 +1608,6 @@ body.modal-open {
   p, label {
 	color: $label_c;
   }
-}
-
-.imgdetail {
-  max-width: 100%;
-  height: auto;
-  -ms-interpolation-mode: bicubic;
-  display: block;
-  margin: auto;
 }
 
 /* Checkout forms */
