@@ -21,6 +21,8 @@
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
 			
+			console.log("rsz-test");
+			
 			sectionRideau.each(function(el) {
 				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
 				console.log(newPadding);
