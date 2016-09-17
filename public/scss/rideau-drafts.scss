@@ -1,70 +1,72 @@
 //This code is used in the application but is unmaintainable, abide with the coding standards and then move the content to a maintainable file.
 
 //Owner: Renato
-@media only screen and (max-width: 640px) and (min-width: 540px) {  
-	.title{
-		font-size: 10px!important;
-		padding: 15px;
-		padding-top: 40px;
+.seven-style-theme {
+	@media only screen and (max-width: 640px) and (min-width: 540px) {  
+		.title{
+			font-size: 10px!important;
+			padding: 15px;
+			padding-top: 40px;
+		}
+		
+		.icn_left{
+			font-size: 20px;
+			position: absolute;
+			right: 7em;
+			top: 95px;
+		}
+		.icn_rigth{
+			font-size: 20px;
+			position: absolute;
+			right: 3em;
+			top: 95px;
+		}
 	}
-	
-	.icn_left{
-		font-size: 20px;
-		position: absolute;
-		right: 7em;
-		top: 95px;
+
+	@media only screen and (max-width: 540px) and (min-width: 440px) {  
+		
+		
+		.title{
+			font-size: 10px!important;
+			padding: 15px;
+			padding-top: 40px;
+		}
+		
+		.icn_left{
+			font-size: 20px;
+			position: absolute;
+			right: 5.5em;
+			top: 95px;
+		}
+		.icn_rigth{
+			font-size: 20px;
+			position: absolute;
+			right: 2em;
+			top: 95px;
+		}
 	}
-	.icn_rigth{
-		font-size: 20px;
-		position: absolute;
-		right: 3em;
-		top: 95px;
-	}
-}
 
 
-//Owner: Renato
-@media only screen and (max-width: 540px) and (min-width: 440px) {  
-	.title{
-		font-size: 10px!important;
-		padding: 15px;
-		padding-top: 40px;
-	}
-	
-	.icn_left{
-		font-size: 20px;
-		position: absolute;
-		right: 5.5em;
-		top: 95px;
-	}
-	.icn_rigth{
-		font-size: 20px;
-		position: absolute;
-		right: 2em;
-		top: 95px;
-	}
-}
-
-
-//Owner: Renato
-@media only screen and (max-width: 440px) and (min-width: 300px) {  
-	.title{
-		font-size: 10px!important;
-		padding: 15px;
-		padding-top: 40px;
-	}
-	
-	.icn_left{
-		font-size: 20px;
-		position: absolute;
-		right: 5.2em;
-		top: 95px;
-	}
-	.icn_rigth{
-		font-size: 20px;
-		position: absolute;
-		right: 1.3em;
-		top: 95px;
+	//Owner: Renato
+	@media only screen and (max-width: 440px) and (min-width: 300px) {  
+		.title{
+			font-size: 10px!important;
+			padding: 15px;
+			padding-top: 40px;
+		}
+		
+		.icn_left{
+			font-size: 20px;
+			position: absolute;
+			right: 5.2em;
+			top: 95px;
+		}
+		.icn_rigth{
+			font-size: 20px;
+			position: absolute;
+			right: 1.3em;
+			top: 95px;
+		}
 	}
 }
 
