@@ -129,17 +129,19 @@
 				<div class="cart-items">your cart is empty</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="margin-top-50">
-				<div class="small-12 medium-6 large-6 columns">
-					<a class="back-to-shopping-button tiny button">
-						<p><strong>back to shopping</strong></p>
-					</a>
-				</div>
-				<div class="small-12 medium-6 large-6 columns">
-					<a class="proceed-to-purchase-button tiny button">
-						<p><strong>proceed to purchase</strong></p>
-					</a>
+		<div class="shop-buttons hidden">
+			<div class="row">
+				<div class="margin-top-50">
+					<div class="small-12 medium-6 large-6 columns">
+						<a class="back-to-shopping-button tiny button">
+							<p><strong>back to shopping</strong></p>
+						</a>
+					</div>
+					<div class="small-12 medium-6 large-6 columns">
+						<a class="proceed-to-purchase-button tiny button">
+							<p><strong>proceed to purchase</strong></p>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -325,14 +327,18 @@
 								<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
 							</td>
 							<td align="">
-								<input type="text" name="quantity" class="quantity" placeholder="0" value="0" />
+								<input type="text" name="quantity" class="item-quantity" placeholder="1" value="1" readonly />
 							</td>
 							<td align="">
 								<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
 							</td>
 						</tr>
 					</table>
-					<small><p class="hidden">Remove from cart</p></small>
+					<a class="remove-from-cart-button">
+						<small>
+							<p class="hidden">remove from cart</p>
+						</small>
+					</a>
 				</div>
 				<div class="small-6 large-6 columns">
 					<p>Unit price:</p>
@@ -345,43 +351,71 @@
 
 <script>
 	$(function() {
-		$('a[href="#cartModal"]').on('click', function() {
-			var rideauCart = JSON.parse(localStorage.storedCart);
+		window.abc = function regenerateCart() {
+			var rideauCart = JSON.parse(localStorage.storedCart),
+				cartItems = $('.cart-items');
+			
+			
+			
+			if (Object.keys(rideauCart).length == 0) {
+				$('#cartModal .shop-buttons').addClass('hidden');
+				cartItems.html("your cart is empty");
+				
+				
+				return; //Return if there are no cart items
+			} else {
+				$('#cartModal .shop-buttons').removeClass('hidden');
+			}
+			
 			var blueprintItem = $('blueprints .item');
-			var cartItems = $('.cart-items');
 			
 			cartItems.empty(); //Empty cart
-			_.times(rideauCart.length, function(i) {
+			
+			_.each(rideauCart, function(el) {
 				var tempItem = blueprintItem.clone();
 				
-				tempItem.find('.item-name').html(rideauCart[i].name);
-				tempItem.find('.item-image').attr('src', rideauCart[i].image);
-				tempItem.find('.item-sku').html(rideauCart[i].sku);
-				tempItem.find('.item-price').html(rideauCart[i].price);
+				tempItem.find('.item-name').html(el.name);
+				tempItem.find('.item-image').attr('src', el.image);
+				tempItem.find('.item-sku').html(el.sku);
+				tempItem.find('.item-size').html(el.size);
+				tempItem.find('.item-color').html(el.color);
+				tempItem.find('.item-price').html(el.price);
+				tempItem.find('.item-quantity').val(el.quantity);
+				
+				if (el.quantity == 0) tempItem.find('.remove-from-cart-button p').removeClass('hidden');
 				
 				cartItems.append(tempItem);
 			});
 			
-			
-			
-			$('input.quantity').on("change", function() {
-				if (this.value < 0) {
-					this.value = 0;
-				}
+			//Remove items from cart when presssing the remove button
+			$('.remove-from-cart-button').on("click", function() {
+				var storedCart = JSON.parse(localStorage.storedCart),
+					item = $(this).closest('.item');
+					key = [item.find('.item-sku').html(), item.find('.item-size').html(), item.find('.item-color').html()].join('-');
+				
+				
+				delete storedCart[key];
+				localStorage.storedCart = JSON.stringify(storedCart);
+
+				window.abc();
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
+				var storedCart = JSON.parse(localStorage.storedCart),
+					item = $(this).closest('.item');
+					key = [item.find('.item-sku').html(), item.find('.item-size').html(), item.find('.item-color').html()].join('-');
+				
+				console.log(storedCart[key]);
+				
 				if (this.value == "+") {
-					var quantityInput = $(this).parent().prev().find('input');
-					quantityInput.val(+quantityInput.val() + 1);
-					quantityInput.trigger("change");
+					storedCart[key].quantity++;
 				} else {
-					var quantityInput = $(this).parent().next().find('input');
-					quantityInput.val(+quantityInput.val() - 1);
-					quantityInput.trigger("change");
+					storedCart[key].quantity--;
+					if (storedCart[key].quantity < 0) storedCart[key].quantity = 0;
 				}
 				
-				
+				localStorage.storedCart = JSON.stringify(storedCart);
+				window.abc();
 				
 				/* var totalPrice = $(".total-sum").html();
 				var $button = $(this);
@@ -412,11 +446,16 @@
 					$('#carr-modal').foundation('reveal', 'close');
 				}*/
 			});
+		}
+		
+		$('a[href="#cartModal"]').on('click', function() {
+			window.abc();
 		});
 		
 		//Cart first step buttons
 		$('.back-to-shopping-button.button').on('click', function() {
 			$('.close-cartModal').trigger('click');
+			$('.close-reviewModal').trigger('click');
 		});
 		$('.proceed-to-purchase-button.button').on('click', function() {
 			$('.close-cartModal').trigger('click');
@@ -425,7 +464,8 @@
 		
 		//Cart second step buttons
 		$('.back-to-cart-button.button').on('click', function() {
-			//TODO
+			$('a[href$="#cartModal"]').trigger('click');
+			$('.close-reviewModal').trigger('click');
 		});
 		$('.purchase-button.button').on('click', function() {
 			$('.close-reviewModal').trigger('click');

@@ -64,7 +64,9 @@
 					<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
 						<% Object.keys(data.colors).forEach(function(key) { %>
-							<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+							<a href="/eboutique/<%- key %>">
+								<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+							</a>
 						<% }); %>
 					</div>
 				</div>
@@ -101,9 +103,9 @@
 		<div id="addedtocart-modal" class="reveal-modal rideau-modal small" data-reveal aria-hidden="true" role="3ialog">
 			<div class="row">
 				<div class="large-12 columns">
-					<h2>Thank you!</h2>
+					<h2>thank you!</h2>
 					<br/>
-					<p>Item was successfully added to your cart!</p>
+					<p>item successfully added to your cart</p>
 					<br/>
 				</div>
 			</div>
@@ -157,8 +159,9 @@
 						//This is only needed if your using an anchor to target the "box" elements
 						e.preventDefault();
 						
-						//Find the next "box" element in the DOM
-						$(this).next('.box').slideToggle('fast');
+						$('.box').slideUp(); //Close all others
+						$('.tab-plus-minus').html("-"); //Make all + go -
+						$(this).next('.box').slideToggle('fast'); //Find the next "box" element in the DOM and open it
 						
 						var tabItem = $(this).find('.tab-plus-minus');
 						
@@ -198,10 +201,14 @@
 						return;
 					}
 					
+					var sku = $('.product-showcase .item-sku').html(),
+						size = $('.size-chooser').find(".selected").html(),
+						color = "R";
+					
 					var storedCart = JSON.parse(localStorage.getItem("storedCart"));
-					if (_.isEmpty(storedCart)) storedCart = [];
-					var item = { name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-key').html() + "/images/male/featured.jpg", sku: $('.product-showcase .item-sku').html(), category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), color: "R", date: new Date() };
-					storedCart.push(item);
+					if (_.isEmpty(storedCart)) storedCart = {};
+					var item = { sku: sku, size: size, color: color, name: $('.product-showcase .item-name').html(), image: "/rideau-data/eboutique/" + $('.product-showcase .item-key').html() + "/images/male/featured.jpg", category: $('.product-showcase .item-category').html(), price: $('.product-showcase .item-price').html(), quantity: 1, date: new Date() };
+					storedCart[[sku, size, color].join('-')] = item;
 					localStorage.setItem("storedCart", JSON.stringify(storedCart));
 					
 					$('.cart-button .cart-count').html(storedCart.length);
@@ -217,11 +224,8 @@
 					}).then(function() {
 						var user = $('.wholesaler-access.user').val(),
 							pass = $('.wholesaler-access.pass').val();
-							
-						swal({
-							title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-							showCancelButton: false
-						});
+						
+						$('a[href="#cartModal"]').click();
 					});
 					
 					//Currently disabled...
