@@ -160,6 +160,7 @@
 						e.preventDefault();
 						
 						$('.box').slideUp(); //Close all others
+						$('.tab-plus-minus').html("-"); //Make all + go -
 						$(this).next('.box').slideToggle('fast'); //Find the next "box" element in the DOM and open it
 						
 						var tabItem = $(this).find('.tab-plus-minus');

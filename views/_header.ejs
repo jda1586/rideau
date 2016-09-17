@@ -455,6 +455,7 @@
 		//Cart first step buttons
 		$('.back-to-shopping-button.button').on('click', function() {
 			$('.close-cartModal').trigger('click');
+			$('.close-reviewModal').trigger('click');
 		});
 		$('.proceed-to-purchase-button.button').on('click', function() {
 			$('.close-cartModal').trigger('click');
@@ -463,7 +464,8 @@
 		
 		//Cart second step buttons
 		$('.back-to-cart-button.button').on('click', function() {
-			//TODO
+			$('a[href$="#cartModal"]').trigger('click');
+			$('.close-reviewModal').trigger('click');
 		});
 		$('.purchase-button.button').on('click', function() {
 			$('.close-reviewModal').trigger('click');
