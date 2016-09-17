@@ -446,9 +446,7 @@ html.rideau {
 		#Container {
 			text-align: center;
 			//margin: 50px 115px; //Disabled as it causes errors with the modal, using padding-top instead
-			padding-top: 60px;
-			padding-left: 30px;
-			padding-right: 30px;
+			padding: 60px 30px;
 			
 			.mix {
 				display: none;
