@@ -257,7 +257,6 @@ var Intense = (function() {
     }
 
     function removeViewer() {
-
       unlockBody();
       unbindEvents();
       stop();
@@ -280,7 +279,8 @@ var Intense = (function() {
     }
 
     function init( element ) {
-
+      if ($(element).hasClass('intense-disabled')) return;
+      
       setState(element, 'intense--loading');
       var imageSource = element.getAttribute( 'data-image') || element.src || element.href;
       var title = element.getAttribute( 'data-title') || element.title;

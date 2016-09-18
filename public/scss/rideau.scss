@@ -230,9 +230,10 @@ html.rideau {
 		min-height: 65px;
 		padding: 10px;
 		
-		@media screen and (max-width: $large) {
+		//This menu was used for tablets and was a bit taller
+		/*@media screen and (max-width: $large) {
 			height: 105px;
-		}
+		}*/
 		@media screen and (max-width: $tablet) {
 			height: 185px;
 		}
@@ -310,12 +311,16 @@ html.rideau {
 		/* Sly lookbook slider */
 		.photo-data {
 			position: fixed;
-			width: 20%;
-			bottom: 13%;
-			left: 30px;
+			width: 220px;
+			bottom: 17%;
+			left: 8px;
 			text-align: right;
 			background: none;
 			z-index: 999;
+			
+			@media screen and (max-width: $large) {
+				visibility: hidden;
+			}
 		}
 		
 		.stage-description {
@@ -336,73 +341,104 @@ html.rideau {
 				font-weight: normal;
 			}
 		}
-
-		/* The mail slider */
-		#lookbook-slider {
-			/* The photo carrousel */
-			.sly-container-v2 {
-				&.pagespan {
-					width: 100%;
-					margin: 0 auto;
+		
+		.variable.slider {
+		
+			.slick-dots {
+				bottom: -50px;
+			}
+		
+			div {
+				img {
+					opacity: 0.05;
 				}
+				
+				&.slick-center {
+					img {
+						opacity: 1;
+					}
+				}
+				
+				img {
+					height: 70vh;
+					
+					@media screen and (max-width: $tablet) {
+						height: 50vh;
+					}
+				}
+			}
+			
+		}
+
+		/* The mail slider DEPRECATED, SAFE TO ERASE */
+		#lookbook-slider {
+			height: 100%;
+			width: 70%;
+			margin: 0 auto;
+			
+			/* The photo carrousel */
+			.sly-container-v2.pagespan {
+				width: 100%;
+				margin: 0 auto;
+				height: 100%;
 				
 				/* Example wrapper */
 				.wrap {
 					position: relative;
 					margin: 3em 0;
 					height: 100%;
-				}
-
-				/* Scrollbar */
-				.scrollbar {
-					margin: 0 0 1em 0;
-					height: 2px;
-					background: #ccc;
-					line-height: 0;
-					.handle {
-						width: 100px;
-						height: 100%;
-						background: #292a33;
-						cursor: pointer;
-						.mousearea {
-							position: absolute;
-							top: -9px;
-							left: 0;
-							width: 100%;
-							height: 20px;
+					
+					/* Scrollbar */
+					.scrollbar {
+						margin: 0 0 1em 0;
+						height: 2px;
+						background: #ccc;
+						line-height: 0;
+						.handle {
+							width: 100px;
+							height: 100%;
+							background: #292a33;
+							cursor: pointer;
+							.mousearea {
+								position: absolute;
+								top: -9px;
+								left: 0;
+								width: 100%;
+								height: 20px;
+							}
 						}
 					}
-				}
 
-				/* One Item Per Frame example*/
-				.oneperframe {
-					height: 100%;
-					overflow: hidden;
-					ul {
-						list-style: none;
-						margin: 0;
-						padding: 0;
+					/* One Item Per Frame example*/
+					.oneperframe {
+						overflow: hidden;
 						height: 100%;
-						font-size: 50px;
-						li {
-							float: left;
+						
+						ul {
+							list-style: none;
+							margin: 0;
 							padding: 0;
-							cursor: pointer;
-							width: 600px;
-							background-size: contain;
-							/* Cover is also a good idea */
-							background-repeat: no-repeat;
-							background-position: center top;
-							height: 800px;
-							min-width: 100px;
-							img {
-								display: block;
-								margin: auto;
-								border: 1px solid #e5e5e5;
+							height: 100%;
+							
+						
+							li {
+								float: left;
+								padding: 0;
+								width: auto;
+								height: 100%;
+								img {
+									display: block;
+									margin: auto;
+									//border: 1px solid #e5e5e5; //Borders causes a serius bug, do never add border to images on SLY
+									height: 100%;
+									width: 100%;
+								}
 							}
 						}
 					}
 				}
+
+				
 			}
 		}
 		
@@ -415,7 +451,9 @@ html.rideau {
 			overflow: hidden;
 			
 			background: none;
-			@media (max-height: $short) {
+			
+			
+			@media screen and (max-width: $large) {
 				visibility: hidden;
 			}
 			
@@ -430,7 +468,7 @@ html.rideau {
 					position: relative;
 					width: 49%;
 					height: 65px; /* = width for a 1:1 aspect ratio */
-					background-position: center center;
+					background-position: center top;
 					background-repeat: no-repeat;
 					background-size: cover;
 					/* you change this to "contain" if you don't want the images to be cropped */
@@ -446,9 +484,7 @@ html.rideau {
 		#Container {
 			text-align: center;
 			//margin: 50px 115px; //Disabled as it causes errors with the modal, using padding-top instead
-			padding-top: 60px;
-			padding-left: 30px;
-			padding-right: 30px;
+			padding: 60px 30px;
 			
 			.mix {
 				display: none;
@@ -491,7 +527,7 @@ html.rideau {
 				font-family: $sackers_font;
 				text-align: right;
 				margin-bottom: 0em;
-				@media screen and (max-width: $tablet) {
+				@media screen and (max-width: $large) {
 					text-align: left;
 				}
 			}
@@ -512,7 +548,7 @@ html.rideau {
 		}
 		
 		.imgdetail {
-			max-width: 100%;
+			max-width: 80%;
 			height: auto;
 			-ms-interpolation-mode: bicubic;
 			display: block;
@@ -784,12 +820,19 @@ html.rideau {
 	
 	/* Info modal */
 	#collectionsModal {
-		//
+		a {
+			p {
+				font-size: 0.9em;
+			}
+		}
 	}
 	
 	#eboutiqueModal {
 		a {
 			display: inline-block; //For the special XX | XY separator
+			p {
+				font-size: 0.9em;
+			}
 		}
 		
 		.separator-dash {
@@ -808,7 +851,7 @@ html.rideau {
 		}
 		h5 {
 			color: white;
-			font-size: 12px;
+			font-size: 0.9em;
 		}
 	}
 	
