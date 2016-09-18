@@ -484,7 +484,7 @@
 	
 		var handler = StripeCheckout.configure({
 			key: 'pk_test_1QoPlUtWX7sBiawLo1SVXbIF',
-			image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+			image: '/rideau-data/stripe/stripe-logo.png',
 			locale: 'auto',
 			token: function(token) {
 				// You can access the token ID with `token.id`.
@@ -496,7 +496,6 @@
 					showConfirmButton : false,
 					showCancelButton: false
 				});
-				
 				$.post("/stripe", { stripeToken: token.id }, function(data) {
 					swal({
 						title: 'card accepted<br/>thanks for your purchase',
