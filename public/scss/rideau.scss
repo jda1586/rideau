@@ -946,7 +946,6 @@ html.rideau {
 						box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
 						box-sizing: border-box;
 						font-size: 1.2em;
-						width: 100%;
 						background-color: #a9a9a9;
 						color: white;
 						transition: all 0.3s ease 0s;
@@ -977,9 +976,6 @@ html.rideau {
 						&.button {
 							background: black;
 						}
-					}
-					.columns {
-						position: relative;
 					}
 					.vertical-align, #checkboxship {
 						height: initial;
