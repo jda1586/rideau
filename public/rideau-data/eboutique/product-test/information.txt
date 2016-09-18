@@ -1,0 +1,1 @@
+A sample product for payment gateway testing priced at 10 dollars for the normal user and 8 for wholesalers.

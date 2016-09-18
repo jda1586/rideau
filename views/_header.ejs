@@ -202,7 +202,7 @@
 						<div class="row">
 							<div class="small-6 large-6 small-push-6 large-push-6 columns">
 								<div class="float-right">
-									<input id="use-for-shipping" type="checkbox"><label for="use-for-shipping">use for shipping address</label>
+								<input id="use-for-shipping" type="checkbox" name="use-for-shipping"><label for="use-for-shipping">use for shipping address</label>
 								</div>
 							</div>
 						</div>
@@ -250,7 +250,7 @@
 						<div class="row">
 							<div class="small-6 large-6 small-push-6 large-push-6 columns">
 								<div class="float-right">
-									<input id="fedex-standard" type="checkbox"><label for="fedex-standard">fedex standard shipping 20.00 usd</label>
+									<input id="fedex-standard" type="checkbox" name="fedex-standard"><label for="fedex-standard">fedex standard shipping 20.00 usd</label>
 								</div>
 							</div>
 						</div>
@@ -481,22 +481,43 @@
 			});
 		});
 		
-	
+		//Stripe payment details
+		var amount = function() {
+			return _.sum(_.map(JSON.parse(localStorage.storedCart), function(el) {
+				return el.price * el.quantity; 
+			})) * 100;
+		}
+		var description = function() {
+			return _.map(JSON.parse(localStorage.storedCart), function(el) {
+				return el.quantity + "x" + el.sku;
+			}).join(', ');
+		}
+		
 		var handler = StripeCheckout.configure({
-			key: 'pk_test_1QoPlUtWX7sBiawLo1SVXbIF',
+			key: 'pk_live_dAOjsAoS0ZBEI3iKVJ9u1LyI',
 			image: '/rideau-data/stripe/stripe-logo.png',
 			locale: 'auto',
 			token: function(token) {
-				// You can access the token ID with `token.id`.
-				// Get the token ID to your server-side code for use.
-				console.log(token);
+				//Get the data that the user wrote in the form
+				var billing = {},
+					shipping = {};
+
+				_.each($('#billing-panel input'), function (el) { billing[el.name] = el.value; });
+				_.each($('#shipping-panel input'), function (el) { shipping[el.name] = el.value; });
+				var customerData = { billing: billing, shipping: shipping };
+				
 				$('.close-reviewModal').trigger('click');
 				swal({
 					title: 'processing payment<br/> please wait',
 					showConfirmButton : false,
 					showCancelButton: false
 				});
-				$.post("/stripe", { stripeToken: token.id }, function(data) {
+				
+				console.log(customerData);
+				
+				//You can access the token ID with `token.id`.
+				//Get the token ID to your server-side code for use.
+				$.post("/stripe", { stripeToken: token.id, amount: amount(), description: description(), customerData: customerData }, function(data) {
 					swal({
 						title: 'card accepted<br/>thanks for your purchase',
 						showConfirmButton : false,
@@ -513,20 +534,19 @@
 		});
 
 		document.getElementById('stripe-pay-button').addEventListener('click', function(e) {
-		  // Open Checkout with further options:
-		  handler.open({
-			name: 'RIDEAU',
-			description: '2 widgets',
-			amount: 2000
-		  });
-		  e.preventDefault();
+			//Open Checkout with further options:
+			handler.open({
+				name: 'RIDEAU',
+				description: description(),
+				amount: amount() //Conversion to cents
+			});
+			e.preventDefault();
 		});
 
-		// Close Checkout on page navigation:
+		//Close Checkout on page navigation:
 		window.addEventListener('popstate', function() {
 		  handler.close();
 		});
-	
 	
 	});
 	
