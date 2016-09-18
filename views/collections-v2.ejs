@@ -79,7 +79,9 @@
 				});
 				
 				function thumbnailFixes() {
-					$('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
+					var newHeight = window.innerHeight - 250;
+					$('#my-thumbs-list').height(newHeight); //Right thumbnail scroller fix
+					$('#photo-selector').css("top", (window.innerHeight - newHeight) / 2 + "px");
 				}
 				
 				$('.single-story').click(function() {
@@ -98,6 +100,8 @@
 				}).on('afterChange', function(el, number) {
 					$('.look-number').html(number.currentSlide + 1);
 				});
+				
+				thumbnailFixes();
 			});
 		</script>
 		
