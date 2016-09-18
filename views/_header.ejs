@@ -481,7 +481,18 @@
 			});
 		});
 		
-	
+		//Stripe payment details
+		var amount = function() {
+			return _.sum(_.map(JSON.parse(localStorage.storedCart), function(el) {
+				return el.price * el.quantity; 
+			})) * 100;
+		}
+		var description = function() {
+			return _.map(JSON.parse(localStorage.storedCart), function(el) {
+				return el.quantity + "x" + el.sku;
+			}).join(', ');
+		}
+		
 		var handler = StripeCheckout.configure({
 			key: 'pk_test_1QoPlUtWX7sBiawLo1SVXbIF',
 			image: '/rideau-data/stripe/stripe-logo.png',
@@ -496,7 +507,10 @@
 					showConfirmButton : false,
 					showCancelButton: false
 				});
-				$.post("/stripe", { stripeToken: token.id }, function(data) {
+				
+				console.log(handler);
+				
+				$.post("/stripe", { stripeToken: token.id, amount: amount(), description: description()}, function(data) {
 					swal({
 						title: 'card accepted<br/>thanks for your purchase',
 						showConfirmButton : false,
@@ -513,20 +527,19 @@
 		});
 
 		document.getElementById('stripe-pay-button').addEventListener('click', function(e) {
-		  // Open Checkout with further options:
-		  handler.open({
-			name: 'RIDEAU',
-			description: '2 widgets',
-			amount: 2000
-		  });
-		  e.preventDefault();
+			//Open Checkout with further options:
+			handler.open({
+				name: 'RIDEAU',
+				description: description(),
+				amount: amount() //Conversion to cents
+			});
+			e.preventDefault();
 		});
 
-		// Close Checkout on page navigation:
+		//Close Checkout on page navigation:
 		window.addEventListener('popstate', function() {
 		  handler.close();
 		});
-	
 	
 	});
 	
