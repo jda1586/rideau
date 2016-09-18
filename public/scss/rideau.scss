@@ -317,6 +317,10 @@ html.rideau {
 			text-align: right;
 			background: none;
 			z-index: 999;
+			
+			@media screen and (max-width: $large) {
+				visibility: hidden;
+			}
 		}
 		
 		.stage-description {
@@ -447,7 +451,9 @@ html.rideau {
 			overflow: hidden;
 			
 			background: none;
-			@media (max-height: $short) {
+			
+			
+			@media screen and (max-width: $large) {
 				visibility: hidden;
 			}
 			
