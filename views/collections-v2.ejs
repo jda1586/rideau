@@ -83,12 +83,7 @@
 				}
 				
 				$('.single-story').click(function() {
-					var number = $(this).attr('look-id') - 1;
-					$(".variable").slick('slickGoTo', number);
-					
-					
-					//$oneperframe.sly('toCenter', $(this).attr('look-id') - 1);
-					//$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
+					$(".variable").slick('slickGoTo', $(this).attr('look-id') - 1);
 				});
 				
 				$(".variable").slick({
@@ -96,7 +91,12 @@
 					centerMode: true,
 					infinite: true,
 					focusOnSelect: true,
-					variableWidth: true
+					variableWidth: true,
+					afterChange: function(el, slide) {
+						console.log("test");
+					}
+				}).on('afterChange', function(el, number) {
+					$('.look-number').html(number.currentSlide + 1);
 				});
 			});
 		</script>
