@@ -213,37 +213,37 @@
 					<div id="shipping-panel" class="content" data="sinfo">
 						<div class="row">
 							<div class="small-12 large-6 columns">
-								<label for="first-name">First name *
+								<label for="first-name">first name *
 									<input required type="text" name="first-name" />
 								</label>
-								<label for="lastname" data-storage="last_name">Last name *
-									<input required type="text" name="lastname" />
+								<label for="last-name">last name *
+									<input required type="text" name="last-name" />
 								</label>
-								<label for="email" data-storage="email">Email *
+								<label for="email">email *
 									<input required type="text" name="email" />
 								</label>
-								<label for="address" data-storage="address">Address *
-									<input required type="text" name="address" />
+								<label for="address">address *
+									<input type="text" name="address" />
 								</label>
-								<label for="tel" data-storage="telephone">Telephone *
-									<input required type="text" name="tel" />
+								<label for="telephone">telephone *
+									<input type="text" name="telephone" />
 								</label>
 							</div>
 							<div class="small-12 large-6 columns">
-								<label for="company" data-storage="company">Company
-									<input required type="text" name="scompany" id="scompany" />
+								<label for="company">company
+									<input type="text" name="company" />
 								</label>
-								<label for="city" data-storage="city">City *
-									<input required type="text" name="scity" id="scity" />
+								<label for="city">city *
+									<input type="text" name="city" />
 								</label>
-								<label for="state" data-storage="state">State/province *
-									<input required type="text" name="sstate" id="sstate" />
+								<label for="state-province">state/province *
+									<input type="text" name="state-province" />
 								</label>
-								<label for="zip" data-storage="zip_code">Zip/postalcode *
-									<input required type="text" name="szip" id="szip" />
+								<label for="zip-postalcode">zip/postalcode *
+									<input type="text" name="zip-postalcode" />
 								</label>
-								<label for="country" data-storage="country">Country *
-									<input required type="text" name="scountry" id="scountry" />
+								<label for="country">country *
+									<input type="text" name="country" />
 								</label>
 							</div>
 						</div>
@@ -353,8 +353,6 @@
 		window.abc = function regenerateCart() {
 			var rideauCart = JSON.parse(localStorage.storedCart),
 				cartItems = $('.cart-items');
-			
-			
 			
 			if (Object.keys(rideauCart).length == 0) {
 				$('#cartModal .shop-buttons').addClass('hidden');
@@ -474,6 +472,12 @@
 				showCancelButton: true
 			});
 		});
+		$('#use-for-shipping').change(function() {
+			console.log(this.checked);
+			$('#billing-panel input').each(function (el) {
+				$('#shipping-panel input[name="' + this.name + '"]').val(this.value);
+			});
+		})
 	});
 	
 	$(document).mousemove(function(e) {
