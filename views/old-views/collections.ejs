@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js rideau" lang="en" dir="ltr">
+	<head>
+		<% include _head.ejs %>
+		<link rel="stylesheet" href="/plugins/thumbnail-scroller-2.0.3/thumbnail-scroller-2.0.3.css">
+	</head>
+	<body id="collections">
+		<% include _header.ejs %>
+		
+		<div class="fullpage-height">
+			<div class="photo-data show-for-medium-up">
+				<div class="stage-description">
+					<div class="row">
+						<h5>look <span class="look-number">1</span></h5>
+					</div>
+					<div class="row">
+						<p>art director <span class="look-span">dylan granger</span></p>
+						<p>styling <span class="look-span">sean aikens</span></p>
+						<p>photographer <span class="look-span">hannah sider</span></p>
+						<p>model <span class="look-span">danieloh</span></p>
+						<p>model <span class="look-span">adesuwa aigh ewi</span></p>
+					</div>
+					<div class="row">
+						<br/>
+						<p>40.744544 - 73.993255</p>
+					</div>
+				</div>
+			</div>
+			
+			<div id="photo-selector" class="show-for-large-up">
+				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
+					<div class="two-stories">
+						<% Object.keys(data.thumbnail).forEach(function(key) { %>
+							<div class="single-story" data-bg-image="<%- data.thumbnail[key] %>" look-id="<%- key %>"></div>
+						<% }); %>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="large-10 small-10 large-offset-1 small-offset-1 columns">
+					<div id="lookbook-slider">
+						<div class="pagespan sly-container-v2">
+							<div class="wrap">
+								<div class="frame oneperframe" id="oneperframe">
+									<ul class="clearfix">
+										
+										<% Object.keys(data.hd).forEach(function(key) { %>
+											<li look-id="<%= key %>">
+												<img src="<%- data.hd[key] %>" class="zoomable-image closed" data-image="<%- data.hd[key] %>" />
+											</li>
+										<% }); %>
+										
+									</ul>
+								</div>
+								<div class="scrollbar">
+									<div class="handle">
+										<div class="mousearea"></div>
+									</div>
+								</div>
+								<div class="show-for-small-only">
+									<div class="stage-description text-center">
+										<div class="row">
+											<h5 class="text-center">look <span class="look-number">1</span></h5>
+										</div>
+										<div class="row">
+											<div class="small-4 columns">
+												<p>photographer <span class="look-span">hannah sider</span></p>
+											</div>
+											<div class="small-4 columns">
+												<p>styling <span class="look-span">sean aikens</span></p>
+												<p>art director <span class="look-span">dylan granger</span></p>
+											</div>
+											<div class="small-4 columns">
+												<p>model <span class="look-span">danieloh</span></p>
+												<p>model <span class="look-span">adesuwa aigh ewi</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="large-1 small-1 columns"><!--  --></div>
+			</div>
+		</div>
+		
+		<% include _footer.ejs %>
+		<script src="/plugins/thumbnail-scroller-2.0.3/thumbnail-scroller-2.0.3.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var $oneperframe = $('#oneperframe');
+				
+				$('.single-story').click(function() {
+					$oneperframe.sly('toCenter', $(this).attr('look-id') - 1);
+					//$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
+				});
+				
+				$($('.rideau-thumb')[0]).trigger("click"); //Always load the first image
+				
+				//Load images on the photo-selector
+				var stories = $('.two-stories').children();
+				stories.each(function() {
+					var imgPath = $(this).attr('data-bg-image');
+					console.log($(this).attr('data-bg-image'));
+					$(this).css('background-image', 'url(' + imgPath + ')');
+				});
+				
+				//Function to adjust the view on mobiles
+				$(window).bind('resize', function(e) {
+					window.resizeEvt;
+					
+					$(window).resize(function() {
+						slyFixes();
+					});
+				});
+				
+				function slyFixes() {
+					$('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
+					$('#oneperframe li').css('width', $('#oneperframe').width()); //Oneframe li elements width
+					$('#oneperframe').height($("li.active img").height() + 30); //Scroller/image gap
+					$('#oneperframe').sly('reload');
+				}
+				
+				//The one per frame image Sly slider
+				(function () {
+					var $wrap  = $oneperframe.parent();
+
+					//Call Sly on frame
+					$oneperframe.sly({
+						horizontal: 1,
+						itemNav: 'forceCentered',
+						smart: 1,
+						activateMiddle: 1,
+						mouseDragging: 1,
+						touchDragging: 1,
+						releaseSwing: 0,
+						startAt: 0,
+						scrollBar: $wrap.find('.scrollbar'),
+						scrollBy: 0,
+						speed: 300,
+						elasticBounds: 1,
+						easing: 'easeOutExpo',
+						dragHandle: 1,
+						dynamicHandle: 1,
+						clickBar: 0,
+
+						//Buttons
+						prev: $wrap.find('.prev'),
+						next: $wrap.find('.next')
+					});
+					
+					$oneperframe.sly('on', 'active', function(a, b) {
+						$('.look-number').html(b + 1); //Update look number
+						slyFixes();
+					});
+				}());
+				
+				$(document).mousemove(function(e) {
+					if (document.body) {
+						var width = (document.body.clientWidth);
+					} else {
+						var width = (window.innerWidth);
+					}
+					
+					var div = document.getElementById("my-thumbs-list");
+					var rect = div.getBoundingClientRect();
+					
+					if (((e.pageX - $(window).width()) + 200) < 0) {
+						$('.photo-data').removeClass("hidden");
+						$('#my-thumbs-list').addClass("hidden");
+					} else {
+						$('.photo-data').addClass("hidden");
+						$('#my-thumbs-list').removeClass("hidden");
+					}
+				});
+				
+				slyFixes();
+			});
+		</script>
+		
+		<!-- Footer scripts -->
+		<% include _scripts.ejs %>
+	</body>
+</html>
