@@ -53,18 +53,14 @@ router.get('/', function(req, res, next) {
 });
 //Eboutique and product detail pages (now they are on the same route)
 router.get('/eboutique/:name?', function(req, res, next) {
-	var name = req.params.name;
-	var data = dirToObj("public/rideau-data/eboutique");
-	
-	data = _.pickBy(_.mapValues(data, function(el) {
-		if (el.enabled == '1') {
-			return el;
-		}
-		
-	}), _.negate(_.isUndefined));
+	var name = req.params.name,
+		data = dirToObj("public/rideau-data/eboutique");
 	
 	if (!_.isUndefined(name)) {
 		var item = data[name] || data[name.toLowerCase()] || data[name.toUpperCase()];
+		
+		console.log(item);
+		
 		if (!_.isUndefined(item)) {
 			data = item;
 			
@@ -78,8 +74,16 @@ router.get('/eboutique/:name?', function(req, res, next) {
 			
 				return res.render('detail', { data: data });
 			}
+		} else {
+			return res.redirect('/eboutique');
 		}
 	}
+	
+	data = _.pickBy(_.mapValues(data, function(el) {
+		if (el.enabled == '1') {
+			return el;
+		}
+	}), _.negate(_.isUndefined));
 
 	return res.render('eboutique', { data: data });
 });
@@ -89,6 +93,7 @@ router.get('/collections/:name?', function(req, res, next) {
 	
 	if (!_.isUndefined(name)) {
 		var data = dirToObj("public/rideau-data/collections");
+		
 		data = _.pickBy(_.mapValues(data, function(el, key) {
 			if (key.indexOf(name) != -1) return el;
 		}), _.negate(_.isUndefined));
