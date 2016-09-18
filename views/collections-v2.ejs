@@ -10,7 +10,7 @@
 	<body id="collections">
 		<% include _header.ejs %>
 		
-		<div class="photo-data show-for-medium-up">
+		<div class="photo-data rideau-fades">
 			<div class="stage-description">
 				<div class="row">
 					<h5>look <span class="look-number">1</span></h5>
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		
-		<div id="photo-selector" class="show-for-large-up">
+		<div id="photo-selector" class="rideau-fades">
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
 				<div class="two-stories">
 					<% Object.keys(data.thumbnail).forEach(function(key) { %>
@@ -99,6 +99,37 @@
 					}
 				}).on('afterChange', function(el, number) {
 					$('.look-number').html(number.currentSlide + 1);
+				});
+				
+				
+				$('.rideau-fades').each(function() {
+					console.log(this);
+					$(this).delay(5000).fadeOut('slow');
+				});
+				
+				$(document).mousemove(function(e) {
+					if (document.body) {
+						var width = (document.body.clientWidth);
+					} else {
+						var width = (window.innerWidth);
+					}
+					
+					var div = document.getElementById("my-thumbs-list");
+					var rect = div.getBoundingClientRect();
+					
+					if (((e.pageX - $(window).width()) + 200) < 0) {
+						$('#photo-selector').fadeOut();
+					} else {
+						$('#photo-selector').fadeIn();
+					}
+					if ((((e.pageY - $(window).height()) + 400) < 0) || (e.pageX > 400)) {
+						console.log("X");
+						$('.photo-data').fadeOut();
+					} else {
+						console.log("Y");
+						$('.photo-data').fadeIn();
+					}
+					
 				});
 				
 				thumbnailFixes();
