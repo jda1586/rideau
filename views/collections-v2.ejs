@@ -10,7 +10,34 @@
 	<body id="collections">
 		<% include _header.ejs %>
 		
+		<div class="photo-data show-for-medium-up">
+			<div class="stage-description">
+				<div class="row">
+					<h5>look <span class="look-number">1</span></h5>
+				</div>
+				<div class="row">
+					<p>art director <span class="look-span">dylan granger</span></p>
+					<p>styling <span class="look-span">sean aikens</span></p>
+					<p>photographer <span class="look-span">hannah sider</span></p>
+					<p>model <span class="look-span">danieloh</span></p>
+					<p>model <span class="look-span">adesuwa aigh ewi</span></p>
+				</div>
+				<div class="row">
+					<br/>
+					<p>40.744544 - 73.993255</p>
+				</div>
+			</div>
+		</div>
 		
+		<div id="photo-selector" class="show-for-large-up">
+			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
+				<div class="two-stories">
+					<% Object.keys(data.thumbnail).forEach(function(key) { %>
+						<div class="single-story" data-bg-image="<%- data.thumbnail[key] %>" look-id="<%- key %>"></div>
+					<% }); %>
+				</div>
+			</div>
+		</div>
 			
 		<section class="rideau">
 			<div class="row">
@@ -34,10 +61,41 @@
 			$(function() {
 				console.log("load");
 				
+				//Load images on the photo-selector
+				var stories = $('.two-stories').children();
+				stories.each(function() {
+					var imgPath = $(this).attr('data-bg-image');
+					console.log($(this).attr('data-bg-image'));
+					$(this).css('background-image', 'url(' + imgPath + ')');
+				});
+				
+				//Function to adjust the view on mobiles
+				$(window).bind('resize', function(e) {
+					window.resizeEvt;
+					
+					$(window).resize(function() {
+						thumbnailFixes();
+					});
+				});
+				
+				function thumbnailFixes() {
+					$('#my-thumbs-list').height(window.innerHeight - 250); //Right thumbnail scroller fix
+				}
+				
+				$('.single-story').click(function() {
+					var number = $(this).attr('look-id') - 1;
+					$(".variable").slick('slickGoTo', number);
+					
+					
+					//$oneperframe.sly('toCenter', $(this).attr('look-id') - 1);
+					//$('#look-number').html(parseInt(itemNumber) + 1); //Deprecated, we now use the sly on active function
+				});
+				
 				$(".variable").slick({
 					dots: false,
 					centerMode: true,
 					infinite: true,
+					focusOnSelect: true,
 					variableWidth: true
 				});
 			});
