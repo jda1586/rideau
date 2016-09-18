@@ -262,7 +262,7 @@
 									</a>
 								</div>
 								<div class="small-12 medium-6 large-6 columns">
-									<a class="purchase-button tiny button">
+									<a id="stripe-pay-button" class="purchase-button tiny button">
 										<p><strong>purchase</strong></p>
 									</a>
 								</div>
@@ -347,6 +347,8 @@
 		</div>
 	</div>
 </blueprints>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
 
 <script>
 	$(function() {
@@ -464,20 +466,69 @@
 			$('a[href$="#cartModal"]').trigger('click');
 			$('.close-reviewModal').trigger('click');
 		});
-		$('.purchase-button.button').on('click', function() {
+		/*$('.purchase-button.button').on('click', function() {
 			$('.close-reviewModal').trigger('click');
 			swal({
 				title: 'thanks for your purchase',
 				showConfirmButton : false,
 				showCancelButton: true
 			});
-		});
+		});*/
 		$('#use-for-shipping').change(function() {
 			console.log(this.checked);
 			$('#billing-panel input').each(function (el) {
 				$('#shipping-panel input[name="' + this.name + '"]').val(this.value);
 			});
-		})
+		});
+		
+	
+		var handler = StripeCheckout.configure({
+			key: 'pk_test_1QoPlUtWX7sBiawLo1SVXbIF',
+			image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+			locale: 'auto',
+			token: function(token) {
+				// You can access the token ID with `token.id`.
+				// Get the token ID to your server-side code for use.
+				console.log(token);
+				$('.close-reviewModal').trigger('click');
+				swal({
+					title: 'processing payment<br/> please wait',
+					showConfirmButton : false,
+					showCancelButton: false
+				});
+				
+				$.post("/stripe", { stripeToken: token.id }, function(data) {
+					swal({
+						title: 'card accepted<br/>thanks for your purchase',
+						showConfirmButton : false,
+						showCancelButton: true
+					});
+				}).fail(function() {
+					swal({
+						title: 'card declined<br/>please try again',
+						showConfirmButton : false,
+						showCancelButton: true
+					});
+				});
+			}
+		});
+
+		document.getElementById('stripe-pay-button').addEventListener('click', function(e) {
+		  // Open Checkout with further options:
+		  handler.open({
+			name: 'RIDEAU',
+			description: '2 widgets',
+			amount: 2000
+		  });
+		  e.preventDefault();
+		});
+
+		// Close Checkout on page navigation:
+		window.addEventListener('popstate', function() {
+		  handler.close();
+		});
+	
+	
 	});
 	
 	$(document).mousemove(function(e) {
