@@ -45,7 +45,7 @@
 					<div class="variable slider">
 						<% Object.keys(data.hd).forEach(function(key) { %>
 							<div look-id="<%= key %>">
-								<img src="<%- data.hd[key] %>" class="zoomable-image closed" data-image="<%- data.hd[key] %>" />
+								<img src="<%- data.hd[key] %>" class="zoomable-image intense-disabled closed" data-image="<%- data.hd[key] %>" />
 							</div>
 						<% }); %>
 					</div>
@@ -100,6 +100,8 @@
 					}
 				}).on('afterChange', function(el, number) {
 					$('.look-number').html(number.currentSlide + 1);
+					$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
+					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
 				
 				
