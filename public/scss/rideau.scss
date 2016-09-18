@@ -934,6 +934,32 @@ html.rideau {
 			}
 			.accordion {
 				.accordion-navigation {
+					label {
+						font-size: 0.8em;
+						font-weight: normal;
+					}
+					input {
+						font-family: $akzidenz_font;
+						height: 25px;
+						padding: 0 5px;
+						border: 1px solid #d7d7d7;
+						box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
+						box-sizing: border-box;
+						font-size: 1.2em;
+						width: 100%;
+						background-color: #a9a9a9;
+						color: white;
+						transition: all 0.3s ease 0s;
+						
+						&[type=checkbox] {
+							& + label:before {
+								content: "\2715";
+								border-radius: 0.125rem;
+								font-size: 13px;
+							}
+						}
+					}
+					
 					&.active > a, dd.active > a {
 						background: none;
 						font-weight: bold;
@@ -942,6 +968,12 @@ html.rideau {
 					a {
 						background: none;
 						color: white;
+						&.accordion-title {
+							text-align: left;
+							font-size: 0.9em;
+							font-weight: bold;
+							letter-spacing: 1px;
+						}
 						&.button {
 							background: black;
 						}
@@ -951,7 +983,7 @@ html.rideau {
 					}
 					.vertical-align, #checkboxship {
 						height: initial;
-						margin-top: 25px;
+						margin-top: 15px;
 					}
 					> .content.active, dd > .content.active {
 						background: none;
