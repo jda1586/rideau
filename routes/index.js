@@ -121,6 +121,25 @@ router.get('/stockists', function (req, res, next) {
 router.get('/contact', function (req, res, next) {
 	return res.render('contact');
 });
+
+function log(message, object, tag, severity) {
+	if (_.isUndefined(message)) return;
+	if (_.isUndefined(object)) object = {};
+	if (_.isUndefined(tag)) tag = "Unknown";
+	if (_.isUndefined(severity)) severity = "LOW";
+	
+	try {
+		db.get('log').push({ 
+			message: message,
+			object: object,
+			tag: tag,
+			severity: severity,
+			date: new Date() }).value();
+	} catch (e) {
+		console.log("ERROR: Unable to write to log. " + e.message);
+	}
+}
+
 //Stripe payment
 router.post('/stripe', function (req, res, next) {
 	//Get the credit card details submitted by the form
@@ -128,9 +147,12 @@ router.post('/stripe', function (req, res, next) {
 		amount = req.body.amount, //Get the amount
 		description = req.body.description; //Get the purchase description
 	
+	log("Purchase route call", { token: token, amount: amount, description: description }, "Purchases", "LOW");
 	
-	
-	if (_.isUndefined(token) || _.isUndefined(amount) || _.isUndefined(description)) return res.json({ success: false, err: "Incomplete information" });
+	if (_.isUndefined(token) || _.isUndefined(amount) || _.isUndefined(description)) {
+		log("Purchase route call with undefined values", { token: token, amount: amount, description: description }, "Purchases", "MEDIUM");
+		return res.json({ success: false, err: "Incomplete information" });
+	}
 
 	//Create a charge: this will charge the user's card
 	var charge = stripe.charges.create({
@@ -141,8 +163,10 @@ router.post('/stripe', function (req, res, next) {
 	}, function(err, charge) {
 		if (err && err.type === 'StripeCardError') {
 			//The card has been declined
+			log("Card declined!", { token: token, amount: amount, description: description, err: err }, "Purchases", "HIGH");
 			return res.json({ success: false, err: err });
 		}
+		log("Card accepted! Payment received", { token: token, amount: amount, description: description, charge: charge }, "Purchases", "MEDIUM"); //TODO: Add more information to this log
 		return res.json({ success: true, charge: charge });
 	});
 });
