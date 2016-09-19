@@ -197,7 +197,7 @@ router.post('/stripe', function (req, res, next) {
 router.get('/subscriptions/add', function (req, res, next) {
 	try {
 		db.get('subscriptions')
-			.push({ email: req.query.email, date: new Date()})
+			.push({ email: req.query.email, date: new Date().getTime()})
 			.value();
 	} catch (e) {
 		console.log(e.message);
@@ -207,7 +207,10 @@ router.get('/subscriptions/add', function (req, res, next) {
 });
 //Admin
 router.get('/rideau-admin', function (req, res, next) {
-	return res.render('rideau-admin');
+	return res.render('rideau-admin', {subscriptions: db.get('subscriptions').value()});
+});
+router.get('/rideau-admin/purchases', function (req, res, next) {
+	return res.render('rideau-admin-purchases', {purchases: db.get('purchases').value()});
 });
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
