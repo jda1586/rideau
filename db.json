@@ -216,6 +216,102 @@
         "status": "succeeded"
       },
       "date": "2016-09-18T23:04:49.212Z"
+    },
+    {
+      "token": "tok_18vF1EJfnIxI26TIoFdyPGZn",
+      "amount": "1000",
+      "description": "1xproduct-test",
+      "customerData": {
+        "billing": {
+          "first-name": "xxx",
+          "last-name": "xxxx",
+          "email": "ggg@dddd.com",
+          "address": "aaaa ddddd fffff",
+          "telephone": "123 456 7890",
+          "company": "",
+          "city": "nnn eee",
+          "state-province": "nnn",
+          "zip-postalcode": "10001",
+          "country": "usa",
+          "use-for-shipping": "on"
+        },
+        "shipping": {
+          "first-name": "xxx",
+          "last-name": "xxxx",
+          "email": "ggg@dddd.com",
+          "address": "aaaa ddddd fffff",
+          "telephone": "123 456 7890",
+          "company": "",
+          "city": "nnn eee",
+          "state-province": "nnn",
+          "zip-postalcode": "10001",
+          "country": "usa",
+          "fedex-standard": "on"
+        }
+      },
+      "charge": {
+        "id": "ch_18vF1HJfnIxI26TIHd08P6np",
+        "object": "charge",
+        "amount": 1000,
+        "amount_refunded": 0,
+        "application_fee": null,
+        "balance_transaction": "txn_18vF1IJfnIxI26TI778aR3S8",
+        "captured": true,
+        "created": 1474242503,
+        "currency": "usd",
+        "customer": null,
+        "description": "1xproduct-test",
+        "destination": null,
+        "dispute": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "invoice": null,
+        "livemode": true,
+        "metadata": {},
+        "order": null,
+        "paid": true,
+        "receipt_email": null,
+        "receipt_number": null,
+        "refunded": false,
+        "refunds": {
+          "object": "list",
+          "data": [],
+          "has_more": false,
+          "total_count": 0,
+          "url": "/v1/charges/ch_18vF1HJfnIxI26TIHd08P6np/refunds"
+        },
+        "shipping": null,
+        "source": {
+          "id": "card_18vF1DJfnIxI26TIi7Gh2naA",
+          "object": "card",
+          "address_city": null,
+          "address_country": null,
+          "address_line1": null,
+          "address_line1_check": null,
+          "address_line2": null,
+          "address_state": null,
+          "address_zip": null,
+          "address_zip_check": null,
+          "brand": "Visa",
+          "country": "US",
+          "customer": null,
+          "cvc_check": "pass",
+          "dynamic_last4": null,
+          "exp_month": 8,
+          "exp_year": 2018,
+          "fingerprint": "y8NEXJesqehZd4vi",
+          "funding": "debit",
+          "last4": "1505",
+          "metadata": {},
+          "name": "paguirre@ttbbstudio.com",
+          "tokenization_method": null
+        },
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "status": "succeeded"
+      },
+      "date": "2016-09-18T23:48:24.485Z"
     }
   ],
   "subscriptions": [
@@ -614,6 +710,241 @@
       "tag": "Purchases",
       "severity": "MEDIUM",
       "date": "2016-09-18T23:04:49.215Z"
+    },
+    {
+      "message": "Purchase route call",
+      "object": {
+        "token": "tok_18vEmXJfnIxI26TIhrkIfrD7",
+        "amount": "1000",
+        "description": "1xproduct-test",
+        "customerData": {
+          "billing": {
+            "first-name": "Alejandro",
+            "last-name": "del Río",
+            "email": "adelriosantiago@gmail.com",
+            "address": "LOREM IPSUM",
+            "telephone": "33 1471 5215",
+            "company": "Lumston",
+            "city": "LOREM IPSUM",
+            "state-province": "LOREM IPSUM",
+            "zip-postalcode": "45215",
+            "country": "LOREM IPSUM",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "Alejandro",
+            "last-name": "del Río",
+            "email": "adelriosantiago@gmail.com",
+            "address": "LOREM IPSUM",
+            "telephone": "33 1471 5215",
+            "company": "Lumston",
+            "city": "LOREM IPSUM",
+            "state-province": "LOREM IPSUM",
+            "zip-postalcode": "45215",
+            "country": "LOREM IPSUM",
+            "fedex-standard": "on"
+          }
+        }
+      },
+      "tag": "Purchases",
+      "severity": "LOW",
+      "date": "2016-09-18T23:33:13.343Z"
+    },
+    {
+      "message": "Card declined!",
+      "object": {
+        "token": "tok_18vEmXJfnIxI26TIhrkIfrD7",
+        "amount": "1000",
+        "description": "1xproduct-test",
+        "customerData": {
+          "billing": {
+            "first-name": "Alejandro",
+            "last-name": "del Río",
+            "email": "adelriosantiago@gmail.com",
+            "address": "LOREM IPSUM",
+            "telephone": "33 1471 5215",
+            "company": "Lumston",
+            "city": "LOREM IPSUM",
+            "state-province": "LOREM IPSUM",
+            "zip-postalcode": "45215",
+            "country": "LOREM IPSUM",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "Alejandro",
+            "last-name": "del Río",
+            "email": "adelriosantiago@gmail.com",
+            "address": "LOREM IPSUM",
+            "telephone": "33 1471 5215",
+            "company": "Lumston",
+            "city": "LOREM IPSUM",
+            "state-province": "LOREM IPSUM",
+            "zip-postalcode": "45215",
+            "country": "LOREM IPSUM",
+            "fedex-standard": "on"
+          }
+        },
+        "err": {
+          "type": "StripeCardError",
+          "stack": "Error: Your card was declined.\n    at Error._Error (/home/profile/Dropbox/offline/rideau/node_modules/stripe/lib/Error.js:12:17)\n    at Error.Constructor (/home/profile/Dropbox/offline/rideau/node_modules/stripe/lib/utils.js:102:13)\n    at Error.Constructor (/home/profile/Dropbox/offline/rideau/node_modules/stripe/lib/utils.js:102:13)\n    at Function.StripeError.generate (/home/profile/Dropbox/offline/rideau/node_modules/stripe/lib/Error.js:54:14)\n    at IncomingMessage.<anonymous> (/home/profile/Dropbox/offline/rideau/node_modules/stripe/lib/StripeResource.js:135:39)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:921:12)\n    at nextTickCallbackWith2Args (node.js:442:9)\n    at process._tickCallback (node.js:356:17)",
+          "rawType": "card_error",
+          "code": "card_declined",
+          "message": "Your card was declined.",
+          "raw": {
+            "message": "Your card was declined.",
+            "type": "card_error",
+            "code": "card_declined",
+            "charge": "ch_18vEmbJfnIxI26TIvK6F1b3X",
+            "statusCode": 402,
+            "requestId": "req_9Dg8GcDzX9SEPq"
+          },
+          "requestId": "req_9Dg8GcDzX9SEPq",
+          "statusCode": 402
+        }
+      },
+      "tag": "Purchases",
+      "severity": "HIGH",
+      "date": "2016-09-18T23:33:15.346Z"
+    },
+    {
+      "message": "Purchase route call",
+      "object": {
+        "token": "tok_18vF1EJfnIxI26TIoFdyPGZn",
+        "amount": "1000",
+        "description": "1xproduct-test",
+        "customerData": {
+          "billing": {
+            "first-name": "xxx",
+            "last-name": "xxxx",
+            "email": "ggg@dddd.com",
+            "address": "aaaa ddddd fffff",
+            "telephone": "123 456 7890",
+            "company": "",
+            "city": "nnn eee",
+            "state-province": "nnn",
+            "zip-postalcode": "10001",
+            "country": "usa",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "xxx",
+            "last-name": "xxxx",
+            "email": "ggg@dddd.com",
+            "address": "aaaa ddddd fffff",
+            "telephone": "123 456 7890",
+            "company": "",
+            "city": "nnn eee",
+            "state-province": "nnn",
+            "zip-postalcode": "10001",
+            "country": "usa",
+            "fedex-standard": "on"
+          }
+        }
+      },
+      "tag": "Purchases",
+      "severity": "LOW",
+      "date": "2016-09-18T23:48:22.906Z"
+    },
+    {
+      "message": "Card accepted! Payment received",
+      "object": {
+        "token": "tok_18vF1EJfnIxI26TIoFdyPGZn",
+        "amount": "1000",
+        "description": "1xproduct-test",
+        "customerData": {
+          "billing": {
+            "first-name": "xxx",
+            "last-name": "xxxx",
+            "email": "ggg@dddd.com",
+            "address": "aaaa ddddd fffff",
+            "telephone": "123 456 7890",
+            "company": "",
+            "city": "nnn eee",
+            "state-province": "nnn",
+            "zip-postalcode": "10001",
+            "country": "usa",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "xxx",
+            "last-name": "xxxx",
+            "email": "ggg@dddd.com",
+            "address": "aaaa ddddd fffff",
+            "telephone": "123 456 7890",
+            "company": "",
+            "city": "nnn eee",
+            "state-province": "nnn",
+            "zip-postalcode": "10001",
+            "country": "usa",
+            "fedex-standard": "on"
+          }
+        },
+        "charge": {
+          "id": "ch_18vF1HJfnIxI26TIHd08P6np",
+          "object": "charge",
+          "amount": 1000,
+          "amount_refunded": 0,
+          "application_fee": null,
+          "balance_transaction": "txn_18vF1IJfnIxI26TI778aR3S8",
+          "captured": true,
+          "created": 1474242503,
+          "currency": "usd",
+          "customer": null,
+          "description": "1xproduct-test",
+          "destination": null,
+          "dispute": null,
+          "failure_code": null,
+          "failure_message": null,
+          "fraud_details": {},
+          "invoice": null,
+          "livemode": true,
+          "metadata": {},
+          "order": null,
+          "paid": true,
+          "receipt_email": null,
+          "receipt_number": null,
+          "refunded": false,
+          "refunds": {
+            "object": "list",
+            "data": [],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/charges/ch_18vF1HJfnIxI26TIHd08P6np/refunds"
+          },
+          "shipping": null,
+          "source": {
+            "id": "card_18vF1DJfnIxI26TIi7Gh2naA",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": null,
+            "cvc_check": "pass",
+            "dynamic_last4": null,
+            "exp_month": 8,
+            "exp_year": 2018,
+            "fingerprint": "y8NEXJesqehZd4vi",
+            "funding": "debit",
+            "last4": "1505",
+            "metadata": {},
+            "name": "paguirre@ttbbstudio.com",
+            "tokenization_method": null
+          },
+          "source_transfer": null,
+          "statement_descriptor": null,
+          "status": "succeeded"
+        }
+      },
+      "tag": "Purchases",
+      "severity": "MEDIUM",
+      "date": "2016-09-18T23:48:24.578Z"
     }
   ]
 }
