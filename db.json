@@ -18,14 +18,6 @@
   ],
   "purchases": [
     {
-      "email": "sample@mail.com",
-      "cart": [
-        {},
-        {},
-        {}
-      ]
-    },
-    {
       "token": "tok_18vEK0JfnIxI26TI1Z7b65Zd",
       "amount": "3000",
       "description": "3xproduct-test",
