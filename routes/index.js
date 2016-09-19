@@ -197,7 +197,7 @@ router.post('/stripe', function (req, res, next) {
 router.get('/subscriptions/add', function (req, res, next) {
 	try {
 		db.get('subscriptions')
-			.push({ email: req.query.email, date: new Date()})
+			.push({ email: req.query.email, date: new Date().getTime()})
 			.value();
 	} catch (e) {
 		console.log(e.message);
