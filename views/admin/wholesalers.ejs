@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rideau</title>
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/foundation.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/basic.css" rel="stylesheet"/>
+    <script src="/javascripts/jquery-2.2.4.min.js"></script>
+    <script src="/javascripts/jquery.md5.js"></script>
+</head>
+
+<body>
+<% include _header.ejs %>
+
+<div class="row">
+    <div class="large-12 columns">
+        <dl class="sub-nav margin-top-25">
+            <dt>Filter:</dt>
+            <dd class="active"><a href="#">All</a></dd>
+            <dd><a href="#">Recently added</a></dd>
+            <dd><a href="#">Pending</a></dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-3 columns">
+                <input id="new_username" placeholder="Username" type="text"/>
+            </div>
+            <div class="large-3 columns">
+                <input id="new_password" placeholder="Password" type="password"/>
+            </div>
+            <div class="large-3 columns">
+                <select name="role_chooser">
+                    <option value="wholesaler">Wholesaler</option>
+                    <option value="admin" disabled>Administrator</option>
+                </select>
+                <!--<input id="role_wholesaler" type="radio" name="role_chooser" value="wholesaler"-->
+                <!--checked="checked"><label for="role_wholesaler">wholesaler</label>-->
+                <!--<br/>-->
+                <!--<input id="role_admin" type="radio" name="role_chooser" value="admin"><label-->
+                <!--for="role_admin">admin</label>-->
+            </div>
+            <div class="large-3 columns">
+                <a id="create_user" href="#" class="button tiny">Create user</a>
+            </div>
+        </div>
+        <table width="100%">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% users.forEach(function(sub) { %>
+            <tr>
+                <td><%- sub.username %></td>
+                <td><a href="#" class="button tiny">Regenerate</a></td>
+                <td><%- sub.role %></td>
+                <td><span class="success label">Active</span></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#create_user').on('click', function () {
+            $.get("/rideau-admin/admins-and-wholesalers/add", {
+                username: $('#new_username').val(),
+                password: $.md5($('#new_password').val()),
+                role: "wholesaler"
+            }).done(function () {
+                location.reload();
+            }).fail(function () {
+                alert('user creation failed');
+            });
+        });
+    });
+</script>
+
+<script src="/javascripts/foundation/foundation.js" type="text/javascript"></script>
+<script src="/javascripts/foundation/foundation.dropdown.js" type="text/javascript"></script>
+
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>

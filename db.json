@@ -5,29 +5,39 @@
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "achint",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "alejandro",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "peter",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-	{
+    {
       "username": "maría",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-	{
+    {
       "username": "wholesaler-test",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
+      "role": "wholesaler"
+    },
+    {
+      "username": "wholesaler50",
+      "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
+      "role": "wholesaler"
+    },
+    {
+      "username": "pedro",
+      "password": "ba8a48b0e34226a2992d871c65600a7c",
       "role": "wholesaler"
     }
   ],
@@ -337,6 +347,10 @@
     {
       "email": "p@p.com",
       "date": 1473970234454
+    },
+    {
+      "email": "adelriosantiago@gmail.com",
+      "date": 1474393287337
     }
   ],
   "log": [
