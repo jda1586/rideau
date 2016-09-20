@@ -241,7 +241,12 @@ router.get('/subscriptions/add', function (req, res, next) {
 router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next) {
     try {
         db.get('users')
-            .push({username: req.query.username, password: req.query.password, role: req.query.role})
+            .push({
+                username: req.query.username,
+                password: req.query.password,
+                role: req.query.role,
+                created_at: new Date().getTime()
+            })
             .value();
     } catch (e) {
         console.log(e.message);
