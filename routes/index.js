@@ -209,12 +209,27 @@ router.get('/subscriptions/add', function (req, res, next) {
 	
 	return res.json({ ok: true });
 });
-//Admin
+//Wholesalers
+router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next) {
+	try {
+		db.get('users')
+			.push({ username: req.query.username, password: req.query.password, role: req.query.role })
+			.value();
+	} catch (e) {
+		console.log(e.message);
+	}
+	
+	return res.json({ ok: true });
+});
+//Admin views
 router.get('/rideau-admin', function (req, res, next) {
 	return res.render('rideau-admin', {subscriptions: db.get('subscriptions').value()});
 });
 router.get('/rideau-admin/purchases', function (req, res, next) {
 	return res.render('rideau-admin-purchases', {purchases: db.get('purchases').value()});
+});
+router.get('/rideau-admin/admins-and-wholesalers', function (req, res, next) {
+	return res.render('rideau-admin-wholesalers', { users: db.get('users').value() });
 });
 //This function must appear last on the routes
 router.get('*', function(req, res, next) {
