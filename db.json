@@ -1,32 +1,32 @@
 {
   "users": [
     {
-      "username": "mr. admin",
+      "username": "paulina",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-    {
-      "username": "mr. wholesaler",
+	{
+      "username": "achint",
+      "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
+      "role": "admin"
+    },
+	{
+      "username": "alejandro",
+      "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
+      "role": "admin"
+    },
+	{
+      "username": "peter",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-    {
-      "username": "sample123",
-      "password": "test123",
+	{
+      "username": "maría",
+      "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-    {
-      "username": "testing",
-      "password": "pass",
-      "role": "wholesaler"
-    },
-    {
-      "username": "testing23",
-      "password": "pass23",
-      "role": "wholesaler"
-    },
-    {
-      "username": "md5test",
+	{
+      "username": "wholesaler-test",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     }
