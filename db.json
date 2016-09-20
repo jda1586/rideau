@@ -5,27 +5,27 @@
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "achint",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "alejandro",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "admin"
     },
-	{
+    {
       "username": "peter",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-	{
+    {
       "username": "maría",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
     },
-	{
+    {
       "username": "wholesaler-test",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
@@ -223,41 +223,6 @@
         "status": "succeeded"
       },
       "date": "2016-09-18T23:04:49.212Z"
-    },
-    {
-      "token": "tok_18vhclJfnIxI26TIWsfNJ1mt",
-      "amount": "104000",
-      "description": "10xproduct-test, 3xlc071505, 1xlc071505",
-      "customerData": {
-        "billing": {
-          "first-name": "sdaf",
-          "last-name": "xzcvv",
-          "email": "sadfsaf",
-          "address": "xcvz",
-          "telephone": "sadf",
-          "company": "asdfasdfxcv",
-          "city": "sdfsdf",
-          "state-province": "cvxcv",
-          "zip-postalcode": "sdfsdf",
-          "country": "dfdf",
-          "use-for-shipping": "on"
-        },
-        "shipping": {
-          "first-name": "sdaf",
-          "last-name": "xzcvv",
-          "email": "sadfsaf",
-          "address": "xcvz",
-          "telephone": "sadf",
-          "company": "asdfasdfxcv",
-          "city": "sdfsdf",
-          "state-province": "cvxcv",
-          "zip-postalcode": "sdfsdf",
-          "country": "dfdf",
-          "fedex-standard": "on"
-        }
-      },
-      "charge": null,
-      "date": "2016-09-20T06:20:32.910Z"
     },
     {
       "token": "tok_18vhhvJfnIxI26TIxH7mO4dr",

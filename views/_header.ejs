@@ -517,7 +517,13 @@
 				
 				//You can access the token ID with `token.id`.
 				//Get the token ID to your server-side code for use.
-				$.post("/stripe", { stripeToken: token.id, amount: amount(), description: description(), storedCart: JSON.parse(localStorage.storedCart), customerData: customerData }, function(data) {
+				$.post("/stripe", {
+					stripeToken: token.id,
+					amount: amount(),
+					description: description(),
+					storedCart: JSON.parse(localStorage.storedCart),
+					customerData: customerData
+				}, function (data) {
 					swal({
 						title: 'card accepted<br/>thanks for your purchase',
 						showConfirmButton : false,

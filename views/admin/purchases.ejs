@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<% include _admin-header.ejs %>
+<% include _header.ejs %>
 
 <div class="row">
     <div class="large-12 columns">
@@ -44,9 +44,11 @@
             %>
             <tr>
                 <td><%- d.getFullYear() + " - " + (d.getMonth() + 1) + " - " + d.getDate() %></td>
-                <td> # </td>
+                <td> #</td>
                 <td><%- item.charge.amount %></td>
-                <td class="text-center"> pending </td>
+                <td class="text-center">
+                    <span class="warning label">Pending</span>
+                </td>
             </tr>
             <% }); %>
             </tbody>
