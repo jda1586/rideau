@@ -281,8 +281,9 @@
 					}
 				}).fail(function () {
 					swal({
-						title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-						showCancelButton: false
+						title: 'an error has ocurred<br/>please try again later',
+						showConfirmButton: false,
+						showCancelButton: true
 					});
 				});
 			});
