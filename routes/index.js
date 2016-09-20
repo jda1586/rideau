@@ -240,20 +240,20 @@ router.get('/subscriptions/add', function (req, res, next) {
 });
 //Wholesalers
 router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next) {
-    try {
-        db.get('users')
-            .push({
+	try {
+		db.get('users')
+			.push({
 				username: req.query.username,
-                password: req.query.password,
-                role: req.query.role,
-                created_at: new Date().getTime()
-            })
-            .value();
-    } catch (e) {
-        console.log(e.message);
-    }
+				password: req.query.password,
+				role: req.query.role,
+				created_at: new Date().getTime()
+			})
+			.value();
+	} catch (e) {
+		console.log(e.message);
+	}
 
-    return res.json({ok: true});
+	return res.json({ok: true});
 });
 //Login
 router.post('/login', function (req, res, next) {
