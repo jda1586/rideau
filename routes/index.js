@@ -10,6 +10,7 @@ var db = low('db.json', {storage: fileAsync }),
 	router = express.Router(),
 	_ = require('lodash'),
 	slug = require('slugg'),
+	md5 = require('md5'),
 	stripe = require("stripe")("sk_live_5VbZvybtRRjKCdGyonD2beyv"); //See your keys here: https://dashboard.stripe.com/account/apikeys
 
 db.defaults({ users: [], purchases: [], subscriptions: [], log: [] }).value(); //Default to these tables if they don't exist
@@ -220,6 +221,25 @@ router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next)
 	}
 	
 	return res.json({ ok: true });
+});
+//Login
+router.post('/login', function (req, res, next) {
+	var username = req.body.username,
+		password = req.body.password;
+	
+	var users = db.get('users').cloneDeep().value();
+	var match = _.filter(users, { username: username, password: password });
+	
+	if (!_.isEmpty(match)) {
+		return res.json({ ok: true, username: _.head(match).username }); //Return the username if it was found
+	}
+	
+	return res.json({ ok: false });
+});
+//Logout
+router.post('/login', function (req, res, next) {
+	//TODO: Implement!
+	return res.json({ ok: false });
 });
 //Admin views
 router.get('/rideau-admin', function (req, res, next) {
