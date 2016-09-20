@@ -231,13 +231,13 @@ router.post('/login', function (req, res, next) {
 	var match = _.filter(users, { username: username, password: password });
 	
 	if (!_.isEmpty(match)) {
-		return res.json({ ok: true, username: _.head(match).username }); //Return the username if it was found
+		return res.json({ ok: true, username: _.head(match).username, role: _.head(match).role }); //Return the username if it was found
 	}
 	
 	return res.json({ ok: false });
 });
 //Logout
-router.post('/login', function (req, res, next) {
+router.post('/logout', function (req, res, next) {
 	//TODO: Implement!
 	return res.json({ ok: false });
 });
