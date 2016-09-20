@@ -252,7 +252,7 @@
 			}).then(function() {
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();
-
+				
 				$.post("/login", {username: user, password: $.md5(pass)}).done(function (data) {
 					console.log(data);
 					if (data.ok) {
