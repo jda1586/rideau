@@ -152,6 +152,8 @@
 	</div>
 </div> -->
 
+<script src="/javascripts/jquery.md5.js"></script>
+
 <script>
 	$(function() {
 		//Show SVG's
@@ -251,9 +253,26 @@
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();
 					
-				swal({
-					title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-					showCancelButton: false
+				$.post("/login", { username: user, password: $.md5(pass) }).done(function(data) {
+					console.log(data);
+					if (data.ok) {
+						swal({
+							title: 'welcome ' + data.username,
+							showConfirmButton: false,
+							showCancelButton: true
+						});
+					} else {
+						swal({
+							title: 'user not found',
+							showConfirmButton: false,
+							showCancelButton: true
+						});
+					}
+				}).fail(function() {
+					swal({
+						title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
+						showCancelButton: false
+					});
 				});
 			});
 		});

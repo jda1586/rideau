@@ -20,6 +20,7 @@
             <dt>Filter:</dt>
             <dd class="active"><a href="#">All</a></dd>
             <dd><a href="#">Recently added</a></dd>
+            <dd><a href="#">Pending</a></dd>
         </dl>
     </div>
 </div>
@@ -29,22 +30,23 @@
         <table width="100%">
             <thead>
             <tr>
-                <th width="30"></th>
-                <th>Email</th>
                 <th>Date</th>
-                <th width="150">Actions</th>
+                <th>Items</th>
+                <th>Amount</th>
+                <th>Status</th>
+
             </tr>
             </thead>
             <tbody>
             <%
-            subscriptions.forEach(function(sub) {
-                var d = new Date(Number(sub.date));
+            purchases.forEach(function(item) {
+                var d = new Date(item.date);
             %>
             <tr>
-                <td><input type="checkbox"></td>
-                <td><%- sub.email %></td>
                 <td><%- d.getFullYear() + " - " + (d.getMonth() + 1) + " - " + d.getDate() %></td>
-                <td></td>
+                <td> # </td>
+                <td><%- item.charge.amount %></td>
+                <td class="text-center"> pending </td>
             </tr>
             <% }); %>
             </tbody>
