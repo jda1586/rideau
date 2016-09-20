@@ -44,7 +44,7 @@ router.get('*', function (req, res, next) {
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
 	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
-	
+	res.locals.wholesaler = {username: req.session.username, role: req.session.role};
 
 	return next();
 });
@@ -259,6 +259,7 @@ router.post('/login', function (req, res, next) {
 	var match = _.head(_.filter(users, {username: username, password: password}));
 	
 	if (!_.isEmpty(match)) {
+		req.session.username = match.username;
 		req.session.role = match.role;
 		
 		return res.json({ok: true, username: match.username, role: match.role}); //Return the username if it was found
@@ -267,9 +268,9 @@ router.post('/login', function (req, res, next) {
 	return res.json({ok: false});
 });
 //Logout
-router.post('/logout', function (req, res, next) {
-	//TODO: Implement!
-	return res.json({ok: false});
+router.get('/logout', function (req, res, next) {
+	req.session.destroy();
+	return res.redirect('/');
 });
 //Admin views
 router.get('/rideau-admin', function (req, res, next) {
