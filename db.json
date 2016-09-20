@@ -203,6 +203,268 @@
         "status": "succeeded"
       },
       "date": "2016-09-18T23:04:49.212Z"
+    },
+    {
+      "token": "tok_18vhclJfnIxI26TIWsfNJ1mt",
+      "amount": "104000",
+      "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+      "customerData": {
+        "billing": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "use-for-shipping": "on"
+        },
+        "shipping": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "fedex-standard": "on"
+        }
+      },
+      "charge": null,
+      "date": "2016-09-20T06:20:32.910Z"
+    },
+    {
+      "token": "tok_18vhhvJfnIxI26TIxH7mO4dr",
+      "amount": "104000",
+      "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+      "customerData": {
+        "billing": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "use-for-shipping": "on"
+        },
+        "shipping": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "fedex-standard": "on"
+        }
+      },
+      "charge": {
+        "id": "ch_18vhhzJfnIxI26TI1U3OYswN",
+        "object": "charge",
+        "amount": 104000,
+        "amount_refunded": 0,
+        "application_fee": null,
+        "balance_transaction": "txn_18vhi0JfnIxI26TIb1XXws6a",
+        "captured": true,
+        "created": 1474352783,
+        "currency": "usd",
+        "customer": null,
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "destination": null,
+        "dispute": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "order": null,
+        "paid": true,
+        "receipt_email": null,
+        "receipt_number": null,
+        "refunded": false,
+        "refunds": {
+          "object": "list",
+          "data": [],
+          "has_more": false,
+          "total_count": 0,
+          "url": "/v1/charges/ch_18vhhzJfnIxI26TI1U3OYswN/refunds"
+        },
+        "shipping": null,
+        "source": {
+          "id": "card_18vhhvJfnIxI26TIstww2DEq",
+          "object": "card",
+          "address_city": null,
+          "address_country": null,
+          "address_line1": null,
+          "address_line1_check": null,
+          "address_line2": null,
+          "address_state": null,
+          "address_zip": null,
+          "address_zip_check": null,
+          "brand": "Visa",
+          "country": "US",
+          "customer": null,
+          "cvc_check": "pass",
+          "dynamic_last4": null,
+          "exp_month": 2,
+          "exp_year": 2020,
+          "fingerprint": "htCEs1CpFcTLmIYW",
+          "funding": "credit",
+          "last4": "4242",
+          "metadata": {},
+          "name": "aaaa@mgil.aom",
+          "tokenization_method": null
+        },
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "status": "succeeded"
+      },
+      "date": "2016-09-20T06:25:53.277Z"
+    },
+    {
+      "token": "tok_18vhnGJfnIxI26TIjAwrVGow",
+      "amount": "104000",
+      "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+      "storedCart": {
+        "product-test-4-R": {
+          "sku": "product-test",
+          "size": "4",
+          "color": "R",
+          "name": "a sample product",
+          "image": "/rideau-data/eboutique/PRODUCT-TEST/images/male/featured.jpg",
+          "category": "DEBUG",
+          "price": "10",
+          "quantity": "10",
+          "date": "2016-09-18T21:28:43.256Z"
+        },
+        "lc071505-4-R": {
+          "sku": "lc071505",
+          "size": "4",
+          "color": "R",
+          "name": "standard issue mandarin collar shirt",
+          "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+          "category": "SHIRT",
+          "price": "235",
+          "quantity": "3",
+          "date": "2016-09-20T06:19:50.551Z"
+        },
+        "lc071505-5-R": {
+          "sku": "lc071505",
+          "size": "5",
+          "color": "R",
+          "name": "standard issue mandarin collar shirt",
+          "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+          "category": "SHIRT",
+          "price": "235",
+          "quantity": "1",
+          "date": "2016-09-20T06:19:53.155Z"
+        }
+      },
+      "customerData": {
+        "billing": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "use-for-shipping": "on"
+        },
+        "shipping": {
+          "first-name": "sdaf",
+          "last-name": "xzcvv",
+          "email": "sadfsaf",
+          "address": "xcvz",
+          "telephone": "sadf",
+          "company": "asdfasdfxcv",
+          "city": "sdfsdf",
+          "state-province": "cvxcv",
+          "zip-postalcode": "sdfsdf",
+          "country": "dfdf",
+          "fedex-standard": "on"
+        }
+      },
+      "charge": {
+        "id": "ch_18vhnKJfnIxI26TI5XdyHA7Z",
+        "object": "charge",
+        "amount": 104000,
+        "amount_refunded": 0,
+        "application_fee": null,
+        "balance_transaction": "txn_18vhnKJfnIxI26TIR696wDqn",
+        "captured": true,
+        "created": 1474353114,
+        "currency": "usd",
+        "customer": null,
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "destination": null,
+        "dispute": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "order": null,
+        "paid": true,
+        "receipt_email": null,
+        "receipt_number": null,
+        "refunded": false,
+        "refunds": {
+          "object": "list",
+          "data": [],
+          "has_more": false,
+          "total_count": 0,
+          "url": "/v1/charges/ch_18vhnKJfnIxI26TI5XdyHA7Z/refunds"
+        },
+        "shipping": null,
+        "source": {
+          "id": "card_18vhnGJfnIxI26TIe5WA2ooP",
+          "object": "card",
+          "address_city": null,
+          "address_country": null,
+          "address_line1": null,
+          "address_line1_check": null,
+          "address_line2": null,
+          "address_state": null,
+          "address_zip": null,
+          "address_zip_check": null,
+          "brand": "Visa",
+          "country": "US",
+          "customer": null,
+          "cvc_check": "pass",
+          "dynamic_last4": null,
+          "exp_month": 2,
+          "exp_year": 2020,
+          "fingerprint": "htCEs1CpFcTLmIYW",
+          "funding": "credit",
+          "last4": "4242",
+          "metadata": {},
+          "name": "adelriosantiago@gmail.com",
+          "tokenization_method": null
+        },
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "status": "succeeded"
+      },
+      "date": "2016-09-20T06:31:23.822Z"
     }
   ],
   "subscriptions": [
@@ -601,6 +863,505 @@
       "tag": "Purchases",
       "severity": "MEDIUM",
       "date": "2016-09-18T23:04:49.215Z"
+    },
+    {
+      "message": "Purchase route call",
+      "object": {
+        "token": "tok_18vhclJfnIxI26TIWsfNJ1mt",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        }
+      },
+      "tag": "Purchases",
+      "severity": "LOW",
+      "date": "2016-09-20T06:20:31.721Z"
+    },
+    {
+      "message": "Card accepted! Payment received",
+      "object": {
+        "token": "tok_18vhclJfnIxI26TIWsfNJ1mt",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        },
+        "charge": null
+      },
+      "tag": "Purchases",
+      "severity": "MEDIUM",
+      "date": "2016-09-20T06:20:32.915Z"
+    },
+    {
+      "message": "Purchase route call",
+      "object": {
+        "token": "tok_18vhhvJfnIxI26TIxH7mO4dr",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "storedCart": {
+          "product-test-4-R": {
+            "sku": "product-test",
+            "size": "4",
+            "color": "R",
+            "name": "a sample product",
+            "image": "/rideau-data/eboutique/PRODUCT-TEST/images/male/featured.jpg",
+            "category": "DEBUG",
+            "price": "10",
+            "quantity": "10",
+            "date": "2016-09-18T21:28:43.256Z"
+          },
+          "lc071505-4-R": {
+            "sku": "lc071505",
+            "size": "4",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "3",
+            "date": "2016-09-20T06:19:50.551Z"
+          },
+          "lc071505-5-R": {
+            "sku": "lc071505",
+            "size": "5",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "1",
+            "date": "2016-09-20T06:19:53.155Z"
+          }
+        },
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        }
+      },
+      "tag": "Purchases",
+      "severity": "LOW",
+      "date": "2016-09-20T06:25:51.839Z"
+    },
+    {
+      "message": "Card accepted! Payment received",
+      "object": {
+        "token": "tok_18vhhvJfnIxI26TIxH7mO4dr",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "storedCart": {
+          "product-test-4-R": {
+            "sku": "product-test",
+            "size": "4",
+            "color": "R",
+            "name": "a sample product",
+            "image": "/rideau-data/eboutique/PRODUCT-TEST/images/male/featured.jpg",
+            "category": "DEBUG",
+            "price": "10",
+            "quantity": "10",
+            "date": "2016-09-18T21:28:43.256Z"
+          },
+          "lc071505-4-R": {
+            "sku": "lc071505",
+            "size": "4",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "3",
+            "date": "2016-09-20T06:19:50.551Z"
+          },
+          "lc071505-5-R": {
+            "sku": "lc071505",
+            "size": "5",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "1",
+            "date": "2016-09-20T06:19:53.155Z"
+          }
+        },
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        },
+        "charge": {
+          "id": "ch_18vhhzJfnIxI26TI1U3OYswN",
+          "object": "charge",
+          "amount": 104000,
+          "amount_refunded": 0,
+          "application_fee": null,
+          "balance_transaction": "txn_18vhi0JfnIxI26TIb1XXws6a",
+          "captured": true,
+          "created": 1474352783,
+          "currency": "usd",
+          "customer": null,
+          "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+          "destination": null,
+          "dispute": null,
+          "failure_code": null,
+          "failure_message": null,
+          "fraud_details": {},
+          "invoice": null,
+          "livemode": false,
+          "metadata": {},
+          "order": null,
+          "paid": true,
+          "receipt_email": null,
+          "receipt_number": null,
+          "refunded": false,
+          "refunds": {
+            "object": "list",
+            "data": [],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/charges/ch_18vhhzJfnIxI26TI1U3OYswN/refunds"
+          },
+          "shipping": null,
+          "source": {
+            "id": "card_18vhhvJfnIxI26TIstww2DEq",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": null,
+            "cvc_check": "pass",
+            "dynamic_last4": null,
+            "exp_month": 2,
+            "exp_year": 2020,
+            "fingerprint": "htCEs1CpFcTLmIYW",
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": {},
+            "name": "aaaa@mgil.aom",
+            "tokenization_method": null
+          },
+          "source_transfer": null,
+          "statement_descriptor": null,
+          "status": "succeeded"
+        }
+      },
+      "tag": "Purchases",
+      "severity": "MEDIUM",
+      "date": "2016-09-20T06:25:53.284Z"
+    },
+    {
+      "message": "Purchase route call",
+      "object": {
+        "token": "tok_18vhnGJfnIxI26TIjAwrVGow",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "storedCart": {
+          "product-test-4-R": {
+            "sku": "product-test",
+            "size": "4",
+            "color": "R",
+            "name": "a sample product",
+            "image": "/rideau-data/eboutique/PRODUCT-TEST/images/male/featured.jpg",
+            "category": "DEBUG",
+            "price": "10",
+            "quantity": "10",
+            "date": "2016-09-18T21:28:43.256Z"
+          },
+          "lc071505-4-R": {
+            "sku": "lc071505",
+            "size": "4",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "3",
+            "date": "2016-09-20T06:19:50.551Z"
+          },
+          "lc071505-5-R": {
+            "sku": "lc071505",
+            "size": "5",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "1",
+            "date": "2016-09-20T06:19:53.155Z"
+          }
+        },
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        }
+      },
+      "tag": "Purchases",
+      "severity": "LOW",
+      "date": "2016-09-20T06:31:22.411Z"
+    },
+    {
+      "message": "Card accepted! Payment received",
+      "object": {
+        "token": "tok_18vhnGJfnIxI26TIjAwrVGow",
+        "amount": "104000",
+        "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+        "storedCart": {
+          "product-test-4-R": {
+            "sku": "product-test",
+            "size": "4",
+            "color": "R",
+            "name": "a sample product",
+            "image": "/rideau-data/eboutique/PRODUCT-TEST/images/male/featured.jpg",
+            "category": "DEBUG",
+            "price": "10",
+            "quantity": "10",
+            "date": "2016-09-18T21:28:43.256Z"
+          },
+          "lc071505-4-R": {
+            "sku": "lc071505",
+            "size": "4",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "3",
+            "date": "2016-09-20T06:19:50.551Z"
+          },
+          "lc071505-5-R": {
+            "sku": "lc071505",
+            "size": "5",
+            "color": "R",
+            "name": "standard issue mandarin collar shirt",
+            "image": "/rideau-data/eboutique/LC071505/images/male/featured.jpg",
+            "category": "SHIRT",
+            "price": "235",
+            "quantity": "1",
+            "date": "2016-09-20T06:19:53.155Z"
+          }
+        },
+        "customerData": {
+          "billing": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "use-for-shipping": "on"
+          },
+          "shipping": {
+            "first-name": "sdaf",
+            "last-name": "xzcvv",
+            "email": "sadfsaf",
+            "address": "xcvz",
+            "telephone": "sadf",
+            "company": "asdfasdfxcv",
+            "city": "sdfsdf",
+            "state-province": "cvxcv",
+            "zip-postalcode": "sdfsdf",
+            "country": "dfdf",
+            "fedex-standard": "on"
+          }
+        },
+        "charge": {
+          "id": "ch_18vhnKJfnIxI26TI5XdyHA7Z",
+          "object": "charge",
+          "amount": 104000,
+          "amount_refunded": 0,
+          "application_fee": null,
+          "balance_transaction": "txn_18vhnKJfnIxI26TIR696wDqn",
+          "captured": true,
+          "created": 1474353114,
+          "currency": "usd",
+          "customer": null,
+          "description": "10xproduct-test, 3xlc071505, 1xlc071505",
+          "destination": null,
+          "dispute": null,
+          "failure_code": null,
+          "failure_message": null,
+          "fraud_details": {},
+          "invoice": null,
+          "livemode": false,
+          "metadata": {},
+          "order": null,
+          "paid": true,
+          "receipt_email": null,
+          "receipt_number": null,
+          "refunded": false,
+          "refunds": {
+            "object": "list",
+            "data": [],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/charges/ch_18vhnKJfnIxI26TI5XdyHA7Z/refunds"
+          },
+          "shipping": null,
+          "source": {
+            "id": "card_18vhnGJfnIxI26TIe5WA2ooP",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": null,
+            "cvc_check": "pass",
+            "dynamic_last4": null,
+            "exp_month": 2,
+            "exp_year": 2020,
+            "fingerprint": "htCEs1CpFcTLmIYW",
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": {},
+            "name": "adelriosantiago@gmail.com",
+            "tokenization_method": null
+          },
+          "source_transfer": null,
+          "statement_descriptor": null,
+          "status": "succeeded"
+        }
+      },
+      "tag": "Purchases",
+      "severity": "MEDIUM",
+      "date": "2016-09-20T06:31:23.836Z"
     }
   ]
 }
