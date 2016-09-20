@@ -25,6 +25,11 @@ app.use(logger('dev', {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({
+	secret: "de0f92987b8b6e7337898b8e894846ac",
+	resave: true, 
+	saveUninitialized: false
+}));
 app.use(sassMiddleware({
 	src: path.join(__dirname, '/public/scss'),
 	dest: path.join(__dirname, '/public/stylesheets'),
