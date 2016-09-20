@@ -253,37 +253,37 @@
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();
 
-                $.post("/login", {username: user, password: $.md5(pass)}).done(function (data) {
-                    console.log(data);
-                    if (data.ok) {
-                        if (data.role == "admin") {
-                            swal({
-                                title: 'welcome ' + data.username + '<br/>redirecting to the admin',
-                                showConfirmButton: false,
-                                showCancelButton: true
-                            });
-                            setTimeout(function () {
-                                window.location.replace("/rideau-admin");
-                            }, 1000);
-                        } else if (data.role == "wholesaler") {
-                            swal({
-                                title: 'welcome to the wholesalers<br/>' + data.username,
-                                showConfirmButton: false,
-                                showCancelButton: true
-                            });
-                        }
-                    } else {
-                        swal({
-                            title: 'user not found',
-                            showConfirmButton: false,
-                            showCancelButton: true
-                        });
-                    }
-                }).fail(function () {
-                    swal({
-                        title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-                        showCancelButton: false
-                    });
+				$.post("/login", {username: user, password: $.md5(pass)}).done(function (data) {
+					console.log(data);
+					if (data.ok) {
+						if (data.role == "admin") {
+							swal({
+								title: 'welcome ' + data.username + '<br/>redirecting to the admin',
+								showConfirmButton: false,
+								showCancelButton: true
+							});
+							setTimeout(function () {
+								window.location.replace("/rideau-admin");
+							}, 1000);
+						} else if (data.role == "wholesaler") {
+							swal({
+								title: 'welcome to the wholesalers<br/>' + data.username,
+								showConfirmButton: false,
+								showCancelButton: true
+							});
+						}
+					} else {
+						swal({
+							title: 'user not found',
+							showConfirmButton: false,
+							showCancelButton: true
+						});
+					}
+				}).fail(function () {
+					swal({
+						title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
+						showCancelButton: false
+					});
 				});
 			});
 		});
