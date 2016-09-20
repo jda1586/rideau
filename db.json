@@ -29,6 +29,11 @@
       "username": "wholesaler-test",
       "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
       "role": "wholesaler"
+    },
+    {
+      "username": "wholesaler50",
+      "password": "c8d87eebbeff8af29bcd8d44e8ec9344",
+      "role": "wholesaler"
     }
   ],
   "purchases": [
@@ -460,6 +465,10 @@
     {
       "email": "p@p.com",
       "date": 1473970234454
+    },
+    {
+      "email": "adelriosantiago@gmail.com",
+      "date": 1474393287337
     }
   ],
   "log": [
