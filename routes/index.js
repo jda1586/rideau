@@ -39,7 +39,7 @@ function dirToObj(walkPath) {
 
 //Middleware
 router.get('*', function (req, res, next) {
-	console.log("Middleware load, auth role " + req.session.role);
+	//console.log("Middleware load, auth role " + req.session.role); //Uncomment to debug middleware session roles
 
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
