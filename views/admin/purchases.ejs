@@ -30,7 +30,7 @@
         <table width="100%">
             <thead>
             <tr>
-                <th>Date</th>
+                <th width="15%">Date</th>
                 <th>Items</th>
                 <th>Amount</th>
                 <th>Status</th>
@@ -44,8 +44,21 @@
             %>
             <tr>
                 <td><%- d.getFullYear() + " - " + (d.getMonth() + 1) + " - " + d.getDate() %></td>
-                <td> #</td>
-                <td><%- item.charge.amount %></td>
+                <td>
+                    Items (<%- item.storedCart ? Object.keys(item.storedCart).length : 0 %>)
+                    <ul>
+                        <%
+                        if (item.storedCart) {
+                        Object.keys(item.storedCart).forEach(function (key) {
+                        %>
+                        <li><%- item.storedCart[key].name %> (<%- item.storedCart[key].quantity %>)</li>
+                        <%
+                        });
+                        };
+                        %>
+                    </ul>
+                </td>
+                <td>$ <%- item.charge.amount.toLocaleString('en') %></td>
                 <td class="text-center">
                     <span class="warning label">Pending</span>
                 </td>
