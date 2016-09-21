@@ -39,7 +39,7 @@ function dirToObj(walkPath) {
 
 //Middleware
 router.get('*', function (req, res, next) {
-	console.log("Middleware load, auth role " + req.session.role);
+	//console.log("Middleware load, auth role " + req.session.role); //Uncomment to debug middleware session roles
 
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
@@ -278,14 +278,20 @@ router.get('/logout', function (req, res, next) {
 	return res.redirect('/');
 });
 //Admin views
-router.get('/rideau-admin', function (req, res, next) {
-	return res.render('admin/subscriptions', {subscriptions: db.get('subscriptions').value()});
-});
-router.get('/rideau-admin/purchases', function (req, res, next) {
-	return res.render('admin/purchases', {purchases: db.get('purchases').value()});
-});
-router.get('/rideau-admin/admins-and-wholesalers', function (req, res, next) {
-	return res.render('admin/wholesalers', {users: db.get('users').value()});
+router.get('/rideau-admin/:area?', function (req, res, next) {
+	if (req.session.role !== "admin") return res.redirect('/');
+	
+	var area = req.params.area;
+	
+	console.log(area);
+	
+	if (!_.isUndefined(area)) {
+		if (area == "subscriptions") return res.render('admin/subscriptions', {subscriptions: db.get('subscriptions').value()});
+		if (area == "purchases") return res.render('admin/purchases', {purchases: db.get('purchases').value()});
+		if (area == "users") return res.render('admin/users', {users: db.get('users').value()}); //Standardise this name
+	}
+	
+	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {
