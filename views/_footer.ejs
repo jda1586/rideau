@@ -21,7 +21,7 @@
 							<a class="amodal header-top-text" href="#informationModal">information</a>
 						</div>
 						<div class="small-12 medium-4 large-4 columns">
-							<% if ((wholesaler.role === "wholesaler") || (wholesaler.role === "admin")) { %>
+							<% if ((auth.role === "wholesaler") || (auth.role === "admin")) { %>
 								<a class="wholesaler-access">logout</a>
 							<% } else { %>
 								<a class="wholesaler-access">wholesaler access</a>
