@@ -79,7 +79,7 @@
                     <% data.look.forEach(function (look) {
                         var a = look.split("–");
                     %>
-                    <a href="<%- a[0] %>"><%- a.length > 1 ? a[1] : a[0] %></a><br>
+                    <a href="<%- a.length > 1 ? a[0] : '#' %>"><%- a.length > 1 ? a[1] : a[0] %></a><br>
                     <%
                     }); %>
                 </p>
