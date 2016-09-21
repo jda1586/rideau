@@ -668,9 +668,10 @@ html.rideau {
 	body#about {
 		//
 		p {
-			font-size: 0.8em;
-			text-align: center;
+			font-family: $sackers_font;
+			font-size: 0.7em;
 			letter-spacing: 1.5px;
+			text-align: center;
 		}
 	}
 	
