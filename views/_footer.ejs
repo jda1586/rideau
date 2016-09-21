@@ -21,7 +21,11 @@
 							<a class="amodal header-top-text" href="#informationModal">information</a>
 						</div>
 						<div class="small-12 medium-4 large-4 columns">
-							<a class="wholesaler-access">wholesaler access</a>
+							<% if ((wholesaler.role === "wholesaler") || (wholesaler.role === "admin")) { %>
+								<a class="wholesaler-access">logout</a>
+							<% } else { %>
+								<a class="wholesaler-access">wholesaler access</a>
+							<% } %>
 						</div>
 						<div class="small-12 medium-2 large-2 columns">
 							<a class="subscribe bordered">subscribe</a>
@@ -241,6 +245,11 @@
 		});
 		
 		$("a.wholesaler-access").click(function() {
+			if ($('input[name="wholesaler-role"]').val()) {
+				window.location.replace("/logout");
+				return;
+			}
+			
 			//For this alert we are using a different process since SweetAlerts has no username & password dialog type
 			swal({
 				title: 'wholesaler access',
@@ -252,38 +261,42 @@
 			}).then(function() {
 				var user = $('.wholesaler-access.user').val(),
 					pass = $('.wholesaler-access.pass').val();
-
-                $.post("/login", {username: user, password: $.md5(pass)}).done(function (data) {
-                    console.log(data);
-                    if (data.ok) {
-                        if (data.role == "admin") {
-                            swal({
-                                title: 'welcome ' + data.username + '<br/>redirecting to the admin',
-                                showConfirmButton: false,
-                                showCancelButton: true
-                            });
-                            setTimeout(function () {
-                                window.location.replace("/rideau-admin");
-                            }, 1000);
-                        } else if (data.role == "wholesaler") {
-                            swal({
-                                title: 'welcome to the wholesalers<br/>' + data.username,
-                                showConfirmButton: false,
-                                showCancelButton: true
-                            });
-                        }
-                    } else {
-                        swal({
-                            title: 'user not found',
-                            showConfirmButton: false,
-                            showCancelButton: true
-                        });
-                    }
-                }).fail(function () {
-                    swal({
-                        title: 'Logged in ' + JSON.stringify(user) + ' - ' + JSON.stringify(pass),
-                        showCancelButton: false
-                    });
+				
+				$.post("/login", {username: user, password: $.md5(pass)}).done(function (data) {
+					console.log(data);
+					if (data.ok) {
+						if (data.role == "admin") {
+							swal({
+								title: 'welcome ' + data.username + '<br/>redirecting to the admin',
+								showConfirmButton: false,
+								showCancelButton: true
+							});
+							setTimeout(function () {
+								window.location.replace("/rideau-admin");
+							}, 1000);
+						} else if (data.role == "wholesaler") {
+							swal({
+								title: 'welcome to the wholesalers ' + data.username + '<br/>refreshing',
+								showConfirmButton: false,
+								showCancelButton: true
+							});
+							setTimeout(function () {
+								location.reload();
+							}, 1000);
+						}
+					} else {
+						swal({
+							title: 'user not found',
+							showConfirmButton: false,
+							showCancelButton: true
+						});
+					}
+				}).fail(function () {
+					swal({
+						title: 'an error has ocurred<br/>please try again later',
+						showConfirmButton: false,
+						showCancelButton: true
+					});
 				});
 			});
 		});

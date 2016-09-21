@@ -39,11 +39,12 @@ function dirToObj(walkPath) {
 
 //Middleware
 router.get('*', function (req, res, next) {
-	console.log("Middleware load");
+	console.log("Middleware load, auth role " + req.session.role);
 
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
 	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
+	res.locals.wholesaler = {username: req.session.username, role: req.session.role};
 
 	return next();
 });
@@ -257,21 +258,24 @@ router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next)
 //Login
 router.post('/login', function (req, res, next) {
 	var username = req.body.username,
-		password = req.body.password;
+	password = req.body.password;
 
 	var users = db.get('users').cloneDeep().value();
-	var match = _.filter(users, {username: username, password: password});
-
+	var match = _.head(_.filter(users, {username: username, password: password}));
+	
 	if (!_.isEmpty(match)) {
-		return res.json({ok: true, username: _.head(match).username, role: _.head(match).role}); //Return the username if it was found
+		req.session.username = match.username;
+		req.session.role = match.role;
+		
+		return res.json({ok: true, username: match.username, role: match.role}); //Return the username if it was found
 	}
 
 	return res.json({ok: false});
 });
 //Logout
-router.post('/logout', function (req, res, next) {
-	//TODO: Implement!
-	return res.json({ok: false});
+router.get('/logout', function (req, res, next) {
+	req.session.destroy();
+	return res.redirect('/');
 });
 //Admin views
 router.get('/rideau-admin', function (req, res, next) {
