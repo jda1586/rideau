@@ -291,7 +291,7 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 		if (area == "users") return res.render('admin/users', {users: db.get('users').value()}); //Standardise this name
 	}
 	
-	return res.render('admin/welcome', {subscriptions: db.get('subscriptions').value()});
+	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {
