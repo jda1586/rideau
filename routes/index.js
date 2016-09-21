@@ -44,7 +44,7 @@ router.get('*', function (req, res, next) {
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
 	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
-	res.locals.wholesaler = {username: req.session.username, role: req.session.role};
+	res.locals.auth = {username: req.session.username, role: req.session.role};
 
 	return next();
 });
@@ -71,6 +71,11 @@ router.get('/eboutique/:name?', function (req, res, next) {
 				data.images.female = _.omit(data.images.female, 'featured'); //Omit the featured image (only shown en eboutique page)
 				data.key = name; //Append key value (the folder name as is)
 				data.sku = name.toLowerCase(); //Append SKU, always in lowercase
+				if (req.session.role === "wholesaler") {
+					data.price = data.price.whole;
+				} else {
+					data.price = data.price.normal;
+				}
 
 				console.log(data);
 
