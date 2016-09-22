@@ -149,6 +149,9 @@ html.rideau {
 		font-weight: bold;
 	}
 	
+	a:focus {
+		outline: thin dotted rgba(0, 0, 0, 0.0);
+	}
 	a[href^="mailto"] {
 		p {
 			color: black;
