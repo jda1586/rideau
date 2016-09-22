@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Rideau</title>
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/foundation.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/basic.css" rel="stylesheet"/>
+	<script src="/javascripts/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+	<% include _header.ejs %>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<dl class="sub-nav margin-top-25">
+				<dt>Filter:</dt>
+				<dd class="active"><a href="#">All</a></dd>
+				<dd><a href="#">Recently added</a></dd>
+				<dd><a href="#">Pending</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<table width="100%">
+				<thead>
+					<tr>
+						<th width="15%">Date</th>
+						<th>Message</th>
+						<th>Object detail</th>
+						<th>Tag</th>
+						<th>Severity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					log.forEach(function(sub) {
+						var d = new Date(Number(sub.date));
+					%>
+						<tr>
+							<td><%- sub.date %></td>
+							<td><%- sub.message %></td>
+							<td font-size: 9px;"><%- JSON.stringify(sub.object) %></td> <!-- TODO: Improve in SCSS -->
+							<td><%- sub.tag %></td>
+							<td><%- sub.severity %></td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script src="/javascripts/foundation/foundation.js" type="text/javascript"></script>
+	<script src="/javascripts/foundation/foundation.dropdown.js" type="text/javascript"></script>
+
+	<script>
+		$(document).foundation();
+	</script>
+</body>
+</html>
