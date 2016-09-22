@@ -90,9 +90,9 @@
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-				<% Object.keys(extraData).forEach(function(key) { %>
-					<a class="<%- extraData[key].class %>" href="/collections/<%- key.substr(key.indexOf("-") + 1) %>">
-						<p><%- extraData[key].name %></p>
+				<% Object.keys(collections).forEach(function(key) { %>
+					<a class="<%- collections[key].class %>" href="/collections/<%- key.substr(key.indexOf("-") + 1) %>">
+						<p><%- collections[key].name %></p>
 					</a>
 				<% }); %>
 			</div>
