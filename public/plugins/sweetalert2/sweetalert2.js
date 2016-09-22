@@ -104,6 +104,7 @@
       '</div>' +
       '<img class="' + swalClasses.image + '">' +
       '<h2></h2>' +
+      '<br/>' +
       '<div class="' + swalClasses.content + '"></div>' +
       '<input class="' + swalClasses.input + '">' +
       '<select class="' + swalClasses.select + '"></select>' +
@@ -704,7 +705,7 @@
               if (emailRegex.test(email)) {
                 resolve();
               } else {
-                reject('Invalid email address');
+                reject('<p>invalid email address</p>');
               }
             });
           };
