@@ -25,7 +25,12 @@
 	display: none;
 	z-index: 2000;
 	color: #FFF;
-	//padding: 20px 90px;
+	
+	padding: 20px 90px;
+	@media screen and (max-width: $tablet) {
+		padding: 20px 50px;
+	}
+	
 	&:focus {
 		outline: none;
 	}
@@ -42,7 +47,7 @@
 		position: relative;
 		margin: 0;
 		padding: 0;
-		line-height: 60px;
+		line-height: 25px;
 		display: block;
 	}
 	.swal2-spacer {
