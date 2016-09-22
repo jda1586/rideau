@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html class="no-js rideau" lang="en" dir="ltr">
-	<head>
-		<% include _head.ejs %>
-	</head>
-	
-	<body id="detail">
-		<% include _header.ejs %>
-	
-		<div class="row">
-			<div class="large-6 medium-6 small-12 large-centered columns">
-				<div class="gender_containers">
-					<div class="male_container">
-						<div class="show-for-medium-up">
-							<% Object.keys(data.images.male).forEach(function(key) { %>
-								<img src="<%- data.images.male[key] %>" class="imgdetail zoomable-image closed" />
-							<% }); %>
-						</div>
-						<div class="show-for-small-only">
-							<div class="pagespan sly-container-v2">
-								<div class="wrap">
-									<div class="frame oneperframe" id="oneperframe">
-										<ul class="clearfix">
-											<% Object.keys(data.images.male).forEach(function(key) { %>
-												<li style='background-image: url("<%- data.images.male[key] %>")' look-id="0"></li>
-											<% }); %>
-										</ul>
-									</div>
-									<div class="scrollbar">
-										<div class="handle">
-											<div class="mousearea"></div>
-										</div>
-									</div>
+<head>
+	<% include _head.ejs %>
+</head>
+
+<body id="detail">
+<% include _header.ejs %>
+
+<div class="row">
+	<div class="large-6 medium-6 small-12 large-centered columns">
+		<div class="gender_containers">
+			<div class="male_container">
+				<div class="show-for-medium-up">
+					<% Object.keys(data.images.male).forEach(function(key) { %>
+					<img src="<%- data.images.male[key] %>" class="imgdetail zoomable-image closed"/>
+					<% }); %>
+				</div>
+				<div class="show-for-small-only">
+					<div class="pagespan sly-container-v2">
+						<div class="wrap">
+							<div class="frame oneperframe" id="oneperframe">
+								<ul class="clearfix">
+									<% Object.keys(data.images.male).forEach(function(key) { %>
+									<li style='background-image: url("<%- data.images.male[key] %>")' look-id="0"></li>
+									<% }); %>
+								</ul>
+							</div>
+							<div class="scrollbar">
+								<div class="handle">
+									<div class="mousearea"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="female_container hidden">
-						<!-- TODO: Implement the female_container and allow it to use Sly, because right now it is not supported and one Sly can't have both container -->
-					</div>
 				</div>
 			</div>
-			
-			<div class="product-showcase">
-				<p class="item-key" style="display: none;"><%- data.key %></p>
-				<h5 class="item-name"><%- data.name.toLowerCase() %></h5>
-				<p class="item-category" style="display: none;"><%- data.category %></p>
-				<p class="item-sku"><%- data.sku %></p>
-				<br/>
-				<p class="sackers"><span class="item-price">
+			<div class="female_container hidden">
+				<!-- TODO: Implement the female_container and allow it to use Sly, because right now it is not supported and one Sly can't have both container -->
+			</div>
+		</div>
+	</div>
+
+	<div class="product-showcase">
+		<p class="item-key" style="display: none;"><%- data.key %></p>
+		<h5 class="item-name"><%- data.name.toLowerCase() %></h5>
+		<p class="item-category" style="display: none;"><%- data.category %></p>
+		<p class="item-sku"><%- data.sku %></p>
+		<br/>
+		<p class="sackers"><span class="item-price">
 					<%- data.price %>
 				</span> usd</p>
 
-				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>information <span class="tab-plus-minus">-</span></strong></p></a>
-					<div class="box">
-						<p><%- data.information %></p>
-					</div>
-				</div>
-				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>fit <span class="tab-plus-minus">+</span></strong></p></a>
-					<div class="box" style="display: none;">
-						<p><%- data.fit %></p>
-					</div>
-				</div>
-				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
-					<div class="box" style="display: none;">
-						<% Object.keys(data.colors).forEach(function(key) { %>
-							<a href="/eboutique/<%- key %>">
-								<img src="<%- data.colors[key] %>" style="height: 120px;"/>
-							</a>
-						<% }); %>
-					</div>
-				</div>
-				<div class="box-container">
-					<a class="curtain"><p class="title"><strong>look <span class="tab-plus-minus">+</span></strong></p></a>
-					<div class="box" style="display: none;">
-						<p>
-							<% data.look.forEach(function(look) { %>
-								<a href="<%- look.href %>"><%- look.text %></a><br>
-							<% }); %>
-						</p>
-					</div>
-				</div>
-				
-				<div class="box-container">
-					<p class="title"><strong>size</strong></p>
-					<div class="text-center">
+		<div class="box-container">
+			<a class="curtain"><p class="title"><strong>information <span class="tab-plus-minus">-</span></strong></p>
+			</a>
+			<div class="box">
+				<p><%- data.information %></p>
+			</div>
+		</div>
+		<div class="box-container">
+			<a class="curtain"><p class="title"><strong>fit <span class="tab-plus-minus">+</span></strong></p></a>
+			<div class="box" style="display: none;">
+				<p><%- data.fit %></p>
+			</div>
+		</div>
+		<div class="box-container">
+			<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
+			<div class="box" style="display: none;">
+				<% Object.keys(data.colors).forEach(function(key) { %>
+				<a href="/eboutique/<%- key %>">
+					<img src="<%- data.colors[key] %>" style="height: 120px;"/>
+				</a>
+				<% }); %>
+			</div>
+		</div>
+		<div class="box-container">
+			<a class="curtain"><p class="title"><strong>look <span class="tab-plus-minus">+</span></strong></p></a>
+			<div class="box" style="display: none;">
+				<p>
+					<% data.look.forEach(function(look) { %>
+					<a href="<%- look.href %>"><%- look.text %></a><br>
+					<% }); %>
+				</p>
+			</div>
+		</div>
+
+		<div class="box-container">
+			<p class="title"><strong>size</strong></p>
+			<div class="text-center">
 						<span class="size-chooser">
 							<% for (var i = 0; i <= 6; i++) { %>
-								<p class="text-center size-<%= i %>"><%= i %></p>
+							<p class="text-center size-<%= i %>"><%= i %></p>
 							<% } %>
 						</span>
 				<br/>
@@ -155,14 +156,14 @@
 				next: $wrap.find('.next')
 			});
 
-			$oneperframe.sly('on', 'active', function(a, b) {
+			$oneperframe.sly('on', 'active', function (a, b) {
 				$('.look-number').html(b + 1); //Update look number
 			});
 
 		}());
 
-		$('.curtain').each(function() {
-			$(this).show(0).on('click', function(e) {
+		$('.curtain').each(function () {
+			$(this).show(0).on('click', function (e) {
 				//This is only needed if your using an anchor to target the "box" elements
 				e.preventDefault();
 
@@ -182,10 +183,10 @@
 		});
 
 		//Function to adjust the view on mobiles
-		$(window).bind('resize', function(e) {
+		$(window).bind('resize', function (e) {
 			window.resizeEvt;
 
-			$(window).resize(function() {
+			$(window).resize(function () {
 				clearTimeout(window.resizeEvt);
 				window.resizeEvt = setTimeout(function () {
 					fixImageSize();
@@ -195,14 +196,14 @@
 
 		/* Size chooser buttons */
 		var sizeChooser = $('.size-chooser p');
-		sizeChooser.on('click', function(el) {
+		sizeChooser.on('click', function (el) {
 			sizeChooser.removeClass('selected'); //Remove all selected classes
 			$(el.target).addClass('selected');
 			$('.cart-button.button').removeClass('disabled');
 		});
 
 		/* Add to cart button */
-		$('.cart-button.button').on('click', function() {
+		$('.cart-button.button').on('click', function () {
 			if (!sizeChooser.hasClass('selected')) {
 				$('.size-chooser').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); //Flash the size selector
 				return;
@@ -238,7 +239,7 @@
 				confirmButtonText: 'view cart',
 				showCancelButton: true,
 				html: "<p>item has been added to your cart</p>"
-			}).then(function() {
+			}).then(function () {
 				var user = $('.wholesaler-access.user').val(),
 						pass = $('.wholesaler-access.pass').val();
 
