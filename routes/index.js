@@ -119,6 +119,10 @@ router.get('/collections/:name?', function (req, res, next) {
 			if (key.indexOf(name) != -1) return el;
 		}), _.negate(_.isUndefined));
 		data = data[_.head(_.keys(data))];
+		
+		data.models = data.models.split(',');
+		
+		console.log(data);
 
 		return res.render('collections', {data: data});
 

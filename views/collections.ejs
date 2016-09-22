@@ -16,11 +16,12 @@
 					<h5>look <span class="look-number">1</span></h5>
 				</div>
 				<div class="row">
-					<p>art director <span class="look-span">dylan granger</span></p>
-					<p>styling <span class="look-span">sean aikens</span></p>
-					<p>photographer <span class="look-span">hannah sider</span></p>
-					<p>model <span class="look-span">danieloh</span></p>
-					<p>model <span class="look-span">adesuwa aigh ewi</span></p>
+					<p>art director <span class="look-span"><%- data.artdirector %></span></p>
+					<p>styling <span class="look-span"><%- data.styling %></span></p>
+					<p>photographer <span class="look-span"><%- data.photographer %></span></p>
+					<% data.models.forEach(function(el) { %>
+						<p>model <span class="look-span"><%- el %></span></p>
+					<% }); %>
 				</div>
 				<div class="row">
 					<br/>
