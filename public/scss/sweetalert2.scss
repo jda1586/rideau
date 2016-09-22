@@ -25,7 +25,12 @@
 	display: none;
 	z-index: 2000;
 	color: #FFF;
-	//padding: 20px 90px;
+	
+	padding: 20px 90px;
+	@media screen and (max-width: $tablet) {
+		padding: 20px 50px;
+	}
+	
 	&:focus {
 		outline: none;
 	}
@@ -42,7 +47,7 @@
 		position: relative;
 		margin: 0;
 		padding: 0;
-		line-height: 60px;
+		line-height: 25px;
 		display: block;
 	}
 	.swal2-spacer {
@@ -147,7 +152,7 @@
 		}
 	}
 	.swal2-content {
-		font-size: 18px;
+		font-size: 1.1em;
 		text-align: center;
 		font-weight: 300;
 		position: relative;
@@ -306,14 +311,22 @@
 		}
 	}
 	.swal2-input, .swal2-textarea, .swal2-select, .swal2-radio, .swal2-checkbox {
-		margin: 5px auto;
+		margin: 0px auto;
+		font-size: 0.9em;
 	}
 	.swal2-input:not([type="file"]), .swal2-textarea {
 		width: 100%;
 		box-sizing: border-box;
 		//border-radius: 3px; //Disabled
+		
+		font-family: $akzidenz_font;
+		
+		color: white;
+		font-size: 0.9rem;
+		height: 25px;
+		padding: 0 5px;
+		
 		border: 1px solid #d7d7d7;
-		font-size: 18px;
 		box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.06);
 		-webkit-transition: all 0.3s;
 		transition: all 0.3s;
@@ -380,15 +393,20 @@
 		}
 	}
 	.swal2-validationerror {
+		p {
+			font-family: $sackers_font;
+			color: white;
+			font-size: 0.6em;
+		}
+		
 		background-color: none;
 		margin: 0 -20px;
 		overflow: hidden;
 		padding: 10px;
 		color: #EEE;
-		font-size: 16px;
 		font-weight: 300;
 		display: none;
-		&::before {
+		/*&::before {
 			content: "!";
 			display: inline-block;
 			width: 24px;
@@ -399,7 +417,7 @@
 			line-height: 24px;
 			text-align: center;
 			margin-right: 10px;
-		}
+		}*/
 	}
 }
 

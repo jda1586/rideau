@@ -75,8 +75,8 @@
     timer: null,
     width: 500,
     //padding: 20,
-    paddingTopBottom: 20,
-    paddingLeftRight: 90,
+    //paddingTopBottom: 20,
+    //paddingLeftRight: 90,
     background: '#FFF',
     input: null, // 'text' | 'email' | 'password' | 'select' | 'radio' | 'checkbox' | 'textarea' | 'file'
     inputPlaceholder: '',
@@ -104,6 +104,7 @@
       '</div>' +
       '<img class="' + swalClasses.image + '">' +
       '<h2></h2>' +
+      '<br/>' +
       '<div class="' + swalClasses.content + '"></div>' +
       '<input class="' + swalClasses.input + '">' +
       '<select class="' + swalClasses.select + '"></select>' +
@@ -457,10 +458,13 @@
     }
 
     //modal.style.padding = params.padding + 'px';
-    modal.style.paddingTop = params.paddingTopBottom + 'px';
+    
+	//Disabled (Please, do not enable! Use SCSS instead)
+	/*modal.style.paddingTop = params.paddingTopBottom + 'px';
     modal.style.paddingBottom = params.paddingTopBottom + 'px';
 	modal.style.paddingLeft = params.paddingLeftRight + 'px';
-    modal.style.paddingRight = params.paddingLeftRight + 'px';
+    modal.style.paddingRight = params.paddingLeftRight + 'px';*/
+	
     //modal.style.background = params.background; //Disabled
 
     if (widthUnits === 'px') {
@@ -701,7 +705,7 @@
               if (emailRegex.test(email)) {
                 resolve();
               } else {
-                reject('Invalid email address');
+                reject('<p>invalid email address</p>');
               }
             });
           };

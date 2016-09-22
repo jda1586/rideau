@@ -109,7 +109,7 @@
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
-				<a href="/eboutique#male"><span class="male_button"><p>xy</p></span></a>
+				<a href="/eboutique#xy"><span class="male_button"><p>xy</p></span></a>
 				<span class="separator-dash"> | </span>
 				<a href="#" class="disabled"><span class="female_button"><p>xx</p></span></a>
 			</div>
@@ -348,8 +348,8 @@
 	</div>
 </blueprints>
 
-<input type="hidden" name="wholesaler-username" value="<%- wholesaler.username %>"/>
-<input type="hidden" name="wholesaler-role" value="<%- wholesaler.role %>"/>
+<input type="hidden" name="wholesaler-username" value="<%- auth.username %>" />
+<input type="hidden" name="wholesaler-role" value="<%- auth.role %>" />
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
 

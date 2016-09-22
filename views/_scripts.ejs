@@ -86,22 +86,22 @@
 				$('body').removeClass('modal-open');
 			});
 
-		//Female / male switcher (TODO: Relocate pls)
+		//The xy (male) / xx (female) switcher (TODO: Relocate pls)
 		$('.male_button').on('click', function() {
 			$('.male_container').removeClass('hidden');
 			$('.female_container').addClass('hidden');
-			window.location.hash = "male";
+			window.location.hash = "xy";
 		});
 		/* Disabled by Rideau's request */
 		/*$('.female_button').on('click', function () {
 			$('.male_container').addClass('hidden');
 			$('.female_container').removeClass('hidden');
-			window.location.hash = "female";
+			window.location.hash = "xx";
 		});*/
-		var show_male = (window.location.hash == "#male" ? 1 : 0);
-		if (window.location.hash == "#male") {
+		var show_male = (window.location.hash == "#xy" ? 1 : 0);
+		if (window.location.hash == "#xy") {
 			$('.male_button').trigger("click");
-		} else if (window.location.hash == "#female") {
+		} else if (window.location.hash == "#xx") {
 			$('.female_button').trigger("click");
 		}
 
