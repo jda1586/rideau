@@ -318,7 +318,7 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
 router.get('/rideau-admin/e-boutique', function (req, res, next) {
-	return res.render('admin/eboutique', {users: db.get('users').value()});
+	return res.render('admin/eboutique', {});
 });
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {
