@@ -312,6 +312,7 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 		if (area == "subscriptions") return res.render('admin/subscriptions', {subscriptions: db.get('subscriptions').value()});
 		if (area == "purchases") return res.render('admin/purchases', {purchases: db.get('purchases').value()});
 		if (area == "users") return res.render('admin/users', {users: db.get('users').value()}); //Standardise this name
+		if (area == "log") return res.render('admin/log', {log: db.get('log').value()});
 	}
 	
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});

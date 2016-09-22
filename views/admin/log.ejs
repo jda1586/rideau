@@ -38,8 +38,18 @@
 					</tr>
 				</thead>
 				<tbody>
-				
-				
+					<%
+					log.forEach(function(sub) {
+						var d = new Date(Number(sub.date));
+					%>
+						<tr>
+							<td><%- sub.date %></td>
+							<td><%- sub.message %></td>
+							<td font-size: 9px;"><%- JSON.stringify(sub.object) %></td> <!-- TODO: Improve in SCSS -->
+							<td><%- sub.tag %></td>
+							<td><%- sub.severity %></td>
+						</tr>
+					<% }); %>
 				</tbody>
 			</table>
 		</div>
