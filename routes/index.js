@@ -76,8 +76,22 @@ router.get('/eboutique/:name?', function (req, res, next) {
 				} else {
 					data.price = data.price.normal;
 				}
+				
+				console.log("begin");
+				
+				data.look = _.map(data.look.split('|'), function (el) {
+					var values = el.split('–');
+					
+					if (values.length == 2) {
+						return {href: values[0], text: values[1]}
+					} else {
+						return {href: "#", text: values[0]}
+					}
+				})
 
-				console.log(data);
+				console.log(data.look);
+				console.log(data.look);
+				console.log(data.look);
 
 				return res.render('detail', {data: data});
 			}
@@ -263,15 +277,15 @@ router.get('/rideau-admin/admins-and-wholesalers/add', function (req, res, next)
 //Login
 router.post('/login', function (req, res, next) {
 	var username = req.body.username,
-	password = req.body.password;
+		password = req.body.password;
 
 	var users = db.get('users').cloneDeep().value();
 	var match = _.head(_.filter(users, {username: username, password: password}));
-	
+
 	if (!_.isEmpty(match)) {
 		req.session.username = match.username;
 		req.session.role = match.role;
-		
+
 		return res.json({ok: true, username: match.username, role: match.role}); //Return the username if it was found
 	}
 

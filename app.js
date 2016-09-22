@@ -1,13 +1,13 @@
 var express = require('express'),
-	path = require('path'),
-	favicon = require('serve-favicon'),
-	logger = require('morgan'),
-	cookieParser = require('cookie-parser'),
-	bodyParser = require('body-parser'),
-	sassMiddleware = require('node-sass-middleware'),
-	routes = require('./routes/index'),
-	session = require('express-session'),
-	app = express();
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    sassMiddleware = require('node-sass-middleware'),
+    routes = require('./routes/index'),
+    session = require('express-session'),
+    app = express();
 
 //View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,9 +26,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
-	secret: "de0f92987b8b6e7337898b8e894846ac",
-	resave: true, 
-	saveUninitialized: false
+    secret: "de0f92987b8b6e7337898b8e894846ac",
+    resave: true,
+    saveUninitialized: false
 }));
 app.use(sassMiddleware({
 	src: path.join(__dirname, '/public/scss'),
