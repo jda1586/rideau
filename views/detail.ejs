@@ -76,7 +76,11 @@
 				<div class="box-container">
 					<a class="curtain"><p class="title"><strong>look <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
-						<p>Look data</p>
+						<p>
+							<% data.look.forEach(function(look) { %>
+								<a href="<%- look.href %>"><%- look.text %></a><br>
+							<% }); %>
+						</p>
 					</div>
 				</div>
 				
