@@ -152,7 +152,7 @@
 		}
 	}
 	.swal2-content {
-		font-size: 18px;
+		font-size: 1.1em;
 		text-align: center;
 		font-weight: 300;
 		position: relative;
@@ -311,7 +311,8 @@
 		}
 	}
 	.swal2-input, .swal2-textarea, .swal2-select, .swal2-radio, .swal2-checkbox {
-		margin: 5px auto;
+		margin: 0px auto;
+		font-size: 0.9em;
 	}
 	.swal2-input:not([type="file"]), .swal2-textarea {
 		width: 100%;
@@ -321,7 +322,7 @@
 		font-family: $akzidenz_font;
 		
 		color: white;
-		font-size: 0.9em;
+		font-size: 0.9rem;
 		height: 25px;
 		padding: 0 5px;
 		
