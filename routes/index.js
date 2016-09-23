@@ -44,7 +44,7 @@ router.get('*', function (req, res, next) {
 	//Load collection menus (these are obtained from the public folder)
 	var extraData = dirToObj("public/rideau-data/collections");
 	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
-	res.locals.wholesaler = {username: req.session.username, role: req.session.role};
+	res.locals.auth = {username: req.session.username, role: req.session.role};
 
 	return next();
 });
