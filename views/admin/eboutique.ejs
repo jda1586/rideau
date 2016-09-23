@@ -31,9 +31,9 @@
                 <th width="15%">Name</th>
                 <th>Category</th>
                 <th>Color</th>
-                <th>Enabled</th>
                 <th>Price</th>
                 <th>Images</th>
+                <th>Enabled</th>
             </tr>
             </thead>
             <tbody>
@@ -42,19 +42,18 @@
                 data = eboutique[name];
             %>
             <tr>
-                <td><%- name %></td>
+                <td><%- name.toUpperCase() %></td>
                 <td><%- data.category %></td>
                 <td><%- data.color %></td>
                 <td>
-                    <span class="success label">Active</span>
-                </td>
-                <td>
                     normal: $ <%- data.price ? data.price.normal.toLocaleString('en') : 0 %><br>
                     whole: $ <%- data.price ? data.price.whole.toLocaleString('en') : 0 %><br>
-
                 </td>
                 <td>
                     images
+                </td>
+                <td>
+                    <span class="<%- data.enabled ? "success" : "secondary" %> label"><%- data.enabled ? "Enabled" : "Disabled" %></span>
                 </td>
             </tr>
             <%

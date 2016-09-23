@@ -296,7 +296,7 @@ router.get('/logout', function (req, res, next) {
 });
 //Admin views
 router.get('/rideau-admin/:area?', function (req, res, next) {
-	if (req.session.role !== "admin") return res.redirect('/');
+	// if (req.session.role !== "admin") return res.redirect('/');
 
 	var area = req.params.area;
 
@@ -312,6 +312,10 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
+router.post('/rideau-admin/eboutique/save', function (req, res, next) {
+
+});
+
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {
 	return res.redirect('/');
