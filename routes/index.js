@@ -77,8 +77,6 @@ router.get('/eboutique/:name?', function (req, res, next) {
 					data.price = data.price.normal;
 				}
 
-				console.log("begin");
-
 				data.look = _.map(data.look.split('|'), function (el) {
 					var values = el.split('–');
 
@@ -88,10 +86,6 @@ router.get('/eboutique/:name?', function (req, res, next) {
 						return {href: "#", text: values[0]}
 					}
 				})
-
-				console.log(data.look);
-				console.log(data.look);
-				console.log(data.look);
 
 				return res.render('detail', {data: data});
 			}
@@ -313,12 +307,10 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 		if (area == "purchases") return res.render('admin/purchases', {purchases: db.get('purchases').value()});
 		if (area == "users") return res.render('admin/users', {users: db.get('users').value()}); //Standardise this name
 		if (area == "log") return res.render('admin/log', {log: db.get('log').value()});
+		if (area == "eboutique") return res.render('admin/eboutique', {eboutique: dirToObj("public/rideau-data/eboutique")});
 	}
 
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
-});
-router.get('/rideau-admin/e-boutique', function (req, res, next) {
-	return res.render('admin/eboutique', {});
 });
 //This function must appear last on the routes
 router.get('*', function (req, res, next) {

@@ -37,7 +37,29 @@
             </tr>
             </thead>
             <tbody>
-            <!-- AQUI foreach -->
+            <%
+            Object.keys(eboutique).forEach(function (name) {
+                data = eboutique[name];
+            %>
+            <tr>
+                <td><%- name %></td>
+                <td><%- data.category %></td>
+                <td><%- data.color %></td>
+                <td>
+                    <span class="success label">Active</span>
+                </td>
+                <td>
+                    normal: $ <%- data.price ? data.price.normal.toLocaleString('en') : 0 %><br>
+                    whole: $ <%- data.price ? data.price.whole.toLocaleString('en') : 0 %><br>
+
+                </td>
+                <td>
+                    images
+                </td>
+            </tr>
+            <%
+            })
+            %>
             </tbody>
         </table>
     </div>
