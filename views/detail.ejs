@@ -66,7 +66,7 @@
 				<div class="box-container">
 					<a class="curtain"><p class="title"><strong>colors <span class="tab-plus-minus">+</span></strong></p></a>
 					<div class="box" style="display: none;">
-						<% Object.keys(data.colors).forEach(function(key) { %>
+						<% if (data.colors) Object.keys(data.colors).forEach(function(key) { %>
 							<a href="/eboutique/<%- key %>">
 								<img src="<%- data.colors[key] %>" style="height: 120px;"/>
 							</a>
