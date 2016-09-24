@@ -123,8 +123,7 @@ router.get('/collections/:name?', function (req, res, next) {
 		console.log(data);
 		
 		_.each(data, function(value, key) {
-			console.log(key);
-			value.models = value.models.split(',');
+			//value.model = value.model.split(','); //Models are no longer sent as array
 			value.number = +key;
 		});
 

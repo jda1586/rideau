@@ -17,12 +17,8 @@
 						<h5>look <%- data[key].number %></span></h5>
 					</div>
 					<div class="row">
-						<p>fashion director <span class="look-span"><%- data[key].fashionDirector %></span></p>
-						<p>art director <span class="look-span"><%- data[key].artdirector %></span></p>
-						<p>styling <span class="look-span"><%- data[key].styling %></span></p>
-						<p>photographer <span class="look-span"><%- data[key].photographer %></span></p>
-						<% data[key].models.forEach(function(el) { %>
-							<p>model <span class="look-span"><%- el %></span></p>
+						<% Object.keys(data[key].stage_data).forEach(function(stage_key) { %>
+							<p><%- stage_key.replace("_", " ") %> <span class="look-span"><%- data[key].stage_data[stage_key] %></span></p>
 						<% }); %>
 					</div>
 					<div class="row">
