@@ -42,8 +42,7 @@ router.get('*', function (req, res, next) {
 	//console.log("Middleware load, auth role " + req.session.role); //Uncomment to debug middleware session roles
 
 	//Load collection menus (these are obtained from the public folder)
-	var extraData = dirToObj("public/rideau-data/collections");
-	res.locals.extraData = extraData; //res.locals is automatically merged when rendering a view
+	res.locals.collections = dirToObj("public/rideau-data/collections");; //res.locals is automatically merged when rendering a view
 	res.locals.auth = {username: req.session.username, role: req.session.role};
 
 	return next();
@@ -114,16 +113,22 @@ router.get('/collections/:name?', function (req, res, next) {
 
 	if (!_.isUndefined(name)) {
 		var data = dirToObj("public/rideau-data/collections");
-
+		
 		data = _.pickBy(_.mapValues(data, function (el, key) {
 			if (key.indexOf(name) != -1) return el;
 		}), _.negate(_.isUndefined));
-		data = data[_.head(_.keys(data))];
 		
-		data.models = data.models.split(',');
+		data = _.omit(data[_.keys(data)], 'class', 'name');
 		
 		console.log(data);
+		
+		_.each(data, function(value, key) {
+			//value.model = value.model.split(','); //Models are no longer sent as array
+			value.number = +key;
+		});
 
+		console.log(data);
+		
 		return res.render('collections', {data: data});
 
 	}

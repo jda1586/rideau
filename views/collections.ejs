@@ -11,30 +11,29 @@
 		<% include _header.ejs %>
 		
 		<div class="photo-data rideau-fades">
-			<div class="stage-description">
-				<div class="row">
-					<h5>look <span class="look-number">1</span></h5>
+			<% Object.keys(data).forEach(function(key) { %>
+				<div class="stage-description" style="display: none;">
+					<div class="row">
+						<h5>look <%- data[key].number %></span></h5>
+					</div>
+					<div class="row">
+						<% Object.keys(data[key].stage_data).forEach(function(stage_key) { %>
+							<p><%- stage_key.replace("_", " ") %> <span class="look-span"><%- data[key].stage_data[stage_key] %></span></p>
+						<% }); %>
+					</div>
+					<div class="row">
+						<br/>
+						<p>40.744544 - 73.993255</p>
+					</div>
 				</div>
-				<div class="row">
-					<p>art director <span class="look-span"><%- data.artdirector %></span></p>
-					<p>styling <span class="look-span"><%- data.styling %></span></p>
-					<p>photographer <span class="look-span"><%- data.photographer %></span></p>
-					<% data.models.forEach(function(el) { %>
-						<p>model <span class="look-span"><%- el %></span></p>
-					<% }); %>
-				</div>
-				<div class="row">
-					<br/>
-					<p>40.744544 - 73.993255</p>
-				</div>
-			</div>
+			<% }); %>
 		</div>
 		
 		<div id="photo-selector" class="rideau-fades">
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="y" data-mts-type="hover-precise">
 				<div class="two-stories">
-					<% Object.keys(data.thumbnail).forEach(function(key) { %>
-						<div class="single-story" data-bg-image="<%- data.thumbnail[key] %>" look-id="<%- key %>"></div>
+					<% Object.keys(data).forEach(function(key) { %>
+						<div class="single-story" data-bg-image="<%- data[key].thumbnail %>" look-id="<%- data[key].number %>"></div>
 					<% }); %>
 				</div>
 			</div>
@@ -44,9 +43,9 @@
 			<div class="row">
 				<div class="small-12 medium-10 large-10 small-centered medium-centered large-centered columns">
 					<div class="variable slider">
-						<% Object.keys(data.hd).forEach(function(key) { %>
-							<div look-id="<%= key %>">
-								<img src="<%- data.hd[key] %>" class="zoomable-image intense-disabled closed" data-image="<%- data.hd[key] %>" />
+						<% Object.keys(data).forEach(function(key) { %>
+							<div look-id="<%= data[key].number %>">
+								<img src="<%- data[key].hd %>" class="zoomable-image intense-disabled closed" data-image="<%- data[key].hd %>" />
 							</div>
 						<% }); %>
 					</div>
@@ -60,7 +59,8 @@
 		
 		<script>
 			$(function() {
-				console.log("load");
+				var stageDescription = $('.photo-data .stage-description'),
+					currentSlideNumber;
 				
 				//Load images on the photo-selector
 				var stories = $('.two-stories').children();
@@ -78,6 +78,16 @@
 						thumbnailFixes();
 					});
 				});
+				
+				
+				function temporalStageShow(number) {
+					var stageDescription = $('.photo-data .stage-description');
+					
+					$.when($(stageDescription).fadeOut()).then(function () {
+						console.log('GO');
+						$($(stageDescription[number])).fadeIn().delay(1000).fadeOut();
+					});
+				}
 				
 				function thumbnailFixes() {
 					var newHeight = window.innerHeight - 250;
@@ -100,15 +110,19 @@
 						console.log("test");
 					}
 				}).on('afterChange', function(el, number) {
-					$('.look-number').html(number.currentSlide + 1);
+					//$('.look-number').html(number.currentSlide + 1);
+					currentSlideNumber = number.currentSlide;
+					console.log(currentSlideNumber);
+					temporalStageShow(currentSlideNumber);
+					
 					$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
 					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
 				
-				
-				$('.rideau-fades').each(function() {
+				$(stageDescription[0]).fadeIn(0);
+				/*$('.rideau-fades').each(function() {
 					$(this).delay(5000).fadeOut('slow');
-				});
+				});*/
 				
 				$(document).mousemove(function(e) {
 					if (document.body) {
@@ -126,9 +140,11 @@
 						$('#photo-selector').fadeIn();
 					}
 					if ((((e.pageY - $(window).height()) + 400) < 0) || (e.pageX > 400)) {
-						$('.photo-data').fadeOut();
+						//$('.photo-data').fadeOut(); //Old way of hiding photo-data
+						$($('.photo-data .stage-description')[currentSlideNumber]).fadeOut();
 					} else {
-						$('.photo-data').fadeIn();
+						//$('.photo-data').fadeIn(); //Old way of showing photo-data
+						$($('.photo-data .stage-description')[currentSlideNumber]).fadeIn();
 					}
 					
 				});
@@ -136,18 +152,15 @@
 				//Disable intense zoom when draging
 				var isDragging = false;
 				$("img.zoomable-image").mousedown(function() {
-					console.log("mousedown");
 					isDragging = false;
 				}).mousemove(function() {
 					isDragging = true;
-					console.log("dragging");
 				}).mouseup(function() {
 					var wasDragging = isDragging;
 					isDragging = false;
+					
 					if (wasDragging) {
-						console.log("wasDragging");
 						$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
-						
 					}
 				});
 				

@@ -746,9 +746,14 @@ html.rideau {
 					text-align: center;
 					font-size: 0.55em;
 					padding: 2.3px 0;
+					height: 30px;
 					
 					&.left-most {
-						font-weight: bold;
+						//font-weight: bold; //No longer bold I think...
+						font-family: $akzidenz_font;
+						//font-weight: bold; //Is it bold!?
+						font-size: 0.7em;
+						letter-spacing: 1px;
 						text-align: left;
 					}
 				}
@@ -761,8 +766,17 @@ html.rideau {
 		
 		.right-box {
 			p {
-				font-family: $sackers_font;
-				font-size: 0.5em;
+				font-family: $akzidenz_font;
+				font-size: 0.7em;
+				/*font-weight: bold;*/
+				line-height: 0.9em;
+				letter-spacing: 1px;
+				margin-bottom: 0.3em;
+				
+				&.phone {
+					font-family: $sackers_font;
+					font-size: 0.5em;
+				}
 			}
 			
 		}
@@ -783,13 +797,13 @@ html.rideau {
 			font-family: $akzidenz_font;
 			line-height: 1.2;
 			margin-bottom: 0.7em;
-			font-size: 0.8em;
+			font-size: 0.7em;
 		}
 	
 		.left-box {
 			.title {
 				font-weight: bold;
-				font-size: 1.1em;
+				font-size: 0.8em;
 				letter-spacing: 1px;
 				text-align: right;
 				margin-right: 33px;
@@ -800,8 +814,9 @@ html.rideau {
 			
 			.title {
 				margin-bottom: 16px;
-				font-weight: bold;
+				margin-top: 7px;
 				letter-spacing: 1px;
+				font-size: 0.65em;
 			}
 			.box-item {
 				margin-bottom: 40px;
@@ -813,7 +828,8 @@ html.rideau {
 				
 				.box-title {
 					font-weight: bold;
-					font-size: 0.65em;
+					font-size: 0.50em;
+					letter-spacing: 0.5px;
 					margin-bottom: 13px;
 				}
 			}
