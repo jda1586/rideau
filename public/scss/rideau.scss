@@ -343,6 +343,12 @@ html.rideau {
 				font-family: $sackers_font;
 				font-weight: normal;
 			}
+			
+			&.rideau-fixed {
+				@media screen and (max-width: $tablet) {
+					margin-bottom: 100px;
+				}
+			}
 		}
 		
 		.variable.slider {
