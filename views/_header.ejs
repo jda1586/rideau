@@ -519,6 +519,7 @@
 			var inputs = $.find('input[required]'), //Get inputs with required attribute in the form of array
 				resp = true;
 			
+			$('.input_cart_alert').remove(); //Remove old alerts, if any
 			inputs.forEach(function (input) {
 				var $input = $(input);
 				
