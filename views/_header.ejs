@@ -166,36 +166,37 @@
 						<div class="row">
 							<div class="small-12 large-6 columns">
 								<label for="first-name">first name *
-									<input class="input_cart" required type="text" name="first-name" />
+									<input required type="text" name="first-name" />
 								</label>
 								<label for="last-name">last name *
-									<input class="input_cart" required type="text" name="last-name" />
+									<input required type="text" name="last-name" />
 								</label>
 								<label for="email">email *
-									<input class="input_cart" required type="text" name="email" />
+									<input required type="text" name="email" />
 								</label>
 								<label for="address">address *
-									<input class="input_cart" type="text" name="address" />
+									<input required type="text" name="address" />
 								</label>
 								<label for="telephone">telephone *
-									<input class="input_cart" type="text" name="telephone" />
+									<input required type="text" name="telephone" />
 								</label>
 							</div>
 							<div class="small-12 large-6 columns">
 								<label for="company">company
-									<input class="input_cart" type="text" name="company" />
+									<!-- Non requirable field -->
+									<input type="text" name="company" />
 								</label>
 								<label for="city">city *
-									<input class="input_cart" type="text" name="city" />
+									<input required type="text" name="city" />
 								</label>
 								<label for="state-province">state/province *
-									<input class="input_cart" type="text" name="state-province" />
+									<input required type="text" name="state-province" />
 								</label>
 								<label for="zip-postalcode">zip/postalcode *
-									<input class="input_cart" type="text" name="zip-postalcode" />
+									<input required type="text" name="zip-postalcode" />
 								</label>
 								<label for="country">country *
-									<input class="input_cart" type="text" name="country" />
+									<input required type="text" name="country" />
 								</label>
 							</div>
 						</div>
@@ -214,36 +215,37 @@
 						<div class="row">
 							<div class="small-12 large-6 columns">
 								<label for="first-name">first name *
-									<input class="input_cart" required type="text" name="first-name" />
+									<input required type="text" name="first-name" />
 								</label>
 								<label for="last-name">last name *
-									<input class="input_cart" required type="text" name="last-name" />
+									<input required type="text" name="last-name" />
 								</label>
 								<label for="email">email *
-									<input class="input_cart" required type="text" name="email" />
+									<input required type="text" name="email" />
 								</label>
 								<label for="address">address *
-									<input class="input_cart" type="text" name="address" />
+									<input required type="text" name="address" />
 								</label>
 								<label for="telephone">telephone *
-									<input class="input_cart" type="text" name="telephone" />
+									<input required type="text" name="telephone" />
 								</label>
 							</div>
 							<div class="small-12 large-6 columns">
 								<label for="company">company
-									<input class="input_cart" type="text" name="company" />
+									<!-- Non requirable field -->
+									<input type="text" name="company" />
 								</label>
 								<label for="city">city *
-									<input class="input_cart" type="text" name="city" />
+									<input required type="text" name="city" />
 								</label>
 								<label for="state-province">state/province *
-									<input class="input_cart" type="text" name="state-province" />
+									<input required type="text" name="state-province" />
 								</label>
 								<label for="zip-postalcode">zip/postalcode *
-									<input class="input_cart" type="text" name="zip-postalcode" />
+									<input required type="text" name="zip-postalcode" />
 								</label>
 								<label for="country">country *
-									<input class="input_cart" type="text" name="country" />
+									<input required type="text" name="country" />
 								</label>
 							</div>
 						</div>
@@ -514,7 +516,7 @@
 		});
 
 		function checkFields() {
-			var inputs = $.find('.input_cart'), //Get inputs in the form of array
+			var inputs = $.find('input[required]'), //Get inputs with required attribute in the form of array
 				resp = true;
 			
 			inputs.forEach(function (input) {
@@ -522,7 +524,7 @@
 				
 				if ($input.val().length < 4) {
 					if ($input.parent().find('.input_cart_alert').length == 0) {
-						$input.parent().append('<span class="input_cart_alert" style="font-size: 0.8em; color: red; margin: 0px; padding: 0px;">this field is requiered</span>');
+						$input.parent().append('<span class="input_cart_alert">this field is requiered</span>');
 					}
 					
 					resp = false;
