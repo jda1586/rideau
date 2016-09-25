@@ -12,7 +12,7 @@
 		
 		<div class="photo-data rideau-fades">
 			<% Object.keys(data).forEach(function(key) { %>
-				<div class="stage-description" style="display: none;">
+				<div class="stage-description rideau-floating" style="display: none;">
 					<div class="row">
 						<h5>look <%- data[key].number %></span></h5>
 					</div>
@@ -51,6 +51,34 @@
 					</div>
 				</div>
 			</div>
+			<div class="hide-for-large-up">
+				
+				
+				
+				<% Object.keys(data).forEach(function(key) { %>
+					<div class="stage-description rideau-fixed text-center" style="display: none;">
+						<div class="row">
+							<h5>look <%- data[key].number %></span></h5>
+						</div>
+						<div class="row">
+							<% Object.keys(data[key].stage_data).forEach(function(stage_key) { %>
+								<div class="small-4 columns">
+									<p><%- stage_key.replace("_", " ") %> <span class="look-span"><%- data[key].stage_data[stage_key] %></span></p>
+								</div>
+							<% }); %>
+						</div>
+						<div class="row">
+							<br/>
+							<p>40.744544 - 73.993255</p>
+						</div>
+					</div>
+				<% }); %>
+				
+				
+				
+				
+				
+			</div>
 		</section>
 		
 		<% include _footer.ejs %>
@@ -59,7 +87,7 @@
 		
 		<script>
 			$(function() {
-				var stageDescription = $('.photo-data .stage-description'),
+				var stageDescription = $('.stage-description'),
 					currentSlideNumber;
 				
 				//Load images on the photo-selector
@@ -79,18 +107,17 @@
 					});
 				});
 				
-				
 				function temporalStageShow(number) {
-					var stageDescription = $('.photo-data .stage-description');
-					
 					$.when($(stageDescription).fadeOut()).then(function () {
 						console.log('GO');
-						$($(stageDescription[number])).fadeIn().delay(1000).fadeOut();
+						$($(stageDescription.filter('.rideau-fixed')[number])).fadeIn();
+						$($(stageDescription.filter('.rideau-floating')[number])).fadeIn().delay(1000).fadeOut();
 					});
 				}
 				
 				function thumbnailFixes() {
 					var newHeight = window.innerHeight - 250;
+					
 					$('#my-thumbs-list').height(newHeight); //Right thumbnail scroller fix
 					$('#photo-selector').css("top", (window.innerHeight - newHeight) / 2 + "px"); //Center the thumbnail menu
 				}
@@ -119,7 +146,8 @@
 					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
 				
-				$(stageDescription[0]).fadeIn(0);
+				$(stageDescription.filter('.rideau-floating')[0]).fadeIn(0);
+				$(stageDescription.filter('.rideau-fixed')[0]).fadeIn(0);
 				/*$('.rideau-fades').each(function() {
 					$(this).delay(5000).fadeOut('slow');
 				});*/
@@ -141,10 +169,10 @@
 					}
 					if ((((e.pageY - $(window).height()) + 400) < 0) || (e.pageX > 400)) {
 						//$('.photo-data').fadeOut(); //Old way of hiding photo-data
-						$($('.photo-data .stage-description')[currentSlideNumber]).fadeOut();
+						$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeOut();
 					} else {
 						//$('.photo-data').fadeIn(); //Old way of showing photo-data
-						$($('.photo-data .stage-description')[currentSlideNumber]).fadeIn();
+						$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeIn();
 					}
 					
 				});
