@@ -941,6 +941,7 @@ html.rideau {
 	#reviewModal {
 		label {
 			font-size: 0.8em;
+			margin-top: 10px;
 		}
 		
 		.purchase-process {
@@ -968,6 +969,7 @@ html.rideau {
 						font-size: 1.2em;
 						background-color: #a9a9a9;
 						color: white;
+						margin-bottom: 0px;
 						transition: all 0.3s ease 0s;
 						
 						&[type=checkbox] {
