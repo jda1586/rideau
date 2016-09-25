@@ -303,6 +303,7 @@ router.post('/login', function (req, res, next) {
 //Logout
 router.get('/logout', function (req, res, next) {
 	req.session.destroy();
+	
 	return res.redirect('/');
 });
 //Admin views
@@ -316,7 +317,8 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 	if (!_.isUndefined(area)) {
 		if (area == "subscriptions") return res.render('admin/subscriptions', {subscriptions: db.get('subscriptions').value()});
 		if (area == "purchases") return res.render('admin/purchases', {purchases: db.get('purchases').value()});
-		if (area == "users") return res.render('admin/users', {users: db.get('users').value()}); //Standardise this name
+		if (area == "eboutique") return res.render('admin/eboutique', {eboutique: dirToObj("public/rideau-data/eboutique")});
+		if (area == "users") return res.render('admin/users', {users: db.get('users').value()});
 		if (area == "log") return res.render('admin/log', {log: db.get('log').value()});
 	}
 	

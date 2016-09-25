@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Rideau</title>
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/foundation.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/basic.css" rel="stylesheet"/>
+	<script src="/javascripts/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+<% include _header.ejs %>
+
+<div class="row">
+	<div class="large-12 columns">
+		<dl class="sub-nav margin-top-25">
+			<dt>Filter:</dt>
+			<dd class="active"><a href="#">All</a></dd>
+		</dl>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+		<table width="100%">
+			<thead>
+			<tr>
+				<th width="15%">Name</th>
+				<th>Category</th>
+				<th>Color</th>
+				<th>Enabled</th>
+				<th>Price</th>
+				<th>Images</th>
+			</tr>
+			</thead>
+			<tbody>
+			<%
+			Object.keys(eboutique).forEach(function (name) {
+				data = eboutique[name];
+			%>
+				<tr>
+					<td><%- name %></td>
+					<td><%- data.category %></td>
+					<td><%- data.color %></td>
+					<td>
+						<span class="success label">Active</span>
+					</td>
+					<td>
+						normal: $ <%- data.price ? data.price.normal.toLocaleString("en") : 0 %><br>
+						whole: $ <%- data.price ? data.price.whole.toLocaleString("en") : 0 %><br>
+					</td>
+					<td>
+						images
+					</td>
+				</tr>
+			<%
+			})
+			%>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script src="/javascripts/foundation/foundation.js" type="text/javascript"></script>
+<script src="/javascripts/foundation/foundation.dropdown.js" type="text/javascript"></script>
+
+<script>
+	$(document).foundation();
+</script>
+</body>
+</html>
