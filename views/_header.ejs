@@ -418,35 +418,6 @@
 				
 				localStorage.storedCart = JSON.stringify(storedCart);
 				window.abc();
-				
-				/* var totalPrice = $(".total-sum").html();
-				var $button = $(this);
-				var item = $(this).attr("item");
-				var oldValue = $("input.quantity[item='"+item+"']").val();
-				var storedCart = JSON.parse(localStorage.getItem('storedCart'));
-				
-				if ($button.val() == "+") {
-					var newVal = parseFloat(oldValue) + 1;
-					var newTotal = parseFloat(totalPrice) + parseFloat(storedCart[item].price);
-				} else {
-					//Don't allow decrementing below zero
-					if (oldValue > 0) {
-						var newVal = parseFloat(oldValue) - 1;
-						var newTotal = parseFloat(totalPrice) - parseFloat(storedCart[item].price);
-					} else {
-						newVal = 0;
-					}
-				}
-				if (newVal < 1 ) $(this).closest(".item").remove();
-				// Update quantity
-				$("input.quantity[item='"+item+"']").val(newVal);
-				updateLocalStorage();
-				// Update price
-				$(".total-sum").html(newTotal);
-				if (newTotal == 0) {
-					$('#empty-carr-modal').foundation('reveal', 'open');
-					$('#carr-modal').foundation('reveal', 'close');
-				}*/
 			});
 		}
 		
