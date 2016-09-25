@@ -77,14 +77,37 @@ router.get('/eboutique/:name?', function (req, res, next) {
 				}
 				
 				console.log("begin");
+				console.log(data.look);
 				
-				data.look = _.map(data.look.split('|'), function (el) {
-					var values = el.split('–');
+				data.look = _.map(data.look.split('|'), function(el) {
+					var values = el.split('-');
+					
+					console.log("TEST");
+					console.log(el);
 					
 					if (values.length == 2) {
 						return {href: values[0], text: values[1]}
 					} else {
-						return {href: "#", text: values[0]}
+						var text = values[0];
+						var href = "#";
+						
+						console.log(text);
+						console.log(text);
+						console.log(text);
+						
+						if (text.indexOf("Martine") > 0) {
+							console.log("DO MA");
+							href = "http://www.martineali.com" //TODO: Improve this!!!
+						} else if (text.indexOf("Moscot") > 0) { 
+							href = "http://www.moscot.com" //TODO: Improve this!!!
+						} else if (text.indexOf("Laurent") > 0) {
+							href = "http://www.ysl.com/us" //TODO: Improve this!!!
+						} else if (text.indexOf("Visvim") > 0) {
+							console.log("DO");
+							href = "http://www.visvim.tv" //TODO: Improve this!!!
+						}
+						
+						return {href: href, text: text};
 					}
 				})
 
