@@ -42,7 +42,7 @@ router.get('*', function (req, res, next) {
 	//console.log("Middleware load, auth role " + req.session.role); //Uncomment to debug middleware session roles
 
 	//Load collection menus (these are obtained from the public folder)
-	res.locals.collections = dirToObj("public/rideau-data/collections");; //res.locals is automatically merged when rendering a view
+	res.locals.collections = dirToObj("public/rideau-data/collections"); //res.locals is automatically merged when rendering a view
 	res.locals.auth = {username: req.session.username, role: req.session.role};
 
 	return next();
