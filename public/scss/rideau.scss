@@ -343,6 +343,12 @@ html.rideau {
 				font-family: $sackers_font;
 				font-weight: normal;
 			}
+			
+			&.rideau-fixed {
+				@media screen and (max-width: $tablet) {
+					margin-bottom: 100px;
+				}
+			}
 		}
 		
 		.variable.slider {
@@ -746,9 +752,14 @@ html.rideau {
 					text-align: center;
 					font-size: 0.55em;
 					padding: 2.3px 0;
+					height: 30px;
 					
 					&.left-most {
-						font-weight: bold;
+						//font-weight: bold; //No longer bold I think...
+						font-family: $akzidenz_font;
+						//font-weight: bold; //Is it bold!?
+						font-size: 0.7em;
+						letter-spacing: 1px;
 						text-align: left;
 					}
 				}
@@ -761,8 +772,17 @@ html.rideau {
 		
 		.right-box {
 			p {
-				font-family: $sackers_font;
-				font-size: 0.5em;
+				font-family: $akzidenz_font;
+				font-size: 0.7em;
+				/*font-weight: bold;*/
+				line-height: 0.9em;
+				letter-spacing: 1px;
+				margin-bottom: 0.3em;
+				
+				&.phone {
+					font-family: $sackers_font;
+					font-size: 0.5em;
+				}
 			}
 			
 		}
@@ -783,13 +803,13 @@ html.rideau {
 			font-family: $akzidenz_font;
 			line-height: 1.2;
 			margin-bottom: 0.7em;
-			font-size: 0.8em;
+			font-size: 0.7em;
 		}
 	
 		.left-box {
 			.title {
 				font-weight: bold;
-				font-size: 1.1em;
+				font-size: 0.8em;
 				letter-spacing: 1px;
 				text-align: right;
 				margin-right: 33px;
@@ -800,8 +820,9 @@ html.rideau {
 			
 			.title {
 				margin-bottom: 16px;
-				font-weight: bold;
+				margin-top: 7px;
 				letter-spacing: 1px;
+				font-size: 0.65em;
 			}
 			.box-item {
 				margin-bottom: 40px;
@@ -813,7 +834,8 @@ html.rideau {
 				
 				.box-title {
 					font-weight: bold;
-					font-size: 0.65em;
+					font-size: 0.50em;
+					letter-spacing: 0.5px;
 					margin-bottom: 13px;
 				}
 			}
@@ -923,10 +945,6 @@ html.rideau {
 	}
 	
 	#reviewModal {
-		label {
-			font-size: 0.8em;
-		}
-		
 		.purchase-process {
 			list-style: none;
 		}
@@ -941,6 +959,15 @@ html.rideau {
 					label {
 						font-size: 0.8em;
 						font-weight: normal;
+						margin-top: 10px;
+						
+						.input_cart_alert {
+							float: right;
+							font-size: 0.8em;
+							color: red;
+							margin: 0px;
+							padding: 0px;
+						}
 					}
 					input {
 						font-family: $akzidenz_font;
@@ -952,6 +979,7 @@ html.rideau {
 						font-size: 1.2em;
 						background-color: #a9a9a9;
 						color: white;
+						margin-bottom: 0px;
 						transition: all 0.3s ease 0s;
 						
 						&[type=checkbox] {
