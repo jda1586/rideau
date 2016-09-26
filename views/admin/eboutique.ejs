@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rideau</title>
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/foundation.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/basic.css" rel="stylesheet"/>
+    <script src="/javascripts/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+<% include _header.ejs %>
+
+<div class="row">
+    <div class="large-12 columns">
+        <dl class="sub-nav margin-top-25">
+            <dt>Filter:</dt>
+            <dd class="active"><a href="#">All</a></dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 columns">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Images</th>
+                <th>Enabled</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+            Object.keys(eboutique).forEach(function (name) {
+                data = eboutique[name];
+            %>
+            <tr data-id="<%- name %>">
+                <td><%- name.toUpperCase() %></td>
+                <td data-edit="enabled" data-type="category" data-value="<%- data.category %>">
+                    <%- data.category %>
+                </td>
+                <td data-edit="enabled" data-tye="color"><%- data.color %></td>
+                <td>
+                    <table style="border: none !important; background-color: transparent !important;" width="100%">
+                        <tr>
+                            <td colspan="2" class="text-center"><b>Normal</b></td>
+                            <td colspan="2" class="text-center"><b>Whole</b></td>
+                        </tr>
+                        <tr style="background-color: transparent !important;" data-id="<%- name %>">
+                            <td> $</td>
+                            <td data-edit="enabled" data-type="price.normal"
+                                data-value="<%- data.price ? data.price.normal.toLocaleString('en') : 0 %>">
+                                <%- data.price ? data.price.normal.toLocaleString('en') : 0 %>
+                            </td>
+                            <td> $</td>
+                            <td data-edit="enabled" data-type="price.whole"
+                                data-value="<%- data.price ? data.price.whole.toLocaleString('en') : 0 %>">
+                                <%- data.price ? data.price.whole.toLocaleString('en') : 0 %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="text-center">
+                    <a href="#">Images</a>
+                </td>
+                <td>
+					<span data-toggle="enabled" data-type="enabled" data-value="<%- data.enabled %>"
+                          class="<%- data.enabled ? "success" : "secondary" %> label"
+                          style="cursor: pointer;"><%- data.enabled ? "Enabled" : "Disabled" %></span>
+                </td>
+            </tr>
+            <%
+            })
+            %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/javascripts/foundation/foundation.js" type="text/javascript"></script>
+<script src="/javascripts/foundation/foundation.dropdown.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $('*[data-edit="enabled"]').mouseenter(function () {
+            var $this = $(this);
+            if ($this.attr('data-edit') == "enabled") {
+                $this.append('<span data-label="edit_icon" class="fa fa-pencil" style="float: right; cursor: pointer;"></span>');
+                var $edit = $this.find('span[data-label="edit_icon"]');
+                $edit.click(function () {
+                    var $this = $(this).parent();
+                    $this.attr('data-edit', "editing");
+                    $this.html('<input type="text" value="' + $this.attr('data-value') + '" style="width: 100%; margin: 0px 0px 0px 0px !important;">');
+                    var $input = $this.find('input');
+                    $input.focus().focusout(function () {
+                        if ($input.val() != $this.attr('data-value') && $input.val() != '') {
+                            $.post("/rideau-admin/eboutique/save", {
+                                id: $this.parent().attr('data-id'),
+                                data: $this.attr('data-type'),
+                                value: $input.val()
+                            }).done(function (json) {
+                                console.log(json);
+                                $this.attr('data-edit', "enabled");
+                                if (json.value == $input.val()) {
+                                    $this.attr('data-value', $input.val());
+                                    $this.html(json.value);
+                                } else {
+                                    $this.html($this.attr('data-value'));
+                                }
+                                if (!json.ok) {
+                                    alert('Error!');
+                                }
+                                $input.remove();
+                            });
+                        }
+                    });
+                });
+            }
+
+        }).mouseleave(function () {
+            var $this = $(this);
+            $this.find('span[data-label="edit_icon"]').remove();
+        });
+
+        $('*[data-toggle="enabled"]').click(function () {
+            var $this = $(this);
+            $.post("/rideau-admin/eboutique/save", {
+                id: $this.parent().parent().attr('data-id'),
+                data: $this.attr('data-type'),
+                value: parseInt($this.attr('data-value')) ? 0 : 1
+            }).done(function (json) {
+                console.log(json);
+                $this.attr('data-value', json.value);
+                $this.removeClass(parseInt(json.value) ? "secondary" : "success");
+                $this.addClass(parseInt(json.value) ? "success" : "secondary");
+                $this.html(parseInt(json.value) ? "Enabled" : "Disabled");
+            });
+        });
+    })
+    ;
+    $(document).foundation();
+</script>
+</body>
+</html>
