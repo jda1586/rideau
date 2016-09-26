@@ -78,10 +78,10 @@ router.get('/eboutique/:name?', function (req, res, next) {
 				
 				console.log("begin");
 				console.log(data.look);
-				
+
 				data.look = _.map(data.look.split('|'), function(el) {
 					var values = el.split('-');
-					
+
 					console.log("TEST");
 					console.log(el);
 					
@@ -90,15 +90,15 @@ router.get('/eboutique/:name?', function (req, res, next) {
 					} else {
 						var text = values[0];
 						var href = "#";
-						
+
 						console.log(text);
 						console.log(text);
 						console.log(text);
-						
+
 						if (text.indexOf("Martine") > 0) {
 							console.log("DO MA");
 							href = "http://www.martineali.com" //TODO: Improve this!!!
-						} else if (text.indexOf("Moscot") > 0) { 
+						} else if (text.indexOf("Moscot") > 0) {
 							href = "http://www.moscot.com" //TODO: Improve this!!!
 						} else if (text.indexOf("Laurent") > 0) {
 							href = "http://www.ysl.com/us" //TODO: Improve this!!!
@@ -106,14 +106,10 @@ router.get('/eboutique/:name?', function (req, res, next) {
 							console.log("DO");
 							href = "http://www.visvim.tv" //TODO: Improve this!!!
 						}
-						
+
 						return {href: href, text: text};
 					}
 				})
-
-				console.log(data.look);
-				console.log(data.look);
-				console.log(data.look);
 
 				return res.render('detail', {data: data});
 			}
@@ -136,22 +132,20 @@ router.get('/collections/:name?', function (req, res, next) {
 
 	if (!_.isUndefined(name)) {
 		var data = dirToObj("public/rideau-data/collections");
-		
+
 		data = _.pickBy(_.mapValues(data, function (el, key) {
 			if (key.indexOf(name) != -1) return el;
 		}), _.negate(_.isUndefined));
-		
+
 		data = _.omit(data[_.keys(data)], 'class', 'name');
 		
 		console.log(data);
-		
+
 		_.each(data, function(value, key) {
 			//value.model = value.model.split(','); //Models are no longer sent as array
 			value.number = +key;
 		});
 
-		console.log(data);
-		
 		return res.render('collections', {data: data});
 
 	}
@@ -326,17 +320,16 @@ router.post('/login', function (req, res, next) {
 //Logout
 router.get('/logout', function (req, res, next) {
 	req.session.destroy();
-	
 	return res.redirect('/');
 });
 //Admin views
 router.get('/rideau-admin/:area?', function (req, res, next) {
 	if (req.session.role !== "admin") return res.redirect('/');
-	
+
 	var area = req.params.area;
-	
+
 	console.log(area);
-	
+
 	if (!_.isUndefined(area)) {
 		if (area == "subscriptions") return res.render('admin/subscriptions', {subscriptions: db.get('subscriptions').value()});
 		if (area == "purchases") return res.render('admin/purchases', {purchases: db.get('purchases').value()});
@@ -344,7 +337,7 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 		if (area == "users") return res.render('admin/users', {users: db.get('users').value()});
 		if (area == "log") return res.render('admin/log', {log: db.get('log').value()});
 	}
-	
+
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
 //Save values from eboutique admin

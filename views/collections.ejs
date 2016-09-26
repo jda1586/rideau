@@ -106,10 +106,10 @@
 						$($(stageDescription.filter('.rideau-floating')[number])).fadeIn();
 					});
 				}
-				
+
 				function thumbnailFixes() {
 					var newHeight = window.innerHeight - 250;
-					
+
 					$('#my-thumbs-list').height(newHeight); //Right thumbnail scroller fix
 					$('#photo-selector').css("top", (window.innerHeight - newHeight) / 2 + "px"); //Center the thumbnail menu
 				}
@@ -130,7 +130,7 @@
 					currentSlideNumber = number.currentSlide;
 					console.log(currentSlideNumber);
 					temporalStageShow(currentSlideNumber);
-					
+
 					$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
 					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
@@ -175,7 +175,7 @@
 				}).mouseup(function() {
 					var wasDragging = isDragging;
 					isDragging = false;
-					
+
 					if (wasDragging) {
 						$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
 					}

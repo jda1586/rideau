@@ -518,23 +518,23 @@
 		function checkFields() {
 			var inputs = $.find('input[required]'), //Get inputs with required attribute in the form of array
 				resp = true;
-			
+
 			$('.input_cart_alert').remove(); //Remove old alerts, if any
 			inputs.forEach(function (input) {
 				var $input = $(input);
-				
+
 				if ($input.val().length < 4) {
 					if ($input.parent().find('.input_cart_alert').length == 0) {
 						$input.parent().append('<span class="input_cart_alert">this field is required</span>');
 					}
-					
+
 					resp = false;
 				}
 			});
-			
+
 			return resp;
 		}
-		
+
 		document.getElementById('stripe-pay-button').addEventListener('click', function(e) {
 			//Open Checkout with further options:
 			if (checkFields()) {
