@@ -347,6 +347,7 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 	
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
+//Save values from eboutique admin
 router.post('/rideau-admin/eboutique/save', function (req, res, next) {
 	var filePath = ''
 	req.body.data.split('.').forEach(function (item) {
