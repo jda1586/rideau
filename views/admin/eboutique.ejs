@@ -56,13 +56,13 @@
                         <tr style="background-color: transparent !important;" data-id="<%- name %>">
                             <td> $</td>
                             <td data-edit="enabled" data-type="price.normal"
-                                data-value="<%- data.price ? data.price.normal.toLocaleString('en') : 0 %>">
-                                <%- data.price ? data.price.normal.toLocaleString('en') : 0 %>
+                                data-value="<%- data.price.normal ? data.price.normal.toLocaleString('en') : 0 %>">
+                                <%- data.price.normal ? data.price.normal.toLocaleString('en') : 0 %>
                             </td>
                             <td> $</td>
                             <td data-edit="enabled" data-type="price.whole"
-                                data-value="<%- data.price ? data.price.whole.toLocaleString('en') : 0 %>">
-                                <%- data.price ? data.price.whole.toLocaleString('en') : 0 %>
+                                data-value="<%- data.price.whole ? data.price.whole.toLocaleString('en') : 0 %>">
+                                <%- data.price.whole ? data.price.whole.toLocaleString('en') : 0 %>
                             </td>
                         </tr>
                     </table>
