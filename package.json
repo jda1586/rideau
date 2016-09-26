@@ -4,7 +4,7 @@
   "description": "Rideau website",
   "private": true,
   "scripts": {
-    "start": "forever --verbose --uid \"rideau\" --watch --watchDirectory ../rideau/ ./bin/www",
+    "start": "forever --verbose --uid \"rideau\" --watch --watchDirectory ./routes ./bin/www",
     "dev": "nodemon -e ejs,js --debug ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
