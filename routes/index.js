@@ -296,7 +296,7 @@ router.get('/logout', function (req, res, next) {
 });
 //Admin views
 router.get('/rideau-admin/:area?', function (req, res, next) {
-	// if (req.session.role !== "admin") return res.redirect('/');
+	if (req.session.role !== "admin") return res.redirect('/');
 
 	var area = req.params.area;
 
