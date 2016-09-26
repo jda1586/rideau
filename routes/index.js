@@ -313,7 +313,18 @@ router.get('/rideau-admin/:area?', function (req, res, next) {
 	return res.render('admin/welcome', {statistics: {users: 30, purchases: 80}});
 });
 router.post('/rideau-admin/eboutique/save', function (req, res, next) {
-
+	var filePath = ''
+	req.body.data.split('.').forEach(function (item) {
+		filePath += '/' + item;
+	});
+	console.log(filePath);
+	fs.writeFile('public/rideau-data/eboutique/' + req.body.id + filePath + '.txt', req.body.value, function (err) {
+		if (err) {
+			return res.json({ok: false, value: '', error: err});
+		} else {
+			return res.json({ok: true, value: req.body.value, error: ''});
+		}
+	});
 });
 
 //This function must appear last on the routes
