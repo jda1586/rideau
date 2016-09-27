@@ -536,6 +536,8 @@ html.rideau {
 				font-family: $sackers_font;
 				text-align: right;
 				margin-bottom: 0em;
+				line-height: 1.2;
+				
 				@media screen and (max-width: $large) {
 					text-align: left;
 				}
@@ -613,6 +615,10 @@ html.rideau {
 				font-weight: bold;
 				letter-spacing: 1px;
 				margin-bottom: 0px;
+			}
+			.price-spacer {
+				margin-top: 20px;
+				margin-bottom: 20px;
 			}
 			.item-price {
 				font-family: $sackers_font;
