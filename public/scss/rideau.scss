@@ -163,7 +163,6 @@ html.rideau {
 		height: 2px;
 		background: rgba(255, 255, 255, 0.5);
 		margin: 0 auto;
-		width: 80%;
 	}
 	
 	/* The default font is Akzidenz */
@@ -855,6 +854,67 @@ html.rideau {
 		}
 	}
 	
+	.cart-style-theme {
+		.item {
+			margin-bottom: 5px;
+			
+			.item-image {
+				width: 80px;
+			}
+			
+			table.up-down-controls {
+				background-color: transparent;
+				border: none;
+			
+				tr {
+					td {
+						padding: 0px;
+						
+						input {
+							padding: 0px;
+							margin: 0 auto;
+							height: 20px;
+							
+							&.item-quantity {
+								width: 50px;
+								text-align: center;
+								
+								&[readonly] {
+									background-color: white;
+								}
+							}
+							&.btn-qty {
+								width: 20px;
+								margin-top: 0px;
+							}
+						}
+					}
+				}
+			}
+			
+			table {
+				background: none;
+				
+				
+			}
+			
+			.item-buy-data {
+				text-align: left;
+				
+				h5 {
+					text-align: left;
+					color: white;
+					font-size: 0.8em;
+					font-weight: bold;
+				}
+				p {
+					text-align: left;
+					font-size: 0.6em;
+				}
+			}
+		}
+	}
+	
 	/* Modals */
 	
 	/* Info modal */
@@ -895,71 +955,16 @@ html.rideau {
 	}
 	
 	#cartModal {
-		.cart-items {
-			.item {
-				margin-bottom: 5px;
-				
-				.item-image {
-					width: 80px;
-				}
-				
-				table.up-down-controls {
-					background-color: transparent;
-					border: none;
-				
-					tr {
-						td {
-							padding: 0px;
-							
-							input {
-								padding: 0px;
-								margin: 0 auto;
-								height: 20px;
-								
-								&.item-quantity {
-									width: 50px;
-									text-align: center;
-									
-									&[readonly] {
-										background-color: white;
-									}
-								}
-								&.btn-qty {
-									width: 20px;
-									margin-top: 0px;
-								}
-							}
-						}
-					}
-				}
-				
-				table {
-					background: none;
-					
-					
-				}
-				
-				.item-buy-data {
-					text-align: left;
-					
-					h5 {
-						text-align: left;
-						color: white;
-						font-size: 0.8em;
-						font-weight: bold;
-					}
-					p {
-						text-align: left;
-						font-size: 0.6em;
-					}
-				}
-			}
-		}
+		
 	}
 	
 	#reviewModal {
 		.purchase-process {
 			list-style: none;
+		}
+		
+		.quantity-controls {
+			visibility: hidden;
 		}
 		
 		&.modal-with-accordion {

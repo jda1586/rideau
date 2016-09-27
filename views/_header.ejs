@@ -122,16 +122,14 @@
 </div>
 
 <!-- Cart modal -->
-<div id="cartModal" class="animated-rideau-modal" style="visibility: hidden;">
+<div id="cartModal" class="animated-rideau-modal cart-style-theme" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
 				<div class="cart-items">your cart is empty</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="line-separator"></div>
-		</div>
+		<div class="row"><div class="line-separator" style="width: 80%;"></div></div>
 		<div class="row">
 			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
 				<p class="right margin-top-50">total: <span class="total-cart">200</span> usd</p>
@@ -163,14 +161,14 @@
 </div>
 
 <!-- Review modal -->
-<div id="reviewModal" class="animated-rideau-modal modal-with-accordion" style="visibility: hidden;">
+<div id="reviewModal" class="animated-rideau-modal modal-with-accordion cart-style-theme" style="visibility: hidden;">
 	<div class="auto-adjustable-y">
 		<div class="row">
 			<!-- <h4 class="modal_title"><strong>Checkout</strong></h4> -->
 			<ul class="accordion" data-accordion="" role="tablist">
 				<li class="billing-information accordion-navigation accordion-item is-active" data-accordion-item>
 					<a class="sackers accordion-title" href="#billing-panel">1.- billing information</a>
-					<div id="billing-panel" class="content active" data="binfo">
+					<div id="billing-panel" class="content active">
 						<div class="row">
 							<div class="small-12 large-6 columns">
 								<label for="first-name">first name *
@@ -219,7 +217,7 @@
 				</li>
 				<li class="shipping-information accordion-navigation accordion-item" data-accordion-item>
 					<a class="sackers accordion-title" href="#shipping-panel">2.- shipping information</a>
-					<div id="shipping-panel" class="content" data="sinfo">
+					<div id="shipping-panel" class="content">
 						<div class="row">
 							<div class="small-12 large-6 columns">
 								<label for="first-name">first name *
@@ -264,6 +262,22 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</li>
+				<li class="review-and-place-order accordion-navigation accordion-item" data-accordion-item>
+					<a class="sackers accordion-title" href="#review-panel">3.- Review and place order</a>
+					<div id="review-panel" class="content">
+						<div class="review-items">your cart is empty</div>
+						
+						
+						<div class="row"><div class="line-separator" style="width: 100%;"></div></div>
+						<div class="row">
+							<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+								<p class="right margin-top-50">total: <span class="total-cart">200</span> usd</p>
+							</div>
+						</div>
+						
+						
 						<div class="row">
 							<div class="margin-top-50">
 								<div class="small-12 medium-6 large-6 columns">
@@ -280,17 +294,6 @@
 						</div>
 					</div>
 				</li>
-				<!-- <li class="review-and-place-order accordion-navigation accordion-item" data-accordion-item>
-					<a class="sackers accordion-title" href="#panel3a">3.- Review and place order</a>
-					<div id="panel3a" class="content">
-
-						<div class="review-products">
-							
-						</div>
-
-						<hr />
-					</div>
-				</li> -->
 			</ul>
 		</div>
 	</div>
@@ -328,26 +331,28 @@
 		</div>
 		<div class="small-12 medium-4 large-4 columns">
 			<div class="row">
-				<div class="small-6 large-6 columns">
-					<p>Qnty:</p>
-					<table class="up-down-controls" cellSpacing="0" cellPadding="0" width="100%" border="0">
-						<tr>
-							<td align="">
-								<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
-							</td>
-							<td align="">
-								<input type="text" name="quantity" class="item-quantity" placeholder="1" value="1" readonly />
-							</td>
-							<td align="">
-								<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
-							</td>
-						</tr>
-					</table>
-					<a class="remove-from-cart-button">
-						<small>
-							<p class="hidden">remove from cart</p>
-						</small>
-					</a>
+				<div class="quantity-controls">
+					<div class="small-6 large-6 columns">
+						<p>Qnty:</p>
+						<table class="up-down-controls" cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tr>
+								<td align="">
+									<input type="button" value="-" class="tiny button btn-qty right" field="quantity" />
+								</td>
+								<td align="">
+									<input type="text" name="quantity" class="item-quantity" placeholder="1" value="1" readonly />
+								</td>
+								<td align="">
+									<input type="button" value="+" class="tiny button btn-qty left" field="quantity" />
+								</td>
+							</tr>
+						</table>
+						<a class="remove-from-cart-button">
+							<small>
+								<p class="hidden">remove from cart</p>
+							</small>
+						</a>
+					</div>
 				</div>
 				<div class="small-6 large-6 columns">
 					<p>Unit price:</p>
@@ -367,12 +372,12 @@
 	$(function() {
 		window.abc = function regenerateCart() {
 			var rideauCart = JSON.parse(localStorage.storedCart),
-				cartItems = $('.cart-items');
+				cartItems = $('.cart-items'),
+				reviewItems = $('.review-items');
 			
 			if (Object.keys(rideauCart).length == 0) {
 				$('#cartModal .shop-buttons').addClass('hidden');
 				cartItems.html("your cart is empty");
-				
 				
 				return; //Return if there are no cart items
 			} else {
@@ -381,7 +386,8 @@
 			
 			var blueprintItem = $('blueprints .item');
 			
-			cartItems.empty(); //Empty cart
+			cartItems.empty(); //Empty first cart
+			reviewItems.empty(); //Empty review cart
 			
 			_.each(rideauCart, function(el) {
 				var tempItem = blueprintItem.clone();
@@ -397,6 +403,7 @@
 				if (el.quantity == 0) tempItem.find('.remove-from-cart-button p').removeClass('hidden');
 				
 				cartItems.append(tempItem);
+				reviewItems.append(tempItem.clone());
 			});
 			
 			//Calculate total
@@ -556,6 +563,8 @@
 					description: description(),
 					amount: amount() //Conversion to cents
 				});
+			} else {
+				$('.input_cart_alert').closest('li.accordion-item').find('a').eq(0).trigger('click');
 			}
 			e.preventDefault();
 		});
