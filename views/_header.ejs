@@ -129,6 +129,14 @@
 				<div class="cart-items">your cart is empty</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="line-separator"></div>
+		</div>
+		<div class="row">
+			<div class="small-10 medium-10 large-10 small-centered medium-centered large-centered columns">
+				<p class="right margin-top-50">total: <span class="total-cart">200</span> usd</p>
+			</div>
+		</div>
 		<div class="shop-buttons hidden">
 			<div class="row">
 				<div class="margin-top-50">
@@ -390,6 +398,11 @@
 				
 				cartItems.append(tempItem);
 			});
+			
+			//Calculate total
+			$('.total-cart').html(_.sum(_.map(rideauCart, function(el) {
+				return el.quantity * el.price;
+			})));
 			
 			//Remove items from cart when presssing the remove button
 			$('.remove-from-cart-button').on("click", function() {
