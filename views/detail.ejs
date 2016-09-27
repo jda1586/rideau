@@ -207,11 +207,13 @@
 			}
 
 			var sku = $('.product-showcase .item-sku').html(),
-					size = $('.size-chooser').find(".selected").html(),
-					color = "R";
+				size = $('.size-chooser').find(".selected").html(),
+				color = "R";
 
 			var storedCart = JSON.parse(localStorage.getItem("storedCart"));
+			
 			if (_.isEmpty(storedCart)) storedCart = {};
+			
 			var item = {
 				sku: sku,
 				size: size,
@@ -223,6 +225,7 @@
 				quantity: 1,
 				date: new Date()
 			};
+			
 			storedCart[[sku, size, color].join('-')] = item;
 			localStorage.setItem("storedCart", JSON.stringify(storedCart));
 
@@ -238,12 +241,12 @@
 				html: "<p>item has been added to your cart</p>"
 			}).then(function() {
 				var user = $('.wholesaler-access.user').val(),
-						pass = $('.wholesaler-access.pass').val();
+					pass = $('.wholesaler-access.pass').val();
 
 				$('a[href="#cartModal"]').click();
 			});
 
-			//Currently disabled...
+			//Show the cart counter, (currently disabled)
 			/*$('header .cart-icon').fadeOut(250, function() {
 			 $('header .cart-count').fadeIn(250, function() {
 			 $('header .cart-count').fadeOut(250, function() {
