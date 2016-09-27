@@ -536,6 +536,8 @@ html.rideau {
 				font-family: $sackers_font;
 				text-align: right;
 				margin-bottom: 0em;
+				line-height: 1.3;
+				
 				@media screen and (max-width: $large) {
 					text-align: left;
 				}
