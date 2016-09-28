@@ -121,7 +121,16 @@ router.get('/eboutique/:name?', function (req, res, next) {
 
 	data = _.pickBy(_.mapValues(data, function (el) {
 		if (el.enabled == '1') {
-			return el;
+			var tempEl = el;
+			
+			if (req.session.role === "wholesaler") {
+				tempEl.price = el.price.whole;
+			} else {
+				tempEl.price = el.price.normal;
+			}
+		
+		
+			return tempEl;
 		}
 	}), _.negate(_.isUndefined));
 
