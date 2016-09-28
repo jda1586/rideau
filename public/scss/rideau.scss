@@ -781,6 +781,9 @@ html.rideau {
 	
 	/* Stockist */
 	body#stockists {
+		.seven-style-theme {
+			height: 600px;
+		}
 		
 		.right-box {
 			p {
@@ -804,6 +807,7 @@ html.rideau {
 	/* Themes (generical pages like stockist and sizing, try to stick as much as possible to these themes) */
 	.seven-style-theme {
 		height: 100%;
+		margin-top: 100px;
 		
 		h1, h2, h3, h4, h5, h6, p {
 			font-family: $sackers_font;
