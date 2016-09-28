@@ -61,12 +61,12 @@
 							<td> $</td>
 							<td data-edit="enabled" data-type="price.normal"
 								data-value="<%- data.price.normal ? data.price.normal : 0 %>">
-								<%- data.price.normal ? numeral(data.price.normal).format('0,0') : 0 %>
+								<%- data.price.normal ? data.price.normal : 0 %>
 							</td>
 							<td> $</td>
 							<td data-edit="enabled" data-type="price.whole"
 								data-value="<%- data.price.whole ? data.price.whole : 0 %>">
-								<%- data.price.whole ? numeral(data.price.whole).format('0,0') : 0 %>
+								<%- data.price.whole ? data.price.whole : 0 %>
 							</td>
 						</tr>
 					</table>
