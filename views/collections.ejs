@@ -149,14 +149,7 @@
 					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
 				
-				//$(stageDescription.filter('.rideau-floating')[0]).fadeIn(0);
-				//$(stageDescription.filter('.rideau-fixed')[0]).fadeIn(0);
-				
 				temporalStageShow(0);
-				
-				/*$('.rideau-fades').each(function() {
-					$(this).delay(5000).fadeOut('slow');
-				});*/
 				
 				$(document).mousemove(function(e) {
 					if (document.body) {
@@ -175,13 +168,11 @@
 					}
 					if ((((e.pageY - $(window).height()) + 400) < 0) || (e.pageX > 400)) {
 						//$('.photo-data').fadeOut(); //Old way of hiding photo-data
-						//$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeOut(); //Don't hide data
+						//Hiding stage date no longer used
 					} else {
 						//$('.photo-data').fadeIn(); //Old way of showing photo-data
-						//$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeIn();
 						temporalStageShow(currentSlideNumber);
 					}
-					
 				});
 				
 				//Disable intense zoom when draging
