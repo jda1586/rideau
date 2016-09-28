@@ -86,7 +86,7 @@
 				var stories = $('.two-stories').children();
 				stories.each(function() {
 					var imgPath = $(this).attr('data-bg-image');
-					console.log($(this).attr('data-bg-image'));
+					//console.log($(this).attr('data-bg-image'));
 					$(this).css('background-image', 'url(' + imgPath + ')');
 				});
 				
@@ -99,12 +99,24 @@
 					});
 				});
 				
+				//Convert these two functions into one
 				function temporalStageShow(number) {
-					$.when($(stageDescription).fadeOut(0)).then(function () {
-						console.log('GO');
-						$($(stageDescription.filter('.rideau-fixed')[number])).fadeIn();
-						$($(stageDescription.filter('.rideau-floating')[number])).fadeIn();
-					});
+					var stageFx = stageDescription.filter('.rideau-fixed').eq(number),
+						stageFl = stageDescription.filter('.rideau-floating').eq(number);
+					
+					if ((!stageFx.is(':visible')) && (!stageFl.is(':visible'))) {
+						setTimeout(function(){
+							temporalStageHide(number);
+						}, 3000);
+					}
+					
+					stageFx.fadeIn(250);
+					stageFl.fadeIn(250);
+				}
+				//Convert these two functions into one
+				function temporalStageHide(number) {
+					$($(stageDescription.filter('.rideau-fixed')[number])).fadeOut(250);
+					$($(stageDescription.filter('.rideau-floating')[number])).fadeOut(250);
 				}
 
 				function thumbnailFixes() {
@@ -125,18 +137,23 @@
 					arrows: false,
 					focusOnSelect: true,
 					variableWidth: true
+				}).on('beforeChange', function(el, number) {
+					$(stageDescription).fadeOut(250);
 				}).on('afterChange', function(el, number) {
 					//$('.look-number').html(number.currentSlide + 1);
 					currentSlideNumber = number.currentSlide;
-					console.log(currentSlideNumber);
+					//console.log(currentSlideNumber);
 					temporalStageShow(currentSlideNumber);
 
 					$(".variable .slick-slide img").addClass('intense-disabled'); //Disable zoom on all slider images
 					$(".variable .slick-slide.slick-active img").removeClass('intense-disabled'); //Disable zoom on all slider images
 				});
 				
-				$(stageDescription.filter('.rideau-floating')[0]).fadeIn(0);
-				$(stageDescription.filter('.rideau-fixed')[0]).fadeIn(0);
+				//$(stageDescription.filter('.rideau-floating')[0]).fadeIn(0);
+				//$(stageDescription.filter('.rideau-fixed')[0]).fadeIn(0);
+				
+				temporalStageShow(0);
+				
 				/*$('.rideau-fades').each(function() {
 					$(this).delay(5000).fadeOut('slow');
 				});*/
@@ -152,16 +169,17 @@
 					var rect = div.getBoundingClientRect();
 					
 					if (((e.pageX - $(window).width()) + 200) < 0) {
-						$('#photo-selector').fadeOut();
+						$('#photo-selector').fadeOut(250);
 					} else {
-						$('#photo-selector').fadeIn();
+						$('#photo-selector').fadeIn(250);
 					}
 					if ((((e.pageY - $(window).height()) + 400) < 0) || (e.pageX > 400)) {
 						//$('.photo-data').fadeOut(); //Old way of hiding photo-data
-						$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeOut();
+						//$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeOut(); //Don't hide data
 					} else {
 						//$('.photo-data').fadeIn(); //Old way of showing photo-data
-						$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeIn();
+						//$($('.photo-data .stage-description').filter('.rideau-floating')[currentSlideNumber]).fadeIn();
+						temporalStageShow(currentSlideNumber);
 					}
 					
 				});
