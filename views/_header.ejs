@@ -370,7 +370,7 @@
 
 <script>
 	$(function() {
-		window.abc = function regenerateCart() {
+		window.regenCart = function regenerateCart() {
 			var rideauCart = JSON.parse(localStorage.storedCart),
 				cartItems = $('.cart-items'),
 				reviewItems = $('.review-items');
@@ -421,7 +421,7 @@
 				delete storedCart[key];
 				localStorage.storedCart = JSON.stringify(storedCart);
 
-				window.abc();
+				window.regenCart();
 			});
 			//Increment value buttons Plus and Minus (TODO: Relocate pls)
 			$("input.btn-qty").on("click", function(el) {
@@ -439,12 +439,12 @@
 				}
 				
 				localStorage.storedCart = JSON.stringify(storedCart);
-				window.abc();
+				window.regenCart();
 			});
 		}
 		
 		$('a[href="#cartModal"]').on('click', function() {
-			window.abc();
+			window.regenCart();
 		});
 		
 		//Cart first step buttons
@@ -509,7 +509,7 @@
 					showCancelButton: false
 				});
 				
-				console.log(customerData);
+				//console.log(customerData);
 				
 				//You can access the token ID with `token.id`.
 				//Get the token ID to your server-side code for use.
@@ -580,12 +580,13 @@
 		var height;
 		
 		if (document.body) {
-			height = (document.body.clientHeight);
+			height = document.body.clientHeight;
 		} else {
-			height = (window.innerHeight);
+			height = window.innerHeight;
 		}
 		
 		/* console.log(e.pageY - $(window).scrollTop()); */
+		
 		if ((e.pageY - $(window).scrollTop()) < 150 /*|| (e.pageY - $(window).scrollTop()) > (height - 60)*/ ) { //The bottom limit is commented, uncomment to enable that functionality
 			$('header').removeClass("hidden");
 			$('#r-top-logo').addClass("hidden");

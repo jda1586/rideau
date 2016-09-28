@@ -21,8 +21,6 @@
 		function adjustLayout() {
 			var sectionRideau = $('section.rideau');
 			
-			console.log("rsz-test");
-			
 			sectionRideau.each(function(el) {
 				var newPadding = ((document.body.clientHeight - $(this).height()) / 2);
 				console.log(newPadding);
@@ -72,19 +70,18 @@
 	$(".outer").hover(function() {
 		$(this).find(".inner").css("visibility", "visible");
 	});
-
 	$(".outer").mouseleave(function() {
 		$(this).find(".inner").css("visibility", "hidden");
 	});
 	
 	$(document).ready(function() {
-		$(document)
+		/*$(document)
 			.on('open.fndtn.reveal', '[data-reveal]', function(){
 				$('body').addClass('modal-open');
 			})
 			.on('close.fndtn.reveal', '[data-reveal]', function(){
 				$('body').removeClass('modal-open');
-			});
+		});*/
 
         //The xy (male) / xx (female) switcher (TODO: Relocate pls)
 		$('.male_button').on('click', function() {
