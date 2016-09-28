@@ -1,4 +1,4 @@
-<header class="rideau sackers">
+<header class="rideau sackers hidden">
 	<div class="row">
 		<div class="text-center">
 			<div class="middle-title">
@@ -305,7 +305,7 @@
 
 <!-- TODO: Add cart here -->
 <div class="header_white">
-	<img id="r-top-logo" class="hidden" src="/rideau-data/landing/rideau-logo-hidden.svg" />
+	<img id="r-top-logo" src="/rideau-data/landing/rideau-logo-hidden.svg" />
 </div>
 
 <blueprints>
@@ -370,6 +370,8 @@
 
 <script>
 	$(function() {
+		var headerOpen = false;
+	
 		window.regenCart = function regenerateCart() {
 			var rideauCart = JSON.parse(localStorage.storedCart),
 				cartItems = $('.cart-items'),
@@ -573,28 +575,52 @@
 		window.addEventListener('popstate', function() {
 		  handler.close();
 		});
-	
-	});
-	
-	$(document).mousemove(function(e) {
-		var height;
 		
-		if (document.body) {
-			height = document.body.clientHeight;
-		} else {
-			height = window.innerHeight;
-		}
+		$('#r-top-logo').on('click', function() {
+			if (headerOpen) {
+				closeHeader()
+			} else {
+				openHeader();
+			}
+		});
 		
-		/* console.log(e.pageY - $(window).scrollTop()); */
-		
-		if ((e.pageY - $(window).scrollTop()) < 150 /*|| (e.pageY - $(window).scrollTop()) > (height - 60)*/ ) { //The bottom limit is commented, uncomment to enable that functionality
+		function openHeader() {
+			headerOpen = true;
+			
 			$('header').removeClass("hidden");
 			$('#r-top-logo').addClass("hidden");
-			//$('footer').removeClass("hidden"); //No longer used, footer is always visible
-		} else {
+		}
+		
+		function closeHeader() {
+			headerOpen = false;
+			
 			$('header').addClass("hidden");
 			$('#r-top-logo').removeClass("hidden");
-			//$('footer').addClass("hidden"); //No longer used, footer is always visible
 		}
+		
+		$(document).mousemove(function(e) {
+			var height;
+			
+			if (document.body) {
+				height = document.body.clientHeight;
+			} else {
+				height = window.innerHeight;
+			}
+			
+			/* console.log(e.pageY - $(window).scrollTop()); */
+			
+			if ((e.pageY - $(window).scrollTop()) < 150 /*|| (e.pageY - $(window).scrollTop()) > (height - 60)*/ ) { //The bottom limit is commented, uncomment to enable that functionality
+				
+				/*$('header').removeClass("hidden");
+				$('#r-top-logo').addClass("hidden");*/
+				
+				//$('footer').removeClass("hidden"); //No longer used, footer is always visible
+			} else {
+				closeHeader();
+				//$('footer').addClass("hidden"); //No longer used, footer is always visible
+			}
+		});
+	
 	});
+	
 </script>
