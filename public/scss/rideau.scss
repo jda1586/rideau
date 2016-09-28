@@ -782,7 +782,7 @@ html.rideau {
 	/* Stockist */
 	body#stockists {
 		.seven-style-theme {
-			height: 600px;
+			height: 600px; //To make stockists start at the same heigth than sizing
 		}
 		
 		.right-box {
